@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle start (click)="menu()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <div class="header_logo" (click)="abrirPaginaHome()">
+      <img src="assets/imgs/logo-small-menu.png">
+    </div>
+    <div class="header_aovivo" (click)="abrirPaginaAovivo()">
+      <img src="assets/imgs/ico-ao-vivo-off.jpg">
+    </div>
+    <div class="header_users" (click)="abrirPaginaEventos()">
+      <img src="assets/imgs/ico-calendario-off.jpg">
+    </div>
+    <div class="header_busca" (click)="abrirPaginaBusca()">
+      <img src="assets/imgs/ico-busca.png">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content overflow-scroll="true">
+
+  <ion-card class="video-card">
+    <video src="{{ urlVideo }}" autobuffer controls played poster="{{ urlIMG }}" width="100%"></video>
+    <ion-row padding class="action-sheets-basic-page">
+        <ion-col style="color:#8f8f8d"> 
+            <ion-icon name="ios-information-circle-outline" class="mr5"></ion-icon>
+            {{item.Classificacao}}
+        </ion-col>
+        <ion-col style="color:#8f8f8d" text-center >
+            <ion-icon name="ios-calendar-outline" class="mr5"></ion-icon>
+            {{ item.Data}}
+        </ion-col>
+        <ion-col style="color:#8f8f8d" text-right >
+          <ion-icon name="ios-clock-outline" class="mr5"></ion-icon>            
+          {{ item.Tempo}}
+        </ion-col>
+    </ion-row>    
+    <ion-card-content style="margin-top: -20px;">
+      <ion-card-title>
+        <h2 class="video-card-titulo">{{ item.Titulo }}</h2>
+        <p>{{ item.Subtitulo }}</p>
+      </ion-card-title>
+      <div style="color:#bbbbbb; margin-top:-10px;" [innerHTML]="item.Descricao"></div> 
+    </ion-card-content>
+    
+    <ion-card-content *ngIf="item.Tipo != 'concerto'">
+      <div class="icone-video-down" (click)="AddMinhaLista(item)">
+        <img src="assets/imgs/{{icone}}.png">
+        <p>Minha Lista</p>
+      </div>
+      <div class="icone-video-down" (click)="ClassficarVideo(item)">
+        <img src="assets/imgs/ico-curtir-aulas.jpg">
+        <p>{{ icoCurtir }}</p> 
+      </div> 
+      <div class="icone-video-down">
+        <img src="assets/imgs/ico-compartilhar-aulas.jpg">
+        <p>Compartilhar</p>
+      </div> 
+      <div class="icone-video-down">
+        <img src="assets/imgs/ico-baixar-off.jpg">
+        <p style="color:#a9a9a9">Baixar para ver off-line</p>
+      </div> 
+
+    </ion-card-content>
+    <ion-fab left class="video-resolucao">
+      <button ion-fab class="video-resolucao-btn">
+        <ion-icon name="md-more" class="video-resolucao-btn-icone"></ion-icon>
+      </button>
+      <ion-fab-list side="bottom" class="caixa-resolucao">
+        <button ion-button color="primary" class="botao-resolucao" small (click)="startVideo(data.baixa)" name="data.baixa" value="link_240p">Mobile</button>
+        <button ion-button color="primary" class="botao-resolucao" small  (click)="startVideo(data.media)" name="data.media" value="link_360p">Baixa</button>
+        <button ion-button color="primary" class="botao-resolucao" small (click)="startVideo(data.boa)" name="data.boa" value="link_480p">Média</button>
+        <button ion-button color="primary" class="botao-resolucao" small (click)="startVideo(data.excelente)" name="data.excelente" value="link_720p">Alta</button>
+      </ion-fab-list>
+    </ion-fab>
+  </ion-card>
+
+     <ion-card class="slide-card" *ngIf="item.Tipo != 'concerto'">
+        <ion-card-content>
+          <ion-card-title class="slide-card-chamadas">
+            <h2 class="slide-card-titulo-chamadas">Aulas de Aprofundamento</h2>
+          </ion-card-title>   
+        </ion-card-content> 
+        <ion-card-content style="margin-top:-10px;">
+            <ion-slides loop="true" autoplay="true">
+
+                <ion-slide *ngFor= "let item of relVideos" class="slide-card-li-video" (click)= "selecionadoVideosVinc(item)">
+                    
+                    <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg" width="100%">
+                    <h3 class="titulo">{{ item.Titulo }}</h3>
+                                                   
+                </ion-slide>
+               
+                </ion-slides>
+          </ion-card-content>
+      </ion-card>
+
+    <ion-card class="slide-card" style="margin-top:-20px;" *ngIf="item.Tipo != 'concerto'">
+        <ion-card-content>
+            <ion-card-title class="slide-card-chamadas">
+                <h2 class="slide-card-titulo-chamadas">Livros Relacionados</h2>
+            </ion-card-title>   
+        </ion-card-content> 
+        <ion-card-content>
+            <ion-slides loop="true" autoplay="true" preloadSlide="true">
+                <ion-slide *ngFor= "let item of relBooks" class="slide-card-li"  (click)= "selecionaVinc(item)" >
+                    <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg" width="105px" height="167px"/>
+                </ion-slide>
+            </ion-slides>            
+        </ion-card-content>
+    </ion-card> 
+
+</ion-content>

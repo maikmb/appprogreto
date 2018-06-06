@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="meu-progeto-titulo">Minha Lista</h2>        
+  </ion-navbar>
+  <div class="btn-fechar" (click)="voltar()">X</div>
+</ion-header>
+<ion-content padding>
+    
+  <ion-card class="novidades-card">
+    <h2 class="titulo">
+      Aulas
+    </h2>   
+  </ion-card>
+  <ion-card class="novidades-card">
+    <div class="subtitulo">
+      Itens Minha Lista
+    </div>  
+    <div *ngFor="let item of minhaLista; let i = index;"> 
+      <div *ngIf="item.idvideo != 0">
+        <p class="conteudo">{{item.Titulo}}
+        <span class="btn-fechar-lista" (click)="showConfirm(item)">X</span>
+      </p>
+      </div>
+    </div>
+  </ion-card>
+
+</ion-content>

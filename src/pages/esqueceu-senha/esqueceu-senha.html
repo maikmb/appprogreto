@@ -1,0 +1,23 @@
+
+<ion-content class="login-content">
+  <div class="login-card">
+    <ion-navbar>
+      <button ion-button menuToggle start>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-navbar>    
+    <div class="login-logo">
+        <img src="assets/imgs/slide-intro/logo-intro.png">
+    </div>    
+    <div class="titulo">
+      Redefinição de Senha
+    </div>
+    <div class="login-inputs">
+      <ion-input class="input-btn" type="email" placeholder="E-mail" name="Email" [(ngModel)]="data.email" required ></ion-input>
+      <ion-input class="input-btn" type="email" placeholder="Confirmação de e-mail" name="EmailConfirma" [(ngModel)]="data.emailConfirma" required ></ion-input>
+    </div> 
+  </div>
+  <div class="login-btn-entrar">
+    <button ion-button (click)="solicitar()" class="login-btn-entrar-button">Confirmar</button>    
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-content class="login-content">
+  <div class="login-card">
+    <ion-navbar>
+      <button ion-button block (click)="fecharModal()" class="bt-fecha-modal">X</button>
+      <div class="titulo">
+        Dados de Entrega
+      </div>        
+    </ion-navbar>     
+    <div class="fundo">
+      <div class="caixa">
+        <p class="titulo-entrega">Endereço de Entrega</p>        
+        <div class="login-inputs">
+        <form novalidate [formGroup]="form">            
+          <ion-input [(ngModel)]="data.endereco" formControlName="myField" placeholder="Endereço" class="caixa-input" type="text"></ion-input>
+          <div>
+            <ng-container *ngFor="let validation of validation_messages.myField" >
+              <div *ngIf="form.get('myField').hasError(validation.type)">
+                <p>{{validation.message}}</p>
+              </div>
+            </ng-container>
+          </div>              
+            <ion-input class="caixa-input" [(ngModel)]="data.numero" type="text" placeholder="Número" name="numero" required ></ion-input>
+          <ion-input class="caixa-input" [(ngModel)]="data.bairro" type="text" placeholder="Bairro" name="bairro" required ></ion-input>
+          <ion-input class="caixa-input" [(ngModel)]="data.complemento" type="text" placeholder="Complemento" name="complemento" required ></ion-input>
+          <ion-input class="caixa-input" [(ngModel)]="data.cidade" type="text" placeholder="Cidade" name="cidade" required ></ion-input>
+          <ion-input class="caixa-input" [(ngModel)]="data.estado" type="text" placeholder="Estado" name="estado" required ></ion-input>
+          <ion-input class="caixa-input" [(ngModel)]="data.pais" type="text" placeholder="País" name="pais" required ></ion-input>
+          <ion-input class="caixa-input" [(ngModel)]="data.cep" type="text" placeholder="CEP" name="cep" required ></ion-input>
+
+
+
+          
+        </form>
+    
+        </div>
+        <div class="login-btn-entrar">
+          <button ion-button (click)="enviarEndereco()" class="login-btn-entrar-button">Enviar</button>     
+        </div>
+      </div>   
+    </div>
+  </div>
+</ion-content>

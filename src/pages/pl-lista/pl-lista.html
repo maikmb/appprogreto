@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle start (click)="menu()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <div class="header_logo" (click)="abrirPaginaHome()">
+      <img src="assets/imgs/logo-small-menu.png">
+    </div>
+    <div class="header_aovivo" (click)="abrirPaginaAovivo()">
+      <img src="assets/imgs/ico-ao-vivo-off.jpg">
+    </div>
+    <div class="header_users" (click)="abrirPaginaEventos()">
+      <img src="assets/imgs/ico-calendario-off.jpg">
+    </div>
+    <div class="header_busca" (click)="abrirPaginaBusca()">
+      <img src="assets/imgs/ico-busca.png">
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  
+    <ion-card class="livros-card">
+        <ion-card-content style="margin:0px;">
+            <h1 class="tituloGrande"><i>{{ item.Titulo }}</i></h1>
+            <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg" (click)= "selecionado(item)" class="img-capa"/>  
+            <ion-card-title >
+                <p class="detalhes"><strong>{{ item.Data }}</strong>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{ item.paginas }} páginas</p>
+                <div class="livros-card-btn-ler-mais" (click)= "selecionado(item)">LER</div>
+                <div class="desc" [innerHTML]="item.Descricao"></div>                                  
+            </ion-card-title>              
+        </ion-card-content> 
+        <ion-card-content>
+            <div class="icone-livros-down" (click)="AddMinhaLista(item)">
+                <img src="assets/imgs/{{icone}}.png">
+                <p>Minha Lista</p>
+            </div>
+            <div class="icone-livros-down" (click)="ClassficarPl(item)">
+                <img src="assets/imgs/ico-curtir-pl.jpg">
+                <p>{{ icoCurtir }}</p> 
+            </div> 
+            <div class="icone-livros-down" (click)="regularShare(item.Titulo, 'PROGETTO APP', imgFinal, 'app://br.com.hjweb.appprogetto')">
+                <img src="assets/imgs/ico-compartilhar-pl.jpg">
+                <p>Compartilhar</p>
+            </div> 
+            <div class="icone-livros-down">
+                <img src="assets/imgs/ico-baixar-off.jpg">
+                <p style="color:#a29e9d">Baixar para ver off-line</p>
+            </div> 
+            <div class="icone-livros-down" (click)= "selecionaLoja(item)">
+                <img src="assets/imgs/ico-carrinho-pl.jpg">
+                <p>Comprar</p>
+            </div>             
+          </ion-card-content>            
+    </ion-card>
+
+    <ion-card class="slide-card">
+        <ion-card-content>
+          <ion-card-title class="slide-card-chamadas">
+            <h2 class="slide-card-titulo-chamadas">Aulas de Aprofundamento</h2>
+          </ion-card-title>   
+        </ion-card-content> 
+        <ion-card-content style="margin-top:-10px;">
+            <ion-slides loop="true" autoplay="true">
+
+                <ion-slide *ngFor= "let item of relVideos" class="slide-card-li-video" (click)= "selecionadoVideosVinc(item)">
+                    
+                    <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg">
+                    <h3 class="titulo">{{ item.Titulo }}</h3>
+                                                   
+                </ion-slide>
+               
+                </ion-slides>
+          </ion-card-content>
+      </ion-card>
+    
+      <ion-card class="slide-card"  style="margin-top:-20px;">
+          <ion-card-content>
+              <ion-card-title class="slide-card-chamadas">
+                <h2 class="slide-card-titulo-chamadas">Livros Relacionados</h2>
+              </ion-card-title>   
+            </ion-card-content> 
+          <ion-card-content>
+              <ion-slides loop="true" autoplay="true" preloadSlide="true">
+                  <ion-slide *ngFor= "let item of relBooks" class="slide-card-li" (click)= "selecionaVinc(item)" >
+                      <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg" width="105px" height="167px"/>
+                  </ion-slide>
+                </ion-slides>            
+            </ion-card-content>
+        </ion-card> 
+
+</ion-content>

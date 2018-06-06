@@ -1,0 +1,156 @@
+page-slide {
+    .slide-intro{
+        background: linear-gradient(to bottom,  #f7f7f7 0%, #fff 100%);
+    }
+
+    .slide-intro-logo1 img{
+        margin: 0 auto;
+        max-width: 50px;
+        padding-top: 70px;
+    }
+    .intro-tela1-img img{
+        max-width: 60%;
+        bottom: 0;
+        margin-top: 10px;
+    }
+    .tela1-titulo{
+        color:#216ca9;
+        font-size: 28px;
+        font-family: 'Lato';        
+    }
+    .tela1-texto{
+        color:#000;
+        font-size: 16px;
+        font-family: 'Lato';        
+        padding: 0px 30px 0px 30px;
+    }  
+
+    .intro-tela2-img img{
+        max-width: 60%;
+        bottom: 0;
+        margin-top: 10px;
+    }
+    .tela2-texto{
+        color:#000;
+        font-size: 22px;
+        font-family: 'Lato';        
+        padding: 0px 30px 0px 30px;
+    }  
+    .tela2-texto span{
+        color:#216ca9;
+        font-size: 25px;
+        font-weight: bold;
+        font-family: 'Lato';        
+    }      
+    .slide-intro-logo2{
+        margin: 0 auto;
+        width: 100%;
+        top:0px;        
+    }
+    .slide-intro-logo2 img{
+        max-width: 50px;    
+        margin-top: -30px;  
+    }
+
+    .slide-intro-logo3{
+        width: 100%;
+        top: 0;
+        position: absolute;
+        z-index: 999999;
+    }
+    .slide-intro-logo3 img{
+        max-width: 50px;
+        margin-top: 20px;
+    }    
+    .intro-tela3-img{
+        width: 100%;
+        top: -45px;
+        position: absolute;
+    }
+    .tela3-texto{
+        width: 100%;
+        bottom: 70px;
+        position: absolute;        
+        color:#000;
+        font-size: 20px;
+        font-family: 'Lato';
+        padding: 0px 30px 0px 30px;
+    }  
+    .tela3-texto2{
+        width: 100%;
+        bottom: 25px;
+        position: absolute;        
+        color: #216ba8;
+        font-size: 23px;
+        font-weight: bold;
+        font-family: 'Lato';
+        padding: 0px 30px 0px 30px;
+    } 
+    
+    .intro-tela4-img img{
+        max-width: 50%;
+        bottom: 0;
+        margin-top: 10px;
+    }
+    .tela4-texto{
+        color:#000;
+        font-size: 22px;
+        font-family: 'Lato';        
+        padding: 0px 30px 0px 30px;
+    }  
+    .tela4-texto span{
+        color:#216ca9;
+        font-size: 25px;
+        font-weight: bold;
+        font-family: 'Lato';        
+    }      
+    .slide-intro-logo4{
+        margin: 0 auto;
+        width: 100%;
+        top:0px;        
+    }
+    .slide-intro-logo4 img{
+        max-width: 50px;    
+        margin-top: 20px;  
+    }   
+    
+    .slide-intro-logo5{
+        position: absolute;
+        width: 100%;
+        top:30px;        
+    }
+    .slide-intro-logo5 img{
+        max-width: 50px;    
+        margin-top: 20px;  
+    }     
+    .slide-tela5{
+        background: url(../assets/imgs/background-app.png) no-repeat center center;
+        background-size: cover;
+    }
+    .tela5-texto{
+        color:#fff;
+        font-size: 32px;
+        font-family: 'Lato';        
+        padding: 0px 30px 0px 30px;
+    }  
+    .tela5-texto span{
+        font-weight: bold;
+        font-size: 35px;
+    }      
+    .tela5-btn1{
+        position: absolute;
+        bottom:50px;
+        width: 35%;
+        left: 10%;
+        background: #fff;
+        color:#216ba8;
+    }  
+    .tela5-btn2{
+        position: absolute;
+        bottom:50px;
+        right: 10%;
+        width: 35%;
+        background: #fff;
+        color:#216ba8;
+    }          
+}

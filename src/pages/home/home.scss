@@ -1,0 +1,137 @@
+page-home {
+  .barra-down{
+    border-right: 1px solid #C2C2C2;
+    width: 1px;
+    margin: 0px 5px 0px 16px;
+  }
+  .ico-curtir-img{
+    float: left; 
+    width: 35px;
+    padding: 5px;
+    margin:3px;
+    height: auto;
+  }  
+  .ico-curtir-m{
+    float: left;
+    min-width: 20px;
+    font-size: 18px;
+    margin-top: 1px;
+    height: auto;
+    text-align: center;
+  }
+  .ico-comentarios-img{
+    float: left;
+    max-width: 50px;
+    height: auto;
+    font-size: 100%; 
+  }  
+  .ico-comentarios-m{
+    float: left;
+    min-width: 20px;  
+    font-size: 18px;
+    margin-top: 1px;
+    text-align: center;
+  }
+  .ico-compartilhar-img{ 
+    float: left; 
+    width: 35px;
+    padding: 5px;
+    margin:3px;
+    height: auto;
+  }  
+  .ico-compartilhar-m{
+    float: left;
+    min-width: 20px;  
+    font-size: 18px;
+    margin-top: 1px;
+    text-align: left;
+  }
+
+  .box-novidades{
+    padding:0px; 
+    min-height:200px; 
+    background: url(../assets/imgs/box.jpg) center center repeat;
+  }
+  .novidades-card{    
+    border: 0px;
+    width: 100%;
+    margin: 0px;
+    border-bottom: 10px solid #bfbfc0;    
+  }
+  .video-card-titulo{
+    color:#000;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Lato';  
+  }
+  .video-card-desc{
+    color:#000;
+    font-size: 13px;
+    font-family: 'Lato';    
+  } 
+  .avatar{
+    float:left;
+    max-width:43px;
+    margin-right:5px;
+  }  
+  .video-card-categoria{
+    color:#282828;
+    font-weight: bold;   
+    font-family: 'Lato'; 
+    font-size:15px;
+    margin: 0px;    
+  }
+  .data_hora_timeline{
+    color:#bbbbbb;
+    font-size:11px;
+  }
+  .video-play-card{
+    top:-60px;
+    background: transparent;
+    font-family: 'Lato';     
+    z-index:9999;
+  }
+  .video-play-card-btn{  
+    width:40px; 
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    font-family: 'Lato';     
+  }
+  .video-play-card-tempo{
+    float:left; 
+    background: rgba(52,52,52,0.8);
+    margin: 0px 3px 0px -10px;
+    padding: 7px;
+    padding-left: 50px;    
+    color:#fff;   
+    font-size: 13px;
+    font-family: 'Lato';     
+    font-weight: bold;  
+  }
+  .video-play-card-views{
+    float:left; 
+    background: rgba(52,52,52,0.8);
+    padding: 7px;
+    color:#fff; 
+    font-size: 13px;           
+    margin-right: 3px;
+    font-weight: bold;
+    font-family: 'Lato';     
+  }
+  .video-play-card-relevante{
+    float:left; 
+    background: rgba(52,52,52,0.8);
+    padding: 7px;
+    color:#3abe00; 
+    font-size: 13px;  
+    font-weight: bold;         
+    font-family: 'Lato';     
+  }
+  .avatar-sem-borda{
+    float: left;
+    width: 30px;
+    margin-right: 20px;
+    padding-top:5px;
+  }
+}

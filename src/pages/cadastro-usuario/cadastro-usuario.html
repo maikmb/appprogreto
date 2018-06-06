@@ -1,0 +1,29 @@
+<ion-content class="login-content">
+  <div class="login-card">
+    <ion-navbar>
+      <button ion-button menuToggle start>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <div class="titulo">
+        Cadastro
+      </div>        
+    </ion-navbar>     
+    <div class="login-inputs">
+      <ion-input class="input-btn" [(ngModel)]="data.NomeUser" type="text" placeholder="Nome" name="nomeUser" required ></ion-input>
+      <ion-input class="input-btn" [(ngModel)]="data.SobrenomeUser" type="text" placeholder="Sobrenome" name="sobrenomeUser" required ></ion-input>
+      <ion-input class="input-btn" [(ngModel)]="data.EmpresaUser" type="text" placeholder="Empresa" name="empresaUser" ></ion-input>
+      <ion-input class="input-btn" [(ngModel)]="data.EmailUser" type="email" placeholder="E-mail" name="EmailUser" required ></ion-input>
+      <ion-input class="input-btn" [(ngModel)]="data.CelularUser" type="text" placeholder="Celular" name="celularUser" required ></ion-input>
+      <ion-input class="input-btn" [(ngModel)]="data.SenhaUser" type="password" placeholder="Digite a sua senha" name="SenhaUser" required ></ion-input>        
+      <ion-input class="input-btn" [(ngModel)]="data.SenhaConfirmar" type="password" placeholder="Confirme sua senha" name="ConfirmarSenhaUser" required ></ion-input>        
+    </div>
+    <div class="login-btn-outros">
+      <button ion-button (click)="escolherPlano()">PLANO DE ASSINATURA</button>
+      <button ion-button (click)="escolherPagamentoEntrega()">DADOS DE ENTREGA</button>
+    </div>
+  </div>
+  <div class="login-btn-entrar">
+    <button ion-button (click)="solicitar()" class="login-btn-entrar-button">Cadastrar</button>     
+  </div>
+</ion-content>
+  

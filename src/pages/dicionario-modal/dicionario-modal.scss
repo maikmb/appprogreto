@@ -1,0 +1,107 @@
+page-dicionario-modal {
+  .botao-retorna{
+    background: #226ca9; 
+    margin: 5px 0px 5px 0px; 
+    font-weight: bold;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+    -moz-box-shadow: 0px 0px 0px 0px  rgba(0,0,0,0.0);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+  }
+  .busca-input{
+      width: 100%;
+      margin: 0px;
+      border: 0px;
+      border-bottom: 1px solid #000;      
+      padding:0px;
+      background: transparent;
+      -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+      -moz-box-shadow: 0px 0px 0px 0px  rgba(0,0,0,0.0);
+      box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+  }
+  .novidades-card{    
+    border: 0px;
+    width: 100%;
+    margin: 0px;
+    border-bottom: 1px solid #bfbfc0;    
+    padding: 0px;
+    width: 100%;
+    background: transparent;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+    -moz-box-shadow: 0px 0px 0px 0px  rgba(0,0,0,0.0);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+  }
+  .video-card-titulo{
+    color:#000;
+    font-weight: bold;
+    font-size: 18px;    
+    font-family: 'Lato';     
+  }
+  .video-card-tipo{
+    color:#2e93e6;
+    font-size: 11px;    
+    font-family: 'Lato'; 
+    float: right;
+    margin-top:4px;    
+  }
+  .titulos-card{
+    border: 0px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background: transparent;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+    -moz-box-shadow: 0px 0px 0px 0px  rgba(0,0,0,0.0);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+  }
+  .titulos-card .titulos-card-chamadas{
+      border-bottom: 2px solid #8a0300;
+  }
+  .titulos-card .titulos-card-titulo-chamadas{
+      color:#000;
+      font-weight: bold;
+      font-size: 20px;
+      font-family: 'Lato';
+      text-transform: uppercase;
+  }
+  .titulos-card-titulo{
+      color:#a92121;
+      font-weight: bold;
+      font-size: 20px;
+      font-family: 'Lato';
+  }
+  .card-back{
+      position: relative;
+      text-align:  center;
+      border: 0px;
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      background: transparent;
+      -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+      -moz-box-shadow: 0px 0px 0px 0px  rgba(0,0,0,0.0);
+      box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);        
+  }
+
+  .titulo-card-back{
+      position: absolute;
+      top: 40%;
+      font-size: 30px;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+      font-family: 'Lato';        
+      text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);   
+  }
+
+  .subtitulo-card-back{
+      font-size: 18px;
+      position: absolute;
+      top: 60%;
+      width: 100%;
+      color: #fff;
+      font-family: 'Lato';        
+      text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);      
+  }
+}

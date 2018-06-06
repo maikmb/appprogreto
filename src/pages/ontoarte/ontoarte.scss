@@ -1,0 +1,127 @@
+page-ontoarte {
+    .titulo{
+        margin: 5px 0px 0px 0px;
+        font-weight: bold;
+        padding: 0px;
+        font-size: 10px;
+        color:#4d4d4d;
+    }
+    .subtitulo{
+        margin: 0px;
+        padding: 0px;
+        font-size: 10px;
+        color:#4d4d4d;
+    }
+    .AudiosList{
+        position: relative;
+        border-radius: 0px;
+        border: 0;    
+        text-align: center;     
+        padding: 0px;
+        width: 100%;
+        margin: 0px;
+        -webkit-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.3);
+        -moz-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.3);
+        box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.3);  
+        margin-bottom:20px;
+    } 
+    .startAudio{
+        height:38px; 
+        padding:0px; 
+        margin: 0px 0px 0px 0px;
+        background:#fff;
+    }   
+    .startAudio p{
+        color:#000000;
+    }     
+    .startAudio p > span{
+        color:#ccc;
+    }       
+    .startAudioIcon{
+        font-size: 21px;
+        padding: 2px 0px 0px 10px;
+        margin: 0px;
+    }    
+    .card-back{
+        position: relative;
+        text-align:  center;
+        border: 0px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        background: transparent;
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+        -moz-box-shadow: 0px 0px 0px 0px  rgba(0,0,0,0.0);
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);        
+    }
+    .titulo-card-back{
+        position: absolute;
+        top: 55px;
+        font-size: 25px;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);   
+        font-family: 'Lato';      
+        text-transform: uppercase;
+    }
+    .subtitulo-card-back{
+        font-size: 18px;
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        color: #fff;
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);    
+        font-family: 'Lato';  
+    }
+    .titulos-card{ 
+        border: 0px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        background: transparent;
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+        -moz-box-shadow: 0px 0px 0px 0px  rgba(0,0,0,0.0);
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+    }
+    .titulos-card .titulos-card-chamadas{
+        border-bottom: 2px solid #000;
+    }
+    .titulos-card .titulos-card-titulo-chamadas{
+        color:#000;
+        font-weight: bold;
+        font-size: 16px;
+        font-family: 'Lato';
+    }
+    .titulos-card-titulo{
+        color:#000;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: 'Lato';
+    } 
+
+    .slide-card{
+        border: 0px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        background: transparent;
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+        -moz-box-shadow: 0px 0px 0px 0px  rgba(0,0,0,0.0);
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+    }  
+    .slide-card .slide-card-li{
+        max-width: 33.333333333333333333333333%;
+        padding: 4px; 
+    }   
+    .slide-card .slide-card-li .slide-card-texto{
+        margin: 0px;
+        margin-top: 10px;
+        padding: 0px;
+        font-size: 12px;
+        color:#4d4d4d;
+    }     
+}

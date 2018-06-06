@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle start (click)="menu()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <div class="header_logo" (click)="abrirPaginaHome()">
+      <img src="assets/imgs/logo-small-menu.png">
+    </div>
+    <div class="header_aovivo" (click)="abrirPaginaAovivo()">
+      <img src="assets/imgs/ico-ao-vivo-off.jpg">
+    </div>
+    <div class="header_users" (click)="abrirPaginaEventos()">
+      <img src="assets/imgs/ico-calendario.jpg">
+    </div>
+    <div class="header_busca" (click)="abrirPaginaBusca()">
+      <img src="assets/imgs/ico-busca.png">
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card class="novidades-card">
+    <ion-card-content class="box-novidades">
+      <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg" />
+    </ion-card-content>
+  </ion-card>
+  <div class="form-inputs">
+    <ion-input class="input-btn" [(ngModel)]="data.NomeForm" type="text" placeholder="Nome" name="NomeForm" required ></ion-input>
+    <ion-input class="input-btn" [(ngModel)]="data.SobrenomeForm" type="text" placeholder="Sobrenome" name="SobrenomeForm" required ></ion-input>
+    <ion-input class="input-btn" [(ngModel)]="data.EmailForm" type="email" placeholder="E-mail" name="EmailForm" required ></ion-input>
+    <ion-input class="input-btn" [(ngModel)]="data.CelularForm" type="text" placeholder="Celular" name="CelularForm" required ></ion-input>
+    <ion-input [(ngModel)]="data.ideventoForm" type="hidden" value="{{ item.idevento }}"></ion-input>
+    <button ion-button round outline (click)="solicitar()" class="btn-inscreva-se">CADASTRAR</button>   
+  </div>  
+</ion-content>     
