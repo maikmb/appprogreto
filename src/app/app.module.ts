@@ -98,6 +98,7 @@ import { LojaAvisoPage } from './../pages/loja-aviso/loja-aviso';
 import { MinhaContaDadosPage } from '../pages/minha-conta-dados/minha-conta-dados';
 import { MinhaContaEnderecoPage } from '../pages/minha-conta-endereco/minha-conta-endereco';
 import { MinhaContaFotoPage } from '../pages/minha-conta-foto/minha-conta-foto';
+import { AudioPlayerPage } from '../pages/audio-player/audio-player';
 
 @NgModule({
   declarations: [
@@ -128,7 +129,9 @@ import { MinhaContaFotoPage } from '../pages/minha-conta-foto/minha-conta-foto';
     AovivoArquivoPage, AovivoProximasPage, AovivoVerPage,
     EsqueceuSenhaPage, PlanosPage, PagamentoEntregaPage,
     EditarMinhaAlbunsPage, EditarMinhaOntoartePage, EditarMinhaAulasPage, EditarMinhaPlPage,
-    CarrinhoPage, MinhasComprasPage, MeusPlanosPage
+    CarrinhoPage, MinhasComprasPage, MeusPlanosPage,
+    AudioPlayerPage
+    
    // PdfViewerComponent
   ],
   imports: [
@@ -174,7 +177,9 @@ import { MinhaContaFotoPage } from '../pages/minha-conta-foto/minha-conta-foto';
     AovivoArquivoPage, AovivoProximasPage, AovivoVerPage,
     EsqueceuSenhaPage, PlanosPage, PagamentoEntregaPage,
     EditarMinhaAlbunsPage, EditarMinhaOntoartePage, EditarMinhaAulasPage, EditarMinhaPlPage,
-    CarrinhoPage, MinhasComprasPage, MeusPlanosPage
+    CarrinhoPage, MinhasComprasPage, MeusPlanosPage,
+    AudioPlayerPage
+    
   ],
   providers: [
     PayPal,

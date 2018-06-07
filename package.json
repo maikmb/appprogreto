@@ -35,7 +35,6 @@
     "brmasker-ionic": "^1.0.12",
     "brmasker-ionic-3": "^1.0.10",
     "card.io.cordova.mobilesdk": "^2.1.0",
-    "com.hutchind.cordova.plugins.streamingmedia": "~0.1.4",
     "com.paypal.cordova.mobilesdk": "^3.5.0",
     "cordova-android": "^7.0.0",
     "cordova-ios": "4.5.4",

@@ -29,8 +29,7 @@ import { LojaModalPage } from '../loja-modal/loja-modal';
   selector: 'page-audios2',
   templateUrl: 'audios2.html',
 })
-export class Audios2Page {
-  @ViewChild('audioPlayer') audioPlayer: any;
+export class Audios2Page { 
 
   subscription; 
   
@@ -50,11 +49,9 @@ export class Audios2Page {
 
   relAudios : any;
   position = 0;
-  oldPosition = 0;
-  totalMedia = 0;
+  oldPosition = 0;  
   iconPlay = 'play';
   play = false
-  audio = null;
 
   indexAudio = 0;
 
@@ -72,7 +69,7 @@ export class Audios2Page {
 
     this.audioService.changePositionObservable.subscribe(
       value => {
-        this.audioPlayer.nativeElement.currentTime = value;
+        this.audioService.audioPlayer.nativeElement.currentTime = value;
       }
     )
 
@@ -242,24 +239,24 @@ export class Audios2Page {
     );
   }
 
-  durationChangeEventHandler() { 
-    this.totalMedia = this.audioPlayer.nativeElement.duration;
-    this.audioService.emitTotalMedia(Math.round(this.totalMedia));
-    console.log(this.totalMedia);    
-  }
+  // durationChangeEventHandler() { 
+  //   this.totalMedia = this.audioService.audioPlayer.nativeElement.duration;
+  //   this.audioService.emitTotalMedia(Math.round(this.totalMedia));
+  //   console.log(this.totalMedia);    
+  // }
 
   startCronometro(){    
     this.subscription = Observable.interval(1000).subscribe(x => {      
 
-      this.oldPosition = this.audioPlayer.nativeElement.currentTime;
-      this.position = this.audioPlayer.nativeElement.currentTime;
+      this.oldPosition = this.audioService.audioPlayer.nativeElement.currentTime;
+      this.position = this.audioService.audioPlayer.nativeElement.currentTime;
 
       console.log(this.position);
       
       this.audioService.emitPosition(this.position);
-      if (this.position >= this.totalMedia) {
+      if (this.position >= this.audioService.totalMedia) {
         
-        console.log(this.position + ' - ' + this.totalMedia);
+        console.log(this.position + ' - ' + this.audioService.totalMedia);
         this.stopCronometro();         
         
       }
@@ -279,8 +276,8 @@ export class Audios2Page {
       
       this.relAudios[this.indexAudio].iconplay = 'pause';
 
-      this.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
-      this.audioPlayer.nativeElement.src = this.audio;      
+      this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
+      this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;      
       this.audioPlay();      
     }, 200);
   }
@@ -294,8 +291,8 @@ export class Audios2Page {
   
     this.toogleIconPlayList();
     
-    this.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
-    this.audioPlayer.nativeElement.src = this.audio;
+    this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
+    this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.indexAudio].iconplay = 'pause';
     this.audioPlay();
 
@@ -310,8 +307,8 @@ export class Audios2Page {
   
     this.toogleIconPlayList();
 
-    this.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
-    this.audioPlayer.nativeElement.src = this.audio;
+    this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
+    this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.indexAudio].iconplay = 'pause';
     this.audioPlay();
   }
@@ -325,15 +322,16 @@ export class Audios2Page {
 
     this.toogleIconPlayList();
     
-    this.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
-    this.audioPlayer.nativeElement.src = this.audio;
+    this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
+    this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.indexAudio].iconplay = 'pause';
     this.audioPlay();
   }
 
 
   audioPlay() {
-    this.audioPlayer.nativeElement.play();
+
+    this.audioService.audioPlayer.nativeElement.play();
     this.startCronometro();
     this.play = true;    
     //console.log('play');
@@ -341,20 +339,19 @@ export class Audios2Page {
   
   audioPause() {
     //console.log('pause');    
-    this.audioPlayer.nativeElement.pause();
+    this.audioService.audioPlayer.nativeElement.pause();
   }
 
 
   tooglePlay() {
   
-    if (!this.audio) {
+    if (!this.audioService.audio) {
       if (this.relAudios.length > 0) {
-        this.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[0].arquivo_audio;   
-        this.audioPlayer.nativeElement.src = this.audio;
-        //this.audioPlayer.nativeElement.load();
+        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[0].arquivo_audio;   
+        this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
+        //this.audioService.audioPlayer.nativeElement.load();
       }
     }
-
     //console.log(this.audio);
 
     this.play = !this.play;
@@ -368,7 +365,7 @@ export class Audios2Page {
       this.relAudios[this.indexAudio].iconplay = 'play';
     }
 
-    if (this.audioPlayer.nativeElement.paused) {
+    if (this.audioService.audioPlayer.nativeElement.paused) {
       this.audioPlay();
     } else {
       this.audioPause();
@@ -376,7 +373,7 @@ export class Audios2Page {
   }
 
   getDados(){
-    this.audio = this.navParams.get('musica');
+    this.audioService.audio = this.navParams.get('musica');
 
   }
 
@@ -404,9 +401,9 @@ export class Audios2Page {
     item.iconplay = 'pause';
     this.indexAudio = index;
 
-    this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + item['arquivo_audio'];   
-    this.audioPlayer.nativeElement.src = this.audio;
-    this.audioPlayer.nativeElement.load();
+    this.audioService.audio = 'http://redeplaneje.com.br/midias/r/audios/' + item['arquivo_audio'];   
+    this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
+    this.audioService.audioPlayer.nativeElement.load();
     
     this.iconPlay = 'pause';
     this.audioPlay();

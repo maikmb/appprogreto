@@ -1,59 +1,57 @@
 <ion-menu [content]="content">
   <ion-content>
-      <ion-card class="side-menu-card">
-        <ion-item>
-          <ion-avatar item-start *ngIf="FotoUserQual"> 
-            <img src="{{ FotoUserQual }}">
-          </ion-avatar>
-          <h2 >{{ NomeUserQual }} {{ SobrenomeUserQual }}</h2>
-          <p style="margin-top:-4px;">
-            <i>{{ PlanoUserQual }}</i>
-          </p>
-        </ion-item>
-      </ion-card> 
-    <ion-list class="side-menu-novo">  
-      <button menuClose ion-item (click)="abrirPaginaLoja()">  
-        <img class="menu-icone-lado mr10" src="assets/imgs/ico-carrinho-off.jpg"> 
-        Loja                
-      </button>     
-      <button menuClose ion-item (click)="abrirPaginaDicionario()"> 
-        <img class="menu-icone-lado mr10" src="assets/imgs/ico-dicionario.jpg">
-        Dicionário
-      </button>                   
-      <button menuClose ion-item (click)="abrirPaginaMinhalista()">  
-        <img class="menu-icone-lado mr10" src="assets/imgs/ico-correto-off.jpg">
-        Minha Lista
+    <ion-card class="side-menu-card">
+      <ion-item>
+        <ion-avatar item-start *ngIf="FotoUserQual">
+          <img src="{{ FotoUserQual }}">
+        </ion-avatar>
+        <h2>{{ NomeUserQual }} {{ SobrenomeUserQual }}</h2>
+        <p style="margin-top:-4px;">
+          <i>{{ PlanoUserQual }}</i>
+        </p>
+      </ion-item>
+    </ion-card>
+    <ion-list class="side-menu-novo">
+      <button menuClose ion-item (click)="abrirPaginaLoja()">
+        <img class="menu-icone-lado mr10" src="assets/imgs/ico-carrinho-off.jpg"> Loja
       </button>
-      <button menuClose ion-item (click)="abrirPaginaNotificacao()">  
-        <img class="menu-icone-lado mr10" src="assets/imgs/ico-notificacoes-off.jpg">
-        Notificações    
-      </button>      
-      <button menuClose ion-item (click)="abrirPaginaAtendimento()">  
-        <img class="menu-icone-lado mr10" src="assets/imgs/ico-atendimento-off.jpg">
-        Atendimento    
-      </button>                   
+      <button menuClose ion-item (click)="abrirPaginaDicionario()">
+        <img class="menu-icone-lado mr10" src="assets/imgs/ico-dicionario.jpg"> Dicionário
+      </button>
+      <button menuClose ion-item (click)="abrirPaginaMinhalista()">
+        <img class="menu-icone-lado mr10" src="assets/imgs/ico-correto-off.jpg"> Minha Lista
+      </button>
+      <button menuClose ion-item (click)="abrirPaginaNotificacao()">
+        <img class="menu-icone-lado mr10" src="assets/imgs/ico-notificacoes-off.jpg"> Notificações
+      </button>
+      <button menuClose ion-item (click)="abrirPaginaAtendimento()">
+        <img class="menu-icone-lado mr10" src="assets/imgs/ico-atendimento-off.jpg"> Atendimento
+      </button>
     </ion-list>
 
-    
+
   </ion-content>
 
   <ion-footer class="side-menu-footer">
     <ion-list class="side-menu-footer-novo">
 
-      <button menuClose ion-item (click)="abrirPaginaConta()">  
-        Conta     
+      <button menuClose ion-item (click)="abrirPaginaConta()">
+        Conta
       </button>
-      <button menuClose ion-item (click)="abrirPaginaPrivacidade()">   
-        Termos de Uso     
-      </button>              
-      <button menuClose ion-item (click)="abrirPaginaSair()">  
-        Sair     
+      <button menuClose ion-item (click)="abrirPaginaPrivacidade()">
+        Termos de Uso
+      </button>
+      <button menuClose ion-item (click)="abrirPaginaSair()">
+        Sair
       </button>
 
-    </ion-list>       
+    </ion-list>
   </ion-footer>
 
 </ion-menu>
+
+<!-- Audio Player -->
+<page-audio-player></page-audio-player>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

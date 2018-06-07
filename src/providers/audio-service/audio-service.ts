@@ -4,6 +4,9 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class AudioServiceProvider {
 
+  public audioPlayer: any;
+  public audio = null;
+  public totalMedia = 0;
   public positionObservable = new Subject<number>();
   public changePositionObservable = new Subject<number>();
   public totalMediaObservable = new Subject<number>();
