@@ -9951,10 +9951,9 @@ var AudioPlayerPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-audio-player',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audio-player\audio-player.html"*/'<audio #audioPlayer controls class="player" (durationchange)="durationChangeEventHandler()">\n\n    <source src="{{audio}}" title="APP Progetto" type="audio/mp3" />\n\n</audio>\n\n\n\n<p>AUSHDAUSDHAIUSD</p>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audio-player\audio-player.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
     ], AudioPlayerPage);
     return AudioPlayerPage;
-    var _a;
 }());
 
 //# sourceMappingURL=audio-player.js.map
@@ -10205,8 +10204,6 @@ var Audios2Page = /** @class */ (function () {
         this.position = 0;
         this.oldPosition = 0;
         this.iconPlay = 'play';
-        this.play = false;
-        this.indexAudio = 0;
         this.api = 'http://app.progettoapp.com.br/arquivos/r';
         this.audioService.changePositionObservable.subscribe(function (value) {
             _this.audioService.audioPlayer.nativeElement.currentTime = value;
@@ -10242,29 +10239,29 @@ var Audios2Page = /** @class */ (function () {
             
             let nedo3=0;
             this.teste3 = data;
-  
-            if(data==null || data==false || data.length==0){
     
+            if(data==null || data==false || data.length==0){
+     
               //this.showEmptCartMessage= true;
             
             }else{
               
               this.teste3.forEach( (item, index)=>{
-  
+    
                 if(this.item['idaudio'] == item['idaudio']){
                   nedo3=1;
                 }
-  
+    
               })
               
             }
-  
+    
             if(nedo3==1){
               this.iconeAudio = 'ico-correto';
             }else{
               this.iconeAudio = 'ico-mais';
             }
-  
+    
           })
         })*/
         // ADD CURTIR
@@ -10332,6 +10329,7 @@ var Audios2Page = /** @class */ (function () {
         this.service.getAudios()
             .subscribe(function (data) {
             _this.relAudios = data.rows;
+            _this.loadExecutingAudio();
             console.log(_this.relAudios);
         }, function (err) { return console.log(err); });
     };
@@ -10349,62 +10347,65 @@ var Audios2Page = /** @class */ (function () {
             _this.audioService.emitPosition(_this.position);
             if (_this.position >= _this.audioService.totalMedia) {
                 console.log(_this.position + ' - ' + _this.audioService.totalMedia);
-                _this.stopCronometro();
+                _this.executeNextAudio();
             }
         });
     };
-    Audios2Page.prototype.stopCronometro = function () {
-        var _this = this;
+    Audios2Page.prototype.unsubscribePlayer = function () {
         this.subscription.unsubscribe();
+    };
+    Audios2Page.prototype.executeNextAudio = function () {
+        var _this = this;
+        this.unsubscribePlayer();
         setTimeout(function () {
-            _this.relAudios[_this.indexAudio].iconplay = 'play';
-            _this.indexAudio++;
-            if (_this.indexAudio > _this.relAudios.length - 1) {
-                _this.indexAudio = 0;
+            _this.relAudios[_this.audioService.indexAudio].iconplay = 'play';
+            _this.audioService.indexAudio++;
+            if (_this.audioService.indexAudio > _this.relAudios.length - 1) {
+                _this.audioService.indexAudio = 0;
             }
-            _this.relAudios[_this.indexAudio].iconplay = 'pause';
-            _this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + _this.relAudios[_this.indexAudio].arquivo_audio;
+            _this.relAudios[_this.audioService.indexAudio].iconplay = 'pause';
+            _this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + _this.relAudios[_this.audioService.indexAudio].arquivo_audio;
             _this.audioService.audioPlayer.nativeElement.src = _this.audioService.audio;
             _this.audioPlay();
         }, 200);
     };
     Audios2Page.prototype.next = function () {
-        this.indexAudio++;
-        if (this.indexAudio > this.relAudios.length - 1) {
-            this.indexAudio = 0;
+        this.audioService.indexAudio++;
+        if (this.audioService.indexAudio > this.relAudios.length - 1) {
+            this.audioService.indexAudio = 0;
         }
         this.toogleIconPlayList();
-        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;
+        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
-        this.relAudios[this.indexAudio].iconplay = 'pause';
+        this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
         this.audioPlay();
     };
     Audios2Page.prototype.back = function () {
-        this.indexAudio--;
-        if (this.indexAudio < 0) {
-            this.indexAudio = this.relAudios.length - 1;
+        this.audioService.indexAudio--;
+        if (this.audioService.indexAudio < 0) {
+            this.audioService.indexAudio = this.relAudios.length - 1;
         }
         this.toogleIconPlayList();
-        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;
+        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
-        this.relAudios[this.indexAudio].iconplay = 'pause';
+        this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
         this.audioPlay();
     };
     Audios2Page.prototype.getRandomInt = function (min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
     Audios2Page.prototype.random = function () {
-        this.indexAudio = this.getRandomInt(0, this.relAudios.length - 1);
+        this.audioService.indexAudio = this.getRandomInt(0, this.relAudios.length - 1);
         this.toogleIconPlayList();
-        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;
+        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
-        this.relAudios[this.indexAudio].iconplay = 'pause';
+        this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
         this.audioPlay();
     };
     Audios2Page.prototype.audioPlay = function () {
         this.audioService.audioPlayer.nativeElement.play();
         this.startCronometro();
-        this.play = true;
+        this.audioService.IsExecuting = true;
         //console.log('play');
     };
     Audios2Page.prototype.audioPause = function () {
@@ -10420,15 +10421,15 @@ var Audios2Page = /** @class */ (function () {
             }
         }
         //console.log(this.audio);
-        this.play = !this.play;
-        this.audioService.emitPlay(this.play);
-        if (this.play) {
+        this.audioService.IsExecuting = !this.audioService.IsExecuting;
+        this.audioService.emitPlay(this.audioService.IsExecuting);
+        if (this.audioService.IsExecuting) {
             this.iconPlay = 'pause';
-            this.relAudios[this.indexAudio].iconplay = 'pause';
+            this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
         }
         else {
             this.iconPlay = 'play';
-            this.relAudios[this.indexAudio].iconplay = 'play';
+            this.relAudios[this.audioService.indexAudio].iconplay = 'play';
         }
         if (this.audioService.audioPlayer.nativeElement.paused) {
             this.audioPlay();
@@ -10453,19 +10454,34 @@ var Audios2Page = /** @class */ (function () {
             element.iconplay = 'play';
         }
     };
+    Audios2Page.prototype.loadExecutingAudio = function () {
+        debugger;
+        if (this.audioService.isExecuting()) {
+            this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
+            this.iconPlay = "pause";
+        }
+    };
     Audios2Page.prototype.startAudio = function (item, index) {
+        debugger;
+        if (this.audioService.isExecuting() && this.audioService.isExecutingIndex(index)) {
+            item.iconplay = 'play';
+            this.iconPlay = 'play';
+            this.unsubscribePlayer();
+            this.audioService.audioPlayer.nativeElement.pause();
+            return;
+        }
         this.toogleIconPlayList();
-        item.iconplay = 'pause';
-        this.indexAudio = index;
+        this.audioService.indexAudio = index;
         this.audioService.audio = 'http://redeplaneje.com.br/midias/r/audios/' + item['arquivo_audio'];
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
         this.audioService.audioPlayer.nativeElement.load();
+        item.iconplay = 'pause';
         this.iconPlay = 'pause';
         this.audioPlay();
     };
     /*
     var musica = this.audio
-*/
+  */
     Audios2Page.prototype.AbrirAudioAlbum = function (item) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_17__ontoarte_ver_ontoarte_ver__["a" /* OntoarteVerPage */], {
             item: item
@@ -10805,6 +10821,8 @@ var AudioServiceProvider = /** @class */ (function () {
         this.changePositionObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
         this.totalMediaObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
         this.playObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this.IsExecuting = false;
+        this.indexAudio = 0;
         console.log('Hello AudioServiceProvider Provider');
     }
     AudioServiceProvider.prototype.emitPosition = function (val) {
@@ -10818,6 +10836,12 @@ var AudioServiceProvider = /** @class */ (function () {
     };
     AudioServiceProvider.prototype.emitPlay = function (val) {
         this.playObservable.next(val);
+    };
+    AudioServiceProvider.prototype.isExecuting = function () {
+        return this.IsExecuting;
+    };
+    AudioServiceProvider.prototype.isExecutingIndex = function (index) {
+        return index == this.indexAudio;
     };
     AudioServiceProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),

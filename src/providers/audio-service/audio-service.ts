@@ -11,6 +11,8 @@ export class AudioServiceProvider {
   public changePositionObservable = new Subject<number>();
   public totalMediaObservable = new Subject<number>();
   public playObservable = new Subject<boolean>();
+  public IsExecuting: boolean = false;
+  public indexAudio = 0;
 
   constructor() {
     console.log('Hello AudioServiceProvider Provider');
@@ -28,6 +30,14 @@ export class AudioServiceProvider {
   }
   emitPlay(val) {
     this.playObservable.next(val);
+  }
+
+  isExecuting(): boolean {
+    return this.IsExecuting;
+  }
+
+  isExecutingIndex(index: number) : boolean {
+    return index == this.indexAudio;
   }
 
 
