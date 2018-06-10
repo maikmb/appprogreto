@@ -1664,7 +1664,7 @@ var OntoarteVerPage = /** @class */ (function () {
                 _this.indexAudio = 0;
             }
             _this.relAudios[_this.indexAudio].iconplay = 'pause';
-            _this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + _this.relAudios[_this.indexAudio].arquivo_audio;
+            _this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + _this.relAudios[_this.indexAudio].arquivo_audio;
             _this.audioPlayer.nativeElement.src = _this.audio;
             _this.audioPlay();
         }, 200);
@@ -1675,7 +1675,7 @@ var OntoarteVerPage = /** @class */ (function () {
             this.indexAudio = 0;
         }
         this.toogleIconPlayList();
-        this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;
+        this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;
         this.audioPlayer.nativeElement.src = this.audio;
         this.relAudios[this.indexAudio].iconplay = 'pause';
         this.audioPlay();
@@ -1686,7 +1686,7 @@ var OntoarteVerPage = /** @class */ (function () {
             this.indexAudio = this.relAudios.length - 1;
         }
         this.toogleIconPlayList();
-        this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;
+        this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;
         this.audioPlayer.nativeElement.src = this.audio;
         this.relAudios[this.indexAudio].iconplay = 'pause';
         this.audioPlay();
@@ -1697,7 +1697,7 @@ var OntoarteVerPage = /** @class */ (function () {
     OntoarteVerPage.prototype.random = function () {
         this.indexAudio = this.getRandomInt(0, this.relAudios.length - 1);
         this.toogleIconPlayList();
-        this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;
+        this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;
         this.audioPlayer.nativeElement.src = this.audio;
         this.relAudios[this.indexAudio].iconplay = 'pause';
         this.audioPlay();
@@ -1715,7 +1715,7 @@ var OntoarteVerPage = /** @class */ (function () {
     OntoarteVerPage.prototype.tooglePlay = function () {
         if (!this.audio) {
             if (this.relAudios.length > 0) {
-                this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + this.relAudios[0].arquivo_audio;
+                this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[0].arquivo_audio;
                 this.audioPlayer.nativeElement.src = this.audio;
                 //this.audioPlayer.nativeElement.load();
             }
@@ -1755,7 +1755,7 @@ var OntoarteVerPage = /** @class */ (function () {
         this.toogleIconPlayList();
         item.iconplay = 'pause';
         this.indexAudio = index;
-        this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + item['arquivo_audio'];
+        this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + item['arquivo_audio'];
         this.audioPlayer.nativeElement.src = this.audio;
         this.audioPlayer.nativeElement.load();
         this.iconPlay = 'pause';
@@ -1796,13 +1796,10 @@ var OntoarteVerPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-ontoarte-ver',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\ontoarte-ver\ontoarte-ver.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n    <ion-card class="novidades-card">\n\n        <ion-card-content>\n\n          <h2 class="video-card-titulo">\n\n              {{ item.titulo }}\n\n          </h2> \n\n        </ion-card-content>\n\n    </ion-card>\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer">\n\n        <ion-badge item-end color="danger" class="menu-footer-bola">4</ion-badge>\n\n        <img src="assets/imgs/ico-menu-footer-novidades.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Novidades\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">   \n\n        <p class="menu_footer_texto" (click)="abrirPaginaPublicacoes()">\n\n          Publicações\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">     \n\n        <p class="menu_footer_texto" (click)="abrirPaginaPl()">\n\n          Líder\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">   \n\n        <p class="menu_footer_texto" (click)="abrirPaginaTitulos()">\n\n          Aulas\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaOntoarte()">\n\n            Músicas\n\n        </p>          \n\n    </div>       \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\ontoarte-ver\ontoarte-ver.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _e || Object])
     ], OntoarteVerPage);
     return OntoarteVerPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=ontoarte-ver.js.map
@@ -8945,7 +8942,7 @@ var AudiosPage = /** @class */ (function () {
         this.audio = this.navParams.get('musica');
     };
     AudiosPage.prototype.startAudio = function (item) {
-        this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + item['arquivo_audio'];
+        this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + item['arquivo_audio'];
         this.audioPlayer.nativeElement.src = this.audio;
         this.audioPlayer.nativeElement.load();
         /*
@@ -9000,13 +8997,10 @@ var AudiosPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'page-audios',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audios\audios.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n        <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n        <img src="assets/imgs/ico-calendario.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n        <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content> \n\n\n\n<!-- <ion-grid>\n\n    <ion-row>\n\n            <div style="float:left; width:35%; padding: 20px;">\n\n                    <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n                </div>\n\n                <div style="float:left; width:65%;">\n\n                    <h2 class="albumTitulo">Albúm Metafísica Brasiliana</h2>\n\n                    <h6 class="albumSubtitulo">Antonio Meneghetti\n\n                    <Br>Volume I</h6>\n\n                    <p class="albumDesc">Nossas emoções, através da música, nos levam a caminhos\n\n                            percorridos entre lágrimas, sorrisos, dor, prazer metafísico.\n\n                            O Maestro Antonio Meneghetti fala através da música todas\n\n                            essas emoções vividas na existência.\n\n                            O ritmo torna-se fenômeno ocasional para entrar na pura\n\n                            percepção do ser.</p> \n\n                </div>\n\n    </ion-row>\n\n</ion-grid> -->\n\n\n\n<!-- \n\n<div style="position: relative; width: 100%;">\n\n    <div style="float:left; width:35%; padding: 20px;">\n\n        <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n    </div>\n\n    <div style="float:left; width:65%;">\n\n        <h2 class="albumTitulo">Albúm Metafísica Brasiliana</h2>\n\n        <h6 class="albumSubtitulo">Antonio Meneghetti\n\n        <Br>Volume I</h6>\n\n        <p class="albumDesc">Nossas emoções, através da música, nos levam a caminhos\n\n                percorridos entre lágrimas, sorrisos, dor, prazer metafísico.\n\n                O Maestro Antonio Meneghetti fala através da música todas\n\n                essas emoções vividas na existência.\n\n                O ritmo torna-se fenômeno ocasional para entrar na pura\n\n                percepção do ser.</p> \n\n    </div>\n\n</div> -->\n\n\n\n<!-- <div style="position: relative; width: 100%;">\n\n    <img src="assets/imgs/musica-banner.png">\n\n</div>\n\n -->\n\n\n\n<ion-card *ngFor="let item of relAudios">\n\n        <ion-row>\n\n                <ion-col col-2>\n\n                    <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n                </ion-col>\n\n                <ion-col col-8>\n\n                    <!-- <ion-list class="listItem"> -->\n\n                        <ion-item (click)="startAudio(item)" class="listItem">\n\n                            <ion-icon name="play" item-start></ion-icon>\n\n                            <h2 class="tituloFaixa">{{item.audio}}<Br><span class="subtituloFaixa"> {{item.artista}}</span></h2>\n\n                        </ion-item>\n\n                    <!-- </ion-list> -->\n\n                </ion-col>\n\n                <ion-col col-2>\n\n                   <p >{{item.Tempo}}</p> \n\n                </ion-col>\n\n            </ion-row>\n\n</ion-card>\n\n\n\n<!-- <ion-grid>\n\n    <ion-card *ngFor="let item of relAudios">\n\n        <ion-row>\n\n            <ion-col col-2>\n\n                <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n            </ion-col>\n\n            <ion-col col-8 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n                \n\n                    <ion-item (click)="startAudio(item)" class="listItem">\n\n                        <ion-icon name="play" item-start></ion-icon>\n\n                        <h2 class="tituloFaixa">{{item.audio}}<Br><span class="subtituloFaixa"> {{item.artista}}</span></h2>\n\n                    </ion-item>\n\n                \n\n            </ion-col>\n\n            <ion-col col-2>\n\n               <p >{{item.Tempo}}</p> \n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-card>\n\n</ion-grid> -->\n\n\n\n<audio #audioPlayer autoplay="autoplay" style="width: 100%; border:0px;">\n\n    <source src="{{audio}} " type="audio/mp3" />\n\n</audio>                   \n\n\n\n<!-- <div class="" style="background:#fff; margin-top:30px;">\n\n    <div text-center padding style="width: 100%; padding: 0px; margin: 0px; ">\n\n        <ion-card style="width: 100%; padding: 0px; margin: 0px; ">\n\n        </ion-card>           \n\n    </div> \n\n</div> -->\n\n\n\n<ion-content>\n\n    \n\n    <ion-footer>\n\n        <ion-range [(ngModel)]="position">\n\n            \n\n        </ion-range>\n\n    </ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audios\audios.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _e || Object])
     ], AudiosPage);
     return AudiosPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=audios.js.map
@@ -9936,6 +9930,7 @@ var AudioPlayerPage = /** @class */ (function () {
         this.audioService.audioPlayer = this.audioPlayer;
     };
     AudioPlayerPage.prototype.durationChangeEventHandler = function () {
+        debugger;
         this.audioService.totalMedia = this.audioPlayer.nativeElement.duration;
         this.audioService.emitTotalMedia(Math.round(this.audioService.totalMedia));
         console.log(this.audioService.totalMedia);
@@ -9951,9 +9946,10 @@ var AudioPlayerPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-audio-player',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audio-player\audio-player.html"*/'<audio #audioPlayer controls class="player" (durationchange)="durationChangeEventHandler()">\n\n    <source src="{{audio}}" title="APP Progetto" type="audio/mp3" />\n\n</audio>\n\n\n\n<p>AUSHDAUSDHAIUSD</p>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audio-player\audio-player.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _a || Object])
     ], AudioPlayerPage);
     return AudioPlayerPage;
+    var _a;
 }());
 
 //# sourceMappingURL=audio-player.js.map
@@ -10204,10 +10200,12 @@ var Audios2Page = /** @class */ (function () {
         this.position = 0;
         this.oldPosition = 0;
         this.iconPlay = 'play';
+        this.audioInfo = "--";
+        this.artistaInfo = "--";
         this.api = 'http://app.progettoapp.com.br/arquivos/r';
-        this.audioService.changePositionObservable.subscribe(function (value) {
-            _this.audioService.audioPlayer.nativeElement.currentTime = value;
-        });
+        this.Storage.get("MinhaListaAudios").then(function (data) { return _this.minhaListaAudio = data; });
+        this.audioService.changePositionObservable
+            .subscribe(function (value) { return _this.audioService.audioPlayer.nativeElement.currentTime = value; });
         this.getAlbum();
         this.getAudios();
         this.getDados();
@@ -10345,9 +10343,12 @@ var Audios2Page = /** @class */ (function () {
             _this.position = _this.audioService.audioPlayer.nativeElement.currentTime;
             console.log(_this.position);
             _this.audioService.emitPosition(_this.position);
-            if (_this.position >= _this.audioService.totalMedia) {
-                console.log(_this.position + ' - ' + _this.audioService.totalMedia);
-                _this.executeNextAudio();
+            if (_this.audioService.totalMedia > 0) {
+                if (_this.position >= _this.audioService.totalMedia) {
+                    debugger;
+                    console.log(_this.position + ' - ' + _this.audioService.totalMedia);
+                    _this.executeNextAudio();
+                }
             }
         });
     };
@@ -10356,15 +10357,16 @@ var Audios2Page = /** @class */ (function () {
     };
     Audios2Page.prototype.executeNextAudio = function () {
         var _this = this;
+        debugger;
         this.unsubscribePlayer();
         setTimeout(function () {
             _this.relAudios[_this.audioService.indexAudio].iconplay = 'play';
             _this.audioService.indexAudio++;
-            if (_this.audioService.indexAudio > _this.relAudios.length - 1) {
+            if (_this.audioService.indexAudio == (_this.relAudios.length - 1)) {
                 _this.audioService.indexAudio = 0;
             }
             _this.relAudios[_this.audioService.indexAudio].iconplay = 'pause';
-            _this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + _this.relAudios[_this.audioService.indexAudio].arquivo_audio;
+            _this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + _this.relAudios[_this.audioService.indexAudio].arquivo_audio;
             _this.audioService.audioPlayer.nativeElement.src = _this.audioService.audio;
             _this.audioPlay();
         }, 200);
@@ -10375,7 +10377,7 @@ var Audios2Page = /** @class */ (function () {
             this.audioService.indexAudio = 0;
         }
         this.toogleIconPlayList();
-        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
+        this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
         this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
         this.audioPlay();
@@ -10386,7 +10388,7 @@ var Audios2Page = /** @class */ (function () {
             this.audioService.indexAudio = this.relAudios.length - 1;
         }
         this.toogleIconPlayList();
-        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
+        this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
         this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
         this.audioPlay();
@@ -10397,7 +10399,7 @@ var Audios2Page = /** @class */ (function () {
     Audios2Page.prototype.random = function () {
         this.audioService.indexAudio = this.getRandomInt(0, this.relAudios.length - 1);
         this.toogleIconPlayList();
-        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
+        this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
         this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
         this.audioPlay();
@@ -10415,7 +10417,7 @@ var Audios2Page = /** @class */ (function () {
     Audios2Page.prototype.tooglePlay = function () {
         if (!this.audioService.audio) {
             if (this.relAudios.length > 0) {
-                this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[0].arquivo_audio;
+                this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[0].arquivo_audio;
                 this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
                 //this.audioService.audioPlayer.nativeElement.load();
             }
@@ -10455,7 +10457,6 @@ var Audios2Page = /** @class */ (function () {
         }
     };
     Audios2Page.prototype.loadExecutingAudio = function () {
-        debugger;
         if (this.audioService.isExecuting()) {
             this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
             this.iconPlay = "pause";
@@ -10463,16 +10464,23 @@ var Audios2Page = /** @class */ (function () {
     };
     Audios2Page.prototype.startAudio = function (item, index) {
         debugger;
+        //Verifica se o audio atual está executando a para a execução
         if (this.audioService.isExecuting() && this.audioService.isExecutingIndex(index)) {
             item.iconplay = 'play';
             this.iconPlay = 'play';
             this.unsubscribePlayer();
             this.audioService.audioPlayer.nativeElement.pause();
+            this.audioService.totalMedia = 0;
+            this.audioInfo = "--";
+            this.artistaInfo = "--";
             return;
         }
+        this.audioInfo = item.audio;
+        this.artistaInfo = item.artista;
+        console.log('Musica Selecionada', item);
         this.toogleIconPlayList();
         this.audioService.indexAudio = index;
-        this.audioService.audio = 'http://redeplaneje.com.br/midias/r/audios/' + item['arquivo_audio'];
+        this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
         this.audioService.audioPlayer.nativeElement.load();
         item.iconplay = 'pause';
@@ -10612,45 +10620,32 @@ var Audios2Page = /** @class */ (function () {
     };
     Audios2Page.prototype.AddMinhaListaAudio = function (item, index) {
         var _this = this;
+        var indexToRemove = 0;
         this.indexAudioMinhaLista = index;
-        var added = 0;
         this.Storage.get("MinhaListaAudios").then(function (data) {
-            if (data == null || data.length == 0) {
+            debugger;
+            if (data == null || data == undefined) {
                 data = [];
-                data.push({
-                    "idaudio": item.idaudio,
-                    "arquivo_audio": item.arquivo_audio,
-                    "idalbum": item.idalbum,
-                    "audio": item.audio,
-                    "artista": item.artista,
-                    "iconplay": item.iconplay,
-                    "color": item.color,
-                    "Tempo": item.tempo,
-                    "Ativo": item.Ativo
+            }
+            var filteredAudio = data.filter(function (audio, idx) {
+                if (audio.idaudio == item.idaudio) {
+                    indexToRemove = idx;
+                    return true;
+                }
+                return false;
+            });
+            if (filteredAudio.length > 0) {
+                data.splice(indexToRemove, 1);
+                _this.minhaListaAudio = data;
+                _this.Storage.set("MinhaListaAudios", data).then(function (data) {
+                    var toast = _this.toastCtrl.create({
+                        message: 'Música removida de sua lista!',
+                        duration: 3000
+                    });
+                    toast.present();
                 });
-                added = 1;
             }
             else {
-                var _loop_3 = function (i) {
-                    if (item.idaudio == data[i].idaudio) {
-                        var query = data.find(function (item) { return item.idaudio === data[i].idaudio; });
-                        var toremove = data.indexOf(query);
-                        data.splice(toremove, 1);
-                        added = 1;
-                    }
-                };
-                for (var i = 0; i < data.length; i++) {
-                    _loop_3(i);
-                }
-            }
-            if (added == 0) {
-                if (_this.iconeAudio == null) {
-                    console.log('aaa', _this.iconeAudio);
-                }
-                //this.iconeAudio = 'ico-correto';
-                _this.relAudios[_this.indexAudioMinhaLista].iconeAudio = 'ico-correto';
-                console.log('idaudio: ', _this.indexAudioMinhaLista);
-                console.log('icone qual: ', _this.relAudios[_this.indexAudioMinhaLista].iconeAudio);
                 data.push({
                     "idaudio": item.idaudio,
                     "arquivo_audio": item.arquivo_audio,
@@ -10662,18 +10657,25 @@ var Audios2Page = /** @class */ (function () {
                     "Tempo": item.tempo,
                     "Ativo": item.Ativo
                 });
+                _this.minhaListaAudio = data;
+                _this.Storage.set("MinhaListaAudios", data).then(function (data) {
+                    var toast = _this.toastCtrl.create({
+                        message: 'Música salva em sua lista!',
+                        duration: 3000
+                    });
+                    toast.present();
+                });
             }
-            if (added == 1) {
-                if (_this.iconeAudio == null) {
-                    console.log('bbb', _this.iconeAudio);
-                }
-                //this.iconeAudio = 'ico-mais';
-                _this.relAudios[_this.indexAudioMinhaLista].iconeAudio = 'ico-mais';
-                console.log('idaudio: ', _this.indexAudioMinhaLista);
-                console.log('icone qual: ', _this.relAudios[_this.indexAudioMinhaLista].iconeAudio);
-            }
-            _this.Storage.set("MinhaListaAudios", data).then(function () { });
         });
+    };
+    Audios2Page.prototype.getIconFav = function (idAudio) {
+        var filteredAudio = this.minhaListaAudio.filter(function (audio) { return audio.idaudio == idAudio; });
+        if (filteredAudio.length > 0) {
+            return 'ico-correto';
+        }
+        else {
+            return 'ico-mais';
+        }
     };
     Audios2Page.prototype.ClassficarAudio = function (item) {
         var _this = this;
@@ -10692,7 +10694,7 @@ var Audios2Page = /** @class */ (function () {
                 added = 1;
             }
             else {
-                var _loop_4 = function (i) {
+                var _loop_3 = function (i) {
                     if (item.idaudio == data[i].idaudio) {
                         _this.toastCtrl.create({
                             message: "Você desmarcou o gostei nesse áudio!",
@@ -10706,7 +10708,7 @@ var Audios2Page = /** @class */ (function () {
                     }
                 };
                 for (var i = 0; i < data.length; i++) {
-                    _loop_4(i);
+                    _loop_3(i);
                 }
             }
             if (added == 0) {
@@ -10782,7 +10784,7 @@ var Audios2Page = /** @class */ (function () {
     };
     Audios2Page = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-audios2',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-row>\n\n    <ion-col col-5>\n\n      <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg">\n\n    </ion-col>\n\n    <ion-col col-7>\n\n      <h2 class="albumTitulo">{{ itemAlbum.Titulo }}</h2>\n\n      <h6 class="albumSubtitulo">{{ itemAlbum.Subtitulo }}</h6>\n\n      <div class="albumDesc" [innerHTML]="itemAlbum.Descricao"></div>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row nomargin nopadding style="margin:0px; padding:0px;">\n\n    <ion-col col-12 text-center>\n\n      <ion-card-content nomargin nopadding style="margin:0px; padding:0px;">\n\n        <div class="icone-livros-down" (click)="AddMinhaLista(itemAlbum)">\n\n          <img src="assets/imgs/{{ icone }}.png">\n\n          <p>Minha Lista</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="ClassficarAlbum(itemAlbum)">\n\n          <img src="assets/imgs/ico-curtir.jpg">\n\n          <p>{{ icoCurtir }}</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="regularShare(itemAlbum.Titulo, \'PROGETTO APP\', \'http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg\', \'app://br.com.hjweb.appprogetto\')">\n\n          <img src="assets/imgs/ico-compartilhar.jpg">\n\n          <p>Compartilhar</p>\n\n        </div>\n\n        <div class="icone-livros-down">\n\n          <img src="assets/imgs/ico-baixar-off.jpg">\n\n          <p style="color:#e6e6e6">Off-line</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="abrirModalLoja(itemAlbum)">\n\n          <img src="assets/imgs/ico-carrinho.jpg">\n\n          <p>Comprar CD</p>\n\n        </div>\n\n      </ion-card-content>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row style="margin-top: -20px;">\n\n    <ion-col col-6 text-center>\n\n      <img src="assets/imgs/{{iconPlay}}-maior.jpg" (click)="tooglePlay()">\n\n    </ion-col>\n\n    <ion-col col-6>\n\n      <img src="assets/imgs/musica-aleatorio-maior.jpg" (click)="random()">\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">\n\n    <ion-row>\n\n      <ion-col col-2>\n\n        <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg"\n\n          width="100%">\n\n      </ion-col>\n\n      <ion-col col-8 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n        <ion-list class="listItem">\n\n          <ion-item class="listItem">\n\n            <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>\n\n            <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}\n\n              <Br>\n\n              <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>\n\n            </h2>\n\n          </ion-item>\n\n        </ion-list>\n\n      </ion-col>\n\n      <ion-col col-2 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n        <div style="max-width: 50%; float: left; padding: 5px;" (click)="AddMinhaListaAudio(item, item.idaudio)">\n\n          <img src="assets/imgs/{{ iconeAudio }}.png">\n\n        </div>\n\n        <div style="max-width: 50%; float: left; padding: 5px;" (click)="ClassficarAudio(item)">\n\n          <img src="assets/imgs/ico-curtir.jpg">\n\n        </div>\n\n        <div style="width: 100%; float: left;">\n\n          <p (click)="startAudio(item, i)">{{item.Tempo}}</p>\n\n        </div>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-card>\n\n\n\n  <br>\n\n  <br>\n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n  <ion-grid class="div_player">\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <!-- <input type="range" min="0" max="{{totalMedia}}" [(ngModel)]="position" (change)="refreshPosition()">  -->\n\n        <ion-range class="randNedo" min="0" max="{{totalMedia}}" [(ngModel)]="position" (ionChange)="refreshPosition()">\n\n        </ion-range>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">\n\n      </ion-col>\n\n      <ion-col col-8 class="player_texto_musica">\n\n        Abertura\n\n        <span class="span_texto">- Antonio Meneghetti</span>\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/back.jpg" class="imgControl" (click)="back()">\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/{{iconPlay}}.jpg" class="imgControl" (click)="tooglePlay()">\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/next.jpg" class="imgControl" (click)="next()">\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/,
+            selector: 'page-audios2',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-row>\n\n    <ion-col col-5>\n\n      <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg">\n\n    </ion-col>\n\n    <ion-col col-7>\n\n      <h2 class="albumTitulo">{{ itemAlbum.Titulo }}</h2>\n\n      <h6 class="albumSubtitulo">{{ itemAlbum.Subtitulo }}</h6>\n\n      <div class="albumDesc" [innerHTML]="itemAlbum.Descricao"></div>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row nomargin nopadding style="margin:0px; padding:0px;">\n\n    <ion-col col-12 text-center>\n\n      <ion-card-content nomargin nopadding style="margin:0px; padding:0px;">\n\n        <div class="icone-livros-down" (click)="AddMinhaLista(itemAlbum)">\n\n          <img src="assets/imgs/{{ icone }}.png">\n\n          <p>Minha Lista</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="ClassficarAlbum(itemAlbum)">\n\n          <img src="assets/imgs/ico-curtir.jpg">\n\n          <p>{{ icoCurtir }}</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="regularShare(itemAlbum.Titulo, \'PROGETTO APP\', \'http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg\', \'app://br.com.hjweb.appprogetto\')">\n\n          <img src="assets/imgs/ico-compartilhar.jpg">\n\n          <p>Compartilhar</p>\n\n        </div>\n\n        <div class="icone-livros-down">\n\n          <img src="assets/imgs/ico-baixar-off.jpg">\n\n          <p style="color:#e6e6e6">Off-line</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="abrirModalLoja(itemAlbum)">\n\n          <img src="assets/imgs/ico-carrinho.jpg">\n\n          <p>Comprar CD</p>\n\n        </div>\n\n      </ion-card-content>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row style="margin-top: -20px;">\n\n    <ion-col col-6 text-center>\n\n      <img src="assets/imgs/{{iconPlay}}-maior.jpg" (click)="tooglePlay()">\n\n    </ion-col>\n\n    <ion-col col-6>\n\n      <img src="assets/imgs/musica-aleatorio-maior.jpg" (click)="random()">\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">\n\n    <ion-row>\n\n      <ion-col col-2>\n\n        <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg"\n\n          width="100%">\n\n      </ion-col>\n\n      <ion-col col-8 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n        <ion-list class="listItem">\n\n          <ion-item class="listItem">\n\n            <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>\n\n            <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}\n\n              <Br>\n\n              <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>\n\n            </h2>\n\n          </ion-item>\n\n        </ion-list>\n\n      </ion-col>\n\n      <ion-col col-2 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n        <div style="max-width: 50%; float: left; padding: 5px;" (click)="AddMinhaListaAudio(item, item.idaudio)">\n\n          <img src="assets/imgs/{{ getIconFav(item.idaudio) }}.png">\n\n        </div>\n\n        <div style="max-width: 50%; float: left; padding: 5px;" (click)="ClassficarAudio(item)">\n\n          <img src="assets/imgs/ico-curtir.jpg">\n\n        </div>\n\n        <div style="width: 100%; float: left;">\n\n          <p (click)="startAudio(item, i)">{{item.Tempo}}</p>\n\n        </div>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-card>\n\n\n\n  <br>\n\n  <br>\n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n  <ion-grid class="div_player">\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <!-- <input type="range" min="0" max="{{totalMedia}}" [(ngModel)]="position" (change)="refreshPosition()">  -->\n\n        <ion-range class="randNedo" min="0" max="{{totalMedia}}" [(ngModel)]="position" (ionChange)="refreshPosition()">\n\n        </ion-range>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">\n\n      </ion-col>\n\n      <ion-col col-8 class="player_texto_musica">\n\n        {{audioInfo}}\n\n        <span class="span_texto">- {{artistaInfo}}</span>\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/back.jpg" class="imgControl" (click)="back()">\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/{{iconPlay}}.jpg" class="imgControl" (click)="tooglePlay()">\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/next.jpg" class="imgControl" (click)="next()">\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _j || Object])
     ], Audios2Page);

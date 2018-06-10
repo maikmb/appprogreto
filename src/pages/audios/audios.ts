@@ -63,7 +63,7 @@ export class AudiosPage {
   }
   
   startAudio(item: string) {
-    this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + item['arquivo_audio'];   
+    this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + item['arquivo_audio'];   
     this.audioPlayer.nativeElement.src = this.audio;
     this.audioPlayer.nativeElement.load();
 

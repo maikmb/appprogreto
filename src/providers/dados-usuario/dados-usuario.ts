@@ -81,7 +81,6 @@ export class DadosUsuarioProvider {
   getAudios() {
     return this.http.get(this.api + 'lista_audios.php').map(res=>res.json())
   }
-
   // LOJA
   getCds_dvs() {
     return this.http.get(this.api + 'lista_cds_dvs.php').map(res=>res.json())

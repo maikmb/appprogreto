@@ -46,11 +46,14 @@ export class Audios2Page {
   iconeAudio: string = 'ico-mais';
 
   indexAudioMinhaLista = 0;
+  minhaListaAudio: any;
 
   relAudios: any;
   position = 0;
   oldPosition = 0;
   iconPlay = 'play';
+  audioInfo: string = "--";
+  artistaInfo: string = "--";
 
 
   constructor(
@@ -65,11 +68,9 @@ export class Audios2Page {
     public audioService: AudioServiceProvider
   ) {
 
-    this.audioService.changePositionObservable.subscribe(
-      value => {
-        this.audioService.audioPlayer.nativeElement.currentTime = value;
-      }
-    )
+    this.Storage.get("MinhaListaAudios").then((data) => this.minhaListaAudio = data);
+    this.audioService.changePositionObservable
+      .subscribe(value => this.audioService.audioPlayer.nativeElement.currentTime = value);
 
     this.getAlbum();
     this.getAudios();
@@ -83,13 +84,10 @@ export class Audios2Page {
         this.teste = data;
 
         if (data == null || data == false || data.length == 0) {
-
           //this.showEmptCartMessage= true;   
 
         } else {
-
           this.teste.forEach((item, index) => {
-
             if (this.item['idalbum'] == item['idalbum']) {
               nedo = 1;
             }
@@ -254,11 +252,14 @@ export class Audios2Page {
       console.log(this.position);
 
       this.audioService.emitPosition(this.position);
-      if (this.position >= this.audioService.totalMedia) {
+      if (this.audioService.totalMedia > 0) {
+        if (this.position >= this.audioService.totalMedia) {
 
-        console.log(this.position + ' - ' + this.audioService.totalMedia);
-        this.executeNextAudio();
+          debugger;
+          console.log(this.position + ' - ' + this.audioService.totalMedia);
+          this.executeNextAudio();
 
+        }
       }
     });
   }
@@ -268,19 +269,19 @@ export class Audios2Page {
   }
 
   executeNextAudio() {
+    debugger;
     this.unsubscribePlayer();
 
     setTimeout(() => {
       this.relAudios[this.audioService.indexAudio].iconplay = 'play';
       this.audioService.indexAudio++
 
-      if (this.audioService.indexAudio > this.relAudios.length - 1) {
+      if (this.audioService.indexAudio == (this.relAudios.length - 1)) {
         this.audioService.indexAudio = 0;
       }
 
       this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
-
-      this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
+      this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
       this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
       this.audioPlay();
     }, 200);
@@ -295,7 +296,7 @@ export class Audios2Page {
 
     this.toogleIconPlayList();
 
-    this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
+    this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
     this.audioPlay();
@@ -311,7 +312,7 @@ export class Audios2Page {
 
     this.toogleIconPlayList();
 
-    this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
+    this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
     this.audioPlay();
@@ -326,7 +327,7 @@ export class Audios2Page {
 
     this.toogleIconPlayList();
 
-    this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
+    this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
     this.audioPlay();
@@ -351,7 +352,7 @@ export class Audios2Page {
 
     if (!this.audioService.audio) {
       if (this.relAudios.length > 0) {
-        this.audioService.audio = 'http://redeplaneje.com.br/app/arquivos/r/audios/' + this.relAudios[0].arquivo_audio;
+        this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[0].arquivo_audio;
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
         //this.audioService.audioPlayer.nativeElement.load();
       }
@@ -400,7 +401,6 @@ export class Audios2Page {
   }
 
   loadExecutingAudio() {
-    debugger;
     if (this.audioService.isExecuting()) {
       this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
       this.iconPlay = "pause"
@@ -411,18 +411,26 @@ export class Audios2Page {
   startAudio(item, index) {
 
     debugger;
+    //Verifica se o audio atual está executando a para a execução
     if (this.audioService.isExecuting() && this.audioService.isExecutingIndex(index)) {
       item.iconplay = 'play';
       this.iconPlay = 'play'
       this.unsubscribePlayer();
       this.audioService.audioPlayer.nativeElement.pause();
+      this.audioService.totalMedia = 0;
+      this.audioInfo = "--";
+      this.artistaInfo = "--";
       return;
     }
 
+    this.audioInfo = item.audio;
+    this.artistaInfo = item.artista;
+
+    console.log('Musica Selecionada', item);
     this.toogleIconPlayList();
     this.audioService.indexAudio = index;
 
-    this.audioService.audio = 'http://redeplaneje.com.br/midias/r/audios/' + item['arquivo_audio'];
+    this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.audioService.audioPlayer.nativeElement.load();
 
@@ -470,31 +478,19 @@ export class Audios2Page {
         });
 
         added = 1;
-
       } else {
-
         for (let i = 0; i < data.length; i++) {
-
           if (item.idalbum == data[i].idalbum) {
-
             const query = data.find(item => item.idalbum === data[i].idalbum);
-
             const toremove = data.indexOf(query);
-
             data.splice(toremove, 1);
-
             added = 1;
-
           }
-
         }
-
       }
 
       if (added == 0) {
-
         this.icone = 'ico-correto';
-
         data.push({
           "idalbum": item.idalbum,
           "Titulo": item.Titulo,
@@ -511,7 +507,6 @@ export class Audios2Page {
       }
 
       if (added == 1) { this.icone = 'ico-mais'; }
-
       this.Storage.set("MinhaListaAlbum", data).then(() => { });
 
     });
@@ -520,55 +515,36 @@ export class Audios2Page {
   ClassficarAlbum(item) {
 
     let added = 0;
-
     this.Storage.get("ClassficarAlbum").then((data) => {
-
       if (data == null || data.length == 0) {
-
         data = [];
-
         data.push({
           "idalbum": item.idalbum
         });
-
         added = 1;
-
       } else {
-
         for (let i = 0; i < data.length; i++) {
-
           if (item.idalbum == data[i].idalbum) {
-
             this.toastCtrl.create({
               message: "Você desmarcou o gostei nesse álbum!",
               duration: 2000,
               position: 'middle',
             }).present();
-
             const query = data.find(item => item.idalbum === data[i].idalbum);
-
             const toremove = data.indexOf(query);
-
             data.splice(toremove, 1);
-
             added = 1;
-
           }
-
         }
-
       }
 
       if (added == 0) {
-
         data.push({
           "idalbum": item.idalbum
         });
-
       }
 
       if (added == 1) {
-
         this.icoCurtir = 'Curtir';
 
         //ENVIA O INSERT
@@ -607,60 +583,35 @@ export class Audios2Page {
   }
 
   AddMinhaListaAudio(item, index) {
-
+    let indexToRemove = 0;
     this.indexAudioMinhaLista = index;
-
-    let added = 0;
-
     this.Storage.get("MinhaListaAudios").then((data) => {
 
-      if (data == null || data.length == 0) {
-
+      debugger;
+      if (data == null || data == undefined) {
         data = [];
+      }
 
-        data.push({
-          "idaudio": item.idaudio,
-          "arquivo_audio": item.arquivo_audio,
-          "idalbum": item.idalbum,
-          "audio": item.audio,
-          "artista": item.artista,
-          "iconplay": item.iconplay,
-          "color": item.color,
-          "Tempo": item.tempo,
-          "Ativo": item.Ativo
+      var filteredAudio = data.filter((audio, idx) => {
+        if (audio.idaudio == item.idaudio) {
+          indexToRemove = idx;
+          return true;
+        }
+        return false;
+      });
+
+      if (filteredAudio.length > 0) {
+        data.splice(indexToRemove, 1);
+        this.minhaListaAudio = data;
+        this.Storage.set("MinhaListaAudios", data).then(data => {
+          const toast = this.toastCtrl.create({
+            message: 'Música removida de sua lista!',
+            duration: 3000
+          });
+          toast.present();
         });
-
-        added = 1;
 
       } else {
-
-        for (let i = 0; i < data.length; i++) {
-
-          if (item.idaudio == data[i].idaudio) {
-
-            const query = data.find(item => item.idaudio === data[i].idaudio);
-
-            const toremove = data.indexOf(query);
-
-            data.splice(toremove, 1);
-
-            added = 1;
-
-          }
-
-        }
-
-      }
-
-      if (added == 0) {
-        if (this.iconeAudio == null) {
-          console.log('aaa', this.iconeAudio);
-        }
-        //this.iconeAudio = 'ico-correto';
-        this.relAudios[this.indexAudioMinhaLista].iconeAudio = 'ico-correto';
-        console.log('idaudio: ', this.indexAudioMinhaLista);
-        console.log('icone qual: ', this.relAudios[this.indexAudioMinhaLista].iconeAudio);
-
         data.push({
           "idaudio": item.idaudio,
           "arquivo_audio": item.arquivo_audio,
@@ -673,34 +624,33 @@ export class Audios2Page {
           "Ativo": item.Ativo
         });
 
+        this.minhaListaAudio = data;
+        this.Storage.set("MinhaListaAudios", data).then(data => {
+          const toast = this.toastCtrl.create({
+            message: 'Música salva em sua lista!',
+            duration: 3000
+          });
+          toast.present();
+        });
       }
-
-      if (added == 1) {
-        if (this.iconeAudio == null) {
-          console.log('bbb', this.iconeAudio);
-        }
-        //this.iconeAudio = 'ico-mais';
-        this.relAudios[this.indexAudioMinhaLista].iconeAudio = 'ico-mais';
-        console.log('idaudio: ', this.indexAudioMinhaLista);
-        console.log('icone qual: ', this.relAudios[this.indexAudioMinhaLista].iconeAudio);
-
-      }
-
-      this.Storage.set("MinhaListaAudios", data).then(() => { });
-
     });
+  }
+
+  getIconFav(idAudio) {
+    var filteredAudio = this.minhaListaAudio.filter((audio) => audio.idaudio == idAudio)
+    if (filteredAudio.length > 0) {
+      return 'ico-correto';
+    } else {
+      return 'ico-mais';
+    }
   }
 
   ClassficarAudio(item) {
 
     let added = 0;
-
     this.Storage.get("ClassficarAudios").then((data) => {
-
       if (data == null || data.length == 0) {
-
         data = [];
-
         this.toastCtrl.create({
           message: "Você marcou o gostei nesse áudio!",
           duration: 2000,
@@ -726,11 +676,8 @@ export class Audios2Page {
             }).present();
 
             const query = data.find(item => item.idaudio === data[i].idaudio);
-
             const toremove = data.indexOf(query);
-
             data.splice(toremove, 1);
-
             added = 1;
 
           }
@@ -740,7 +687,6 @@ export class Audios2Page {
       }
 
       if (added == 0) {
-
         data.push({
           "idaudio": item.idaudio
         });

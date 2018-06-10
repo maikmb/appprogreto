@@ -85,7 +85,7 @@
       </ion-col>
       <ion-col col-2 style="border: 0px; border-bottom: 1px solid #ebebeb;">
         <div style="max-width: 50%; float: left; padding: 5px;" (click)="AddMinhaListaAudio(item, item.idaudio)">
-          <img src="assets/imgs/{{ iconeAudio }}.png">
+          <img src="assets/imgs/{{ getIconFav(item.idaudio) }}.png">
         </div>
         <div style="max-width: 50%; float: left; padding: 5px;" (click)="ClassficarAudio(item)">
           <img src="assets/imgs/ico-curtir.jpg">
@@ -115,8 +115,8 @@
         <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">
       </ion-col>
       <ion-col col-8 class="player_texto_musica">
-        Abertura
-        <span class="span_texto">- Antonio Meneghetti</span>
+        {{audioInfo}}
+        <span class="span_texto">- {{artistaInfo}}</span>
       </ion-col>
       <ion-col col-1>
         <img src="assets/imgs/back.jpg" class="imgControl" (click)="back()">

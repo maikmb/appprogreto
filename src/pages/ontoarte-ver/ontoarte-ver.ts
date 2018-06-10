@@ -94,7 +94,7 @@ export class OntoarteVerPage {
       
       this.relAudios[this.indexAudio].iconplay = 'pause';
 
-      this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
+      this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
       this.audioPlayer.nativeElement.src = this.audio;      
       this.audioPlay();      
     }, 200);
@@ -109,7 +109,7 @@ export class OntoarteVerPage {
   
     this.toogleIconPlayList();
     
-    this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
+    this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
     this.audioPlayer.nativeElement.src = this.audio;
     this.relAudios[this.indexAudio].iconplay = 'pause';
     this.audioPlay();
@@ -125,7 +125,7 @@ export class OntoarteVerPage {
   
     this.toogleIconPlayList();
 
-    this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
+    this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
     this.audioPlayer.nativeElement.src = this.audio;
     this.relAudios[this.indexAudio].iconplay = 'pause';
     this.audioPlay();
@@ -140,7 +140,7 @@ export class OntoarteVerPage {
 
     this.toogleIconPlayList();
     
-    this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
+    this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.indexAudio].arquivo_audio;   
     this.audioPlayer.nativeElement.src = this.audio;
     this.relAudios[this.indexAudio].iconplay = 'pause';
     this.audioPlay();
@@ -164,7 +164,7 @@ export class OntoarteVerPage {
   
     if (!this.audio) {
       if (this.relAudios.length > 0) {
-        this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + this.relAudios[0].arquivo_audio;   
+        this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[0].arquivo_audio;   
         this.audioPlayer.nativeElement.src = this.audio;
         //this.audioPlayer.nativeElement.load();
       }
@@ -215,7 +215,7 @@ export class OntoarteVerPage {
     item.iconplay = 'pause';
     this.indexAudio = index;
 
-    this.audio = 'http://redeplaneje.com.br/midias/r/audios/' + item['arquivo_audio'];   
+    this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + item['arquivo_audio'];   
     this.audioPlayer.nativeElement.src = this.audio;
     this.audioPlayer.nativeElement.load();
     
