@@ -7,10 +7,10 @@ webpackJsonp([1],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventos_antigos_eventos_antigos__ = __webpack_require__(384);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventos_ver_eventos_ver__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventos_antigos_eventos_antigos__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventos_ver_eventos_ver__ = __webpack_require__(388);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -252,13 +252,13 @@ var DadosUsuarioProvider = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__esqueceu_senha_esqueceu_senha__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__cadastro_usuario_cadastro_usuario__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__esqueceu_senha_esqueceu_senha__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__cadastro_usuario_cadastro_usuario__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -419,6 +419,96 @@ var LoginPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 113:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaListaOntoartePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__audios2_audios2__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__editar_minha_ontoarte_editar_minha_ontoarte__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__minha_lista_audio_ontoarte_minha_lista_audio_ontoarte__ = __webpack_require__(397);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var MinhaListaOntoartePage = /** @class */ (function () {
+    function MinhaListaOntoartePage(loadingCtrl, modalCtrl, Storage, navCtrl, navParams, alertCtrl) {
+        this.loadingCtrl = loadingCtrl;
+        this.modalCtrl = modalCtrl;
+        this.Storage = Storage;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
+        this.data = {};
+        this.item = [];
+        this.MinhaListaItens = [];
+        this.ListaItens = [];
+        this.getDados();
+    }
+    MinhaListaOntoartePage.prototype.getDados = function () {
+        var _this = this;
+        this.Storage.ready().then(function () {
+            _this.Storage.get("MinhaListaAlbum").then(function (data) {
+                _this.MinhaListaItens = data;
+                console.log(_this.MinhaListaItens);
+                if (data == null || data.length == 0) {
+                    //this.showEmptCartMessage= true;   
+                }
+                else {
+                    _this.MinhaListaItens.forEach(function (item, index) {
+                        _this.ListaItens = item;
+                    });
+                }
+                /*
+                if(this.LivrosItens.length > 0){
+                  this.LivrosItens.forEach( (item, index)=>{
+                    this.total = this.total + (item.product.price * item.qty);
+                  })
+                } else {
+                  this.showEmptCartMessage= true;
+                }
+                */
+            });
+        });
+    };
+    MinhaListaOntoartePage.prototype.abriMinhaLista = function (item) {
+        console.log(item);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__audios2_audios2__["a" /* Audios2Page */], { item: item });
+    };
+    MinhaListaOntoartePage.prototype.abrirMinhaListaAudio = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__minha_lista_audio_ontoarte_minha_lista_audio_ontoarte__["a" /* MinhaListaAudioOntoartePage */]);
+    };
+    MinhaListaOntoartePage.prototype.AbrirEditarOntoarte = function () {
+        this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__editar_minha_ontoarte_editar_minha_ontoarte__["a" /* EditarMinhaOntoartePage */]).present();
+    };
+    MinhaListaOntoartePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-minha-lista-ontoarte',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\minha-lista-ontoarte\minha-lista-ontoarte.html"*/'<ion-header>\n\n    <ion-navbar>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <h2 class="meu-progeto-titulo">Minha Lista</h2>   \n\n      <div class="editar" (click)="AbrirEditarOntoarte()">\n\n        Editar\n\n      </div>\n\n      <div class="editar-img" (click)="AbrirEditarOntoarte()">\n\n        <img src="assets/imgs/ico-mais.png">\n\n      </div>    \n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n\n\n  <ion-card class="card-eventos">    \n\n      <p class="btn-novo action_evento">\n\n        Álbuns\n\n      </p>\n\n      <p class="btn-novo" (click)="abrirMinhaListaAudio()">\n\n        Áudios\n\n      </p>      \n\n    </ion-card>\n\n    <ion-card class="novidades-card">\n\n        <ion-row padding>\n\n          <ion-col col-12>\n\n            <div *ngFor= "let item of MinhaListaItens" (click)="abriMinhaLista(item)" style="max-width: 30%; margin-top: 20px; margin-right: 1%; margin-left: 1%; float:left;">\n\n              <ng-container *ngIf="item.idalbum != 0">\n\n                <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/{{ item.Pasta }}/{{ item.Img }}_400.jpg" >\n\n                <h2 class="titulo">{{ item.Titulo }}</h2>\n\n              </ng-container>\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\minha-lista-ontoarte\minha-lista-ontoarte.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object])
+    ], MinhaListaOntoartePage);
+    return MinhaListaOntoartePage;
+    var _a, _b, _c, _d, _e, _f;
+}());
+
+//# sourceMappingURL=minha-lista-ontoarte.js.map
+
+/***/ }),
+
 /***/ 12:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -426,9 +516,9 @@ var LoginPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OntoartePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__audios2_audios2__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__audios2_audios2__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__videos_videos__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__titulos_titulos__ = __webpack_require__(16);
@@ -591,7 +681,7 @@ var OntoartePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pl_lista_pl_lista__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__titulos_titulos__ = __webpack_require__(16);
@@ -750,7 +840,7 @@ var RevistaPlPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__livros_livros__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__titulos_titulos__ = __webpack_require__(16);
@@ -990,7 +1080,7 @@ var AreaUsuarioRestritaPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__videos_videos__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__revista_pl_revista_pl__ = __webpack_require__(13);
@@ -1141,15 +1231,15 @@ var TitulosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 177:
+/***/ 178:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AovivoArquivoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__aovivo_proximas_aovivo_proximas__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__aovivo_proximas_aovivo_proximas__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -1270,16 +1360,16 @@ var AovivoArquivoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 178:
+/***/ 179:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AovivoProximasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__aovivo_arquivo_aovivo_arquivo__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__aovivo_arquivo_aovivo_arquivo__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1356,18 +1446,18 @@ var AovivoProximasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 179:
+/***/ 180:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventosFormPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_social_sharing__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_paypal__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_paypal__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -1567,7 +1657,7 @@ var EventosFormPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 181:
+/***/ 182:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1576,7 +1666,7 @@ var EventosFormPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__titulos_titulos__ = __webpack_require__(16);
@@ -1796,17 +1886,20 @@ var OntoarteVerPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-ontoarte-ver',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\ontoarte-ver\ontoarte-ver.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n    <ion-card class="novidades-card">\n\n        <ion-card-content>\n\n          <h2 class="video-card-titulo">\n\n              {{ item.titulo }}\n\n          </h2> \n\n        </ion-card-content>\n\n    </ion-card>\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer">\n\n        <ion-badge item-end color="danger" class="menu-footer-bola">4</ion-badge>\n\n        <img src="assets/imgs/ico-menu-footer-novidades.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Novidades\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">   \n\n        <p class="menu_footer_texto" (click)="abrirPaginaPublicacoes()">\n\n          Publicações\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">     \n\n        <p class="menu_footer_texto" (click)="abrirPaginaPl()">\n\n          Líder\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">   \n\n        <p class="menu_footer_texto" (click)="abrirPaginaTitulos()">\n\n          Aulas\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaOntoarte()">\n\n            Músicas\n\n        </p>          \n\n    </div>       \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\ontoarte-ver\ontoarte-ver.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
     ], OntoarteVerPage);
     return OntoarteVerPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=ontoarte-ver.js.map
 
 /***/ }),
 
-/***/ 182:
+/***/ 183:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1898,18 +1991,18 @@ var DicionarioVerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 183:
+/***/ 184:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CadastroUsuarioPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__planos_planos__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pagamento_entrega_pagamento_entrega__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__planos_planos__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pagamento_entrega_pagamento_entrega__ = __webpack_require__(394);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2094,14 +2187,14 @@ var CadastroUsuarioPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 184:
+/***/ 185:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaListaPublicacoesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventos_eventos__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
@@ -2112,7 +2205,7 @@ var CadastroUsuarioPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__livros_livros__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__editar_minha_lista_publicacoes_editar_minha_lista_publicacoes__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__editar_minha_lista_publicacoes_editar_minha_lista_publicacoes__ = __webpack_require__(395);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2223,7 +2316,7 @@ var MinhaListaPublicacoesPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 185:
+/***/ 186:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2231,8 +2324,8 @@ var MinhaListaPublicacoesPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pl_lista_pl_lista__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__editar_minha_pl_editar_minha_pl__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__editar_minha_pl_editar_minha_pl__ = __webpack_require__(396);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2308,16 +2401,16 @@ var MinhaListaPlPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 186:
+/***/ 187:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaListaOntoartePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditarMinhaOntoartePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__audios2_audios2__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__editar_minha_ontoarte_editar_minha_ontoarte__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__minha_lista_ontoarte_minha_lista_ontoarte__ = __webpack_require__(113);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2332,80 +2425,78 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var MinhaListaOntoartePage = /** @class */ (function () {
-    function MinhaListaOntoartePage(loadingCtrl, modalCtrl, Storage, navCtrl, navParams, alertCtrl) {
-        this.loadingCtrl = loadingCtrl;
-        this.modalCtrl = modalCtrl;
-        this.Storage = Storage;
+var EditarMinhaOntoartePage = /** @class */ (function () {
+    function EditarMinhaOntoartePage(navCtrl, navParams, storage, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.storage = storage;
         this.alertCtrl = alertCtrl;
-        this.data = {};
-        this.item = [];
-        this.MinhaListaItens = [];
-        this.ListaItens = [];
-        this.getDados();
+        this.minhaLista = [];
     }
-    MinhaListaOntoartePage.prototype.getDados = function () {
+    EditarMinhaOntoartePage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.Storage.ready().then(function () {
-            _this.Storage.get("MinhaListaAlbum").then(function (data) {
-                _this.MinhaListaItens = data;
-                console.log(_this.MinhaListaItens);
-                if (data == null || data.length == 0) {
-                    //this.showEmptCartMessage= true;   
-                }
-                else {
-                    _this.MinhaListaItens.forEach(function (item, index) {
-                        _this.ListaItens = item;
-                    });
-                }
-                /*
-                if(this.LivrosItens.length > 0){
-                  this.LivrosItens.forEach( (item, index)=>{
-                    this.total = this.total + (item.product.price * item.qty);
-                  })
-                } else {
-                  this.showEmptCartMessage= true;
-                }
-                */
-            });
+        this.storage.get('MinhaListaAlbum').then(function (val) {
+            _this.minhaLista = val;
         });
     };
-    MinhaListaOntoartePage.prototype.abriMinhaLista = function (item) {
-        console.log(item);
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__audios2_audios2__["a" /* Audios2Page */], { item: item });
+    EditarMinhaOntoartePage.prototype.apagar_publicacao = function (item) {
+        var index = this.minhaLista.findIndex(function (it, i) {
+            return it.idalbum === item['idalbum'];
+        });
+        this.minhaLista.splice(index, 1);
+        this.storage.set('MinhaListaAlbum', this.minhaLista);
+        console.log(this.minhaLista);
     };
-    MinhaListaOntoartePage.prototype.abrirMinhaListaAlbuns = function () {
-        //this.navCtrl.setRoot(MinhaListaAlbunsPage);
+    EditarMinhaOntoartePage.prototype.showConfirm = function (item) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Alerta ...',
+            message: 'Deseja realmente remover?',
+            buttons: [
+                {
+                    text: 'SIM',
+                    handler: function () {
+                        _this.apagar_publicacao(item);
+                    }
+                },
+                {
+                    text: 'Não',
+                    handler: function () {
+                        console.log('Agree clicked');
+                    }
+                }
+            ]
+        });
+        confirm.present();
     };
-    MinhaListaOntoartePage.prototype.AbrirEditarOntoarte = function () {
-        this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__editar_minha_ontoarte_editar_minha_ontoarte__["a" /* EditarMinhaOntoartePage */]).present();
+    EditarMinhaOntoartePage.prototype.voltar = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__["a" /* MinhaListaPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__minha_lista_ontoarte_minha_lista_ontoarte__["a" /* MinhaListaOntoartePage */]);
     };
-    MinhaListaOntoartePage = __decorate([
+    EditarMinhaOntoartePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-minha-lista-ontoarte',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\minha-lista-ontoarte\minha-lista-ontoarte.html"*/'<ion-header>\n\n    <ion-navbar>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <h2 class="meu-progeto-titulo">Minha Lista</h2>   \n\n      <div class="editar" (click)="AbrirEditarOntoarte()">\n\n        Editar\n\n      </div>\n\n      <div class="editar-img" (click)="AbrirEditarOntoarte()">\n\n        <img src="assets/imgs/ico-mais.png">\n\n      </div>    \n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n\n\n  <ion-card class="card-eventos">    \n\n      <p class="btn-novo action_evento">\n\n        Álbuns\n\n      </p>\n\n      <p class="btn-novo" (click)="abrirMinhaListaAlbuns()">\n\n        Áudios\n\n      </p>      \n\n    </ion-card>\n\n    <ion-card class="novidades-card">\n\n        <ion-row padding>\n\n          <ion-col col-12>\n\n            <div *ngFor= "let item of MinhaListaItens" (click)="abriMinhaLista(item)" style="max-width: 30%; margin-top: 20px; margin-right: 1%; margin-left: 1%; float:left;">\n\n              <ng-container *ngIf="item.idalbum != 0">\n\n                <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/{{ item.Pasta }}/{{ item.Img }}_400.jpg" >\n\n                <h2 class="titulo">{{ item.Titulo }}</h2>\n\n              </ng-container>\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\minha-lista-ontoarte\minha-lista-ontoarte.html"*/,
+            selector: 'page-editar-minha-ontoarte',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\editar-minha-ontoarte\editar-minha-ontoarte.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <h2 class="meu-progeto-titulo">Minha Lista</h2>        \n\n  </ion-navbar>\n\n  <div class="btn-fechar" (click)="voltar()">X</div>\n\n</ion-header>\n\n<ion-content padding>\n\n    \n\n  <ion-card class="novidades-card">\n\n    <h2 class="titulo">\n\n      Álbuns / Músicas\n\n    </h2>   \n\n  </ion-card>\n\n  <ion-card class="novidades-card">\n\n    <div class="subtitulo">\n\n      Itens Minha Lista\n\n    </div>  \n\n    <div *ngFor="let item of minhaLista; let i = index;"> \n\n      <div *ngIf="item.idalbum != 0">\n\n        <p class="conteudo">{{item.Titulo}}\n\n        <span class="btn-fechar-lista" (click)="showConfirm(item)">X</span>\n\n      </p>\n\n      </div>\n\n    </div>\n\n  </ion-card>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\editar-minha-ontoarte\editar-minha-ontoarte.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], MinhaListaOntoartePage);
-    return MinhaListaOntoartePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditarMinhaOntoartePage);
+    return EditarMinhaOntoartePage;
 }());
 
-//# sourceMappingURL=minha-lista-ontoarte.js.map
+//# sourceMappingURL=editar-minha-ontoarte.js.map
 
 /***/ }),
 
-/***/ 187:
+/***/ 188:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaListaAulasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__videos_videos__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__editar_minha_aulas_editar_minha_aulas__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__editar_minha_aulas_editar_minha_aulas__ = __webpack_require__(398);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2481,7 +2572,7 @@ var MinhaListaAulasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 198:
+/***/ 199:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -2494,16 +2585,16 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 198;
+webpackEmptyAsyncContext.id = 199;
 
 /***/ }),
 
-/***/ 242:
+/***/ 243:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/minha-lista-audios/minha-lista-audios.module": [
-		756,
+		757,
 		0
 	]
 };
@@ -2518,12 +2609,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 242;
+webpackAsyncContext.id = 243;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 288:
+/***/ 289:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2531,7 +2622,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dicionario_modal_dicionario_modal__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dicionario_modal_dicionario_modal__ = __webpack_require__(290);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -2626,7 +2717,7 @@ var VerlivroPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 289:
+/***/ 290:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2645,7 +2736,7 @@ var VerlivroPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__eventos_eventos__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__dicionario_ver_dicionario_ver__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__dicionario_ver_dicionario_ver__ = __webpack_require__(183);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2765,7 +2856,7 @@ var DicionarioModalPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 290:
+/***/ 291:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2872,7 +2963,7 @@ var VerPlPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 384:
+/***/ 385:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2883,8 +2974,8 @@ var VerPlPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__eventos_antigos_ver_eventos_antigos_ver__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__eventos_antigos_ver_eventos_antigos_ver__ = __webpack_require__(386);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -3026,7 +3117,7 @@ var EventosAntigosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 385:
+/***/ 386:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3037,8 +3128,8 @@ var EventosAntigosPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__eventos_foto_ver_eventos_foto_ver__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__eventos_foto_ver_eventos_foto_ver__ = __webpack_require__(387);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -3165,7 +3256,7 @@ var EventosAntigosVerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 386:
+/***/ 387:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3176,7 +3267,7 @@ var EventosAntigosVerPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -3277,7 +3368,7 @@ var EventosFotoVerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 387:
+/***/ 388:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3288,9 +3379,9 @@ var EventosFotoVerPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__eventos_form_eventos_form__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__evento_info_ver_evento_info_ver__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__eventos_form_eventos_form__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__evento_info_ver_evento_info_ver__ = __webpack_require__(389);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -3401,7 +3492,7 @@ var EventosVerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 388:
+/***/ 389:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3412,8 +3503,8 @@ var EventosVerPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__eventos_form_eventos_form__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__eventos_form_eventos_form__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -3525,7 +3616,7 @@ var EventoInfoVerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 389:
+/***/ 390:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3536,9 +3627,9 @@ var EventoInfoVerPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__carrinho_carrinho__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_revista_loja_revista__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_revista_loja_revista__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__loja_modal_loja_modal__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3605,14 +3696,14 @@ var LojaVerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 390:
+/***/ 391:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComentariosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
@@ -3732,12 +3823,12 @@ var ComentariosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 391:
+/***/ 392:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EsqueceuSenhaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
@@ -3842,14 +3933,14 @@ var EsqueceuSenhaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 392:
+/***/ 393:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlanosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3917,14 +4008,14 @@ var PlanosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 393:
+/***/ 394:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PagamentoEntregaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4008,16 +4099,16 @@ var PagamentoEntregaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 394:
+/***/ 395:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditarMinhaListaPublicacoesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__minha_lista_publicacoes_minha_lista_publicacoes__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__minha_lista_publicacoes_minha_lista_publicacoes__ = __webpack_require__(185);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4094,16 +4185,16 @@ var EditarMinhaListaPublicacoesPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 395:
+/***/ 396:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditarMinhaPlPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__minha_lista_pl_minha_lista_pl__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__minha_lista_pl_minha_lista_pl__ = __webpack_require__(186);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4180,16 +4271,17 @@ var EditarMinhaPlPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 396:
+/***/ 397:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditarMinhaOntoartePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaListaAudioOntoartePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__minha_lista_ontoarte_minha_lista_ontoarte__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__audios2_audios2__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__editar_minha_ontoarte_editar_minha_ontoarte__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__minha_lista_ontoarte_minha_lista_ontoarte__ = __webpack_require__(113);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4204,78 +4296,80 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var EditarMinhaOntoartePage = /** @class */ (function () {
-    function EditarMinhaOntoartePage(navCtrl, navParams, storage, alertCtrl) {
+
+var MinhaListaAudioOntoartePage = /** @class */ (function () {
+    function MinhaListaAudioOntoartePage(loadingCtrl, modalCtrl, Storage, navCtrl, navParams, alertCtrl) {
+        this.loadingCtrl = loadingCtrl;
+        this.modalCtrl = modalCtrl;
+        this.Storage = Storage;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.storage = storage;
         this.alertCtrl = alertCtrl;
-        this.minhaLista = [];
+        this.data = {};
+        this.item = [];
+        this.MinhaListaItens = [];
+        this.ListaItens = [];
+        this.getDados();
     }
-    EditarMinhaOntoartePage.prototype.ionViewDidLoad = function () {
+    MinhaListaAudioOntoartePage.prototype.getDados = function () {
         var _this = this;
-        this.storage.get('MinhaListaAlbum').then(function (val) {
-            _this.minhaLista = val;
-        });
-    };
-    EditarMinhaOntoartePage.prototype.apagar_publicacao = function (item) {
-        var index = this.minhaLista.findIndex(function (it, i) {
-            return it.idalbum === item['idalbum'];
-        });
-        this.minhaLista.splice(index, 1);
-        this.storage.set('MinhaListaAlbum', this.minhaLista);
-        console.log(this.minhaLista);
-    };
-    EditarMinhaOntoartePage.prototype.showConfirm = function (item) {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Alerta ...',
-            message: 'Deseja realmente remover?',
-            buttons: [
-                {
-                    text: 'SIM',
-                    handler: function () {
-                        _this.apagar_publicacao(item);
-                    }
-                },
-                {
-                    text: 'Não',
-                    handler: function () {
-                        console.log('Agree clicked');
-                    }
+        this.Storage.ready().then(function () {
+            _this.Storage.get("MinhaListaAlbum").then(function (data) {
+                _this.MinhaListaItens = data;
+                console.log(_this.MinhaListaItens);
+                if (data == null || data.length == 0) {
+                    //this.showEmptCartMessage= true;   
                 }
-            ]
+                else {
+                    _this.MinhaListaItens.forEach(function (item, index) {
+                        _this.ListaItens = item;
+                    });
+                }
+                /*
+                if(this.LivrosItens.length > 0){
+                  this.LivrosItens.forEach( (item, index)=>{
+                    this.total = this.total + (item.product.price * item.qty);
+                  })
+                } else {
+                  this.showEmptCartMessage= true;
+                }
+                */
+            });
         });
-        confirm.present();
     };
-    EditarMinhaOntoartePage.prototype.voltar = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__["a" /* MinhaListaPage */]);
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__minha_lista_ontoarte_minha_lista_ontoarte__["a" /* MinhaListaOntoartePage */]);
+    MinhaListaAudioOntoartePage.prototype.abriMinhaLista = function (item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__audios2_audios2__["a" /* Audios2Page */], { item: item });
     };
-    EditarMinhaOntoartePage = __decorate([
+    MinhaListaAudioOntoartePage.prototype.abrirMinhaListaAlbuns = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__minha_lista_ontoarte_minha_lista_ontoarte__["a" /* MinhaListaOntoartePage */]);
+    };
+    MinhaListaAudioOntoartePage.prototype.AbrirEditarOntoarte = function () {
+        this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__editar_minha_ontoarte_editar_minha_ontoarte__["a" /* EditarMinhaOntoartePage */]).present();
+    };
+    MinhaListaAudioOntoartePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-editar-minha-ontoarte',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\editar-minha-ontoarte\editar-minha-ontoarte.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <h2 class="meu-progeto-titulo">Minha Lista</h2>        \n\n  </ion-navbar>\n\n  <div class="btn-fechar" (click)="voltar()">X</div>\n\n</ion-header>\n\n<ion-content padding>\n\n    \n\n  <ion-card class="novidades-card">\n\n    <h2 class="titulo">\n\n      Álbuns / Músicas\n\n    </h2>   \n\n  </ion-card>\n\n  <ion-card class="novidades-card">\n\n    <div class="subtitulo">\n\n      Itens Minha Lista\n\n    </div>  \n\n    <div *ngFor="let item of minhaLista; let i = index;"> \n\n      <div *ngIf="item.idalbum != 0">\n\n        <p class="conteudo">{{item.Titulo}}\n\n        <span class="btn-fechar-lista" (click)="showConfirm(item)">X</span>\n\n      </p>\n\n      </div>\n\n    </div>\n\n  </ion-card>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\editar-minha-ontoarte\editar-minha-ontoarte.html"*/,
+            selector: 'page-minha-lista-audio-ontoarte',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\minha-lista-audio-ontoarte\minha-lista-audio-ontoarte.html"*/'<ion-header>\n\n    <ion-navbar>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <h2 class="meu-progeto-titulo">Minha Lista</h2>   \n\n      <div class="editar" (click)="AbrirEditarOntoarte()">\n\n        Editar\n\n      </div>\n\n      <div class="editar-img" (click)="AbrirEditarOntoarte()">\n\n        <img src="assets/imgs/ico-mais.png">\n\n      </div>    \n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n\n\n  <ion-card class="card-eventos">    \n\n      <p class="btn-novo" (click)="abrirMinhaListaAlbuns()">\n\n        Álbuns\n\n      </p>\n\n      <p class="btn-novo action_evento" (click)="abrirMinhaListaAlbuns()">\n\n        Áudios\n\n      </p>      \n\n    </ion-card>\n\n    <ion-card class="novidades-card">\n\n        <ion-row padding>\n\n          <ion-col col-12>\n\n            <div *ngFor= "let item of MinhaListaItens" (click)="abriMinhaLista(item)" style="max-width: 30%; margin-top: 20px; margin-right: 1%; margin-left: 1%; float:left;">\n\n              <ng-container *ngIf="item.idalbum != 0">\n\n                <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/{{ item.Pasta }}/{{ item.Img }}_400.jpg" >\n\n                <h2 class="titulo">{{ item.Titulo }}</h2>\n\n              </ng-container>\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\minha-lista-audio-ontoarte\minha-lista-audio-ontoarte.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], EditarMinhaOntoartePage);
-    return EditarMinhaOntoartePage;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object])
+    ], MinhaListaAudioOntoartePage);
+    return MinhaListaAudioOntoartePage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
-//# sourceMappingURL=editar-minha-ontoarte.js.map
+//# sourceMappingURL=minha-lista-audio-ontoarte.js.map
 
 /***/ }),
 
-/***/ 397:
+/***/ 398:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditarMinhaAulasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__minha_lista_aulas_minha_lista_aulas__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__minha_lista_aulas_minha_lista_aulas__ = __webpack_require__(188);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4352,14 +4446,14 @@ var EditarMinhaAulasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 398:
+/***/ 399:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificacoesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__titulos_titulos__ = __webpack_require__(16);
@@ -4468,7 +4562,7 @@ var NotificacoesPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 399:
+/***/ 400:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4478,8 +4572,8 @@ var NotificacoesPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dicionario_ver_dicionario_ver__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dicionario_ver_dicionario_ver__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -4632,14 +4726,14 @@ var DicionarioPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 400:
+/***/ 401:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AtendimentoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__titulos_titulos__ = __webpack_require__(16);
@@ -4750,14 +4844,14 @@ var AtendimentoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 401:
+/***/ 402:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SairPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(7);
@@ -4890,7 +4984,7 @@ var SairPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 402:
+/***/ 403:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4902,7 +4996,7 @@ var SairPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__privacidade_ver_privacidade_ver__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__privacidade_ver_privacidade_ver__ = __webpack_require__(404);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4971,7 +5065,7 @@ var PrivacidadePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 403:
+/***/ 404:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5024,14 +5118,14 @@ var PrivacidadeVerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 404:
+/***/ 405:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaContaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -5041,9 +5135,9 @@ var PrivacidadeVerPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__eventos_eventos__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__minha_conta_endereco_minha_conta_endereco__ = __webpack_require__(405);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__minha_conta_dados_minha_conta_dados__ = __webpack_require__(406);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__minha_conta_foto_minha_conta_foto__ = __webpack_require__(407);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__minha_conta_endereco_minha_conta_endereco__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__minha_conta_dados_minha_conta_dados__ = __webpack_require__(407);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__minha_conta_foto_minha_conta_foto__ = __webpack_require__(408);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5191,7 +5285,7 @@ var MinhaContaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 405:
+/***/ 406:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5229,7 +5323,7 @@ var MinhaContaEnderecoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 406:
+/***/ 407:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5267,7 +5361,7 @@ var MinhaContaDadosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 407:
+/***/ 408:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5305,7 +5399,7 @@ var MinhaContaFotoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 408:
+/***/ 409:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5386,7 +5480,7 @@ var ConfiguracoesPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 409:
+/***/ 410:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5394,7 +5488,7 @@ var ConfiguracoesPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__eventos_eventos__ = __webpack_require__(10);
@@ -5530,7 +5624,7 @@ var MeusPlanosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 410:
+/***/ 411:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5568,13 +5662,13 @@ var LojaAvisoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 411:
+/***/ 412:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(412);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(416);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(417);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -5582,7 +5676,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 416:
+/***/ 417:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5590,92 +5684,93 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(453);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(454);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_videos_videos__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_livros_livros__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_audios_audios__ = __webpack_require__(741);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_pdf_pdf__ = __webpack_require__(742);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_audios_audios__ = __webpack_require__(742);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_pdf_pdf__ = __webpack_require__(743);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_slide_slide__ = __webpack_require__(743);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_slide_slide__ = __webpack_require__(744);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_social_sharing__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_in_app_browser__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_aovivo_videos_aovivo_videos__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_ontoarte_ontoarte__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_revista_pl_revista_pl__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_titulos_livros_titulos_livros__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_verlivro_verlivro__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_verlivro_verlivro__ = __webpack_require__(289);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_pl_lista_pl_lista__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_ver_pl_ver_pl__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_ver_pl_ver_pl__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_eventos_eventos__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_loja_loja__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_loja_ver_loja_ver__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_loja_loja__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_loja_ver_loja_ver__ = __webpack_require__(390);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_minha_lista_minha_lista__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_cadastro_usuario_cadastro_usuario__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_atendimento_atendimento__ = __webpack_require__(400);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_dicionario_dicionario__ = __webpack_require__(399);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_notificacoes_notificacoes__ = __webpack_require__(398);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_ontoarte_album_ontoarte_album__ = __webpack_require__(744);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_ontoarte_ver_ontoarte_ver__ = __webpack_require__(181);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_privacidade_privacidade__ = __webpack_require__(402);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__ = __webpack_require__(401);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_dicionario_ver_dicionario_ver__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_dicionario_modal_dicionario_modal__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_eventos_antigos_eventos_antigos__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_cadastro_usuario_cadastro_usuario__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_atendimento_atendimento__ = __webpack_require__(401);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_dicionario_dicionario__ = __webpack_require__(400);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_notificacoes_notificacoes__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_ontoarte_album_ontoarte_album__ = __webpack_require__(745);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_ontoarte_ver_ontoarte_ver__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_privacidade_privacidade__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_dicionario_ver_dicionario_ver__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_dicionario_modal_dicionario_modal__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_eventos_antigos_eventos_antigos__ = __webpack_require__(385);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_audio_service_audio_service__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_minha_lista_ontoarte_minha_lista_ontoarte__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_minha_lista_aulas_minha_lista_aulas__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_minha_lista_pl_minha_lista_pl__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_minha_lista_publicacoes_minha_lista_publicacoes__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_minha_lista_ver_minha_lista_ver__ = __webpack_require__(745);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_minha_lista_ontoarte_minha_lista_ontoarte__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_minha_lista_aulas_minha_lista_aulas__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_minha_lista_pl_minha_lista_pl__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_minha_lista_publicacoes_minha_lista_publicacoes__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_minha_lista_ver_minha_lista_ver__ = __webpack_require__(746);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_loja_modal_loja_modal__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_loja_cds_loja_cds__ = __webpack_require__(746);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_loja_revista_loja_revista__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_loja_souvenirs_loja_souvenirs__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__angular_common_http__ = __webpack_require__(747);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_audios2_audios2__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_comentarios_comentarios__ = __webpack_require__(390);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_esqueceu_senha_esqueceu_senha__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__ionic_native_onesignal__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_planos_planos__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_pagamento_entrega_pagamento_entrega__ = __webpack_require__(393);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_aovivo_proximas_aovivo_proximas__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_aovivo_arquivo_aovivo_arquivo__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_notificacao_ver_notificacao_ver__ = __webpack_require__(748);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__pages_configuracoes_configuracoes__ = __webpack_require__(408);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_loja_cds_loja_cds__ = __webpack_require__(747);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_loja_revista_loja_revista__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__angular_common_http__ = __webpack_require__(748);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_audios2_audios2__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_comentarios_comentarios__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_esqueceu_senha_esqueceu_senha__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__ionic_native_onesignal__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_planos_planos__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_pagamento_entrega_pagamento_entrega__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_aovivo_proximas_aovivo_proximas__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_aovivo_arquivo_aovivo_arquivo__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_notificacao_ver_notificacao_ver__ = __webpack_require__(749);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__pages_configuracoes_configuracoes__ = __webpack_require__(409);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_eventos_ver_eventos_ver__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_eventos_antigos_ver_eventos_antigos_ver__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_editar_minha_lista_publicacoes_editar_minha_lista_publicacoes__ = __webpack_require__(394);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_aovivo_ver_aovivo_ver__ = __webpack_require__(749);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_eventos_form_eventos_form__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__pages_minha_conta_minha_conta__ = __webpack_require__(404);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__pages_mod_aulas_mod_aulas__ = __webpack_require__(750);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__pages_configuracao_configuracao__ = __webpack_require__(751);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__pages_termos_termos__ = __webpack_require__(752);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pages_eventos_foto_ver_eventos_foto_ver__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pages_evento_info_ver_evento_info_ver__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_eventos_ver_eventos_ver__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_eventos_antigos_ver_eventos_antigos_ver__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_editar_minha_lista_publicacoes_editar_minha_lista_publicacoes__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_aovivo_ver_aovivo_ver__ = __webpack_require__(750);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_eventos_form_eventos_form__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__pages_minha_conta_minha_conta__ = __webpack_require__(405);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__pages_mod_aulas_mod_aulas__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__pages_configuracao_configuracao__ = __webpack_require__(752);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__pages_termos_termos__ = __webpack_require__(753);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pages_eventos_foto_ver_eventos_foto_ver__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pages_evento_info_ver_evento_info_ver__ = __webpack_require__(389);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__pages_carrinho_carrinho__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__pages_editar_minha_ontoarte_editar_minha_ontoarte__ = __webpack_require__(396);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_editar_minha_pl_editar_minha_pl__ = __webpack_require__(395);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_editar_minha_aulas_editar_minha_aulas__ = __webpack_require__(397);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__pages_editar_minha_albuns_editar_minha_albuns__ = __webpack_require__(753);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__pages_privacidade_ver_privacidade_ver__ = __webpack_require__(403);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__ionic_native_paypal__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__pages_minhas_compras_minhas_compras__ = __webpack_require__(754);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__pages_meus_planos_meus_planos__ = __webpack_require__(409);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__pages_loja_aviso_loja_aviso__ = __webpack_require__(410);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__pages_minha_conta_dados_minha_conta_dados__ = __webpack_require__(406);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__pages_minha_conta_endereco_minha_conta_endereco__ = __webpack_require__(405);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__pages_minha_conta_foto_minha_conta_foto__ = __webpack_require__(407);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__ = __webpack_require__(755);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__pages_editar_minha_ontoarte_editar_minha_ontoarte__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_editar_minha_pl_editar_minha_pl__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_editar_minha_aulas_editar_minha_aulas__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__pages_editar_minha_albuns_editar_minha_albuns__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__pages_privacidade_ver_privacidade_ver__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__ionic_native_paypal__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__pages_minhas_compras_minhas_compras__ = __webpack_require__(755);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__pages_meus_planos_meus_planos__ = __webpack_require__(410);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__pages_loja_aviso_loja_aviso__ = __webpack_require__(411);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__pages_minha_conta_dados_minha_conta_dados__ = __webpack_require__(407);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__pages_minha_conta_endereco_minha_conta_endereco__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__pages_minha_conta_foto_minha_conta_foto__ = __webpack_require__(408);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__ = __webpack_require__(756);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__pages_minha_lista_audio_ontoarte_minha_lista_audio_ontoarte__ = __webpack_require__(397);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5705,6 +5800,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 //import { PdfViewerComponent } from 'ng2-pdf-viewer';
 //import { FileOpener } from '@ionic-native/file-opener';
+
 
 
 
@@ -5809,7 +5905,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_55__pages_esqueceu_senha_esqueceu_senha__["a" /* EsqueceuSenhaPage */], __WEBPACK_IMPORTED_MODULE_57__pages_planos_planos__["a" /* PlanosPage */], __WEBPACK_IMPORTED_MODULE_58__pages_pagamento_entrega_pagamento_entrega__["a" /* PagamentoEntregaPage */],
                 __WEBPACK_IMPORTED_MODULE_79__pages_editar_minha_albuns_editar_minha_albuns__["a" /* EditarMinhaAlbunsPage */], __WEBPACK_IMPORTED_MODULE_76__pages_editar_minha_ontoarte_editar_minha_ontoarte__["a" /* EditarMinhaOntoartePage */], __WEBPACK_IMPORTED_MODULE_78__pages_editar_minha_aulas_editar_minha_aulas__["a" /* EditarMinhaAulasPage */], __WEBPACK_IMPORTED_MODULE_77__pages_editar_minha_pl_editar_minha_pl__["a" /* EditarMinhaPlPage */],
                 __WEBPACK_IMPORTED_MODULE_75__pages_carrinho_carrinho__["a" /* CarrinhoPage */], __WEBPACK_IMPORTED_MODULE_82__pages_minhas_compras_minhas_compras__["a" /* MinhasComprasPage */], __WEBPACK_IMPORTED_MODULE_83__pages_meus_planos_meus_planos__["a" /* MeusPlanosPage */],
-                __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__["a" /* AudioPlayerPage */]
+                __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__["a" /* AudioPlayerPage */],
+                __WEBPACK_IMPORTED_MODULE_89__pages_minha_lista_audio_ontoarte_minha_lista_audio_ontoarte__["a" /* MinhaListaAudioOntoartePage */]
                 // PdfViewerComponent
             ],
             imports: [
@@ -5860,7 +5957,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_55__pages_esqueceu_senha_esqueceu_senha__["a" /* EsqueceuSenhaPage */], __WEBPACK_IMPORTED_MODULE_57__pages_planos_planos__["a" /* PlanosPage */], __WEBPACK_IMPORTED_MODULE_58__pages_pagamento_entrega_pagamento_entrega__["a" /* PagamentoEntregaPage */],
                 __WEBPACK_IMPORTED_MODULE_79__pages_editar_minha_albuns_editar_minha_albuns__["a" /* EditarMinhaAlbunsPage */], __WEBPACK_IMPORTED_MODULE_76__pages_editar_minha_ontoarte_editar_minha_ontoarte__["a" /* EditarMinhaOntoartePage */], __WEBPACK_IMPORTED_MODULE_78__pages_editar_minha_aulas_editar_minha_aulas__["a" /* EditarMinhaAulasPage */], __WEBPACK_IMPORTED_MODULE_77__pages_editar_minha_pl_editar_minha_pl__["a" /* EditarMinhaPlPage */],
                 __WEBPACK_IMPORTED_MODULE_75__pages_carrinho_carrinho__["a" /* CarrinhoPage */], __WEBPACK_IMPORTED_MODULE_82__pages_minhas_compras_minhas_compras__["a" /* MinhasComprasPage */], __WEBPACK_IMPORTED_MODULE_83__pages_meus_planos_meus_planos__["a" /* MeusPlanosPage */],
-                __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__["a" /* AudioPlayerPage */]
+                __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__["a" /* AudioPlayerPage */],
+                __WEBPACK_IMPORTED_MODULE_89__pages_minha_lista_audio_ontoarte_minha_lista_audio_ontoarte__["a" /* MinhaListaAudioOntoartePage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_81__ionic_native_paypal__["a" /* PayPal */],
@@ -5891,7 +5989,7 @@ var AppModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaModalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__carrinho_carrinho__ = __webpack_require__(61);
@@ -6199,30 +6297,30 @@ var LojaModalPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 453:
+/***/ 454:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(286);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_onesignal__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_onesignal__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_minha_lista_minha_lista__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_notificacoes_notificacoes__ = __webpack_require__(398);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_dicionario_dicionario__ = __webpack_require__(399);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_atendimento_atendimento__ = __webpack_require__(400);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_sair_sair__ = __webpack_require__(401);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_notificacoes_notificacoes__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_dicionario_dicionario__ = __webpack_require__(400);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_atendimento_atendimento__ = __webpack_require__(401);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_sair_sair__ = __webpack_require__(402);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_carrinho_carrinho__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_privacidade_privacidade__ = __webpack_require__(402);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_minha_conta_minha_conta__ = __webpack_require__(404);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_configuracoes_configuracoes__ = __webpack_require__(408);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_meus_planos_meus_planos__ = __webpack_require__(409);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_loja_aviso_loja_aviso__ = __webpack_require__(410);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_privacidade_privacidade__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_minha_conta_minha_conta__ = __webpack_require__(405);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_configuracoes_configuracoes__ = __webpack_require__(409);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_meus_planos_meus_planos__ = __webpack_require__(410);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_loja_aviso_loja_aviso__ = __webpack_require__(411);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6423,7 +6521,7 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_social_sharing__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__livros_livros__ = __webpack_require__(50);
@@ -6850,7 +6948,7 @@ var VideosPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LivrosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(48);
@@ -6859,7 +6957,7 @@ var VideosPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__verlivro_verlivro__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__verlivro_verlivro__ = __webpack_require__(289);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__videos_videos__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__loja_modal_loja_modal__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__home_home__ = __webpack_require__(7);
@@ -7242,12 +7340,12 @@ var LivrosPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarrinhoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_loja__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_loja__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7415,7 +7513,7 @@ var CarrinhoPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaListaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventos_eventos__ = __webpack_require__(10);
@@ -7427,10 +7525,10 @@ var CarrinhoPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__livros_livros__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__minha_lista_publicacoes_minha_lista_publicacoes__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__minha_lista_pl_minha_lista_pl__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__minha_lista_ontoarte_minha_lista_ontoarte__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__minha_lista_aulas_minha_lista_aulas__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__minha_lista_publicacoes_minha_lista_publicacoes__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__minha_lista_pl_minha_lista_pl__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__minha_lista_ontoarte_minha_lista_ontoarte__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__minha_lista_aulas_minha_lista_aulas__ = __webpack_require__(188);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7570,7 +7668,7 @@ var MinhaListaPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlListaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(48);
@@ -7579,8 +7677,8 @@ var MinhaListaPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ver_pl_ver_pl__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__loja_ver_loja_ver__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ver_pl_ver_pl__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__loja_ver_loja_ver__ = __webpack_require__(390);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__videos_videos__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__loja_modal_loja_modal__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__livros_livros__ = __webpack_require__(50);
@@ -7977,2151 +8075,6 @@ var PlListaPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_modal_loja_modal__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_revista_loja_revista__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(6);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var LojaPage = /** @class */ (function () {
-    function LojaPage(navCtrl, service, loadingCtrl, navParams, modalCtrl, Storage) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.service = service;
-        this.loadingCtrl = loadingCtrl;
-        this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
-        this.Storage = Storage;
-        this.data = {};
-        this.relLivros = '';
-        this.relLivrosCats = '';
-        this.api = 'http://app.progettoapp.com.br/arquivos/r';
-        this.getDados();
-        this.getDadosCat();
-        //qt carrinho
-        this.Storage.ready().then(function () {
-            _this.Storage.get("ComprasCarrinho").then(function (data) {
-                _this.qtCarrinho = data.length - 1;
-            });
-        });
-    }
-    LojaPage_1 = LojaPage;
-    LojaPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        setInterval(function () {
-            if (_this.productSlides.getActiveIndex() == _this.productSlides.length() - 1)
-                _this.productSlides.slideTo(0);
-            _this.productSlides.slideNext();
-        }, 3000);
-    };
-    LojaPage.prototype.getDados = function () {
-        var _this = this;
-        //retorno de Dados
-        this.service.getLivros()
-            .subscribe(function (data) { return _this.relLivros = data.rows; }, function (err) { return console.log(err); });
-    };
-    LojaPage.prototype.getDadosCat = function () {
-        var _this = this;
-        //retorno de Dados
-        this.service.getLivrosCategorias()
-            .subscribe(function (data) { return _this.relLivrosCats = data.rows; }, function (err) { return console.log(err); });
-    };
-    LojaPage.prototype.abrirModalLoja = function (item) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__loja_modal_loja_modal__["a" /* LojaModalPage */], { item: item });
-    };
-    LojaPage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-    };
-    LojaPage.prototype.abrirPaginaBusca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__busca_busca__["a" /* BuscaPage */]);
-    };
-    LojaPage.prototype.abrirLojaLivro = function () {
-        this.navCtrl.setRoot(LojaPage_1);
-    };
-    LojaPage.prototype.abrirLojaRevista = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__loja_revista_loja_revista__["a" /* LojaRevistaPage */]);
-    };
-    LojaPage.prototype.abrirLojaSouvenirs = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */]);
-    };
-    LojaPage.prototype.abrirCarrinho = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__["a" /* CarrinhoPage */]);
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('productSlides'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Slides */])
-    ], LojaPage.prototype, "productSlides", void 0);
-    LojaPage = LojaPage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-loja',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\loja\loja.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_carrinho" (click)="abrirCarrinho()">\n\n      <ion-badge item-end color="danger" class="menu-loja-bola">{{qtCarrinho}}</ion-badge>\n\n      <ion-icon name="ios-cart-outline" class="header_carrinho2"></ion-icon> \n\n    </div>    \n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">     \n\n    </div>        \n\n  </ion-navbar>\n\n</ion-header> \n\n<ion-content>\n\n\n\n  <ion-card class="card-back">\n\n    <img src="assets/imgs/background-header-livros.jpg" />  \n\n    <div class="titulo-card-back">Loja</div>\n\n  </ion-card>\n\n  <ion-card class="slide-card">\n\n      <ion-card-content>\n\n\n\n          <ion-row *ngFor= "let itemCat of relLivrosCats">\n\n              <ion-card-title class="slide-card-chamadas">\n\n                  <h2 class="slide-card-titulo-chamadas">{{ itemCat.Categoria }}</h2>\n\n              </ion-card-title>   \n\n              <ion-col col12>\n\n\n\n                    <ion-slides loop="false" slidesPerView="3" parallax="true" speed="1000" pager="false" #productSlides>\n\n                      <ng-container *ngFor= "let item of relLivros">\n\n                          <ion-slide *ngIf="itemCat.idlivro_cat === item.Cat" class="slide-card-li">\n\n                            <div class="slide-card-li-fundo">\n\n                              <img class="slide-card-li-img" (click)= "abrirModalLoja(item)" src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg"/>\n\n                            </div>\n\n                              <h3 (click)= "abrirModalLoja(item)" class="livro-h3">{{ item.Titulo }}</h3>\n\n                              <div (click)= "abrirModalLoja(item)" class="livro-p">{{ item.Valor }}</div>\n\n                          </ion-slide>\n\n                      </ng-container>\n\n                  </ion-slides>  \n\n\n\n              </ion-col>\n\n          </ion-row> \n\n      </ion-card-content> \n\n  </ion-card>   \n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer" style="margin-left: 9%;">\n\n        <img src="assets/imgs/ico-loja-menu-inicio.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Início\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-livros-s.png" (click)="abrirLojaLivro()">   \n\n        <p class="menu_footer_texto texto_selecionado" (click)="abrirLojaLivro()">\n\n          Físicos\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-revista.png" (click)="abrirLojaRevista()">     \n\n        <p class="menu_footer_texto" (click)="abrirLojaRevista()">\n\n          Digitais\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-souvenirs.png" (click)="abrirLojaSouvenirs()">  \n\n        <p class="menu_footer_texto" (click)="abrirLojaSouvenirs()">\n\n          Souvenirs\n\n        </p>          \n\n    </div>      \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\loja\loja.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_10__ionic_storage__["b" /* Storage */]])
-    ], LojaPage);
-    return LojaPage;
-    var LojaPage_1;
-}());
-
-//# sourceMappingURL=loja.js.map
-
-/***/ }),
-
-/***/ 67:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaSouvenirsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-var LojaSouvenirsPage = /** @class */ (function () {
-    function LojaSouvenirsPage(navCtrl, service, loadingCtrl, navParams, modalCtrl, Storage) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.service = service;
-        this.loadingCtrl = loadingCtrl;
-        this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
-        this.Storage = Storage;
-        this.data = {};
-        this.relAlbuns = '';
-        this.api = 'http://app.progettoapp.com.br/arquivos/r';
-        this.getAlbunsFor();
-        //qt carrinho
-        this.Storage.ready().then(function () {
-            _this.Storage.get("ComprasCarrinho").then(function (data) {
-                _this.qtCarrinho = data.length - 1;
-            });
-        });
-    }
-    LojaSouvenirsPage_1 = LojaSouvenirsPage;
-    LojaSouvenirsPage.prototype.getAlbunsFor = function () {
-        var _this = this;
-        //retorno de Dados
-        this.service.getAlbuns()
-            .subscribe(function (data) {
-            _this.relAlbuns = data.rows;
-            console.log('album', _this.relAlbuns);
-        }, function (err) { return console.log(err); });
-    };
-    LojaSouvenirsPage.prototype.abrirModalLoja = function (item) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__["a" /* LojaModalPage */], { item: item });
-    };
-    LojaSouvenirsPage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
-    };
-    LojaSouvenirsPage.prototype.abrirPaginaBusca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__busca_busca__["a" /* BuscaPage */]);
-    };
-    LojaSouvenirsPage.prototype.abrirLojaLivro = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__loja_loja__["a" /* LojaPage */]);
-    };
-    LojaSouvenirsPage.prototype.abrirLojaRevista = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__["a" /* LojaRevistaPage */]);
-    };
-    LojaSouvenirsPage.prototype.abrirLojaSouvenirs = function () {
-        this.navCtrl.setRoot(LojaSouvenirsPage_1);
-    };
-    LojaSouvenirsPage.prototype.abrirCarrinho = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__["a" /* CarrinhoPage */]);
-    };
-    LojaSouvenirsPage = LojaSouvenirsPage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-loja-souvenirs',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\loja-souvenirs\loja-souvenirs.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_carrinho" (click)="abrirCarrinho()">\n\n      <ion-badge item-end color="danger" class="menu-loja-bola">{{qtCarrinho}}</ion-badge>\n\n      <ion-icon name="ios-cart-outline" class="header_carrinho2"></ion-icon> \n\n    </div>    \n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">     \n\n    </div>        \n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  \n\n    <ion-card class="card-back">\n\n      <img src="assets/imgs/background-header-livros.jpg" />  \n\n      <div class="titulo-card-back">Loja</div>\n\n    </ion-card>\n\n    \n\n    <ion-card class="slide-card">\n\n      <ion-row padding>\n\n        <ion-col col-12 class="slide-card-chamadas mb30">\n\n          <h2 class="slide-card-titulo-chamadas">\n\n            <strong>CD / DVDs</strong> \n\n          </h2>\n\n        </ion-col>\n\n        <ion-col col-4 *ngFor= "let item of relAlbuns" (click)="abrirModalLoja(item)" class="caixa-itens">\n\n          <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg"/>\n\n          <h3 class="livro-h3">{{ item.Titulo }}</h3>\n\n          <div class="livro-p">{{ item.Valor }}</div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-card> \n\n  \n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer" style="margin-left: 9%;">\n\n        <img src="assets/imgs/ico-loja-menu-inicio.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Início\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-livros.png" (click)="abrirLojaLivro()">   \n\n        <p class="menu_footer_texto" (click)="abrirLojaLivro()">\n\n          Físicos\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-revista.png" (click)="abrirLojaRevista()">     \n\n        <p class="menu_footer_texto" (click)="abrirLojaRevista()">\n\n          Digitais\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-souvenirs-s.png" (click)="abrirLojaSouvenirs()">  \n\n        <p class="menu_footer_texto texto_selecionado" (click)="abrirLojaSouvenirs()">\n\n          Souvenirs\n\n        </p>          \n\n    </div>      \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\loja-souvenirs\loja-souvenirs.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */]])
-    ], LojaSouvenirsPage);
-    return LojaSouvenirsPage;
-    var LojaSouvenirsPage_1;
-}());
-
-//# sourceMappingURL=loja-souvenirs.js.map
-
-/***/ }),
-
-/***/ 68:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaRevistaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-var LojaRevistaPage = /** @class */ (function () {
-    function LojaRevistaPage(navCtrl, service, loadingCtrl, navParams, modalCtrl, Storage) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.service = service;
-        this.loadingCtrl = loadingCtrl;
-        this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
-        this.Storage = Storage;
-        this.data = {};
-        this.relBooks = '';
-        this.api = 'http://app.progettoapp.com.br/arquivos/r';
-        this.getDados1();
-        //qt carrinho
-        this.Storage.ready().then(function () {
-            _this.Storage.get("ComprasCarrinho").then(function (data) {
-                _this.qtCarrinho = data.length - 1;
-            });
-        });
-    }
-    LojaRevistaPage_1 = LojaRevistaPage;
-    LojaRevistaPage.prototype.getDados1 = function () {
-        var _this = this;
-        //retorno de Dados
-        this.service.getRevistaPl()
-            .subscribe(function (data) { return _this.relBooks = data.rows; }, function (err) { return console.log(err); });
-    };
-    LojaRevistaPage.prototype.abrirModalLoja = function (item) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__["a" /* LojaModalPage */], { item: item });
-    };
-    LojaRevistaPage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
-    };
-    LojaRevistaPage.prototype.abrirPaginaBusca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__busca_busca__["a" /* BuscaPage */]);
-    };
-    LojaRevistaPage.prototype.abrirLojaLivro = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__loja_loja__["a" /* LojaPage */]);
-    };
-    LojaRevistaPage.prototype.abrirLojaRevista = function () {
-        this.navCtrl.setRoot(LojaRevistaPage_1);
-    };
-    LojaRevistaPage.prototype.abrirLojaSouvenirs = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */]);
-    };
-    LojaRevistaPage.prototype.abrirCarrinho = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__["a" /* CarrinhoPage */]);
-    };
-    LojaRevistaPage = LojaRevistaPage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-loja-revista',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\loja-revista\loja-revista.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_carrinho" (click)="abrirCarrinho()">\n\n      <ion-badge item-end color="danger" class="menu-loja-bola">{{qtCarrinho}}</ion-badge>\n\n      <ion-icon name="ios-cart-outline" class="header_carrinho2"></ion-icon> \n\n    </div>    \n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">     \n\n    </div>        \n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  \n\n    <ion-card class="card-back">\n\n      <img src="assets/imgs/background-header-livros.jpg" />  \n\n      <div class="titulo-card-back">Loja</div>\n\n    </ion-card>\n\n    \n\n    <ion-card class="slide-card">\n\n      <ion-row nomargin padding>\n\n        <ion-col col-12 class="slide-card-chamadas mb30">\n\n          <h2 class="slide-card-titulo-chamadas">\n\n            <strong>Entrevistas de Capa</strong> \n\n          </h2>\n\n        </ion-col>\n\n        <ion-col col-4 *ngFor= "let item of relBooks" (click)="abrirModalLoja(item)" class="caixa-itens">\n\n          <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg"/>\n\n          <h3 class="livro-h3">{{ item.Titulo }}</h3>\n\n          <div class="livro-p">{{ item.Valor }}</div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-card> \n\n  \n\n  \n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer" style="margin-left: 9%;">\n\n        <img src="assets/imgs/ico-loja-menu-inicio.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Início\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-livros.png" (click)="abrirLojaLivro()">   \n\n        <p class="menu_footer_texto" (click)="abrirLojaLivro()">\n\n          Físicos\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-revista-s.png" (click)="abrirLojaRevista()">     \n\n        <p class="menu_footer_texto texto_selecionado" (click)="abrirLojaRevista()">\n\n          Digitais\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-souvenirs.png" (click)="abrirLojaSouvenirs()">  \n\n        <p class="menu_footer_texto" (click)="abrirLojaSouvenirs()">\n\n          Souvenirs\n\n        </p>          \n\n    </div>      \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\loja-revista\loja-revista.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */]])
-    ], LojaRevistaPage);
-    return LojaRevistaPage;
-    var LojaRevistaPage_1;
-}());
-
-//# sourceMappingURL=loja-revista.js.map
-
-/***/ }),
-
-/***/ 7:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_social_sharing__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__videos_videos__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__livros_livros__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pl_lista_pl_lista__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__audios2_audios2__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__comentarios_comentarios__ = __webpack_require__(390);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__titulos_titulos__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__titulos_livros_titulos_livros__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__revista_pl_revista_pl__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ontoarte_ontoarte__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__eventos_eventos__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var HomePage = /** @class */ (function () {
-    function HomePage(socialSharing, http, Storage, toastCtrl, navCtrl, service, storage, loadingCtrl, iab) {
-        var _this = this;
-        this.socialSharing = socialSharing;
-        this.http = http;
-        this.Storage = Storage;
-        this.toastCtrl = toastCtrl;
-        this.navCtrl = navCtrl;
-        this.service = service;
-        this.storage = storage;
-        this.loadingCtrl = loadingCtrl;
-        this.iab = iab;
-        this.item = [];
-        this.data = {};
-        this.resolucao = '';
-        this.myDate = {};
-        this.icoCurtirAulas = 'ico-curtir-off.jpg';
-        this.icoCurtirPl = 'ico-curtir-off.jpg';
-        this.icoCurtirLivros = 'ico-curtir-off.jpg';
-        this.icoCurtirMusicas = 'ico-curtir-off.jpg';
-        this.relCurtidas = '';
-        this.testeAulas = [];
-        this.storeData = [];
-        this.relnovidades = '';
-        this.relnovidadesPega = '';
-        this.relVideos = '';
-        this.IdUserQual = {};
-        this.EmailUserQual = {};
-        this.NomeUserQual = {};
-        this.NivelUserQual = {};
-        this.PlanoUserQual = {};
-        this.FotoUserQual = {};
-        this.api = 'http://app.progettoapp.com.br/arquivos/r';
-        this.myDate = new Date().toISOString();
-        this.userDadosGuardados();
-        this.getDadosPega();
-        this.getDadosCurtidas();
-        this.storage.get('QualUser').then(function (val) {
-            _this.IdUserQual = val;
-        });
-    }
-    HomePage_1 = HomePage;
-    // --- COMPARTILHAR --- // 
-    //compilemsg(index):string{
-    //var msg = this.quotes[index].content + "-" + this.quotes[index].title ;
-    //return msg.concat(" \n sent from my awesome app");
-    //}
-    HomePage.prototype.regularShare = function (msg, assunto, file, link) {
-        //var msg = this.compilemsg(msg);
-        this.socialSharing.share(msg, assunto, file, link);
-    };
-    HomePage.prototype.ionViewWillEnter = function () {
-        var _this = this;
-        this.service.getNovidades().subscribe(function (data) {
-            _this.relnovidades = data.rows;
-            _this.storage.get('relNovidades').then(function (val) {
-                if (val != null) {
-                    _this.numerosNovidades = val.length;
-                }
-                else {
-                    _this.storage.set('relNovidades', _this.relnovidades);
-                }
-            });
-            _this.storage.get('numeroPublicacoes').then(function (val) {
-                if (val != null) {
-                    _this.numerosNovidadesAtual = val;
-                    _this.nNovidades(_this.numerosNovidadesAtual);
-                }
-                else {
-                    _this.storage.set('numeroPublicacoes', _this.relnovidades.length);
-                }
-            });
-        }, function (err) { return console.log(err); });
-    };
-    HomePage.prototype.nNovidades = function (dados) {
-        //console.log('akiii',dados)
-        this.qtdePublicacoes = this.relnovidades.length - dados;
-        //console.log('akiii',this.qtdePublicacoes)
-    };
-    HomePage.prototype.doInfinite = function (infiniteScroll) {
-        var _this = this;
-        this.storage.get('numeroPublicacoes').then(function (val) {
-            if (val != null) {
-                _this.numerosNovidadesAtual = val;
-            }
-            else {
-                _this.storage.set('numeroPublicacoes', _this.relnovidades.length);
-            }
-        });
-        setTimeout(function () {
-            //console.log(this.relnovidades.length)
-            if (_this.relnovidades.length >= _this.numerosNovidadesAtual) {
-                _this.storage.set('relNovidades', _this.relnovidades);
-                _this.storage.set('numeroPublicacoes', _this.relnovidades.length);
-                //this.navCtrl.setRoot(HomePage)
-            }
-            infiniteScroll.complete();
-        }, 500);
-    };
-    HomePage.prototype.getDadosPega = function () {
-        var _this = this;
-        this.service.getNovidades()
-            .subscribe(function (data) {
-            _this.relnovidadesPega = data.rows;
-            /*if(data.rows[0].idnovidade == seu.storage.id){
-              //faz algo
-            }else{
-              //faz algo
-            }*/
-        }, function (err) { return console.log(err); });
-    };
-    HomePage.prototype.getDadosCurtidas = function () {
-        var _this = this;
-        this.service.getCurtidas()
-            .subscribe(function (data) {
-            _this.relCurtidas = data.rows;
-        }, function (err) { return console.log(err); });
-    };
-    HomePage.prototype.abrirComentarios = function (idqualSel, moduloSel) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_12__comentarios_comentarios__["a" /* ComentariosPage */], { idqualSel: idqualSel, moduloSel: moduloSel });
-    };
-    HomePage.prototype.selecionarNovidades = function (item) {
-        if (item['Tipo'] == 'video') {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__videos_videos__["a" /* VideosPage */], { item: item });
-        }
-        else if (item['Tipo'] == 'pl') {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_10__pl_lista_pl_lista__["a" /* PlListaPage */], { item: item });
-        }
-        else if (item['Tipo'] == 'musica') {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_11__audios2_audios2__["a" /* Audios2Page */], { item: item });
-        }
-        else {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__livros_livros__["a" /* LivrosPage */], { item: item });
-        }
-    };
-    HomePage.prototype.ClassficarLivro = function (item) {
-        var _this = this;
-        var added = 0;
-        this.Storage.get("ClassficarLivro").then(function (data) {
-            if (data == null || data.length == 0) {
-                data = [];
-                data.push({
-                    "idlivro": item.idlivro
-                });
-                added = 1;
-            }
-            else {
-                var _loop_1 = function (i) {
-                    if (item.idlivro == data[i].idlivro) {
-                        var query = data.find(function (item) { return item.idlivro === data[i].idlivro; });
-                        var toremove = data.indexOf(query);
-                        data.splice(toremove, 1);
-                        added = 1;
-                    }
-                };
-                for (var i = 0; i < data.length; i++) {
-                    _loop_1(i);
-                }
-            }
-            if (added == 0) {
-                data.push({
-                    "idlivro": item.idlivro
-                });
-            }
-            if (added == 1) {
-                _this.icoCurtirLivros = 'ico-curtir-off.jpg';
-                //ENVIA O INSERT
-                var headerOptions = { 'Content-Type': 'application/json' };
-                var headers = new Headers(headerOptions);
-                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-                _this.http.post(link, JSON.stringify({
-                    idqual: item.idlivro,
-                    user_id_qual: _this.IdUserQual,
-                    modulo: 'livros',
-                    acao: 'menos'
-                })).subscribe(function (data) {
-                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
-                });
-            }
-            else {
-                //ENVIA O INSERT
-                var headerOptions = { 'Content-Type': 'application/json' };
-                var headers = new Headers(headerOptions);
-                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-                _this.http.post(link, JSON.stringify({
-                    idqual: item.idlivro,
-                    user_id_qual: _this.IdUserQual,
-                    modulo: 'livros',
-                    acao: 'mais'
-                })).subscribe(function (data) {
-                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
-                });
-                _this.icoCurtirLivros = 'ico-curtir.jpg';
-            }
-            _this.Storage.set("ClassficarLivro", data).then(function () { });
-        });
-    };
-    HomePage.prototype.ClassficarPl = function (item) {
-        var _this = this;
-        var added = 0;
-        this.Storage.get("ClassficarPl").then(function (data) {
-            if (data == null || data.length == 0) {
-                data = [];
-                /*this.toastCtrl.create({
-                  message: "Você marcou o gostei nessa revista!",
-                  duration: 2000,
-                  position: 'middle',
-                }).present();*/
-                data.push({
-                    "idpl": item.idpl
-                });
-                added = 1;
-            }
-            else {
-                var _loop_2 = function (i) {
-                    if (item.idpl == data[i].idpl) {
-                        /*this.toastCtrl.create({
-                          message: "Você desmarcou o gostei nessa revista!",
-                          duration: 2000,
-                          position: 'middle',
-                        }).present();*/
-                        var query = data.find(function (item) { return item.idpl === data[i].idpl; });
-                        var toremove = data.indexOf(query);
-                        data.splice(toremove, 1);
-                        added = 1;
-                    }
-                };
-                for (var i = 0; i < data.length; i++) {
-                    _loop_2(i);
-                }
-            }
-            if (added == 0) {
-                data.push({
-                    "idpl": item.idpl
-                });
-                /*this.toastCtrl.create({
-                  message: "Você marcou o gostei nessa revista!",
-                  duration: 2000,
-                  position: 'middle',
-                }).present();*/
-            }
-            if (added == 1) {
-                //icoCurtirAulas: string = 'ico-curtir-aulas.jpg';
-                //icoCurtirPl: string = 'ico-curtir-pl.jpg';
-                //icoCurtirLivros: string = 'ico-curtir.jpg';
-                //icoCurtirMusicas: string = 'ico-curtir-musica.jpg';
-                //ENVIA O INSERT
-                var headerOptions = { 'Content-Type': 'application/json' };
-                var headers = new Headers(headerOptions);
-                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-                _this.http.post(link, JSON.stringify({
-                    idqual: item.idpl,
-                    modulo: 'pl',
-                    acao: 'menos'
-                })).subscribe(function (data) {
-                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
-                });
-            }
-            else {
-                //ENVIA O INSERT
-                var headerOptions = { 'Content-Type': 'application/json' };
-                var headers = new Headers(headerOptions);
-                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-                _this.http.post(link, JSON.stringify({
-                    idqual: item.idpl,
-                    modulo: 'pl',
-                    acao: 'mais'
-                })).subscribe(function (data) {
-                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
-                });
-                //icoCurtirAulas: string = 'ico-curtir-aulas.jpg';
-                //icoCurtirPl: string = 'ico-curtir-pl.jpg';
-                //icoCurtirLivros: string = 'ico-curtir.jpg';
-                //icoCurtirMusicas: string = 'ico-curtir-musica.jpg';
-            }
-            _this.Storage.set("ClassficarPl", data).then(function () { });
-        });
-    };
-    HomePage.prototype.ClassficarAula = function (item) {
-        var _this = this;
-        var added = 0;
-        this.Storage.get("ClassficarAulas").then(function (data) {
-            if (data == null || data.length == 0) {
-                data = [];
-                /*this.toastCtrl.create({
-                  message: "Você marcou o gostei nessa aula!",
-                  duration: 2000,
-                  position: 'middle',
-                }).present();*/
-                data.push({
-                    "idvideo": item.idvideo
-                });
-                added = 1;
-            }
-            else {
-                var _loop_3 = function (i) {
-                    if (item.idvideo == data[i].idvideo) {
-                        /*this.toastCtrl.create({
-                          message: "Você desmarcou o gostei nessa aula!",
-                          duration: 2000,
-                          position: 'middle',
-                        }).present();*/
-                        var query = data.find(function (item) { return item.idvideo === data[i].idvideo; });
-                        var toremove = data.indexOf(query);
-                        data.splice(toremove, 1);
-                        added = 1;
-                    }
-                };
-                for (var i = 0; i < data.length; i++) {
-                    _loop_3(i);
-                }
-            }
-            if (added == 0) {
-                data.push({
-                    "idvideo": item.idvideo
-                });
-            }
-            if (added == 1) {
-                //ENVIA O INSERT
-                var headerOptions = { 'Content-Type': 'application/json' };
-                var headers = new Headers(headerOptions);
-                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-                _this.http.post(link, JSON.stringify({
-                    idqual: item.idvideo,
-                    modulo: 'videos',
-                    acao: 'menos'
-                })).subscribe(function (data) {
-                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
-                });
-                _this.icoCurtirAulas = 'ico-curtir-off.jpg';
-                console.log('vai', _this.icoCurtirAulas);
-            }
-            else {
-                //ENVIA O INSERT
-                var headerOptions = { 'Content-Type': 'application/json' };
-                var headers = new Headers(headerOptions);
-                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-                _this.http.post(link, JSON.stringify({
-                    idqual: item.idvideo,
-                    modulo: 'videos',
-                    acao: 'mais'
-                })).subscribe(function (data) {
-                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
-                });
-                _this.icoCurtirAulas = 'ico-curtir-aulas.jpg';
-                console.log('vai', _this.icoCurtirAulas);
-            }
-            _this.Storage.set("ClassficarAulas", data).then(function () { });
-        });
-    };
-    HomePage.prototype.ClassficarAlbum = function (item) {
-        var _this = this;
-        var added = 0;
-        this.Storage.get("ClassficarAlbum").then(function (data) {
-            if (data == null || data.length == 0) {
-                data = [];
-                /*this.toastCtrl.create({
-                  message: "Você marcou o gostei nesse álbum!",
-                  duration: 2000,
-                  position: 'middle',
-                }).present();*/
-                data.push({
-                    "idalbum": item.idalbum
-                });
-                added = 1;
-            }
-            else {
-                var _loop_4 = function (i) {
-                    if (item.idalbum == data[i].idalbum) {
-                        /*this.toastCtrl.create({
-                          message: "Você desmarcou o gostei nesse álbum!",
-                          duration: 2000,
-                          position: 'middle',
-                        }).present();*/
-                        var query = data.find(function (item) { return item.idalbum === data[i].idalbum; });
-                        var toremove = data.indexOf(query);
-                        data.splice(toremove, 1);
-                        added = 1;
-                    }
-                };
-                for (var i = 0; i < data.length; i++) {
-                    _loop_4(i);
-                }
-            }
-            if (added == 0) {
-                data.push({
-                    "idalbum": item.idalbum
-                });
-                /*this.toastCtrl.create({
-                  message: "Você marcou o gostei nesse álbum!",
-                  duration: 2000,
-                  position: 'middle',
-                }).present();*/
-            }
-            if (added == 1) {
-                //icoCurtirAulas: string = 'ico-curtir-aulas.jpg';
-                //icoCurtirPl: string = 'ico-curtir-pl.jpg';
-                //icoCurtirLivros: string = 'ico-curtir.jpg';
-                //icoCurtirMusicas: string = 'ico-curtir-musica.jpg';
-                //ENVIA O INSERT
-                var headerOptions = { 'Content-Type': 'application/json' };
-                var headers = new Headers(headerOptions);
-                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-                _this.http.post(link, JSON.stringify({
-                    idqual: item.idalbum,
-                    modulo: 'albuns',
-                    acao: 'menos'
-                })).subscribe(function (data) {
-                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
-                });
-            }
-            else {
-                //ENVIA O INSERT
-                var headerOptions = { 'Content-Type': 'application/json' };
-                var headers = new Headers(headerOptions);
-                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-                _this.http.post(link, JSON.stringify({
-                    idqual: item.idalbum,
-                    modulo: 'albuns',
-                    acao: 'mais'
-                })).subscribe(function (data) {
-                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
-                });
-                //icoCurtirAulas: string = 'ico-curtir-aulas.jpg';
-                //icoCurtirPl: string = 'ico-curtir-pl.jpg';
-                //icoCurtirLivros: string = 'ico-curtir.jpg';
-                //icoCurtirMusicas: string = 'ico-curtir-musica.jpg';
-            }
-            _this.Storage.set("ClassficarAlbum", data).then(function () { });
-        });
-    };
-    HomePage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(HomePage_1);
-    };
-    HomePage.prototype.abrirPaginaTitulos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_13__titulos_titulos__["a" /* TitulosPage */]);
-    };
-    HomePage.prototype.abrirPaginaPublicacoes = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_14__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
-    };
-    HomePage.prototype.abrirPaginaPl = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_15__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
-    };
-    HomePage.prototype.abrirPaginaOntoarte = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_16__ontoarte_ontoarte__["a" /* OntoartePage */]);
-    };
-    HomePage.prototype.abrirPaginaAovivo = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_20__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
-    };
-    HomePage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_17__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
-    };
-    HomePage.prototype.abrirPaginaEventos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_18__eventos_eventos__["a" /* EventosPage */]);
-    };
-    HomePage.prototype.abrirPaginaBusca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_19__busca_busca__["a" /* BuscaPage */]);
-    };
-    HomePage.prototype.userDadosGuardados = function () {
-        var _this = this;
-        this.storage.get('QualUser').then(function (val) {
-            console.log(val);
-            _this.IdUserQual = val;
-        });
-        this.storage.get('QualEmail').then(function (val) {
-            console.log(val);
-            _this.EmailUserQual = val;
-        });
-        this.storage.get('QualNome').then(function (val) {
-            console.log(val);
-            _this.NomeUserQual = val;
-        });
-        this.storage.get('QualNivel').then(function (val) {
-            console.log(val);
-            _this.NivelUserQual = val;
-        });
-        this.storage.get('QualPlano').then(function (val) {
-            console.log(val);
-            if (val == '0') {
-                _this.PlanoUserQual = 'Plano Empresarial';
-            }
-            else {
-                _this.PlanoUserQual = 'Plano Empresarial';
-            }
-        });
-        this.storage.get('QualFoto').then(function (val) {
-            _this.FotoUserQual = val;
-        });
-    };
-    HomePage.prototype.menu = function () {
-        //console.log('MENUUUU')
-    };
-    HomePage = HomePage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n    <ion-card *ngFor= "let item of relnovidadesPega" class="novidades-card" (ionChange)="checkFocus(item)">\n\n        <ion-item (click)= "selecionarNovidades(item)" >\n\n          \n\n          <img class="avatar" src="assets/imgs/{{ item.Icone }}">\n\n          \n\n        <h2 class="video-card-categoria">\n\n          {{ item.Categoria }} \n\n        </h2>   \n\n        <span class="data_hora_timeline">\n\n          <ion-icon name="ios-clock-outline" style="margin-right:3px;"></ion-icon>\n\n          {{ item.DataNovidade }}\n\n        </span>\n\n        </ion-item>\n\n        <ion-card-content (click)= "selecionarNovidades(item)" >\n\n            <h2 class="video-card-titulo">{{ item.TituloNovidade }}</h2>\n\n            <div class="video-card-desc" [innerHTML]="item.DescricaoNovidade"></div> \n\n        </ion-card-content>\n\n        <ion-card-content class="box-novidades" (click)= "selecionarNovidades(item)" >\n\n          <img src="{{ api }}/novidades/{{ item.PastaNovidade }}/{{ item.ImgNovidade }}_400.jpg" />\n\n        </ion-card-content>\n\n\n\n        <div *ngIf="item.Tipo == \'video\'">\n\n          <ion-item class="video-play-card">\n\n              <div class="video-play-card-btn">\n\n                <img src="assets/imgs/ico-btn-play-red.png">\n\n              </div>\n\n              <div class="video-play-card-tempo">{{ item.Tempo }}</div>\n\n              <div class="video-play-card-views">{{ item.ContCurtir }} Curtidas</div>\n\n          </ion-item>\n\n          <ion-row style="margin: -45px 0px 8px 0px;">\n\n              <div class="ico-curtir-img">\n\n                <img src="assets/imgs/{{ icoCurtirAulas }}" (click)="ClassficarAula(item)">\n\n              </div>\n\n              <div class="ico-curtir-m" (click)="ClassficarAula(item)">\n\n                {{ item.ContCurtir }}\n\n              </div>\n\n              <div class="barra-down"></div>\n\n              <div class="ico-comentarios-img">\n\n                <img src="assets/imgs/ico-comentarios-m.jpg" (click)="abrirComentarios(item.idvideo, \'videos\')">\n\n              </div>\n\n              <div class="ico-comentarios-m" (click)="abrirComentarios(item.idvideo, \'videos\')">\n\n                {{ item.ContComentarios }}\n\n              </div>\n\n              <div class="barra-down"></div> \n\n              <div class="ico-compartilhar-img">\n\n                <img src="assets/imgs/ico-compartilhar-m.jpg" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n              </div>\n\n              <div class="ico-compartilhar-m" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n                \n\n              </div>\n\n            </ion-row>            \n\n        </div>\n\n\n\n        <div *ngIf="item.Tipo == \'pl\'">\n\n          <ion-row style="margin: 8px 0px 8px 0px;">\n\n            <div class="ico-curtir-img">\n\n                <img src="assets/imgs/{{ icoCurtirPl }}" (click)="ClassficarPl(item)">\n\n            </div>\n\n            <div class="ico-curtir-m" (click)="ClassficarPl(item)">\n\n              {{ item.ContCurtir }}\n\n            </div>\n\n            <div class="barra-down"></div>\n\n            <div class="ico-comentarios-img">\n\n              <img src="assets/imgs/ico-comentarios-m.jpg" (click)="abrirComentarios(item.idpl, \'pl\')">\n\n            </div>\n\n            <div class="ico-comentarios-m" (click)="abrirComentarios(item.idpl, \'pl\')">\n\n              {{ item.ContComentarios }}\n\n            </div>\n\n            <div class="barra-down"></div> \n\n            <div class="ico-compartilhar-img">\n\n              <img src="assets/imgs/ico-compartilhar-m.jpg" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n            </div>\n\n            <div class="ico-compartilhar-m" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n              \n\n            </div>\n\n          </ion-row>          \n\n        </div>\n\n          \n\n        <div *ngIf="item.Tipo == \'livros\'">\n\n          <ion-row style="margin: 8px 0px 8px 0px;">\n\n            <div class="ico-curtir-img">\n\n                <img src="assets/imgs/{{ icoCurtirLivros }}" (click)="ClassficarLivro(item)">\n\n            </div>\n\n            <div class="ico-curtir-m" (click)="ClassficarLivro(item)">\n\n              {{ item.ContCurtir }}\n\n            </div>\n\n            <div class="barra-down"></div>\n\n            <div class="ico-comentarios-img">\n\n              <img src="assets/imgs/ico-comentarios-m.jpg" (click)="abrirComentarios(item.idlivro, \'livros\')">\n\n            </div>\n\n            <div class="ico-comentarios-m" (click)="abrirComentarios(item.idlivro, \'livros\')">\n\n              {{ item.ContComentarios }}\n\n            </div>\n\n            <div class="barra-down"></div> \n\n            <div class="ico-compartilhar-img">\n\n              <img src="assets/imgs/ico-compartilhar-m.jpg" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n            </div>\n\n            <div class="ico-compartilhar-m" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n              \n\n            </div>\n\n          </ion-row>\n\n        </div>\n\n        \n\n        <div *ngIf="item.Tipo == \'musica\'">\n\n          <ion-row style="margin: 8px 0px 8px 0px;">\n\n            <div class="ico-curtir-img">\n\n              <img src="assets/imgs/{{ icoCurtirMusicas }}" (click)="ClassficarAlbum(item)">\n\n            </div>\n\n            <div class="ico-curtir-m" (click)="ClassficarAlbum(item)">\n\n              {{ item.ContCurtir }}\n\n            </div>\n\n            <div class="barra-down"></div>\n\n            <div class="ico-comentarios-img">\n\n              <img src="assets/imgs/ico-comentarios-m.jpg" (click)="abrirComentarios(item.idalbum, \'musica\')">\n\n            </div>\n\n            <div class="ico-comentarios-m" (click)="abrirComentarios(item.idalbum, \'musica\')">\n\n              {{ item.ContComentarios }}\n\n            </div>\n\n            <div class="barra-down"></div> \n\n            <div class="ico-compartilhar-img">\n\n              <img src="assets/imgs/ico-compartilhar-m.jpg" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n            </div>\n\n            <div class="ico-compartilhar-m" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n              \n\n            </div>\n\n          </ion-row>           \n\n        </div>\n\n\n\n    </ion-card>  \n\n\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n      <ion-infinite-scroll-content loadingSpinner="bubbles" >\n\n      </ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n  <div class="ico-menu-footer">\n\n    <ng-container *ngIf="qtdePublicacoes > 0">\n\n      <ion-badge item-end color="danger" class="menu-footer-bola">{{qtdePublicacoes}}</ion-badge>\n\n    </ng-container>\n\n    <img src="assets/imgs/ico-menu-footer-novidades-s.png" (click)="abrirPaginaHome()">  \n\n    <p class="menu_footer_texto menu_footer_texto_novidades" (click)="abrirPaginaHome()">\n\n      Novidades\n\n    </p>\n\n  </div>\n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">   \n\n    <p class="menu_footer_texto" (click)="abrirPaginaPublicacoes()">\n\n      Publicações\n\n    </p>          \n\n  </div> \n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">     \n\n    <p class="menu_footer_texto" (click)="abrirPaginaPl()">\n\n      Líder\n\n    </p>         \n\n  </div> \n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">   \n\n    <p class="menu_footer_texto" (click)="abrirPaginaTitulos()">\n\n      Aulas\n\n    </p>         \n\n  </div> \n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">  \n\n    <p class="menu_footer_texto" (click)="abrirPaginaOntoarte()">\n\n      Músicas\n\n    </p>          \n\n  </div>       \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\home\home.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_social_sharing__["a" /* SocialSharing */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */], __WEBPACK_IMPORTED_MODULE_2__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
-    ], HomePage);
-    return HomePage;
-    var HomePage_1;
-}());
-
-//# sourceMappingURL=home.js.map
-
-/***/ }),
-
-/***/ 741:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AudiosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_audio_service_audio_service__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__titulos_titulos__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__titulos_livros_titulos_livros__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__revista_pl_revista_pl__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ontoarte_ontoarte__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__eventos_eventos__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__busca_busca__ = __webpack_require__(8);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var AudiosPage = /** @class */ (function () {
-    function AudiosPage(navCtrl, navParams, service, loadingCtrl, audioService) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.service = service;
-        this.loadingCtrl = loadingCtrl;
-        this.audioService = audioService;
-        this.item = [];
-        this.relAudios = '';
-        this.position = 0;
-        this.api = "http://www.adautobulhoes.com.br/vinhetas-gratis/";
-        this.audio = "";
-        this.color = 'primary';
-        this.audioService.changePositionObservable.subscribe(function (value) {
-        });
-        this.getAudios();
-        this.getDados();
-    }
-    AudiosPage.prototype.getAudios = function () {
-        var _this = this;
-        //retorno de Dados
-        this.service.getAudios()
-            .subscribe(function (data) { return _this.relAudios = data.rows; }, function (err) { return console.log(err); });
-    };
-    AudiosPage.prototype.getDados = function () {
-        this.audio = this.navParams.get('musica');
-    };
-    AudiosPage.prototype.startAudio = function (item) {
-        this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + item['arquivo_audio'];
-        this.audioPlayer.nativeElement.src = this.audio;
-        this.audioPlayer.nativeElement.load();
-        /*
-        var musica = this.audio
-    
-        let loader = this.loadingCtrl.create({
-          content: "Carregando",
-          duration: 300
-        });
-        loader.present();
-          this.navCtrl.setRoot(AudiosPage,{
-            musica
-          });
-          */
-    };
-    AudiosPage.prototype.favorito = function (item) {
-        this.color = "secondarys";
-        console.log('FAVORITO', item);
-    };
-    AudiosPage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
-    };
-    AudiosPage.prototype.abrirPaginaTitulos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__titulos_titulos__["a" /* TitulosPage */]);
-    };
-    AudiosPage.prototype.abrirPaginaPublicacoes = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
-    };
-    AudiosPage.prototype.abrirPaginaPl = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
-    };
-    AudiosPage.prototype.abrirPaginaOntoarte = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__ontoarte_ontoarte__["a" /* OntoartePage */]);
-    };
-    AudiosPage.prototype.abrirPaginaAovivo = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
-    };
-    AudiosPage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
-    };
-    AudiosPage.prototype.abrirPaginaEventos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__eventos_eventos__["a" /* EventosPage */]);
-    };
-    AudiosPage.prototype.abrirPaginaBusca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_12__busca_busca__["a" /* BuscaPage */]);
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ViewChild */])('audioPlayer'),
-        __metadata("design:type", Object)
-    ], AudiosPage.prototype, "audioPlayer", void 0);
-    AudiosPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-audios',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audios\audios.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n        <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n        <img src="assets/imgs/ico-calendario.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n        <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content> \n\n\n\n<!-- <ion-grid>\n\n    <ion-row>\n\n            <div style="float:left; width:35%; padding: 20px;">\n\n                    <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n                </div>\n\n                <div style="float:left; width:65%;">\n\n                    <h2 class="albumTitulo">Albúm Metafísica Brasiliana</h2>\n\n                    <h6 class="albumSubtitulo">Antonio Meneghetti\n\n                    <Br>Volume I</h6>\n\n                    <p class="albumDesc">Nossas emoções, através da música, nos levam a caminhos\n\n                            percorridos entre lágrimas, sorrisos, dor, prazer metafísico.\n\n                            O Maestro Antonio Meneghetti fala através da música todas\n\n                            essas emoções vividas na existência.\n\n                            O ritmo torna-se fenômeno ocasional para entrar na pura\n\n                            percepção do ser.</p> \n\n                </div>\n\n    </ion-row>\n\n</ion-grid> -->\n\n\n\n<!-- \n\n<div style="position: relative; width: 100%;">\n\n    <div style="float:left; width:35%; padding: 20px;">\n\n        <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n    </div>\n\n    <div style="float:left; width:65%;">\n\n        <h2 class="albumTitulo">Albúm Metafísica Brasiliana</h2>\n\n        <h6 class="albumSubtitulo">Antonio Meneghetti\n\n        <Br>Volume I</h6>\n\n        <p class="albumDesc">Nossas emoções, através da música, nos levam a caminhos\n\n                percorridos entre lágrimas, sorrisos, dor, prazer metafísico.\n\n                O Maestro Antonio Meneghetti fala através da música todas\n\n                essas emoções vividas na existência.\n\n                O ritmo torna-se fenômeno ocasional para entrar na pura\n\n                percepção do ser.</p> \n\n    </div>\n\n</div> -->\n\n\n\n<!-- <div style="position: relative; width: 100%;">\n\n    <img src="assets/imgs/musica-banner.png">\n\n</div>\n\n -->\n\n\n\n<ion-card *ngFor="let item of relAudios">\n\n        <ion-row>\n\n                <ion-col col-2>\n\n                    <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n                </ion-col>\n\n                <ion-col col-8>\n\n                    <!-- <ion-list class="listItem"> -->\n\n                        <ion-item (click)="startAudio(item)" class="listItem">\n\n                            <ion-icon name="play" item-start></ion-icon>\n\n                            <h2 class="tituloFaixa">{{item.audio}}<Br><span class="subtituloFaixa"> {{item.artista}}</span></h2>\n\n                        </ion-item>\n\n                    <!-- </ion-list> -->\n\n                </ion-col>\n\n                <ion-col col-2>\n\n                   <p >{{item.Tempo}}</p> \n\n                </ion-col>\n\n            </ion-row>\n\n</ion-card>\n\n\n\n<!-- <ion-grid>\n\n    <ion-card *ngFor="let item of relAudios">\n\n        <ion-row>\n\n            <ion-col col-2>\n\n                <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n            </ion-col>\n\n            <ion-col col-8 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n                \n\n                    <ion-item (click)="startAudio(item)" class="listItem">\n\n                        <ion-icon name="play" item-start></ion-icon>\n\n                        <h2 class="tituloFaixa">{{item.audio}}<Br><span class="subtituloFaixa"> {{item.artista}}</span></h2>\n\n                    </ion-item>\n\n                \n\n            </ion-col>\n\n            <ion-col col-2>\n\n               <p >{{item.Tempo}}</p> \n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-card>\n\n</ion-grid> -->\n\n\n\n<audio #audioPlayer autoplay="autoplay" style="width: 100%; border:0px;">\n\n    <source src="{{audio}} " type="audio/mp3" />\n\n</audio>                   \n\n\n\n<!-- <div class="" style="background:#fff; margin-top:30px;">\n\n    <div text-center padding style="width: 100%; padding: 0px; margin: 0px; ">\n\n        <ion-card style="width: 100%; padding: 0px; margin: 0px; ">\n\n        </ion-card>           \n\n    </div> \n\n</div> -->\n\n\n\n<ion-content>\n\n    \n\n    <ion-footer>\n\n        <ion-range [(ngModel)]="position">\n\n            \n\n        </ion-range>\n\n    </ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audios\audios.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _e || Object])
-    ], AudiosPage);
-    return AudiosPage;
-    var _a, _b, _c, _d, _e;
-}());
-
-//# sourceMappingURL=audios.js.map
-
-/***/ }),
-
-/***/ 742:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PdfPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var PdfPage = /** @class */ (function () {
-    function PdfPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.item = this.navParams.get('item');
-        this.pdfSrc = 'http://www.redeplaneje.com.br/midias/r/livros/' + this.item['Arquivo'];
-    }
-    PdfPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-pdf',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\pdf\pdf.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n <!--  <pdf-viewer [src]="pdfSrc" \n\n              [render-text]="true"\n\n              style="display: block; width:100%; height: 100%"\n\n  ></pdf-viewer> -->\n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer">\n\n        <div class="menu-footer-bola">8</div>\n\n        <img src="assets/imgs/ico-menu-footer-novidades.png" (click)="abrirPaginaHome()">    \n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">     \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">      \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">    \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">    \n\n    </div>       \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\pdf\pdf.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], PdfPage);
-    return PdfPage;
-}());
-
-//# sourceMappingURL=pdf.js.map
-
-/***/ }),
-
-/***/ 743:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SlidePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cadastro_usuario_cadastro_usuario__ = __webpack_require__(183);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var SlidePage = /** @class */ (function () {
-    function SlidePage(navCtrl, navParams, loadingCtrl, Storage) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.loadingCtrl = loadingCtrl;
-        this.Storage = Storage;
-    }
-    SlidePage.prototype.ionViewDidLoad = function () {
-        this.Storage.set('SlideOlhou', '');
-    };
-    SlidePage.prototype.continue = function (item) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */], {
-            item: item
-        });
-    };
-    SlidePage.prototype.cadastroUser = function (item) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__cadastro_usuario_cadastro_usuario__["a" /* CadastroUsuarioPage */], {
-            item: item
-        });
-    };
-    SlidePage.prototype.pular = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */]);
-    };
-    SlidePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-slide',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\slide\slide.html"*/'<ion-content class="slide-intro">\n\n	<ion-slides pager>\n\n\n\n		<ion-slide>\n\n			<div class="slide-intro-logo1">\n\n				<img src="assets/imgs/slide-intro/logo-intro.png">\n\n			</div>			\n\n			<h2 class="tela1-titulo">\n\n				Entre para o <br>\n\n				Portal de Conteúdo<Br>\n\n				de Ontopsicologia.</h2>\n\n			<p class="tela1-texto"><strong>Aplicativo Progetto.</strong> Para lhe aproximar ainda mais do estudo e aprofundamento da  Ciência Ontopsicológica.</p>\n\n			<div class="intro-tela1-img">\n\n				<img src="assets/imgs/slide-intro/tela1.png">\n\n			</div>\n\n		</ion-slide>\n\n\n\n		<ion-slide>\n\n			<div class="slide-intro-logo2">\n\n				<img src="assets/imgs/slide-intro/logo-intro.png">\n\n			</div>			\n\n			<p class="tela2-texto">\n\n				No seu <span>progetto</span> tem tudo.\n\n			</p>\n\n			<div class="intro-tela2-img">\n\n				<img src="assets/imgs/slide-intro/tela2.png">\n\n			</div>\n\n		</ion-slide>\n\n\n\n		<ion-slide>				\n\n			<div class="slide-intro-logo3">\n\n				<img src="assets/imgs/slide-intro/logo-intro.png">\n\n			</div>\n\n			<div class="intro-tela3-img">\n\n				<img src="assets/imgs/slide-intro/tela3.png">\n\n			</div>								\n\n			<p class="tela3-texto">\n\n				Livros. Revistas. Aulas. Músicas OntoArte. Eventos. Transmissão ao vivo.\n\n			</p>\n\n			<p class="tela3-texto2">\n\n				Tudo em um só lugar!\n\n			</p>\n\n		</ion-slide>\n\n\n\n		<ion-slide>\n\n			<div class="slide-intro-logo4">\n\n				<img src="assets/imgs/slide-intro/logo-intro.png">\n\n			</div>			\n\n			<p class="tela4-texto">\n\n				Escolha <span>seu plano</span> e acesse onde estiver.\n\n			</p>\n\n			<div class="intro-tela4-img">\n\n				<img src="assets/imgs/slide-intro/tela4.png">\n\n			</div>\n\n		</ion-slide>\n\n\n\n		<ion-slide class="slide-tela5">\n\n			<div class="slide-intro-logo5">\n\n				<img src="assets/imgs/slide-intro/logo-intro-white.png">\n\n			</div>		\n\n			<p class="tela5-texto">\n\n				Seja bem-vindo <Br>ao seu <span>Progetto.</span>\n\n			</p>\n\n			<button ion-button icon-end color="primary" (click)= "cadastroUser(item)" class="tela5-btn1">\n\n				CADASTRE-SE\n\n			</button>						\n\n			<button ion-button icon-end color="primary" (click)= "continue(item)" class="tela5-btn2">\n\n				LOGIN\n\n			</button>\n\n		</ion-slide>\n\n\n\n	</ion-slides>	\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\slide\slide.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
-    ], SlidePage);
-    return SlidePage;
-}());
-
-//# sourceMappingURL=slide.js.map
-
-/***/ }),
-
-/***/ 744:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OntoarteAlbumPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__titulos_titulos__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__titulos_livros_titulos_livros__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__revista_pl_revista_pl__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ontoarte_ontoarte__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__eventos_eventos__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-var OntoarteAlbumPage = /** @class */ (function () {
-    function OntoarteAlbumPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    OntoarteAlbumPage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
-    };
-    OntoarteAlbumPage.prototype.abrirPaginaTitulos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__titulos_titulos__["a" /* TitulosPage */]);
-    };
-    OntoarteAlbumPage.prototype.abrirPaginaPublicacoes = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
-    };
-    OntoarteAlbumPage.prototype.abrirPaginaPl = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
-    };
-    OntoarteAlbumPage.prototype.abrirPaginaOntoarte = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__ontoarte_ontoarte__["a" /* OntoartePage */]);
-    };
-    OntoarteAlbumPage.prototype.abrirPaginaAovivo = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
-    };
-    OntoarteAlbumPage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
-    };
-    OntoarteAlbumPage.prototype.abrirPaginaEventos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__eventos_eventos__["a" /* EventosPage */]);
-    };
-    OntoarteAlbumPage.prototype.abrirPaginaBusca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__busca_busca__["a" /* BuscaPage */]);
-    };
-    OntoarteAlbumPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-ontoarte-album',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\ontoarte-album\ontoarte-album.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n      <p>Sem conteúdo no momento.</p>\n\n  </ion-content>\n\n  <ion-footer class="menu_footer">\n\n      <div class="ico-menu-footer">\n\n          <div class="menu-footer-bola">4</div>\n\n          <img src="assets/imgs/ico-menu-footer-novidades.png" (click)="abrirPaginaHome()">    \n\n      </div>\n\n      <div class="ico-menu-footer">\n\n          <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">     \n\n      </div> \n\n      <div class="ico-menu-footer">\n\n          <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">      \n\n      </div> \n\n      <div class="ico-menu-footer">\n\n          <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">    \n\n      </div> \n\n      <div class="ico-menu-footer">\n\n          <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">    \n\n      </div>       \n\n  </ion-footer>\n\n  '/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\ontoarte-album\ontoarte-album.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], OntoarteAlbumPage);
-    return OntoarteAlbumPage;
-}());
-
-//# sourceMappingURL=ontoarte-album.js.map
-
-/***/ }),
-
-/***/ 745:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaListaVerPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pl_lista_pl_lista__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__livros_livros__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__videos_videos__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__titulos_titulos__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__titulos_livros_titulos_livros__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__revista_pl_revista_pl__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ontoarte_ontoarte__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__eventos_eventos__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ontoarte_ver_ontoarte_ver__ = __webpack_require__(181);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var MinhaListaVerPage = /** @class */ (function () {
-    function MinhaListaVerPage(loadingCtrl, Storage, navCtrl, navParams) {
-        this.loadingCtrl = loadingCtrl;
-        this.Storage = Storage;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.data = {};
-        this.rel1 = '';
-        this.rel2 = '';
-        this.rel3 = '';
-        this.item = [];
-        this.LivrosItens = [];
-        this.plItens = [];
-        this.VideoItens = [];
-        this.OntoItens = [];
-        this.getDados();
-    }
-    MinhaListaVerPage.prototype.getDados = function () {
-        var _this = this;
-        this.Storage.ready().then(function () {
-            _this.Storage.get("MinhaListaLivros").then(function (data) {
-                _this.LivrosItens = data;
-                console.log(_this.LivrosItens);
-                if (data == null || data.length == 0) {
-                    //this.showEmptCartMessage= true;   
-                }
-                else {
-                    _this.LivrosItens.forEach(function (item, index) {
-                        _this.rel1 = item;
-                    });
-                }
-                /*
-                if(this.LivrosItens.length > 0){
-                  this.LivrosItens.forEach( (item, index)=>{
-                    this.total = this.total + (item.product.price * item.qty);
-                  })
-                } else {
-                  this.showEmptCartMessage= true;
-                }
-                */
-            });
-        });
-        this.Storage.ready().then(function () {
-            _this.Storage.get("MinhaListaPl").then(function (data) {
-                _this.plItens = data;
-                console.log(_this.plItens);
-                if (data == null || data.length == 0) {
-                    //this.showEmptCartMessage= true;   
-                }
-                else {
-                    _this.plItens.forEach(function (item, index) {
-                        _this.rel2 = item;
-                    });
-                }
-                /*
-                if(this.plItens.length > 0){
-                  this.plItens.forEach( (item, index)=>{
-                    this.total = this.total + (item.product.price * item.qty);
-                  })
-                } else {
-                  this.showEmptCartMessage= true;
-                }
-                */
-            });
-        });
-        this.Storage.ready().then(function () {
-            _this.Storage.get("MinhaListaPl").then(function (data) {
-                _this.VideoItens = data;
-                console.log(_this.VideoItens);
-                if (data == null || data.length == 0) {
-                    //this.showEmptCartMessage= true;   
-                }
-                else {
-                    _this.VideoItens.forEach(function (item, index) {
-                        _this.rel2 = item;
-                    });
-                }
-                /*
-                if(this.VideoItens.length > 0){
-                  this.VideoItens.forEach( (item, index)=>{
-                    this.total = this.total + (item.product.price * item.qty);
-                  })
-                } else {
-                  this.showEmptCartMessage= true;
-                }
-                */
-            });
-        });
-        this.Storage.ready().then(function () {
-            _this.Storage.get("MinhaListaPl").then(function (data) {
-                _this.OntoItens = data;
-                console.log(_this.OntoItens);
-                if (data == null || data.length == 0) {
-                    //this.showEmptCartMessage= true;   
-                }
-                else {
-                    _this.OntoItens.forEach(function (item, index) {
-                        _this.rel2 = item;
-                    });
-                }
-                /*
-                if(this.OntoItens.length > 0){
-                  this.OntoItens.forEach( (item, index)=>{
-                    this.total = this.total + (item.product.price * item.qty);
-                  })
-                } else {
-                  this.showEmptCartMessage= true;
-                }
-                */
-            });
-        });
-    };
-    MinhaListaVerPage.prototype.abriLivro = function (item) {
-        var loader = this.loadingCtrl.create({
-            content: "Carregando",
-            duration: 3000
-        });
-        loader.present();
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__livros_livros__["a" /* LivrosPage */], {
-            item: item
-        });
-    };
-    MinhaListaVerPage.prototype.abriPl = function (item) {
-        var loader = this.loadingCtrl.create({
-            content: "Carregando",
-            duration: 3000
-        });
-        loader.present();
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pl_lista_pl_lista__["a" /* PlListaPage */], {
-            item: item
-        });
-    };
-    MinhaListaVerPage.prototype.abriVideo = function (item) {
-        var loader = this.loadingCtrl.create({
-            content: "Carregando",
-            duration: 3000
-        });
-        loader.present();
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__videos_videos__["a" /* VideosPage */], {
-            item: item
-        });
-    };
-    MinhaListaVerPage.prototype.abriOnto = function (item) {
-        var loader = this.loadingCtrl.create({
-            content: "Carregando",
-            duration: 3000
-        });
-        loader.present();
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_14__ontoarte_ver_ontoarte_ver__["a" /* OntoarteVerPage */], {
-            item: item
-        });
-    };
-    MinhaListaVerPage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__home_home__["a" /* HomePage */]);
-    };
-    MinhaListaVerPage.prototype.abrirPaginaTitulos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__titulos_titulos__["a" /* TitulosPage */]);
-    };
-    MinhaListaVerPage.prototype.abrirPaginaPublicacoes = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
-    };
-    MinhaListaVerPage.prototype.abrirPaginaPl = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
-    };
-    MinhaListaVerPage.prototype.abrirPaginaOntoarte = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__ontoarte_ontoarte__["a" /* OntoartePage */]);
-    };
-    MinhaListaVerPage.prototype.abrirPaginaAovivo = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_15__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
-    };
-    MinhaListaVerPage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
-    };
-    MinhaListaVerPage.prototype.abrirPaginaEventos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_12__eventos_eventos__["a" /* EventosPage */]);
-    };
-    MinhaListaVerPage.prototype.abrirPaginaBusca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_13__busca_busca__["a" /* BuscaPage */]);
-    };
-    MinhaListaVerPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-minha-lista-ver',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\minha-lista-ver\minha-lista-ver.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n\n\n    <ion-card class="novidades-card">\n\n      <ion-item>\n\n        <h2 class="video-card-categoria">\n\n          Publicações\n\n        </h2>       \n\n      </ion-item>\n\n      <ion-card-content *ngFor= "let LivrosItens of LivrosItens" (click)="abriLivro(LivrosItens.idlivro)">\n\n        <ion-item >\n\n          <ion-avatar item-start>\n\n            <img src="http://www.redeplaneje.com.br/midias/r/livros/{{ LivrosItens.thumbLivro }}" >\n\n          </ion-avatar>\n\n        <h2 class="video-card-categoria">\n\n            {{ LivrosItens.tituloLivro }}\n\n          </h2>       \n\n          <p style="color:#bbbbbb;">\n\n            {{ LivrosItens.descricaoLivro }}\n\n          </p>\n\n        </ion-item>\n\n\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card class="novidades-card">\n\n        <ion-item>\n\n          <h2 class="video-card-categoria">\n\n            Líder\n\n          </h2>       \n\n        </ion-item>\n\n        <ion-card-content *ngFor= "let plItens of plItens" (click)="abriPl(plItens.idpl)">\n\n          <ion-item >\n\n            <ion-avatar item-start>\n\n              <img src="http://www.redeplaneje.com.br/midias/r/pl/{{ plItens.thumbPl }}" >\n\n            </ion-avatar>\n\n          <h2 class="video-card-categoria">\n\n              {{ plItens.tituloPl }}\n\n            </h2>       \n\n            <p style="color:#bbbbbb;">\n\n              {{ plItens.descricaoPl }}\n\n            </p>\n\n          </ion-item>\n\n  \n\n        </ion-card-content>\n\n      </ion-card>\n\n\n\n      <ion-card class="novidades-card">\n\n          <ion-item>\n\n            <h2 class="video-card-categoria">\n\n              Aulas\n\n            </h2>       \n\n          </ion-item>\n\n          <ion-card-content *ngFor= "let VideoItens of VideoItens" (click)="abriVideo(VideoItens)">\n\n            <ion-item >\n\n              <ion-avatar item-start>\n\n                <img src="http://www.redeplaneje.com.br/midias/r/pl/{{ VideoItens.thumbVideo }}" >\n\n              </ion-avatar>\n\n            <h2 class="video-card-categoria">\n\n                {{ VideoItens.tituloVideo }}\n\n              </h2>       \n\n              <p style="color:#bbbbbb;">\n\n                {{ VideoItens.descricaoVideo }}\n\n              </p>\n\n            </ion-item>\n\n    \n\n          </ion-card-content>\n\n        </ion-card>\n\n\n\n        <ion-card class="novidades-card">\n\n            <ion-item>\n\n              <h2 class="video-card-categoria">\n\n                Músicas\n\n              </h2>       \n\n            </ion-item>\n\n            <ion-card-content *ngFor= "let OntoItens of OntoItens" (click)="abriOnto(OntoItens)">\n\n              <ion-item >\n\n                <ion-avatar item-start>\n\n                  <img src="http://www.redeplaneje.com.br/midias/r/audios/capa.jpg" >\n\n                </ion-avatar>\n\n              <h2 class="video-card-categoria">\n\n                  {{ OntoItens.tituloOntoarte }}\n\n                </h2>       \n\n                <p style="color:#bbbbbb;">\n\n                  {{ OntoItens.descricaoOntoarte }}\n\n                </p>\n\n              </ion-item>\n\n      \n\n            </ion-card-content>\n\n          </ion-card>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\minha-lista-ver\minha-lista-ver.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], MinhaListaVerPage);
-    return MinhaListaVerPage;
-}());
-
-//# sourceMappingURL=minha-lista-ver.js.map
-
-/***/ }),
-
-/***/ 746:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaCdsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__loja_modal_loja_modal__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_souvenirs_loja_souvenirs__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(66);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-var LojaCdsPage = /** @class */ (function () {
-    function LojaCdsPage(navCtrl, service, loadingCtrl, navParams, modalCtrl) {
-        this.navCtrl = navCtrl;
-        this.service = service;
-        this.loadingCtrl = loadingCtrl;
-        this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
-        this.data = {};
-        this.relBooks = '';
-        this.relOutro = '';
-        this.api = 'http://app.progettoapp.com.br/arquivos/r';
-        this.getDados1();
-        this.getDados2();
-    }
-    LojaCdsPage_1 = LojaCdsPage;
-    LojaCdsPage.prototype.getDados1 = function () {
-        var _this = this;
-        //retorno de Dados
-        this.service.getAlbuns()
-            .subscribe(function (data) { return _this.relBooks = data.rows; }, function (err) { return console.log(err); });
-    };
-    LojaCdsPage.prototype.getDados2 = function () {
-        var _this = this;
-        //retorno de Dados
-        this.service.getAlbuns()
-            .subscribe(function (data) { return _this.relOutro = data.rows; }, function (err) { return console.log(err); });
-    };
-    LojaCdsPage.prototype.abrirModalLoja = function (item) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__loja_modal_loja_modal__["a" /* LojaModalPage */], {
-            item: item
-        });
-    };
-    LojaCdsPage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
-    };
-    LojaCdsPage.prototype.abrirLojaLivro = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__loja_loja__["a" /* LojaPage */]);
-    };
-    LojaCdsPage.prototype.abrirLojaRevista = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__["a" /* LojaRevistaPage */]);
-    };
-    LojaCdsPage.prototype.abrirLojaCds = function () {
-        this.navCtrl.setRoot(LojaCdsPage_1);
-    };
-    LojaCdsPage.prototype.abrirLojaSouvenirs = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */]);
-    };
-    LojaCdsPage.prototype.abrirPaginaBusca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__busca_busca__["a" /* BuscaPage */]);
-    };
-    LojaCdsPage = LojaCdsPage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-loja-cds',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\loja-cds\loja-cds.html"*/'<ion-header>\n\n  <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <div class="header_logo" (click)="abrirPaginaHome()">\n\n          <img src="assets/imgs/logo-small-menu.png">\n\n        </div>\n\n        <div class="header_carrinho" (click)="abrirCarrinho()">\n\n          <ion-icon name="ios-cart-outline" class="header_carrinho2"></ion-icon> \n\n        </div>    \n\n        <div class="header_busca" (click)="abrirPaginaBusca()">\n\n          <img src="assets/imgs/ico-busca.png">     \n\n        </div>        \n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  \n\n    <ion-card class="card-back">\n\n      <img src="assets/imgs/background-header-livros.jpg" />  \n\n      <div class="titulo-card-back">Loja</div>\n\n    </ion-card>\n\n    \n\n    <ion-card class="slide-card">\n\n      <ion-row padding>\n\n        <ion-col col-12 class="slide-card-chamadas mb30">\n\n          <h2 class="slide-card-titulo-chamadas">\n\n            <strong>CDs</strong> Música OntoArte\n\n          </h2>\n\n        </ion-col>\n\n        <ion-col col-4 *ngFor= "let item of relBooks" (click)="abrirModalLoja(item)" class="caixa-itens">\n\n          <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Capa }}_400.jpg"/>\n\n          <h3 class="livro-h3">{{ item.Titulo }}</h3>\n\n          <div class="livro-p">{{ item.Valor }}</div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-card> \n\n  \n\n    <ion-card class="slide-card">\n\n      <ion-row padding>\n\n        <ion-col col-12 class="slide-card-chamadas mb30">\n\n          <h2 class="slide-card-titulo-chamadas">\n\n            <strong>DVDs</strong> Música OntoArte\n\n          </h2>\n\n        </ion-col>\n\n        <ion-col col-4 *ngFor= "let item of relOutro" (click)="abrirModalLoja(item)" class="caixa-itens">\n\n          <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Capa }}_400.jpg"/>\n\n          <h3 class="livro-h3">{{ item.Titulo }}</h3>\n\n          <div class="livro-p">{{ item.Valor }}</div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-card> \n\n\n\n  \n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer" style="margin-left: 9%;">\n\n        <img src="assets/imgs/ico-loja-menu-inicio.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Início\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-livros.png" (click)="abrirLojaLivro()">   \n\n        <p class="menu_footer_texto" (click)="abrirLojaLivro()">\n\n          Físicos\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-revista.png" (click)="abrirLojaRevista()">     \n\n        <p class="menu_footer_texto" (click)="abrirLojaRevista()">\n\n          Digitais\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-souvenirs.png" (click)="abrirLojaSouvenirs()">  \n\n        <p class="menu_footer_texto" (click)="abrirLojaSouvenirs()">\n\n          Souvenirs\n\n        </p>          \n\n    </div>      \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\loja-cds\loja-cds.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
-    ], LojaCdsPage);
-    return LojaCdsPage;
-    var LojaCdsPage_1;
-}());
-
-//# sourceMappingURL=loja-cds.js.map
-
-/***/ }),
-
-/***/ 748:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificacaoVerPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ontoarte_ontoarte__ = __webpack_require__(12);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var NotificacaoVerPage = /** @class */ (function () {
-    function NotificacaoVerPage(navCtrl, navParams, storage) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.storage = storage;
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__ontoarte_ontoarte__["a" /* OntoartePage */]);
-    }
-    NotificacaoVerPage.prototype.ionViewDidLoad = function () {
-    };
-    NotificacaoVerPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-notificacao-ver',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\notificacao-ver\notificacao-ver.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\notificacao-ver\notificacao-ver.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
-    ], NotificacaoVerPage);
-    return NotificacaoVerPage;
-}());
-
-//# sourceMappingURL=notificacao-ver.js.map
-
-/***/ }),
-
-/***/ 749:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AovivoVerPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__titulos_titulos__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__titulos_livros_titulos_livros__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__revista_pl_revista_pl__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ontoarte_ontoarte__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__eventos_eventos__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-var AovivoVerPage = /** @class */ (function () {
-    function AovivoVerPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    AovivoVerPage.prototype.ionViewDidLoad = function () {
-        //console.log('ionViewDidLoad AovivoVerPage');
-    };
-    AovivoVerPage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
-    };
-    AovivoVerPage.prototype.abrirPaginaTitulos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__titulos_titulos__["a" /* TitulosPage */]);
-    };
-    AovivoVerPage.prototype.abrirPaginaPublicacoes = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
-    };
-    AovivoVerPage.prototype.abrirPaginaPl = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
-    };
-    AovivoVerPage.prototype.abrirPaginaOntoarte = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__ontoarte_ontoarte__["a" /* OntoartePage */]);
-    };
-    AovivoVerPage.prototype.abrirPaginaAovivo = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
-    };
-    AovivoVerPage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
-    };
-    AovivoVerPage.prototype.abrirPaginaEventos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__eventos_eventos__["a" /* EventosPage */]);
-    };
-    AovivoVerPage.prototype.abrirPaginaBusca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__busca_busca__["a" /* BuscaPage */]);
-    };
-    AovivoVerPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-aovivo-ver',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\aovivo-ver\aovivo-ver.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content class="fundo">\n\n    <iframe src="http://beta.ciclano.io/embed/juliane130" width="100%" height="300px" frameborder="0" scrolling="auto" allowtransparency="true"  style="background: url(assets/imgs/carregando.gif) center center no-repeat;"></iframe>\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer">\n\n        <ion-badge item-end color="danger" class="menu-footer-bola">4</ion-badge>\n\n        <img src="assets/imgs/ico-menu-footer-novidades.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Novidades\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">   \n\n        <p class="menu_footer_texto" (click)="abrirPaginaPublicacoes()">\n\n          Publicações\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">     \n\n        <p class="menu_footer_texto" (click)="abrirPaginaPl()">\n\n          Líder\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">   \n\n        <p class="menu_footer_texto" (click)="abrirPaginaTitulos()">\n\n          Aulas\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaOntoarte()">\n\n            Músicas\n\n        </p>          \n\n    </div>       \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\aovivo-ver\aovivo-ver.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], AovivoVerPage);
-    return AovivoVerPage;
-}());
-
-//# sourceMappingURL=aovivo-ver.js.map
-
-/***/ }),
-
-/***/ 750:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModAulasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ModAulasPage = /** @class */ (function () {
-    function ModAulasPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    ModAulasPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ModAulasPage');
-    };
-    ModAulasPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-mod-aulas',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\mod-aulas\mod-aulas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\mod-aulas\mod-aulas.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], ModAulasPage);
-    return ModAulasPage;
-}());
-
-//# sourceMappingURL=mod-aulas.js.map
-
-/***/ }),
-
-/***/ 751:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfiguracaoPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ConfiguracaoPage = /** @class */ (function () {
-    function ConfiguracaoPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    ConfiguracaoPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ConfiguracaoPage');
-    };
-    ConfiguracaoPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-configuracao',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\configuracao\configuracao.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\configuracao\configuracao.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], ConfiguracaoPage);
-    return ConfiguracaoPage;
-}());
-
-//# sourceMappingURL=configuracao.js.map
-
-/***/ }),
-
-/***/ 752:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TermosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var TermosPage = /** @class */ (function () {
-    function TermosPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    TermosPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad TermosPage');
-    };
-    TermosPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-termos',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\termos\termos.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\termos\termos.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], TermosPage);
-    return TermosPage;
-}());
-
-//# sourceMappingURL=termos.js.map
-
-/***/ }),
-
-/***/ 753:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditarMinhaAlbunsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__ = __webpack_require__(62);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var EditarMinhaAlbunsPage = /** @class */ (function () {
-    function EditarMinhaAlbunsPage(navCtrl, navParams, storage, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.storage = storage;
-        this.alertCtrl = alertCtrl;
-        this.minhaLista = [];
-    }
-    EditarMinhaAlbunsPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.storage.get('MinhaListaAudios').then(function (val) {
-            _this.minhaLista = val;
-        });
-    };
-    EditarMinhaAlbunsPage.prototype.apagar_publicacao = function (item) {
-        var index = this.minhaLista.findIndex(function (it, i) {
-            return it.idaudio === item['idaudio'];
-        });
-        this.minhaLista.splice(index, 1);
-        this.storage.set('MinhaListaAudios', this.minhaLista);
-        console.log(this.minhaLista);
-    };
-    EditarMinhaAlbunsPage.prototype.showConfirm = function (item) {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Alerta ...',
-            message: 'Deseja realmente remover?',
-            buttons: [
-                {
-                    text: 'SIM',
-                    handler: function () {
-                        _this.apagar_publicacao(item);
-                    }
-                },
-                {
-                    text: 'Não',
-                    handler: function () {
-                        console.log('Agree clicked');
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    EditarMinhaAlbunsPage.prototype.voltar = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__["a" /* MinhaListaPage */]);
-        //this.navCtrl.push(MinhaListaAlbunsPage)
-    };
-    EditarMinhaAlbunsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-editar-minha-albuns',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\editar-minha-albuns\editar-minha-albuns.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <h2 class="meu-progeto-titulo">Minha Lista</h2>        \n\n  </ion-navbar>\n\n  <div class="btn-fechar" (click)="voltar()">X</div>\n\n</ion-header>\n\n<ion-content padding>\n\n    \n\n  <ion-card class="novidades-card">\n\n    <h2 class="titulo">\n\n      Áudios / Músicas\n\n    </h2>   \n\n  </ion-card>\n\n  <ion-card class="novidades-card">\n\n    <div class="subtitulo">\n\n      Itens Minha Lista\n\n    </div>  \n\n    <div *ngFor="let item of minhaLista; let i = index;"> \n\n      <div *ngIf="item.idaudio != 0">\n\n        <p class="conteudo">{{item.Titulo}}\n\n        <span class="btn-fechar-lista" (click)="showConfirm(item)">X</span>\n\n      </p>\n\n      </div>\n\n    </div>\n\n  </ion-card>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\editar-minha-albuns\editar-minha-albuns.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], EditarMinhaAlbunsPage);
-    return EditarMinhaAlbunsPage;
-}());
-
-//# sourceMappingURL=editar-minha-albuns.js.map
-
-/***/ }),
-
-/***/ 754:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhasComprasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var MinhasComprasPage = /** @class */ (function () {
-    function MinhasComprasPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    MinhasComprasPage.prototype.ionViewDidLoad = function () {
-    };
-    MinhasComprasPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-minhas-compras',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\minhas-compras\minhas-compras.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\minhas-compras\minhas-compras.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], MinhasComprasPage);
-    return MinhasComprasPage;
-}());
-
-//# sourceMappingURL=minhas-compras.js.map
-
-/***/ }),
-
-/***/ 755:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AudioPlayerPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__ = __webpack_require__(82);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var AudioPlayerPage = /** @class */ (function () {
-    /**
-     *
-     */
-    function AudioPlayerPage(audioService) {
-        this.audioService = audioService;
-    }
-    AudioPlayerPage.prototype.ngAfterViewInit = function () {
-        this.audioService.audioPlayer = this.audioPlayer;
-    };
-    AudioPlayerPage.prototype.durationChangeEventHandler = function () {
-        debugger;
-        this.audioService.totalMedia = this.audioPlayer.nativeElement.duration;
-        this.audioService.emitTotalMedia(Math.round(this.audioService.totalMedia));
-        console.log(this.audioService.totalMedia);
-    };
-    AudioPlayerPage.prototype.getAudio = function () {
-        return this.audioService.audio;
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('audioPlayer'),
-        __metadata("design:type", Object)
-    ], AudioPlayerPage.prototype, "audioPlayer", void 0);
-    AudioPlayerPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-audio-player',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audio-player\audio-player.html"*/'<audio #audioPlayer controls class="player" (durationchange)="durationChangeEventHandler()">\n\n    <source src="{{audio}}" title="APP Progetto" type="audio/mp3" />\n\n</audio>\n\n\n\n<p>AUSHDAUSDHAIUSD</p>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audio-player\audio-player.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _a || Object])
-    ], AudioPlayerPage);
-    return AudioPlayerPage;
-    var _a;
-}());
-
-//# sourceMappingURL=audio-player.js.map
-
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuscaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__videos_videos__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pl_lista_pl_lista__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__audios2_audios2__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__livros_livros__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__titulos_titulos__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__titulos_livros_titulos_livros__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__revista_pl_revista_pl__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ontoarte_ontoarte__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__eventos_eventos__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var BuscaPage = /** @class */ (function () {
-    function BuscaPage(navCtrl, navParams, viewCtrl, service, loadingCtrl, storage) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewCtrl = viewCtrl;
-        this.service = service;
-        this.loadingCtrl = loadingCtrl;
-        this.storage = storage;
-        this.relnovidades = '';
-        this.declareTechnologies();
-    }
-    BuscaPage_1 = BuscaPage;
-    BuscaPage.prototype.ionViewDidLoad = function () {
-    };
-    BuscaPage.prototype.declareTechnologies = function () {
-        var _this = this;
-        //retorno de Dados
-        this.service.getBuscar()
-            .subscribe(function (data) { return _this.technologies = data.rows; }, function (err) { return console.log(err); });
-        //const browser = this.iab.create('https://ionicframework.com/');
-    };
-    BuscaPage.prototype.filterTechnologies = function (param) {
-        var val = param;
-        if (val.trim() !== '') {
-            this.technologies = this.technologies.filter(function (item) {
-                return item.Titulobusca.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.Categoria.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.Descricaobusca.toLowerCase().indexOf(val.toLowerCase()) > -1;
-            });
-        }
-        else {
-            var val_1 = '0';
-            this.declareTechnologies();
-        }
-    };
-    BuscaPage.prototype.selecionarBusca = function (item) {
-        if (item['Tipo'] == 'video') {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__videos_videos__["a" /* VideosPage */], { item: item });
-        }
-        else if (item['Tipo'] == 'pl') {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__pl_lista_pl_lista__["a" /* PlListaPage */], { item: item });
-        }
-        else if (item['Tipo'] == 'musica') {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__audios2_audios2__["a" /* Audios2Page */], { item: item });
-        }
-        else {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__livros_livros__["a" /* LivrosPage */], { item: item });
-        }
-    };
-    BuscaPage.prototype.ionViewWillEnter = function () {
-        var _this = this;
-        this.service.getNovidades().subscribe(function (data) {
-            _this.relnovidades = data.rows;
-            _this.storage.get('relNovidades').then(function (val) {
-                if (val != null) {
-                    _this.numerosNovidades = val.length;
-                }
-                else {
-                    _this.storage.set('relNovidades', _this.relnovidades);
-                }
-            });
-            _this.storage.get('numeroPublicacoes').then(function (val) {
-                if (val != null) {
-                    _this.numerosNovidadesAtual = val;
-                }
-                else {
-                    _this.storage.set('numeroPublicacoes', _this.relnovidades.length);
-                }
-            });
-            setTimeout(function () {
-                if (_this.relnovidades.length > _this.numerosNovidadesAtual) {
-                    _this.qtdePublicacoes = _this.relnovidades.length - _this.numerosNovidadesAtual;
-                }
-            }, 500);
-        }, function (err) { return console.log(err); });
-    };
-    BuscaPage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__home_home__["a" /* HomePage */]);
-    };
-    BuscaPage.prototype.abrirPaginaTitulos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__titulos_titulos__["a" /* TitulosPage */]);
-    };
-    BuscaPage.prototype.abrirPaginaPublicacoes = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
-    };
-    BuscaPage.prototype.abrirPaginaPl = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
-    };
-    BuscaPage.prototype.abrirPaginaOntoarte = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_12__ontoarte_ontoarte__["a" /* OntoartePage */]);
-    };
-    BuscaPage.prototype.abrirPaginaAovivo = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_15__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
-    };
-    BuscaPage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_13__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
-    };
-    BuscaPage.prototype.abrirPaginaEventos = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_14__eventos_eventos__["a" /* EventosPage */]);
-    };
-    BuscaPage.prototype.abrirPaginaBuscaGeral = function () {
-        this.navCtrl.setRoot(BuscaPage_1);
-    };
-    BuscaPage = BuscaPage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-busca',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\busca\busca.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card class="card-back">\n\n      <img src="assets/imgs/background-busca.jpg" />  \n\n      <div class="titulo-card-back">Buscar</div>\n\n  </ion-card>\n\n\n\n  <ion-searchbar class="busca-input" placeholder="Digite a palavra..." (ionInput)="filterTechnologies($event.target.value)"></ion-searchbar>\n\n  \n\n  <ion-card *ngFor="let technology of technologies" (click)= "selecionarBusca(technology)" class="novidades-card">\n\n      <ion-card-content *ngIf="technology.Titulobusca != null" style="margin: 0px; padding: 0px;">\n\n          <h2 class="video-card-titulo">\n\n            {{ technology.Titulobusca }}\n\n          </h2>\n\n          <p class="video-card-tipo">\n\n            {{ technology.Categoria }}\n\n          </p>\n\n      </ion-card-content>\n\n  </ion-card>\n\n    \n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n  <div class="ico-menu-footer">\n\n    <ng-container *ngIf="qtdePublicacoes > 0">\n\n      <ion-badge item-end color="danger" class="menu-footer-bola">{{qtdePublicacoes}}</ion-badge>\n\n    </ng-container>\n\n    <img src="assets/imgs/ico-menu-footer-novidades.png" (click)="abrirPaginaHome()">\n\n    <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n      Novidades\n\n    </p>\n\n  </div>\n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">\n\n    <p class="menu_footer_texto" (click)="abrirPaginaPublicacoes()">\n\n      Publicações\n\n    </p>\n\n  </div>\n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">\n\n    <p class="menu_footer_texto" (click)="abrirPaginaPl()">\n\n      Líder\n\n    </p>\n\n  </div>\n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">\n\n    <p class="menu_footer_texto" (click)="abrirPaginaTitulos()">\n\n      Aulas\n\n    </p>\n\n  </div>\n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">\n\n    <p class="menu_footer_texto" (click)="abrirPaginaOntoarte()">\n\n      Músicas\n\n    </p>\n\n  </div>\n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\busca\busca.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
-    ], BuscaPage);
-    return BuscaPage;
-    var BuscaPage_1;
-}());
-
-//# sourceMappingURL=busca.js.map
-
-/***/ }),
-
-/***/ 81:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Audios2Page; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__ = __webpack_require__(82);
@@ -10129,10 +8082,10 @@ var BuscaPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_Rx__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_Rx__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_Rx__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__titulos_titulos__ = __webpack_require__(16);
@@ -10142,7 +8095,7 @@ var BuscaPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__eventos_eventos__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ontoarte_ver_ontoarte_ver__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ontoarte_ver_ontoarte_ver__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__loja_modal_loja_modal__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10786,13 +8739,2167 @@ var Audios2Page = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-audios2',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-row>\n\n    <ion-col col-5>\n\n      <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg">\n\n    </ion-col>\n\n    <ion-col col-7>\n\n      <h2 class="albumTitulo">{{ itemAlbum.Titulo }}</h2>\n\n      <h6 class="albumSubtitulo">{{ itemAlbum.Subtitulo }}</h6>\n\n      <div class="albumDesc" [innerHTML]="itemAlbum.Descricao"></div>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row nomargin nopadding style="margin:0px; padding:0px;">\n\n    <ion-col col-12 text-center>\n\n      <ion-card-content nomargin nopadding style="margin:0px; padding:0px;">\n\n        <div class="icone-livros-down" (click)="AddMinhaLista(itemAlbum)">\n\n          <img src="assets/imgs/{{ icone }}.png">\n\n          <p>Minha Lista</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="ClassficarAlbum(itemAlbum)">\n\n          <img src="assets/imgs/ico-curtir.jpg">\n\n          <p>{{ icoCurtir }}</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="regularShare(itemAlbum.Titulo, \'PROGETTO APP\', \'http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg\', \'app://br.com.hjweb.appprogetto\')">\n\n          <img src="assets/imgs/ico-compartilhar.jpg">\n\n          <p>Compartilhar</p>\n\n        </div>\n\n        <div class="icone-livros-down">\n\n          <img src="assets/imgs/ico-baixar-off.jpg">\n\n          <p style="color:#e6e6e6">Off-line</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="abrirModalLoja(itemAlbum)">\n\n          <img src="assets/imgs/ico-carrinho.jpg">\n\n          <p>Comprar CD</p>\n\n        </div>\n\n      </ion-card-content>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row style="margin-top: -20px;">\n\n    <ion-col col-6 text-center>\n\n      <img src="assets/imgs/{{iconPlay}}-maior.jpg" (click)="tooglePlay()">\n\n    </ion-col>\n\n    <ion-col col-6>\n\n      <img src="assets/imgs/musica-aleatorio-maior.jpg" (click)="random()">\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">\n\n    <ion-row>\n\n      <ion-col col-2>\n\n        <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg"\n\n          width="100%">\n\n      </ion-col>\n\n      <ion-col col-8 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n        <ion-list class="listItem">\n\n          <ion-item class="listItem">\n\n            <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>\n\n            <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}\n\n              <Br>\n\n              <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>\n\n            </h2>\n\n          </ion-item>\n\n        </ion-list>\n\n      </ion-col>\n\n      <ion-col col-2 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n        <div style="max-width: 50%; float: left; padding: 5px;" (click)="AddMinhaListaAudio(item, item.idaudio)">\n\n          <img src="assets/imgs/{{ getIconFav(item.idaudio) }}.png">\n\n        </div>\n\n        <div style="max-width: 50%; float: left; padding: 5px;" (click)="ClassficarAudio(item)">\n\n          <img src="assets/imgs/ico-curtir.jpg">\n\n        </div>\n\n        <div style="width: 100%; float: left;">\n\n          <p (click)="startAudio(item, i)">{{item.Tempo}}</p>\n\n        </div>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-card>\n\n\n\n  <br>\n\n  <br>\n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n  <ion-grid class="div_player">\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <!-- <input type="range" min="0" max="{{totalMedia}}" [(ngModel)]="position" (change)="refreshPosition()">  -->\n\n        <ion-range class="randNedo" min="0" max="{{totalMedia}}" [(ngModel)]="position" (ionChange)="refreshPosition()">\n\n        </ion-range>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">\n\n      </ion-col>\n\n      <ion-col col-8 class="player_texto_musica">\n\n        {{audioInfo}}\n\n        <span class="span_texto">- {{artistaInfo}}</span>\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/back.jpg" class="imgControl" (click)="back()">\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/{{iconPlay}}.jpg" class="imgControl" (click)="tooglePlay()">\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/next.jpg" class="imgControl" (click)="next()">\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _j || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
     ], Audios2Page);
     return Audios2Page;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=audios2.js.map
+
+/***/ }),
+
+/***/ 67:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__busca_busca__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_modal_loja_modal__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_revista_loja_revista__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var LojaPage = /** @class */ (function () {
+    function LojaPage(navCtrl, service, loadingCtrl, navParams, modalCtrl, Storage) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.service = service;
+        this.loadingCtrl = loadingCtrl;
+        this.navParams = navParams;
+        this.modalCtrl = modalCtrl;
+        this.Storage = Storage;
+        this.data = {};
+        this.relLivros = '';
+        this.relLivrosCats = '';
+        this.api = 'http://app.progettoapp.com.br/arquivos/r';
+        this.getDados();
+        this.getDadosCat();
+        //qt carrinho
+        this.Storage.ready().then(function () {
+            _this.Storage.get("ComprasCarrinho").then(function (data) {
+                _this.qtCarrinho = data.length - 1;
+            });
+        });
+    }
+    LojaPage_1 = LojaPage;
+    LojaPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        setInterval(function () {
+            if (_this.productSlides.getActiveIndex() == _this.productSlides.length() - 1)
+                _this.productSlides.slideTo(0);
+            _this.productSlides.slideNext();
+        }, 3000);
+    };
+    LojaPage.prototype.getDados = function () {
+        var _this = this;
+        //retorno de Dados
+        this.service.getLivros()
+            .subscribe(function (data) { return _this.relLivros = data.rows; }, function (err) { return console.log(err); });
+    };
+    LojaPage.prototype.getDadosCat = function () {
+        var _this = this;
+        //retorno de Dados
+        this.service.getLivrosCategorias()
+            .subscribe(function (data) { return _this.relLivrosCats = data.rows; }, function (err) { return console.log(err); });
+    };
+    LojaPage.prototype.abrirModalLoja = function (item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__loja_modal_loja_modal__["a" /* LojaModalPage */], { item: item });
+    };
+    LojaPage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
+    };
+    LojaPage.prototype.abrirPaginaBusca = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__busca_busca__["a" /* BuscaPage */]);
+    };
+    LojaPage.prototype.abrirLojaLivro = function () {
+        this.navCtrl.setRoot(LojaPage_1);
+    };
+    LojaPage.prototype.abrirLojaRevista = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__loja_revista_loja_revista__["a" /* LojaRevistaPage */]);
+    };
+    LojaPage.prototype.abrirLojaSouvenirs = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */]);
+    };
+    LojaPage.prototype.abrirCarrinho = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__["a" /* CarrinhoPage */]);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('productSlides'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Slides */])
+    ], LojaPage.prototype, "productSlides", void 0);
+    LojaPage = LojaPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-loja',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\loja\loja.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_carrinho" (click)="abrirCarrinho()">\n\n      <ion-badge item-end color="danger" class="menu-loja-bola">{{qtCarrinho}}</ion-badge>\n\n      <ion-icon name="ios-cart-outline" class="header_carrinho2"></ion-icon> \n\n    </div>    \n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">     \n\n    </div>        \n\n  </ion-navbar>\n\n</ion-header> \n\n<ion-content>\n\n\n\n  <ion-card class="card-back">\n\n    <img src="assets/imgs/background-header-livros.jpg" />  \n\n    <div class="titulo-card-back">Loja</div>\n\n  </ion-card>\n\n  <ion-card class="slide-card">\n\n      <ion-card-content>\n\n\n\n          <ion-row *ngFor= "let itemCat of relLivrosCats">\n\n              <ion-card-title class="slide-card-chamadas">\n\n                  <h2 class="slide-card-titulo-chamadas">{{ itemCat.Categoria }}</h2>\n\n              </ion-card-title>   \n\n              <ion-col col12>\n\n\n\n                    <ion-slides loop="false" slidesPerView="3" parallax="true" speed="1000" pager="false" #productSlides>\n\n                      <ng-container *ngFor= "let item of relLivros">\n\n                          <ion-slide *ngIf="itemCat.idlivro_cat === item.Cat" class="slide-card-li">\n\n                            <div class="slide-card-li-fundo">\n\n                              <img class="slide-card-li-img" (click)= "abrirModalLoja(item)" src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg"/>\n\n                            </div>\n\n                              <h3 (click)= "abrirModalLoja(item)" class="livro-h3">{{ item.Titulo }}</h3>\n\n                              <div (click)= "abrirModalLoja(item)" class="livro-p">{{ item.Valor }}</div>\n\n                          </ion-slide>\n\n                      </ng-container>\n\n                  </ion-slides>  \n\n\n\n              </ion-col>\n\n          </ion-row> \n\n      </ion-card-content> \n\n  </ion-card>   \n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer" style="margin-left: 9%;">\n\n        <img src="assets/imgs/ico-loja-menu-inicio.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Início\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-livros-s.png" (click)="abrirLojaLivro()">   \n\n        <p class="menu_footer_texto texto_selecionado" (click)="abrirLojaLivro()">\n\n          Físicos\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-revista.png" (click)="abrirLojaRevista()">     \n\n        <p class="menu_footer_texto" (click)="abrirLojaRevista()">\n\n          Digitais\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-souvenirs.png" (click)="abrirLojaSouvenirs()">  \n\n        <p class="menu_footer_texto" (click)="abrirLojaSouvenirs()">\n\n          Souvenirs\n\n        </p>          \n\n    </div>      \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\loja\loja.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_10__ionic_storage__["b" /* Storage */]])
+    ], LojaPage);
+    return LojaPage;
+    var LojaPage_1;
+}());
+
+//# sourceMappingURL=loja.js.map
+
+/***/ }),
+
+/***/ 68:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaSouvenirsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+var LojaSouvenirsPage = /** @class */ (function () {
+    function LojaSouvenirsPage(navCtrl, service, loadingCtrl, navParams, modalCtrl, Storage) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.service = service;
+        this.loadingCtrl = loadingCtrl;
+        this.navParams = navParams;
+        this.modalCtrl = modalCtrl;
+        this.Storage = Storage;
+        this.data = {};
+        this.relAlbuns = '';
+        this.api = 'http://app.progettoapp.com.br/arquivos/r';
+        this.getAlbunsFor();
+        //qt carrinho
+        this.Storage.ready().then(function () {
+            _this.Storage.get("ComprasCarrinho").then(function (data) {
+                _this.qtCarrinho = data.length - 1;
+            });
+        });
+    }
+    LojaSouvenirsPage_1 = LojaSouvenirsPage;
+    LojaSouvenirsPage.prototype.getAlbunsFor = function () {
+        var _this = this;
+        //retorno de Dados
+        this.service.getAlbuns()
+            .subscribe(function (data) {
+            _this.relAlbuns = data.rows;
+            console.log('album', _this.relAlbuns);
+        }, function (err) { return console.log(err); });
+    };
+    LojaSouvenirsPage.prototype.abrirModalLoja = function (item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__["a" /* LojaModalPage */], { item: item });
+    };
+    LojaSouvenirsPage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+    };
+    LojaSouvenirsPage.prototype.abrirPaginaBusca = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__busca_busca__["a" /* BuscaPage */]);
+    };
+    LojaSouvenirsPage.prototype.abrirLojaLivro = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__loja_loja__["a" /* LojaPage */]);
+    };
+    LojaSouvenirsPage.prototype.abrirLojaRevista = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__["a" /* LojaRevistaPage */]);
+    };
+    LojaSouvenirsPage.prototype.abrirLojaSouvenirs = function () {
+        this.navCtrl.setRoot(LojaSouvenirsPage_1);
+    };
+    LojaSouvenirsPage.prototype.abrirCarrinho = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__["a" /* CarrinhoPage */]);
+    };
+    LojaSouvenirsPage = LojaSouvenirsPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-loja-souvenirs',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\loja-souvenirs\loja-souvenirs.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_carrinho" (click)="abrirCarrinho()">\n\n      <ion-badge item-end color="danger" class="menu-loja-bola">{{qtCarrinho}}</ion-badge>\n\n      <ion-icon name="ios-cart-outline" class="header_carrinho2"></ion-icon> \n\n    </div>    \n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">     \n\n    </div>        \n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  \n\n    <ion-card class="card-back">\n\n      <img src="assets/imgs/background-header-livros.jpg" />  \n\n      <div class="titulo-card-back">Loja</div>\n\n    </ion-card>\n\n    \n\n    <ion-card class="slide-card">\n\n      <ion-row padding>\n\n        <ion-col col-12 class="slide-card-chamadas mb30">\n\n          <h2 class="slide-card-titulo-chamadas">\n\n            <strong>CD / DVDs</strong> \n\n          </h2>\n\n        </ion-col>\n\n        <ion-col col-4 *ngFor= "let item of relAlbuns" (click)="abrirModalLoja(item)" class="caixa-itens">\n\n          <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg"/>\n\n          <h3 class="livro-h3">{{ item.Titulo }}</h3>\n\n          <div class="livro-p">{{ item.Valor }}</div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-card> \n\n  \n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer" style="margin-left: 9%;">\n\n        <img src="assets/imgs/ico-loja-menu-inicio.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Início\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-livros.png" (click)="abrirLojaLivro()">   \n\n        <p class="menu_footer_texto" (click)="abrirLojaLivro()">\n\n          Físicos\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-revista.png" (click)="abrirLojaRevista()">     \n\n        <p class="menu_footer_texto" (click)="abrirLojaRevista()">\n\n          Digitais\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-souvenirs-s.png" (click)="abrirLojaSouvenirs()">  \n\n        <p class="menu_footer_texto texto_selecionado" (click)="abrirLojaSouvenirs()">\n\n          Souvenirs\n\n        </p>          \n\n    </div>      \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\loja-souvenirs\loja-souvenirs.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */]])
+    ], LojaSouvenirsPage);
+    return LojaSouvenirsPage;
+    var LojaSouvenirsPage_1;
+}());
+
+//# sourceMappingURL=loja-souvenirs.js.map
+
+/***/ }),
+
+/***/ 69:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaRevistaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+var LojaRevistaPage = /** @class */ (function () {
+    function LojaRevistaPage(navCtrl, service, loadingCtrl, navParams, modalCtrl, Storage) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.service = service;
+        this.loadingCtrl = loadingCtrl;
+        this.navParams = navParams;
+        this.modalCtrl = modalCtrl;
+        this.Storage = Storage;
+        this.data = {};
+        this.relBooks = '';
+        this.api = 'http://app.progettoapp.com.br/arquivos/r';
+        this.getDados1();
+        //qt carrinho
+        this.Storage.ready().then(function () {
+            _this.Storage.get("ComprasCarrinho").then(function (data) {
+                _this.qtCarrinho = data.length - 1;
+            });
+        });
+    }
+    LojaRevistaPage_1 = LojaRevistaPage;
+    LojaRevistaPage.prototype.getDados1 = function () {
+        var _this = this;
+        //retorno de Dados
+        this.service.getRevistaPl()
+            .subscribe(function (data) { return _this.relBooks = data.rows; }, function (err) { return console.log(err); });
+    };
+    LojaRevistaPage.prototype.abrirModalLoja = function (item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__["a" /* LojaModalPage */], { item: item });
+    };
+    LojaRevistaPage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+    };
+    LojaRevistaPage.prototype.abrirPaginaBusca = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__busca_busca__["a" /* BuscaPage */]);
+    };
+    LojaRevistaPage.prototype.abrirLojaLivro = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__loja_loja__["a" /* LojaPage */]);
+    };
+    LojaRevistaPage.prototype.abrirLojaRevista = function () {
+        this.navCtrl.setRoot(LojaRevistaPage_1);
+    };
+    LojaRevistaPage.prototype.abrirLojaSouvenirs = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */]);
+    };
+    LojaRevistaPage.prototype.abrirCarrinho = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__["a" /* CarrinhoPage */]);
+    };
+    LojaRevistaPage = LojaRevistaPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-loja-revista',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\loja-revista\loja-revista.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_carrinho" (click)="abrirCarrinho()">\n\n      <ion-badge item-end color="danger" class="menu-loja-bola">{{qtCarrinho}}</ion-badge>\n\n      <ion-icon name="ios-cart-outline" class="header_carrinho2"></ion-icon> \n\n    </div>    \n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">     \n\n    </div>        \n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  \n\n    <ion-card class="card-back">\n\n      <img src="assets/imgs/background-header-livros.jpg" />  \n\n      <div class="titulo-card-back">Loja</div>\n\n    </ion-card>\n\n    \n\n    <ion-card class="slide-card">\n\n      <ion-row nomargin padding>\n\n        <ion-col col-12 class="slide-card-chamadas mb30">\n\n          <h2 class="slide-card-titulo-chamadas">\n\n            <strong>Entrevistas de Capa</strong> \n\n          </h2>\n\n        </ion-col>\n\n        <ion-col col-4 *ngFor= "let item of relBooks" (click)="abrirModalLoja(item)" class="caixa-itens">\n\n          <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg"/>\n\n          <h3 class="livro-h3">{{ item.Titulo }}</h3>\n\n          <div class="livro-p">{{ item.Valor }}</div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-card> \n\n  \n\n  \n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer" style="margin-left: 9%;">\n\n        <img src="assets/imgs/ico-loja-menu-inicio.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Início\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-livros.png" (click)="abrirLojaLivro()">   \n\n        <p class="menu_footer_texto" (click)="abrirLojaLivro()">\n\n          Físicos\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-revista-s.png" (click)="abrirLojaRevista()">     \n\n        <p class="menu_footer_texto texto_selecionado" (click)="abrirLojaRevista()">\n\n          Digitais\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-souvenirs.png" (click)="abrirLojaSouvenirs()">  \n\n        <p class="menu_footer_texto" (click)="abrirLojaSouvenirs()">\n\n          Souvenirs\n\n        </p>          \n\n    </div>      \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\loja-revista\loja-revista.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */]])
+    ], LojaRevistaPage);
+    return LojaRevistaPage;
+    var LojaRevistaPage_1;
+}());
+
+//# sourceMappingURL=loja-revista.js.map
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_social_sharing__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__videos_videos__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__livros_livros__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pl_lista_pl_lista__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__audios2_audios2__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__comentarios_comentarios__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__titulos_titulos__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__titulos_livros_titulos_livros__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__revista_pl_revista_pl__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ontoarte_ontoarte__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__eventos_eventos__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__busca_busca__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var HomePage = /** @class */ (function () {
+    function HomePage(socialSharing, http, Storage, toastCtrl, navCtrl, service, storage, loadingCtrl, iab) {
+        var _this = this;
+        this.socialSharing = socialSharing;
+        this.http = http;
+        this.Storage = Storage;
+        this.toastCtrl = toastCtrl;
+        this.navCtrl = navCtrl;
+        this.service = service;
+        this.storage = storage;
+        this.loadingCtrl = loadingCtrl;
+        this.iab = iab;
+        this.item = [];
+        this.data = {};
+        this.resolucao = '';
+        this.myDate = {};
+        this.icoCurtirAulas = 'ico-curtir-off.jpg';
+        this.icoCurtirPl = 'ico-curtir-off.jpg';
+        this.icoCurtirLivros = 'ico-curtir-off.jpg';
+        this.icoCurtirMusicas = 'ico-curtir-off.jpg';
+        this.relCurtidas = '';
+        this.testeAulas = [];
+        this.storeData = [];
+        this.relnovidades = '';
+        this.relnovidadesPega = '';
+        this.relVideos = '';
+        this.IdUserQual = {};
+        this.EmailUserQual = {};
+        this.NomeUserQual = {};
+        this.NivelUserQual = {};
+        this.PlanoUserQual = {};
+        this.FotoUserQual = {};
+        this.api = 'http://app.progettoapp.com.br/arquivos/r';
+        this.myDate = new Date().toISOString();
+        this.userDadosGuardados();
+        this.getDadosPega();
+        this.getDadosCurtidas();
+        this.storage.get('QualUser').then(function (val) {
+            _this.IdUserQual = val;
+        });
+    }
+    HomePage_1 = HomePage;
+    // --- COMPARTILHAR --- // 
+    //compilemsg(index):string{
+    //var msg = this.quotes[index].content + "-" + this.quotes[index].title ;
+    //return msg.concat(" \n sent from my awesome app");
+    //}
+    HomePage.prototype.regularShare = function (msg, assunto, file, link) {
+        //var msg = this.compilemsg(msg);
+        this.socialSharing.share(msg, assunto, file, link);
+    };
+    HomePage.prototype.ionViewWillEnter = function () {
+        var _this = this;
+        this.service.getNovidades().subscribe(function (data) {
+            _this.relnovidades = data.rows;
+            _this.storage.get('relNovidades').then(function (val) {
+                if (val != null) {
+                    _this.numerosNovidades = val.length;
+                }
+                else {
+                    _this.storage.set('relNovidades', _this.relnovidades);
+                }
+            });
+            _this.storage.get('numeroPublicacoes').then(function (val) {
+                if (val != null) {
+                    _this.numerosNovidadesAtual = val;
+                    _this.nNovidades(_this.numerosNovidadesAtual);
+                }
+                else {
+                    _this.storage.set('numeroPublicacoes', _this.relnovidades.length);
+                }
+            });
+        }, function (err) { return console.log(err); });
+    };
+    HomePage.prototype.nNovidades = function (dados) {
+        //console.log('akiii',dados)
+        this.qtdePublicacoes = this.relnovidades.length - dados;
+        //console.log('akiii',this.qtdePublicacoes)
+    };
+    HomePage.prototype.doInfinite = function (infiniteScroll) {
+        var _this = this;
+        this.storage.get('numeroPublicacoes').then(function (val) {
+            if (val != null) {
+                _this.numerosNovidadesAtual = val;
+            }
+            else {
+                _this.storage.set('numeroPublicacoes', _this.relnovidades.length);
+            }
+        });
+        setTimeout(function () {
+            //console.log(this.relnovidades.length)
+            if (_this.relnovidades.length >= _this.numerosNovidadesAtual) {
+                _this.storage.set('relNovidades', _this.relnovidades);
+                _this.storage.set('numeroPublicacoes', _this.relnovidades.length);
+                //this.navCtrl.setRoot(HomePage)
+            }
+            infiniteScroll.complete();
+        }, 500);
+    };
+    HomePage.prototype.getDadosPega = function () {
+        var _this = this;
+        this.service.getNovidades()
+            .subscribe(function (data) {
+            _this.relnovidadesPega = data.rows;
+            /*if(data.rows[0].idnovidade == seu.storage.id){
+              //faz algo
+            }else{
+              //faz algo
+            }*/
+        }, function (err) { return console.log(err); });
+    };
+    HomePage.prototype.getDadosCurtidas = function () {
+        var _this = this;
+        this.service.getCurtidas()
+            .subscribe(function (data) {
+            _this.relCurtidas = data.rows;
+        }, function (err) { return console.log(err); });
+    };
+    HomePage.prototype.abrirComentarios = function (idqualSel, moduloSel) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_12__comentarios_comentarios__["a" /* ComentariosPage */], { idqualSel: idqualSel, moduloSel: moduloSel });
+    };
+    HomePage.prototype.selecionarNovidades = function (item) {
+        if (item['Tipo'] == 'video') {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__videos_videos__["a" /* VideosPage */], { item: item });
+        }
+        else if (item['Tipo'] == 'pl') {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_10__pl_lista_pl_lista__["a" /* PlListaPage */], { item: item });
+        }
+        else if (item['Tipo'] == 'musica') {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_11__audios2_audios2__["a" /* Audios2Page */], { item: item });
+        }
+        else {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__livros_livros__["a" /* LivrosPage */], { item: item });
+        }
+    };
+    HomePage.prototype.ClassficarLivro = function (item) {
+        var _this = this;
+        var added = 0;
+        this.Storage.get("ClassficarLivro").then(function (data) {
+            if (data == null || data.length == 0) {
+                data = [];
+                data.push({
+                    "idlivro": item.idlivro
+                });
+                added = 1;
+            }
+            else {
+                var _loop_1 = function (i) {
+                    if (item.idlivro == data[i].idlivro) {
+                        var query = data.find(function (item) { return item.idlivro === data[i].idlivro; });
+                        var toremove = data.indexOf(query);
+                        data.splice(toremove, 1);
+                        added = 1;
+                    }
+                };
+                for (var i = 0; i < data.length; i++) {
+                    _loop_1(i);
+                }
+            }
+            if (added == 0) {
+                data.push({
+                    "idlivro": item.idlivro
+                });
+            }
+            if (added == 1) {
+                _this.icoCurtirLivros = 'ico-curtir-off.jpg';
+                //ENVIA O INSERT
+                var headerOptions = { 'Content-Type': 'application/json' };
+                var headers = new Headers(headerOptions);
+                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+                _this.http.post(link, JSON.stringify({
+                    idqual: item.idlivro,
+                    user_id_qual: _this.IdUserQual,
+                    modulo: 'livros',
+                    acao: 'menos'
+                })).subscribe(function (data) {
+                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
+                });
+            }
+            else {
+                //ENVIA O INSERT
+                var headerOptions = { 'Content-Type': 'application/json' };
+                var headers = new Headers(headerOptions);
+                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+                _this.http.post(link, JSON.stringify({
+                    idqual: item.idlivro,
+                    user_id_qual: _this.IdUserQual,
+                    modulo: 'livros',
+                    acao: 'mais'
+                })).subscribe(function (data) {
+                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
+                });
+                _this.icoCurtirLivros = 'ico-curtir.jpg';
+            }
+            _this.Storage.set("ClassficarLivro", data).then(function () { });
+        });
+    };
+    HomePage.prototype.ClassficarPl = function (item) {
+        var _this = this;
+        var added = 0;
+        this.Storage.get("ClassficarPl").then(function (data) {
+            if (data == null || data.length == 0) {
+                data = [];
+                /*this.toastCtrl.create({
+                  message: "Você marcou o gostei nessa revista!",
+                  duration: 2000,
+                  position: 'middle',
+                }).present();*/
+                data.push({
+                    "idpl": item.idpl
+                });
+                added = 1;
+            }
+            else {
+                var _loop_2 = function (i) {
+                    if (item.idpl == data[i].idpl) {
+                        /*this.toastCtrl.create({
+                          message: "Você desmarcou o gostei nessa revista!",
+                          duration: 2000,
+                          position: 'middle',
+                        }).present();*/
+                        var query = data.find(function (item) { return item.idpl === data[i].idpl; });
+                        var toremove = data.indexOf(query);
+                        data.splice(toremove, 1);
+                        added = 1;
+                    }
+                };
+                for (var i = 0; i < data.length; i++) {
+                    _loop_2(i);
+                }
+            }
+            if (added == 0) {
+                data.push({
+                    "idpl": item.idpl
+                });
+                /*this.toastCtrl.create({
+                  message: "Você marcou o gostei nessa revista!",
+                  duration: 2000,
+                  position: 'middle',
+                }).present();*/
+            }
+            if (added == 1) {
+                //icoCurtirAulas: string = 'ico-curtir-aulas.jpg';
+                //icoCurtirPl: string = 'ico-curtir-pl.jpg';
+                //icoCurtirLivros: string = 'ico-curtir.jpg';
+                //icoCurtirMusicas: string = 'ico-curtir-musica.jpg';
+                //ENVIA O INSERT
+                var headerOptions = { 'Content-Type': 'application/json' };
+                var headers = new Headers(headerOptions);
+                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+                _this.http.post(link, JSON.stringify({
+                    idqual: item.idpl,
+                    modulo: 'pl',
+                    acao: 'menos'
+                })).subscribe(function (data) {
+                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
+                });
+            }
+            else {
+                //ENVIA O INSERT
+                var headerOptions = { 'Content-Type': 'application/json' };
+                var headers = new Headers(headerOptions);
+                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+                _this.http.post(link, JSON.stringify({
+                    idqual: item.idpl,
+                    modulo: 'pl',
+                    acao: 'mais'
+                })).subscribe(function (data) {
+                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
+                });
+                //icoCurtirAulas: string = 'ico-curtir-aulas.jpg';
+                //icoCurtirPl: string = 'ico-curtir-pl.jpg';
+                //icoCurtirLivros: string = 'ico-curtir.jpg';
+                //icoCurtirMusicas: string = 'ico-curtir-musica.jpg';
+            }
+            _this.Storage.set("ClassficarPl", data).then(function () { });
+        });
+    };
+    HomePage.prototype.ClassficarAula = function (item) {
+        var _this = this;
+        var added = 0;
+        this.Storage.get("ClassficarAulas").then(function (data) {
+            if (data == null || data.length == 0) {
+                data = [];
+                /*this.toastCtrl.create({
+                  message: "Você marcou o gostei nessa aula!",
+                  duration: 2000,
+                  position: 'middle',
+                }).present();*/
+                data.push({
+                    "idvideo": item.idvideo
+                });
+                added = 1;
+            }
+            else {
+                var _loop_3 = function (i) {
+                    if (item.idvideo == data[i].idvideo) {
+                        /*this.toastCtrl.create({
+                          message: "Você desmarcou o gostei nessa aula!",
+                          duration: 2000,
+                          position: 'middle',
+                        }).present();*/
+                        var query = data.find(function (item) { return item.idvideo === data[i].idvideo; });
+                        var toremove = data.indexOf(query);
+                        data.splice(toremove, 1);
+                        added = 1;
+                    }
+                };
+                for (var i = 0; i < data.length; i++) {
+                    _loop_3(i);
+                }
+            }
+            if (added == 0) {
+                data.push({
+                    "idvideo": item.idvideo
+                });
+            }
+            if (added == 1) {
+                //ENVIA O INSERT
+                var headerOptions = { 'Content-Type': 'application/json' };
+                var headers = new Headers(headerOptions);
+                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+                _this.http.post(link, JSON.stringify({
+                    idqual: item.idvideo,
+                    modulo: 'videos',
+                    acao: 'menos'
+                })).subscribe(function (data) {
+                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
+                });
+                _this.icoCurtirAulas = 'ico-curtir-off.jpg';
+                console.log('vai', _this.icoCurtirAulas);
+            }
+            else {
+                //ENVIA O INSERT
+                var headerOptions = { 'Content-Type': 'application/json' };
+                var headers = new Headers(headerOptions);
+                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+                _this.http.post(link, JSON.stringify({
+                    idqual: item.idvideo,
+                    modulo: 'videos',
+                    acao: 'mais'
+                })).subscribe(function (data) {
+                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
+                });
+                _this.icoCurtirAulas = 'ico-curtir-aulas.jpg';
+                console.log('vai', _this.icoCurtirAulas);
+            }
+            _this.Storage.set("ClassficarAulas", data).then(function () { });
+        });
+    };
+    HomePage.prototype.ClassficarAlbum = function (item) {
+        var _this = this;
+        var added = 0;
+        this.Storage.get("ClassficarAlbum").then(function (data) {
+            if (data == null || data.length == 0) {
+                data = [];
+                /*this.toastCtrl.create({
+                  message: "Você marcou o gostei nesse álbum!",
+                  duration: 2000,
+                  position: 'middle',
+                }).present();*/
+                data.push({
+                    "idalbum": item.idalbum
+                });
+                added = 1;
+            }
+            else {
+                var _loop_4 = function (i) {
+                    if (item.idalbum == data[i].idalbum) {
+                        /*this.toastCtrl.create({
+                          message: "Você desmarcou o gostei nesse álbum!",
+                          duration: 2000,
+                          position: 'middle',
+                        }).present();*/
+                        var query = data.find(function (item) { return item.idalbum === data[i].idalbum; });
+                        var toremove = data.indexOf(query);
+                        data.splice(toremove, 1);
+                        added = 1;
+                    }
+                };
+                for (var i = 0; i < data.length; i++) {
+                    _loop_4(i);
+                }
+            }
+            if (added == 0) {
+                data.push({
+                    "idalbum": item.idalbum
+                });
+                /*this.toastCtrl.create({
+                  message: "Você marcou o gostei nesse álbum!",
+                  duration: 2000,
+                  position: 'middle',
+                }).present();*/
+            }
+            if (added == 1) {
+                //icoCurtirAulas: string = 'ico-curtir-aulas.jpg';
+                //icoCurtirPl: string = 'ico-curtir-pl.jpg';
+                //icoCurtirLivros: string = 'ico-curtir.jpg';
+                //icoCurtirMusicas: string = 'ico-curtir-musica.jpg';
+                //ENVIA O INSERT
+                var headerOptions = { 'Content-Type': 'application/json' };
+                var headers = new Headers(headerOptions);
+                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+                _this.http.post(link, JSON.stringify({
+                    idqual: item.idalbum,
+                    modulo: 'albuns',
+                    acao: 'menos'
+                })).subscribe(function (data) {
+                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
+                });
+            }
+            else {
+                //ENVIA O INSERT
+                var headerOptions = { 'Content-Type': 'application/json' };
+                var headers = new Headers(headerOptions);
+                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+                _this.http.post(link, JSON.stringify({
+                    idqual: item.idalbum,
+                    modulo: 'albuns',
+                    acao: 'mais'
+                })).subscribe(function (data) {
+                    //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
+                });
+                //icoCurtirAulas: string = 'ico-curtir-aulas.jpg';
+                //icoCurtirPl: string = 'ico-curtir-pl.jpg';
+                //icoCurtirLivros: string = 'ico-curtir.jpg';
+                //icoCurtirMusicas: string = 'ico-curtir-musica.jpg';
+            }
+            _this.Storage.set("ClassficarAlbum", data).then(function () { });
+        });
+    };
+    HomePage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(HomePage_1);
+    };
+    HomePage.prototype.abrirPaginaTitulos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_13__titulos_titulos__["a" /* TitulosPage */]);
+    };
+    HomePage.prototype.abrirPaginaPublicacoes = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_14__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
+    };
+    HomePage.prototype.abrirPaginaPl = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_15__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
+    };
+    HomePage.prototype.abrirPaginaOntoarte = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_16__ontoarte_ontoarte__["a" /* OntoartePage */]);
+    };
+    HomePage.prototype.abrirPaginaAovivo = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_20__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
+    };
+    HomePage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_17__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
+    };
+    HomePage.prototype.abrirPaginaEventos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_18__eventos_eventos__["a" /* EventosPage */]);
+    };
+    HomePage.prototype.abrirPaginaBusca = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_19__busca_busca__["a" /* BuscaPage */]);
+    };
+    HomePage.prototype.userDadosGuardados = function () {
+        var _this = this;
+        this.storage.get('QualUser').then(function (val) {
+            console.log(val);
+            _this.IdUserQual = val;
+        });
+        this.storage.get('QualEmail').then(function (val) {
+            console.log(val);
+            _this.EmailUserQual = val;
+        });
+        this.storage.get('QualNome').then(function (val) {
+            console.log(val);
+            _this.NomeUserQual = val;
+        });
+        this.storage.get('QualNivel').then(function (val) {
+            console.log(val);
+            _this.NivelUserQual = val;
+        });
+        this.storage.get('QualPlano').then(function (val) {
+            console.log(val);
+            if (val == '0') {
+                _this.PlanoUserQual = 'Plano Empresarial';
+            }
+            else {
+                _this.PlanoUserQual = 'Plano Empresarial';
+            }
+        });
+        this.storage.get('QualFoto').then(function (val) {
+            _this.FotoUserQual = val;
+        });
+    };
+    HomePage.prototype.menu = function () {
+        //console.log('MENUUUU')
+    };
+    HomePage = HomePage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-home',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n    <ion-card *ngFor= "let item of relnovidadesPega" class="novidades-card" (ionChange)="checkFocus(item)">\n\n        <ion-item (click)= "selecionarNovidades(item)" >\n\n          \n\n          <img class="avatar" src="assets/imgs/{{ item.Icone }}">\n\n          \n\n        <h2 class="video-card-categoria">\n\n          {{ item.Categoria }} \n\n        </h2>   \n\n        <span class="data_hora_timeline">\n\n          <ion-icon name="ios-clock-outline" style="margin-right:3px;"></ion-icon>\n\n          {{ item.DataNovidade }}\n\n        </span>\n\n        </ion-item>\n\n        <ion-card-content (click)= "selecionarNovidades(item)" >\n\n            <h2 class="video-card-titulo">{{ item.TituloNovidade }}</h2>\n\n            <div class="video-card-desc" [innerHTML]="item.DescricaoNovidade"></div> \n\n        </ion-card-content>\n\n        <ion-card-content class="box-novidades" (click)= "selecionarNovidades(item)" >\n\n          <img src="{{ api }}/novidades/{{ item.PastaNovidade }}/{{ item.ImgNovidade }}_400.jpg" />\n\n        </ion-card-content>\n\n\n\n        <div *ngIf="item.Tipo == \'video\'">\n\n          <ion-item class="video-play-card">\n\n              <div class="video-play-card-btn">\n\n                <img src="assets/imgs/ico-btn-play-red.png">\n\n              </div>\n\n              <div class="video-play-card-tempo">{{ item.Tempo }}</div>\n\n              <div class="video-play-card-views">{{ item.ContCurtir }} Curtidas</div>\n\n          </ion-item>\n\n          <ion-row style="margin: -45px 0px 8px 0px;">\n\n              <div class="ico-curtir-img">\n\n                <img src="assets/imgs/{{ icoCurtirAulas }}" (click)="ClassficarAula(item)">\n\n              </div>\n\n              <div class="ico-curtir-m" (click)="ClassficarAula(item)">\n\n                {{ item.ContCurtir }}\n\n              </div>\n\n              <div class="barra-down"></div>\n\n              <div class="ico-comentarios-img">\n\n                <img src="assets/imgs/ico-comentarios-m.jpg" (click)="abrirComentarios(item.idvideo, \'videos\')">\n\n              </div>\n\n              <div class="ico-comentarios-m" (click)="abrirComentarios(item.idvideo, \'videos\')">\n\n                {{ item.ContComentarios }}\n\n              </div>\n\n              <div class="barra-down"></div> \n\n              <div class="ico-compartilhar-img">\n\n                <img src="assets/imgs/ico-compartilhar-m.jpg" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n              </div>\n\n              <div class="ico-compartilhar-m" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n                \n\n              </div>\n\n            </ion-row>            \n\n        </div>\n\n\n\n        <div *ngIf="item.Tipo == \'pl\'">\n\n          <ion-row style="margin: 8px 0px 8px 0px;">\n\n            <div class="ico-curtir-img">\n\n                <img src="assets/imgs/{{ icoCurtirPl }}" (click)="ClassficarPl(item)">\n\n            </div>\n\n            <div class="ico-curtir-m" (click)="ClassficarPl(item)">\n\n              {{ item.ContCurtir }}\n\n            </div>\n\n            <div class="barra-down"></div>\n\n            <div class="ico-comentarios-img">\n\n              <img src="assets/imgs/ico-comentarios-m.jpg" (click)="abrirComentarios(item.idpl, \'pl\')">\n\n            </div>\n\n            <div class="ico-comentarios-m" (click)="abrirComentarios(item.idpl, \'pl\')">\n\n              {{ item.ContComentarios }}\n\n            </div>\n\n            <div class="barra-down"></div> \n\n            <div class="ico-compartilhar-img">\n\n              <img src="assets/imgs/ico-compartilhar-m.jpg" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n            </div>\n\n            <div class="ico-compartilhar-m" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n              \n\n            </div>\n\n          </ion-row>          \n\n        </div>\n\n          \n\n        <div *ngIf="item.Tipo == \'livros\'">\n\n          <ion-row style="margin: 8px 0px 8px 0px;">\n\n            <div class="ico-curtir-img">\n\n                <img src="assets/imgs/{{ icoCurtirLivros }}" (click)="ClassficarLivro(item)">\n\n            </div>\n\n            <div class="ico-curtir-m" (click)="ClassficarLivro(item)">\n\n              {{ item.ContCurtir }}\n\n            </div>\n\n            <div class="barra-down"></div>\n\n            <div class="ico-comentarios-img">\n\n              <img src="assets/imgs/ico-comentarios-m.jpg" (click)="abrirComentarios(item.idlivro, \'livros\')">\n\n            </div>\n\n            <div class="ico-comentarios-m" (click)="abrirComentarios(item.idlivro, \'livros\')">\n\n              {{ item.ContComentarios }}\n\n            </div>\n\n            <div class="barra-down"></div> \n\n            <div class="ico-compartilhar-img">\n\n              <img src="assets/imgs/ico-compartilhar-m.jpg" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n            </div>\n\n            <div class="ico-compartilhar-m" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n              \n\n            </div>\n\n          </ion-row>\n\n        </div>\n\n        \n\n        <div *ngIf="item.Tipo == \'musica\'">\n\n          <ion-row style="margin: 8px 0px 8px 0px;">\n\n            <div class="ico-curtir-img">\n\n              <img src="assets/imgs/{{ icoCurtirMusicas }}" (click)="ClassficarAlbum(item)">\n\n            </div>\n\n            <div class="ico-curtir-m" (click)="ClassficarAlbum(item)">\n\n              {{ item.ContCurtir }}\n\n            </div>\n\n            <div class="barra-down"></div>\n\n            <div class="ico-comentarios-img">\n\n              <img src="assets/imgs/ico-comentarios-m.jpg" (click)="abrirComentarios(item.idalbum, \'musica\')">\n\n            </div>\n\n            <div class="ico-comentarios-m" (click)="abrirComentarios(item.idalbum, \'musica\')">\n\n              {{ item.ContComentarios }}\n\n            </div>\n\n            <div class="barra-down"></div> \n\n            <div class="ico-compartilhar-img">\n\n              <img src="assets/imgs/ico-compartilhar-m.jpg" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n            </div>\n\n            <div class="ico-compartilhar-m" (click)="regularShare(item.Titulo, \'PROGETTO APP\', \'\', \'app://br.com.hjweb.appprogetto\')">\n\n              \n\n            </div>\n\n          </ion-row>           \n\n        </div>\n\n\n\n    </ion-card>  \n\n\n\n    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n\n      <ion-infinite-scroll-content loadingSpinner="bubbles" >\n\n      </ion-infinite-scroll-content>\n\n    </ion-infinite-scroll>\n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n  <div class="ico-menu-footer">\n\n    <ng-container *ngIf="qtdePublicacoes > 0">\n\n      <ion-badge item-end color="danger" class="menu-footer-bola">{{qtdePublicacoes}}</ion-badge>\n\n    </ng-container>\n\n    <img src="assets/imgs/ico-menu-footer-novidades-s.png" (click)="abrirPaginaHome()">  \n\n    <p class="menu_footer_texto menu_footer_texto_novidades" (click)="abrirPaginaHome()">\n\n      Novidades\n\n    </p>\n\n  </div>\n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">   \n\n    <p class="menu_footer_texto" (click)="abrirPaginaPublicacoes()">\n\n      Publicações\n\n    </p>          \n\n  </div> \n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">     \n\n    <p class="menu_footer_texto" (click)="abrirPaginaPl()">\n\n      Líder\n\n    </p>         \n\n  </div> \n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">   \n\n    <p class="menu_footer_texto" (click)="abrirPaginaTitulos()">\n\n      Aulas\n\n    </p>         \n\n  </div> \n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">  \n\n    <p class="menu_footer_texto" (click)="abrirPaginaOntoarte()">\n\n      Músicas\n\n    </p>          \n\n  </div>       \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\home\home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_social_sharing__["a" /* SocialSharing */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */], __WEBPACK_IMPORTED_MODULE_2__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
+    ], HomePage);
+    return HomePage;
+    var HomePage_1;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 742:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AudiosPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_audio_service_audio_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__titulos_titulos__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__titulos_livros_titulos_livros__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__revista_pl_revista_pl__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ontoarte_ontoarte__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__eventos_eventos__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__busca_busca__ = __webpack_require__(8);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AudiosPage = /** @class */ (function () {
+    function AudiosPage(navCtrl, navParams, service, loadingCtrl, audioService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.service = service;
+        this.loadingCtrl = loadingCtrl;
+        this.audioService = audioService;
+        this.item = [];
+        this.relAudios = '';
+        this.position = 0;
+        this.api = "http://www.adautobulhoes.com.br/vinhetas-gratis/";
+        this.audio = "";
+        this.color = 'primary';
+        this.audioService.changePositionObservable.subscribe(function (value) {
+        });
+        this.getAudios();
+        this.getDados();
+    }
+    AudiosPage.prototype.getAudios = function () {
+        var _this = this;
+        //retorno de Dados
+        this.service.getAudios()
+            .subscribe(function (data) { return _this.relAudios = data.rows; }, function (err) { return console.log(err); });
+    };
+    AudiosPage.prototype.getDados = function () {
+        this.audio = this.navParams.get('musica');
+    };
+    AudiosPage.prototype.startAudio = function (item) {
+        this.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + item['arquivo_audio'];
+        this.audioPlayer.nativeElement.src = this.audio;
+        this.audioPlayer.nativeElement.load();
+        /*
+        var musica = this.audio
+    
+        let loader = this.loadingCtrl.create({
+          content: "Carregando",
+          duration: 300
+        });
+        loader.present();
+          this.navCtrl.setRoot(AudiosPage,{
+            musica
+          });
+          */
+    };
+    AudiosPage.prototype.favorito = function (item) {
+        this.color = "secondarys";
+        console.log('FAVORITO', item);
+    };
+    AudiosPage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
+    };
+    AudiosPage.prototype.abrirPaginaTitulos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__titulos_titulos__["a" /* TitulosPage */]);
+    };
+    AudiosPage.prototype.abrirPaginaPublicacoes = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
+    };
+    AudiosPage.prototype.abrirPaginaPl = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
+    };
+    AudiosPage.prototype.abrirPaginaOntoarte = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__ontoarte_ontoarte__["a" /* OntoartePage */]);
+    };
+    AudiosPage.prototype.abrirPaginaAovivo = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
+    };
+    AudiosPage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
+    };
+    AudiosPage.prototype.abrirPaginaEventos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__eventos_eventos__["a" /* EventosPage */]);
+    };
+    AudiosPage.prototype.abrirPaginaBusca = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_12__busca_busca__["a" /* BuscaPage */]);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ViewChild */])('audioPlayer'),
+        __metadata("design:type", Object)
+    ], AudiosPage.prototype, "audioPlayer", void 0);
+    AudiosPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-audios',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audios\audios.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n        <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n        <img src="assets/imgs/ico-calendario.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n        <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content> \n\n\n\n<!-- <ion-grid>\n\n    <ion-row>\n\n            <div style="float:left; width:35%; padding: 20px;">\n\n                    <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n                </div>\n\n                <div style="float:left; width:65%;">\n\n                    <h2 class="albumTitulo">Albúm Metafísica Brasiliana</h2>\n\n                    <h6 class="albumSubtitulo">Antonio Meneghetti\n\n                    <Br>Volume I</h6>\n\n                    <p class="albumDesc">Nossas emoções, através da música, nos levam a caminhos\n\n                            percorridos entre lágrimas, sorrisos, dor, prazer metafísico.\n\n                            O Maestro Antonio Meneghetti fala através da música todas\n\n                            essas emoções vividas na existência.\n\n                            O ritmo torna-se fenômeno ocasional para entrar na pura\n\n                            percepção do ser.</p> \n\n                </div>\n\n    </ion-row>\n\n</ion-grid> -->\n\n\n\n<!-- \n\n<div style="position: relative; width: 100%;">\n\n    <div style="float:left; width:35%; padding: 20px;">\n\n        <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n    </div>\n\n    <div style="float:left; width:65%;">\n\n        <h2 class="albumTitulo">Albúm Metafísica Brasiliana</h2>\n\n        <h6 class="albumSubtitulo">Antonio Meneghetti\n\n        <Br>Volume I</h6>\n\n        <p class="albumDesc">Nossas emoções, através da música, nos levam a caminhos\n\n                percorridos entre lágrimas, sorrisos, dor, prazer metafísico.\n\n                O Maestro Antonio Meneghetti fala através da música todas\n\n                essas emoções vividas na existência.\n\n                O ritmo torna-se fenômeno ocasional para entrar na pura\n\n                percepção do ser.</p> \n\n    </div>\n\n</div> -->\n\n\n\n<!-- <div style="position: relative; width: 100%;">\n\n    <img src="assets/imgs/musica-banner.png">\n\n</div>\n\n -->\n\n\n\n<ion-card *ngFor="let item of relAudios">\n\n        <ion-row>\n\n                <ion-col col-2>\n\n                    <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n                </ion-col>\n\n                <ion-col col-8>\n\n                    <!-- <ion-list class="listItem"> -->\n\n                        <ion-item (click)="startAudio(item)" class="listItem">\n\n                            <ion-icon name="play" item-start></ion-icon>\n\n                            <h2 class="tituloFaixa">{{item.audio}}<Br><span class="subtituloFaixa"> {{item.artista}}</span></h2>\n\n                        </ion-item>\n\n                    <!-- </ion-list> -->\n\n                </ion-col>\n\n                <ion-col col-2>\n\n                   <p >{{item.Tempo}}</p> \n\n                </ion-col>\n\n            </ion-row>\n\n</ion-card>\n\n\n\n<!-- <ion-grid>\n\n    <ion-card *ngFor="let item of relAudios">\n\n        <ion-row>\n\n            <ion-col col-2>\n\n                <img src="http://www.redeplaneje.com.br/midias/r/albuns/capa_nova.jpg" width="100%">\n\n            </ion-col>\n\n            <ion-col col-8 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n                \n\n                    <ion-item (click)="startAudio(item)" class="listItem">\n\n                        <ion-icon name="play" item-start></ion-icon>\n\n                        <h2 class="tituloFaixa">{{item.audio}}<Br><span class="subtituloFaixa"> {{item.artista}}</span></h2>\n\n                    </ion-item>\n\n                \n\n            </ion-col>\n\n            <ion-col col-2>\n\n               <p >{{item.Tempo}}</p> \n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-card>\n\n</ion-grid> -->\n\n\n\n<audio #audioPlayer autoplay="autoplay" style="width: 100%; border:0px;">\n\n    <source src="{{audio}} " type="audio/mp3" />\n\n</audio>                   \n\n\n\n<!-- <div class="" style="background:#fff; margin-top:30px;">\n\n    <div text-center padding style="width: 100%; padding: 0px; margin: 0px; ">\n\n        <ion-card style="width: 100%; padding: 0px; margin: 0px; ">\n\n        </ion-card>           \n\n    </div> \n\n</div> -->\n\n\n\n<ion-content>\n\n    \n\n    <ion-footer>\n\n        <ion-range [(ngModel)]="position">\n\n            \n\n        </ion-range>\n\n    </ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audios\audios.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
+    ], AudiosPage);
+    return AudiosPage;
+}());
+
+//# sourceMappingURL=audios.js.map
+
+/***/ }),
+
+/***/ 743:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PdfPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var PdfPage = /** @class */ (function () {
+    function PdfPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.item = this.navParams.get('item');
+        this.pdfSrc = 'http://www.redeplaneje.com.br/midias/r/livros/' + this.item['Arquivo'];
+    }
+    PdfPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-pdf',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\pdf\pdf.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n <!--  <pdf-viewer [src]="pdfSrc" \n\n              [render-text]="true"\n\n              style="display: block; width:100%; height: 100%"\n\n  ></pdf-viewer> -->\n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer">\n\n        <div class="menu-footer-bola">8</div>\n\n        <img src="assets/imgs/ico-menu-footer-novidades.png" (click)="abrirPaginaHome()">    \n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">     \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">      \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">    \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">    \n\n    </div>       \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\pdf\pdf.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], PdfPage);
+    return PdfPage;
+}());
+
+//# sourceMappingURL=pdf.js.map
+
+/***/ }),
+
+/***/ 744:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SlidePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cadastro_usuario_cadastro_usuario__ = __webpack_require__(184);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var SlidePage = /** @class */ (function () {
+    function SlidePage(navCtrl, navParams, loadingCtrl, Storage) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.loadingCtrl = loadingCtrl;
+        this.Storage = Storage;
+    }
+    SlidePage.prototype.ionViewDidLoad = function () {
+        this.Storage.set('SlideOlhou', '');
+    };
+    SlidePage.prototype.continue = function (item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */], {
+            item: item
+        });
+    };
+    SlidePage.prototype.cadastroUser = function (item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__cadastro_usuario_cadastro_usuario__["a" /* CadastroUsuarioPage */], {
+            item: item
+        });
+    };
+    SlidePage.prototype.pular = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */]);
+    };
+    SlidePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-slide',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\slide\slide.html"*/'<ion-content class="slide-intro">\n\n	<ion-slides pager>\n\n\n\n		<ion-slide>\n\n			<div class="slide-intro-logo1">\n\n				<img src="assets/imgs/slide-intro/logo-intro.png">\n\n			</div>			\n\n			<h2 class="tela1-titulo">\n\n				Entre para o <br>\n\n				Portal de Conteúdo<Br>\n\n				de Ontopsicologia.</h2>\n\n			<p class="tela1-texto"><strong>Aplicativo Progetto.</strong> Para lhe aproximar ainda mais do estudo e aprofundamento da  Ciência Ontopsicológica.</p>\n\n			<div class="intro-tela1-img">\n\n				<img src="assets/imgs/slide-intro/tela1.png">\n\n			</div>\n\n		</ion-slide>\n\n\n\n		<ion-slide>\n\n			<div class="slide-intro-logo2">\n\n				<img src="assets/imgs/slide-intro/logo-intro.png">\n\n			</div>			\n\n			<p class="tela2-texto">\n\n				No seu <span>progetto</span> tem tudo.\n\n			</p>\n\n			<div class="intro-tela2-img">\n\n				<img src="assets/imgs/slide-intro/tela2.png">\n\n			</div>\n\n		</ion-slide>\n\n\n\n		<ion-slide>				\n\n			<div class="slide-intro-logo3">\n\n				<img src="assets/imgs/slide-intro/logo-intro.png">\n\n			</div>\n\n			<div class="intro-tela3-img">\n\n				<img src="assets/imgs/slide-intro/tela3.png">\n\n			</div>								\n\n			<p class="tela3-texto">\n\n				Livros. Revistas. Aulas. Músicas OntoArte. Eventos. Transmissão ao vivo.\n\n			</p>\n\n			<p class="tela3-texto2">\n\n				Tudo em um só lugar!\n\n			</p>\n\n		</ion-slide>\n\n\n\n		<ion-slide>\n\n			<div class="slide-intro-logo4">\n\n				<img src="assets/imgs/slide-intro/logo-intro.png">\n\n			</div>			\n\n			<p class="tela4-texto">\n\n				Escolha <span>seu plano</span> e acesse onde estiver.\n\n			</p>\n\n			<div class="intro-tela4-img">\n\n				<img src="assets/imgs/slide-intro/tela4.png">\n\n			</div>\n\n		</ion-slide>\n\n\n\n		<ion-slide class="slide-tela5">\n\n			<div class="slide-intro-logo5">\n\n				<img src="assets/imgs/slide-intro/logo-intro-white.png">\n\n			</div>		\n\n			<p class="tela5-texto">\n\n				Seja bem-vindo <Br>ao seu <span>Progetto.</span>\n\n			</p>\n\n			<button ion-button icon-end color="primary" (click)= "cadastroUser(item)" class="tela5-btn1">\n\n				CADASTRE-SE\n\n			</button>						\n\n			<button ion-button icon-end color="primary" (click)= "continue(item)" class="tela5-btn2">\n\n				LOGIN\n\n			</button>\n\n		</ion-slide>\n\n\n\n	</ion-slides>	\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\slide\slide.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
+    ], SlidePage);
+    return SlidePage;
+}());
+
+//# sourceMappingURL=slide.js.map
+
+/***/ }),
+
+/***/ 745:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OntoarteAlbumPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__titulos_titulos__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__titulos_livros_titulos_livros__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__revista_pl_revista_pl__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ontoarte_ontoarte__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__eventos_eventos__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__busca_busca__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+var OntoarteAlbumPage = /** @class */ (function () {
+    function OntoarteAlbumPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    OntoarteAlbumPage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
+    };
+    OntoarteAlbumPage.prototype.abrirPaginaTitulos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__titulos_titulos__["a" /* TitulosPage */]);
+    };
+    OntoarteAlbumPage.prototype.abrirPaginaPublicacoes = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
+    };
+    OntoarteAlbumPage.prototype.abrirPaginaPl = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
+    };
+    OntoarteAlbumPage.prototype.abrirPaginaOntoarte = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__ontoarte_ontoarte__["a" /* OntoartePage */]);
+    };
+    OntoarteAlbumPage.prototype.abrirPaginaAovivo = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
+    };
+    OntoarteAlbumPage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
+    };
+    OntoarteAlbumPage.prototype.abrirPaginaEventos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__eventos_eventos__["a" /* EventosPage */]);
+    };
+    OntoarteAlbumPage.prototype.abrirPaginaBusca = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__busca_busca__["a" /* BuscaPage */]);
+    };
+    OntoarteAlbumPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-ontoarte-album',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\ontoarte-album\ontoarte-album.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n      <p>Sem conteúdo no momento.</p>\n\n  </ion-content>\n\n  <ion-footer class="menu_footer">\n\n      <div class="ico-menu-footer">\n\n          <div class="menu-footer-bola">4</div>\n\n          <img src="assets/imgs/ico-menu-footer-novidades.png" (click)="abrirPaginaHome()">    \n\n      </div>\n\n      <div class="ico-menu-footer">\n\n          <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">     \n\n      </div> \n\n      <div class="ico-menu-footer">\n\n          <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">      \n\n      </div> \n\n      <div class="ico-menu-footer">\n\n          <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">    \n\n      </div> \n\n      <div class="ico-menu-footer">\n\n          <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">    \n\n      </div>       \n\n  </ion-footer>\n\n  '/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\ontoarte-album\ontoarte-album.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], OntoarteAlbumPage);
+    return OntoarteAlbumPage;
+}());
+
+//# sourceMappingURL=ontoarte-album.js.map
+
+/***/ }),
+
+/***/ 746:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaListaVerPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pl_lista_pl_lista__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__livros_livros__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__videos_videos__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__titulos_titulos__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__titulos_livros_titulos_livros__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__revista_pl_revista_pl__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ontoarte_ontoarte__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__eventos_eventos__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__busca_busca__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ontoarte_ver_ontoarte_ver__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var MinhaListaVerPage = /** @class */ (function () {
+    function MinhaListaVerPage(loadingCtrl, Storage, navCtrl, navParams) {
+        this.loadingCtrl = loadingCtrl;
+        this.Storage = Storage;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.data = {};
+        this.rel1 = '';
+        this.rel2 = '';
+        this.rel3 = '';
+        this.item = [];
+        this.LivrosItens = [];
+        this.plItens = [];
+        this.VideoItens = [];
+        this.OntoItens = [];
+        this.getDados();
+    }
+    MinhaListaVerPage.prototype.getDados = function () {
+        var _this = this;
+        this.Storage.ready().then(function () {
+            _this.Storage.get("MinhaListaLivros").then(function (data) {
+                _this.LivrosItens = data;
+                console.log(_this.LivrosItens);
+                if (data == null || data.length == 0) {
+                    //this.showEmptCartMessage= true;   
+                }
+                else {
+                    _this.LivrosItens.forEach(function (item, index) {
+                        _this.rel1 = item;
+                    });
+                }
+                /*
+                if(this.LivrosItens.length > 0){
+                  this.LivrosItens.forEach( (item, index)=>{
+                    this.total = this.total + (item.product.price * item.qty);
+                  })
+                } else {
+                  this.showEmptCartMessage= true;
+                }
+                */
+            });
+        });
+        this.Storage.ready().then(function () {
+            _this.Storage.get("MinhaListaPl").then(function (data) {
+                _this.plItens = data;
+                console.log(_this.plItens);
+                if (data == null || data.length == 0) {
+                    //this.showEmptCartMessage= true;   
+                }
+                else {
+                    _this.plItens.forEach(function (item, index) {
+                        _this.rel2 = item;
+                    });
+                }
+                /*
+                if(this.plItens.length > 0){
+                  this.plItens.forEach( (item, index)=>{
+                    this.total = this.total + (item.product.price * item.qty);
+                  })
+                } else {
+                  this.showEmptCartMessage= true;
+                }
+                */
+            });
+        });
+        this.Storage.ready().then(function () {
+            _this.Storage.get("MinhaListaPl").then(function (data) {
+                _this.VideoItens = data;
+                console.log(_this.VideoItens);
+                if (data == null || data.length == 0) {
+                    //this.showEmptCartMessage= true;   
+                }
+                else {
+                    _this.VideoItens.forEach(function (item, index) {
+                        _this.rel2 = item;
+                    });
+                }
+                /*
+                if(this.VideoItens.length > 0){
+                  this.VideoItens.forEach( (item, index)=>{
+                    this.total = this.total + (item.product.price * item.qty);
+                  })
+                } else {
+                  this.showEmptCartMessage= true;
+                }
+                */
+            });
+        });
+        this.Storage.ready().then(function () {
+            _this.Storage.get("MinhaListaPl").then(function (data) {
+                _this.OntoItens = data;
+                console.log(_this.OntoItens);
+                if (data == null || data.length == 0) {
+                    //this.showEmptCartMessage= true;   
+                }
+                else {
+                    _this.OntoItens.forEach(function (item, index) {
+                        _this.rel2 = item;
+                    });
+                }
+                /*
+                if(this.OntoItens.length > 0){
+                  this.OntoItens.forEach( (item, index)=>{
+                    this.total = this.total + (item.product.price * item.qty);
+                  })
+                } else {
+                  this.showEmptCartMessage= true;
+                }
+                */
+            });
+        });
+    };
+    MinhaListaVerPage.prototype.abriLivro = function (item) {
+        var loader = this.loadingCtrl.create({
+            content: "Carregando",
+            duration: 3000
+        });
+        loader.present();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__livros_livros__["a" /* LivrosPage */], {
+            item: item
+        });
+    };
+    MinhaListaVerPage.prototype.abriPl = function (item) {
+        var loader = this.loadingCtrl.create({
+            content: "Carregando",
+            duration: 3000
+        });
+        loader.present();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pl_lista_pl_lista__["a" /* PlListaPage */], {
+            item: item
+        });
+    };
+    MinhaListaVerPage.prototype.abriVideo = function (item) {
+        var loader = this.loadingCtrl.create({
+            content: "Carregando",
+            duration: 3000
+        });
+        loader.present();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__videos_videos__["a" /* VideosPage */], {
+            item: item
+        });
+    };
+    MinhaListaVerPage.prototype.abriOnto = function (item) {
+        var loader = this.loadingCtrl.create({
+            content: "Carregando",
+            duration: 3000
+        });
+        loader.present();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_14__ontoarte_ver_ontoarte_ver__["a" /* OntoarteVerPage */], {
+            item: item
+        });
+    };
+    MinhaListaVerPage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__home_home__["a" /* HomePage */]);
+    };
+    MinhaListaVerPage.prototype.abrirPaginaTitulos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__titulos_titulos__["a" /* TitulosPage */]);
+    };
+    MinhaListaVerPage.prototype.abrirPaginaPublicacoes = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
+    };
+    MinhaListaVerPage.prototype.abrirPaginaPl = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
+    };
+    MinhaListaVerPage.prototype.abrirPaginaOntoarte = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__ontoarte_ontoarte__["a" /* OntoartePage */]);
+    };
+    MinhaListaVerPage.prototype.abrirPaginaAovivo = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_15__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
+    };
+    MinhaListaVerPage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
+    };
+    MinhaListaVerPage.prototype.abrirPaginaEventos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_12__eventos_eventos__["a" /* EventosPage */]);
+    };
+    MinhaListaVerPage.prototype.abrirPaginaBusca = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_13__busca_busca__["a" /* BuscaPage */]);
+    };
+    MinhaListaVerPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-minha-lista-ver',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\minha-lista-ver\minha-lista-ver.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n\n\n    <ion-card class="novidades-card">\n\n      <ion-item>\n\n        <h2 class="video-card-categoria">\n\n          Publicações\n\n        </h2>       \n\n      </ion-item>\n\n      <ion-card-content *ngFor= "let LivrosItens of LivrosItens" (click)="abriLivro(LivrosItens.idlivro)">\n\n        <ion-item >\n\n          <ion-avatar item-start>\n\n            <img src="http://www.redeplaneje.com.br/midias/r/livros/{{ LivrosItens.thumbLivro }}" >\n\n          </ion-avatar>\n\n        <h2 class="video-card-categoria">\n\n            {{ LivrosItens.tituloLivro }}\n\n          </h2>       \n\n          <p style="color:#bbbbbb;">\n\n            {{ LivrosItens.descricaoLivro }}\n\n          </p>\n\n        </ion-item>\n\n\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card class="novidades-card">\n\n        <ion-item>\n\n          <h2 class="video-card-categoria">\n\n            Líder\n\n          </h2>       \n\n        </ion-item>\n\n        <ion-card-content *ngFor= "let plItens of plItens" (click)="abriPl(plItens.idpl)">\n\n          <ion-item >\n\n            <ion-avatar item-start>\n\n              <img src="http://www.redeplaneje.com.br/midias/r/pl/{{ plItens.thumbPl }}" >\n\n            </ion-avatar>\n\n          <h2 class="video-card-categoria">\n\n              {{ plItens.tituloPl }}\n\n            </h2>       \n\n            <p style="color:#bbbbbb;">\n\n              {{ plItens.descricaoPl }}\n\n            </p>\n\n          </ion-item>\n\n  \n\n        </ion-card-content>\n\n      </ion-card>\n\n\n\n      <ion-card class="novidades-card">\n\n          <ion-item>\n\n            <h2 class="video-card-categoria">\n\n              Aulas\n\n            </h2>       \n\n          </ion-item>\n\n          <ion-card-content *ngFor= "let VideoItens of VideoItens" (click)="abriVideo(VideoItens)">\n\n            <ion-item >\n\n              <ion-avatar item-start>\n\n                <img src="http://www.redeplaneje.com.br/midias/r/pl/{{ VideoItens.thumbVideo }}" >\n\n              </ion-avatar>\n\n            <h2 class="video-card-categoria">\n\n                {{ VideoItens.tituloVideo }}\n\n              </h2>       \n\n              <p style="color:#bbbbbb;">\n\n                {{ VideoItens.descricaoVideo }}\n\n              </p>\n\n            </ion-item>\n\n    \n\n          </ion-card-content>\n\n        </ion-card>\n\n\n\n        <ion-card class="novidades-card">\n\n            <ion-item>\n\n              <h2 class="video-card-categoria">\n\n                Músicas\n\n              </h2>       \n\n            </ion-item>\n\n            <ion-card-content *ngFor= "let OntoItens of OntoItens" (click)="abriOnto(OntoItens)">\n\n              <ion-item >\n\n                <ion-avatar item-start>\n\n                  <img src="http://www.redeplaneje.com.br/midias/r/audios/capa.jpg" >\n\n                </ion-avatar>\n\n              <h2 class="video-card-categoria">\n\n                  {{ OntoItens.tituloOntoarte }}\n\n                </h2>       \n\n                <p style="color:#bbbbbb;">\n\n                  {{ OntoItens.descricaoOntoarte }}\n\n                </p>\n\n              </ion-item>\n\n      \n\n            </ion-card-content>\n\n          </ion-card>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\minha-lista-ver\minha-lista-ver.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], MinhaListaVerPage);
+    return MinhaListaVerPage;
+}());
+
+//# sourceMappingURL=minha-lista-ver.js.map
+
+/***/ }),
+
+/***/ 747:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaCdsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__busca_busca__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__loja_modal_loja_modal__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+var LojaCdsPage = /** @class */ (function () {
+    function LojaCdsPage(navCtrl, service, loadingCtrl, navParams, modalCtrl) {
+        this.navCtrl = navCtrl;
+        this.service = service;
+        this.loadingCtrl = loadingCtrl;
+        this.navParams = navParams;
+        this.modalCtrl = modalCtrl;
+        this.data = {};
+        this.relBooks = '';
+        this.relOutro = '';
+        this.api = 'http://app.progettoapp.com.br/arquivos/r';
+        this.getDados1();
+        this.getDados2();
+    }
+    LojaCdsPage_1 = LojaCdsPage;
+    LojaCdsPage.prototype.getDados1 = function () {
+        var _this = this;
+        //retorno de Dados
+        this.service.getAlbuns()
+            .subscribe(function (data) { return _this.relBooks = data.rows; }, function (err) { return console.log(err); });
+    };
+    LojaCdsPage.prototype.getDados2 = function () {
+        var _this = this;
+        //retorno de Dados
+        this.service.getAlbuns()
+            .subscribe(function (data) { return _this.relOutro = data.rows; }, function (err) { return console.log(err); });
+    };
+    LojaCdsPage.prototype.abrirModalLoja = function (item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__loja_modal_loja_modal__["a" /* LojaModalPage */], {
+            item: item
+        });
+    };
+    LojaCdsPage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
+    };
+    LojaCdsPage.prototype.abrirLojaLivro = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__loja_loja__["a" /* LojaPage */]);
+    };
+    LojaCdsPage.prototype.abrirLojaRevista = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__["a" /* LojaRevistaPage */]);
+    };
+    LojaCdsPage.prototype.abrirLojaCds = function () {
+        this.navCtrl.setRoot(LojaCdsPage_1);
+    };
+    LojaCdsPage.prototype.abrirLojaSouvenirs = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */]);
+    };
+    LojaCdsPage.prototype.abrirPaginaBusca = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__busca_busca__["a" /* BuscaPage */]);
+    };
+    LojaCdsPage = LojaCdsPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-loja-cds',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\loja-cds\loja-cds.html"*/'<ion-header>\n\n  <ion-navbar>\n\n        <button ion-button menuToggle>\n\n          <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <div class="header_logo" (click)="abrirPaginaHome()">\n\n          <img src="assets/imgs/logo-small-menu.png">\n\n        </div>\n\n        <div class="header_carrinho" (click)="abrirCarrinho()">\n\n          <ion-icon name="ios-cart-outline" class="header_carrinho2"></ion-icon> \n\n        </div>    \n\n        <div class="header_busca" (click)="abrirPaginaBusca()">\n\n          <img src="assets/imgs/ico-busca.png">     \n\n        </div>        \n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  \n\n    <ion-card class="card-back">\n\n      <img src="assets/imgs/background-header-livros.jpg" />  \n\n      <div class="titulo-card-back">Loja</div>\n\n    </ion-card>\n\n    \n\n    <ion-card class="slide-card">\n\n      <ion-row padding>\n\n        <ion-col col-12 class="slide-card-chamadas mb30">\n\n          <h2 class="slide-card-titulo-chamadas">\n\n            <strong>CDs</strong> Música OntoArte\n\n          </h2>\n\n        </ion-col>\n\n        <ion-col col-4 *ngFor= "let item of relBooks" (click)="abrirModalLoja(item)" class="caixa-itens">\n\n          <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Capa }}_400.jpg"/>\n\n          <h3 class="livro-h3">{{ item.Titulo }}</h3>\n\n          <div class="livro-p">{{ item.Valor }}</div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-card> \n\n  \n\n    <ion-card class="slide-card">\n\n      <ion-row padding>\n\n        <ion-col col-12 class="slide-card-chamadas mb30">\n\n          <h2 class="slide-card-titulo-chamadas">\n\n            <strong>DVDs</strong> Música OntoArte\n\n          </h2>\n\n        </ion-col>\n\n        <ion-col col-4 *ngFor= "let item of relOutro" (click)="abrirModalLoja(item)" class="caixa-itens">\n\n          <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Capa }}_400.jpg"/>\n\n          <h3 class="livro-h3">{{ item.Titulo }}</h3>\n\n          <div class="livro-p">{{ item.Valor }}</div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-card> \n\n\n\n  \n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer" style="margin-left: 9%;">\n\n        <img src="assets/imgs/ico-loja-menu-inicio.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Início\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-livros.png" (click)="abrirLojaLivro()">   \n\n        <p class="menu_footer_texto" (click)="abrirLojaLivro()">\n\n          Físicos\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-revista.png" (click)="abrirLojaRevista()">     \n\n        <p class="menu_footer_texto" (click)="abrirLojaRevista()">\n\n          Digitais\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-souvenirs.png" (click)="abrirLojaSouvenirs()">  \n\n        <p class="menu_footer_texto" (click)="abrirLojaSouvenirs()">\n\n          Souvenirs\n\n        </p>          \n\n    </div>      \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\loja-cds\loja-cds.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
+    ], LojaCdsPage);
+    return LojaCdsPage;
+    var LojaCdsPage_1;
+}());
+
+//# sourceMappingURL=loja-cds.js.map
+
+/***/ }),
+
+/***/ 749:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificacaoVerPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ontoarte_ontoarte__ = __webpack_require__(12);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var NotificacaoVerPage = /** @class */ (function () {
+    function NotificacaoVerPage(navCtrl, navParams, storage) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.storage = storage;
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__ontoarte_ontoarte__["a" /* OntoartePage */]);
+    }
+    NotificacaoVerPage.prototype.ionViewDidLoad = function () {
+    };
+    NotificacaoVerPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-notificacao-ver',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\notificacao-ver\notificacao-ver.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\notificacao-ver\notificacao-ver.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
+    ], NotificacaoVerPage);
+    return NotificacaoVerPage;
+}());
+
+//# sourceMappingURL=notificacao-ver.js.map
+
+/***/ }),
+
+/***/ 750:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AovivoVerPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__titulos_titulos__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__titulos_livros_titulos_livros__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__revista_pl_revista_pl__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ontoarte_ontoarte__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__eventos_eventos__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__busca_busca__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+var AovivoVerPage = /** @class */ (function () {
+    function AovivoVerPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    AovivoVerPage.prototype.ionViewDidLoad = function () {
+        //console.log('ionViewDidLoad AovivoVerPage');
+    };
+    AovivoVerPage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
+    };
+    AovivoVerPage.prototype.abrirPaginaTitulos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__titulos_titulos__["a" /* TitulosPage */]);
+    };
+    AovivoVerPage.prototype.abrirPaginaPublicacoes = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
+    };
+    AovivoVerPage.prototype.abrirPaginaPl = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
+    };
+    AovivoVerPage.prototype.abrirPaginaOntoarte = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__ontoarte_ontoarte__["a" /* OntoartePage */]);
+    };
+    AovivoVerPage.prototype.abrirPaginaAovivo = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
+    };
+    AovivoVerPage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
+    };
+    AovivoVerPage.prototype.abrirPaginaEventos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__eventos_eventos__["a" /* EventosPage */]);
+    };
+    AovivoVerPage.prototype.abrirPaginaBusca = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__busca_busca__["a" /* BuscaPage */]);
+    };
+    AovivoVerPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-aovivo-ver',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\aovivo-ver\aovivo-ver.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content class="fundo">\n\n    <iframe src="http://beta.ciclano.io/embed/juliane130" width="100%" height="300px" frameborder="0" scrolling="auto" allowtransparency="true"  style="background: url(assets/imgs/carregando.gif) center center no-repeat;"></iframe>\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer">\n\n        <ion-badge item-end color="danger" class="menu-footer-bola">4</ion-badge>\n\n        <img src="assets/imgs/ico-menu-footer-novidades.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Novidades\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">   \n\n        <p class="menu_footer_texto" (click)="abrirPaginaPublicacoes()">\n\n          Publicações\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">     \n\n        <p class="menu_footer_texto" (click)="abrirPaginaPl()">\n\n          Líder\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">   \n\n        <p class="menu_footer_texto" (click)="abrirPaginaTitulos()">\n\n          Aulas\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaOntoarte()">\n\n            Músicas\n\n        </p>          \n\n    </div>       \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\aovivo-ver\aovivo-ver.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], AovivoVerPage);
+    return AovivoVerPage;
+}());
+
+//# sourceMappingURL=aovivo-ver.js.map
+
+/***/ }),
+
+/***/ 751:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModAulasPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ModAulasPage = /** @class */ (function () {
+    function ModAulasPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    ModAulasPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ModAulasPage');
+    };
+    ModAulasPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-mod-aulas',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\mod-aulas\mod-aulas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\mod-aulas\mod-aulas.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], ModAulasPage);
+    return ModAulasPage;
+}());
+
+//# sourceMappingURL=mod-aulas.js.map
+
+/***/ }),
+
+/***/ 752:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfiguracaoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ConfiguracaoPage = /** @class */ (function () {
+    function ConfiguracaoPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    ConfiguracaoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ConfiguracaoPage');
+    };
+    ConfiguracaoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-configuracao',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\configuracao\configuracao.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\configuracao\configuracao.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], ConfiguracaoPage);
+    return ConfiguracaoPage;
+}());
+
+//# sourceMappingURL=configuracao.js.map
+
+/***/ }),
+
+/***/ 753:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TermosPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TermosPage = /** @class */ (function () {
+    function TermosPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    TermosPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TermosPage');
+    };
+    TermosPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-termos',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\termos\termos.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\termos\termos.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], TermosPage);
+    return TermosPage;
+}());
+
+//# sourceMappingURL=termos.js.map
+
+/***/ }),
+
+/***/ 754:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditarMinhaAlbunsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__ = __webpack_require__(62);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var EditarMinhaAlbunsPage = /** @class */ (function () {
+    function EditarMinhaAlbunsPage(navCtrl, navParams, storage, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.storage = storage;
+        this.alertCtrl = alertCtrl;
+        this.minhaLista = [];
+    }
+    EditarMinhaAlbunsPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.storage.get('MinhaListaAudios').then(function (val) {
+            _this.minhaLista = val;
+        });
+    };
+    EditarMinhaAlbunsPage.prototype.apagar_publicacao = function (item) {
+        var index = this.minhaLista.findIndex(function (it, i) {
+            return it.idaudio === item['idaudio'];
+        });
+        this.minhaLista.splice(index, 1);
+        this.storage.set('MinhaListaAudios', this.minhaLista);
+        console.log(this.minhaLista);
+    };
+    EditarMinhaAlbunsPage.prototype.showConfirm = function (item) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Alerta ...',
+            message: 'Deseja realmente remover?',
+            buttons: [
+                {
+                    text: 'SIM',
+                    handler: function () {
+                        _this.apagar_publicacao(item);
+                    }
+                },
+                {
+                    text: 'Não',
+                    handler: function () {
+                        console.log('Agree clicked');
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    EditarMinhaAlbunsPage.prototype.voltar = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__minha_lista_minha_lista__["a" /* MinhaListaPage */]);
+        //this.navCtrl.push(MinhaListaAlbunsPage)
+    };
+    EditarMinhaAlbunsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-editar-minha-albuns',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\editar-minha-albuns\editar-minha-albuns.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <h2 class="meu-progeto-titulo">Minha Lista</h2>        \n\n  </ion-navbar>\n\n  <div class="btn-fechar" (click)="voltar()">X</div>\n\n</ion-header>\n\n<ion-content padding>\n\n    \n\n  <ion-card class="novidades-card">\n\n    <h2 class="titulo">\n\n      Áudios / Músicas\n\n    </h2>   \n\n  </ion-card>\n\n  <ion-card class="novidades-card">\n\n    <div class="subtitulo">\n\n      Itens Minha Lista\n\n    </div>  \n\n    <div *ngFor="let item of minhaLista; let i = index;"> \n\n      <div *ngIf="item.idaudio != 0">\n\n        <p class="conteudo">{{item.Titulo}}\n\n        <span class="btn-fechar-lista" (click)="showConfirm(item)">X</span>\n\n      </p>\n\n      </div>\n\n    </div>\n\n  </ion-card>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\editar-minha-albuns\editar-minha-albuns.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditarMinhaAlbunsPage);
+    return EditarMinhaAlbunsPage;
+}());
+
+//# sourceMappingURL=editar-minha-albuns.js.map
+
+/***/ }),
+
+/***/ 755:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhasComprasPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MinhasComprasPage = /** @class */ (function () {
+    function MinhasComprasPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    MinhasComprasPage.prototype.ionViewDidLoad = function () {
+    };
+    MinhasComprasPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-minhas-compras',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\minhas-compras\minhas-compras.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\minhas-compras\minhas-compras.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], MinhasComprasPage);
+    return MinhasComprasPage;
+}());
+
+//# sourceMappingURL=minhas-compras.js.map
+
+/***/ }),
+
+/***/ 756:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AudioPlayerPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__ = __webpack_require__(82);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AudioPlayerPage = /** @class */ (function () {
+    /**
+     *
+     */
+    function AudioPlayerPage(audioService) {
+        this.audioService = audioService;
+    }
+    AudioPlayerPage.prototype.ngAfterViewInit = function () {
+        this.audioService.audioPlayer = this.audioPlayer;
+    };
+    AudioPlayerPage.prototype.durationChangeEventHandler = function () {
+        debugger;
+        this.audioService.totalMedia = this.audioPlayer.nativeElement.duration;
+        this.audioService.emitTotalMedia(Math.round(this.audioService.totalMedia));
+        console.log(this.audioService.totalMedia);
+    };
+    AudioPlayerPage.prototype.getAudio = function () {
+        return this.audioService.audio;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('audioPlayer'),
+        __metadata("design:type", Object)
+    ], AudioPlayerPage.prototype, "audioPlayer", void 0);
+    AudioPlayerPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-audio-player',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audio-player\audio-player.html"*/'<audio #audioPlayer controls class="player" (durationchange)="durationChangeEventHandler()">\n\n    <source src="{{audio}}" title="APP Progetto" type="audio/mp3" />\n\n</audio>\n\n\n\n<p>AUSHDAUSDHAIUSD</p>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audio-player\audio-player.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
+    ], AudioPlayerPage);
+    return AudioPlayerPage;
+}());
+
+//# sourceMappingURL=audio-player.js.map
+
+/***/ }),
+
+/***/ 8:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuscaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__videos_videos__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pl_lista_pl_lista__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__audios2_audios2__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__livros_livros__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__titulos_titulos__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__titulos_livros_titulos_livros__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__revista_pl_revista_pl__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ontoarte_ontoarte__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__area_usuario_restrita_area_usuario_restrita__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__eventos_eventos__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var BuscaPage = /** @class */ (function () {
+    function BuscaPage(navCtrl, navParams, viewCtrl, service, loadingCtrl, storage) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.service = service;
+        this.loadingCtrl = loadingCtrl;
+        this.storage = storage;
+        this.relnovidades = '';
+        this.declareTechnologies();
+    }
+    BuscaPage_1 = BuscaPage;
+    BuscaPage.prototype.ionViewDidLoad = function () {
+    };
+    BuscaPage.prototype.declareTechnologies = function () {
+        var _this = this;
+        //retorno de Dados
+        this.service.getBuscar()
+            .subscribe(function (data) { return _this.technologies = data.rows; }, function (err) { return console.log(err); });
+        //const browser = this.iab.create('https://ionicframework.com/');
+    };
+    BuscaPage.prototype.filterTechnologies = function (param) {
+        var val = param;
+        if (val.trim() !== '') {
+            this.technologies = this.technologies.filter(function (item) {
+                return item.Titulobusca.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.Categoria.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.Descricaobusca.toLowerCase().indexOf(val.toLowerCase()) > -1;
+            });
+        }
+        else {
+            var val_1 = '0';
+            this.declareTechnologies();
+        }
+    };
+    BuscaPage.prototype.selecionarBusca = function (item) {
+        if (item['Tipo'] == 'video') {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__videos_videos__["a" /* VideosPage */], { item: item });
+        }
+        else if (item['Tipo'] == 'pl') {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__pl_lista_pl_lista__["a" /* PlListaPage */], { item: item });
+        }
+        else if (item['Tipo'] == 'musica') {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__audios2_audios2__["a" /* Audios2Page */], { item: item });
+        }
+        else {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__livros_livros__["a" /* LivrosPage */], { item: item });
+        }
+    };
+    BuscaPage.prototype.ionViewWillEnter = function () {
+        var _this = this;
+        this.service.getNovidades().subscribe(function (data) {
+            _this.relnovidades = data.rows;
+            _this.storage.get('relNovidades').then(function (val) {
+                if (val != null) {
+                    _this.numerosNovidades = val.length;
+                }
+                else {
+                    _this.storage.set('relNovidades', _this.relnovidades);
+                }
+            });
+            _this.storage.get('numeroPublicacoes').then(function (val) {
+                if (val != null) {
+                    _this.numerosNovidadesAtual = val;
+                }
+                else {
+                    _this.storage.set('numeroPublicacoes', _this.relnovidades.length);
+                }
+            });
+            setTimeout(function () {
+                if (_this.relnovidades.length > _this.numerosNovidadesAtual) {
+                    _this.qtdePublicacoes = _this.relnovidades.length - _this.numerosNovidadesAtual;
+                }
+            }, 500);
+        }, function (err) { return console.log(err); });
+    };
+    BuscaPage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__home_home__["a" /* HomePage */]);
+    };
+    BuscaPage.prototype.abrirPaginaTitulos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__titulos_titulos__["a" /* TitulosPage */]);
+    };
+    BuscaPage.prototype.abrirPaginaPublicacoes = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_10__titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */]);
+    };
+    BuscaPage.prototype.abrirPaginaPl = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_11__revista_pl_revista_pl__["a" /* RevistaPlPage */]);
+    };
+    BuscaPage.prototype.abrirPaginaOntoarte = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_12__ontoarte_ontoarte__["a" /* OntoartePage */]);
+    };
+    BuscaPage.prototype.abrirPaginaAovivo = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_15__aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */]);
+    };
+    BuscaPage.prototype.abrirPaginaAreaUsuarioRestrita = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_13__area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */]);
+    };
+    BuscaPage.prototype.abrirPaginaEventos = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_14__eventos_eventos__["a" /* EventosPage */]);
+    };
+    BuscaPage.prototype.abrirPaginaBuscaGeral = function () {
+        this.navCtrl.setRoot(BuscaPage_1);
+    };
+    BuscaPage = BuscaPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-busca',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\busca\busca.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card class="card-back">\n\n      <img src="assets/imgs/background-busca.jpg" />  \n\n      <div class="titulo-card-back">Buscar</div>\n\n  </ion-card>\n\n\n\n  <ion-searchbar class="busca-input" placeholder="Digite a palavra..." (ionInput)="filterTechnologies($event.target.value)"></ion-searchbar>\n\n  \n\n  <ion-card *ngFor="let technology of technologies" (click)= "selecionarBusca(technology)" class="novidades-card">\n\n      <ion-card-content *ngIf="technology.Titulobusca != null" style="margin: 0px; padding: 0px;">\n\n          <h2 class="video-card-titulo">\n\n            {{ technology.Titulobusca }}\n\n          </h2>\n\n          <p class="video-card-tipo">\n\n            {{ technology.Categoria }}\n\n          </p>\n\n      </ion-card-content>\n\n  </ion-card>\n\n    \n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n  <div class="ico-menu-footer">\n\n    <ng-container *ngIf="qtdePublicacoes > 0">\n\n      <ion-badge item-end color="danger" class="menu-footer-bola">{{qtdePublicacoes}}</ion-badge>\n\n    </ng-container>\n\n    <img src="assets/imgs/ico-menu-footer-novidades.png" (click)="abrirPaginaHome()">\n\n    <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n      Novidades\n\n    </p>\n\n  </div>\n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-publicacoes.png" (click)="abrirPaginaPublicacoes()">\n\n    <p class="menu_footer_texto" (click)="abrirPaginaPublicacoes()">\n\n      Publicações\n\n    </p>\n\n  </div>\n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-pl.png" (click)="abrirPaginaPl()">\n\n    <p class="menu_footer_texto" (click)="abrirPaginaPl()">\n\n      Líder\n\n    </p>\n\n  </div>\n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-aulas.png" (click)="abrirPaginaTitulos()">\n\n    <p class="menu_footer_texto" (click)="abrirPaginaTitulos()">\n\n      Aulas\n\n    </p>\n\n  </div>\n\n  <div class="ico-menu-footer">\n\n    <img src="assets/imgs/ico-menu-footer-ontoarte.png" (click)="abrirPaginaOntoarte()">\n\n    <p class="menu_footer_texto" (click)="abrirPaginaOntoarte()">\n\n      Músicas\n\n    </p>\n\n  </div>\n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\busca\busca.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
+    ], BuscaPage);
+    return BuscaPage;
+    var BuscaPage_1;
+}());
+
+//# sourceMappingURL=busca.js.map
 
 /***/ }),
 
@@ -10863,10 +10970,10 @@ var AudioServiceProvider = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AovivoVideosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__aovivo_arquivo_aovivo_arquivo__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__aovivo_proximas_aovivo_proximas__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__aovivo_arquivo_aovivo_arquivo__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__aovivo_proximas_aovivo_proximas__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__titulos_livros_titulos_livros__ = __webpack_require__(14);
@@ -10985,5 +11092,5 @@ var AovivoVideosPage = /** @class */ (function () {
 
 /***/ })
 
-},[411]);
+},[412]);
 //# sourceMappingURL=main.js.map

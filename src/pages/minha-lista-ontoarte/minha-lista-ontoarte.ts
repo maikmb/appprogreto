@@ -3,6 +3,7 @@ import { NavController, NavParams, LoadingController, ModalController, AlertCont
 import { Audios2Page } from '../audios2/audios2';
 import { Storage } from '@ionic/storage';
 import { EditarMinhaOntoartePage } from '../editar-minha-ontoarte/editar-minha-ontoarte';
+import { MinhaListaAudioOntoartePage } from '../minha-lista-audio-ontoarte/minha-lista-audio-ontoarte';
 
 @Component({
   selector: 'page-minha-lista-ontoarte',
@@ -24,6 +25,8 @@ export class MinhaListaOntoartePage {
     this. getDados();  
       
   }
+
+
   getDados() {
 
     this.Storage.ready().then(()=>{
@@ -62,8 +65,8 @@ export class MinhaListaOntoartePage {
     this.navCtrl.push(Audios2Page, { item } ); 
   }  
 
-  abrirMinhaListaAlbuns(){
-    //this.navCtrl.setRoot(MinhaListaAlbunsPage);
+  abrirMinhaListaAudio(){
+    this.navCtrl.push(MinhaListaAudioOntoartePage); 
   }
 
   AbrirEditarOntoarte(){
