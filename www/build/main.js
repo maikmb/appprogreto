@@ -499,10 +499,10 @@ var MinhaListaOntoartePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-minha-lista-ontoarte',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\minha-lista-ontoarte\minha-lista-ontoarte.html"*/'<ion-header>\n\n    <ion-navbar>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <h2 class="meu-progeto-titulo">Minha Lista</h2>   \n\n      <div class="editar" (click)="AbrirEditarOntoarte()">\n\n        Editar\n\n      </div>\n\n      <div class="editar-img" (click)="AbrirEditarOntoarte()">\n\n        <img src="assets/imgs/ico-mais.png">\n\n      </div>    \n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n\n\n  <ion-card class="card-eventos">    \n\n      <p class="btn-novo action_evento">\n\n        Álbuns\n\n      </p>\n\n      <p class="btn-novo" (click)="abrirMinhaListaAudio()">\n\n        Áudios\n\n      </p>      \n\n    </ion-card>\n\n    <ion-card class="novidades-card">\n\n        <ion-row padding>\n\n          <ion-col col-12>\n\n            <div *ngFor= "let item of MinhaListaItens" (click)="abriMinhaLista(item)" style="max-width: 30%; margin-top: 20px; margin-right: 1%; margin-left: 1%; float:left;">\n\n              <ng-container *ngIf="item.idalbum != 0">\n\n                <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/{{ item.Pasta }}/{{ item.Img }}_400.jpg" >\n\n                <h2 class="titulo">{{ item.Titulo }}</h2>\n\n              </ng-container>\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\minha-lista-ontoarte\minha-lista-ontoarte.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], MinhaListaOntoartePage);
     return MinhaListaOntoartePage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=minha-lista-ontoarte.js.map
@@ -1663,7 +1663,7 @@ var EventosFormPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OntoarteVerPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(292);
@@ -3627,9 +3627,9 @@ var EventoInfoVerPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__carrinho_carrinho__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_revista_loja_revista__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_revista_loja_revista__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__loja_modal_loja_modal__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4282,6 +4282,9 @@ var EditarMinhaPlPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__editar_minha_ontoarte_editar_minha_ontoarte__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__minha_lista_ontoarte_minha_lista_ontoarte__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_audio_service_audio_service__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4297,43 +4300,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var MinhaListaAudioOntoartePage = /** @class */ (function () {
-    function MinhaListaAudioOntoartePage(loadingCtrl, modalCtrl, Storage, navCtrl, navParams, alertCtrl) {
+    function MinhaListaAudioOntoartePage(loadingCtrl, modalCtrl, Storage, navCtrl, navParams, alertCtrl, audioService) {
         this.loadingCtrl = loadingCtrl;
         this.modalCtrl = modalCtrl;
         this.Storage = Storage;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
-        this.data = {};
-        this.item = [];
-        this.MinhaListaItens = [];
-        this.ListaItens = [];
+        this.audioService = audioService;
+        this.relAudios = [];
+        this.position = 0;
+        this.oldPosition = 0;
+        this.iconPlay = 'play';
         this.getDados();
     }
     MinhaListaAudioOntoartePage.prototype.getDados = function () {
         var _this = this;
         this.Storage.ready().then(function () {
-            _this.Storage.get("MinhaListaAlbum").then(function (data) {
-                _this.MinhaListaItens = data;
-                console.log(_this.MinhaListaItens);
-                if (data == null || data.length == 0) {
-                    //this.showEmptCartMessage= true;   
-                }
-                else {
-                    _this.MinhaListaItens.forEach(function (item, index) {
-                        _this.ListaItens = item;
-                    });
-                }
-                /*
-                if(this.LivrosItens.length > 0){
-                  this.LivrosItens.forEach( (item, index)=>{
-                    this.total = this.total + (item.product.price * item.qty);
-                  })
-                } else {
-                  this.showEmptCartMessage= true;
-                }
-                */
+            _this.Storage.get("MinhaListaAudios").then(function (data) {
+                _this.relAudios = data;
             });
         });
     };
@@ -4346,14 +4334,87 @@ var MinhaListaAudioOntoartePage = /** @class */ (function () {
     MinhaListaAudioOntoartePage.prototype.AbrirEditarOntoarte = function () {
         this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__editar_minha_ontoarte_editar_minha_ontoarte__["a" /* EditarMinhaOntoartePage */]).present();
     };
+    MinhaListaAudioOntoartePage.prototype.toogleIconPlayList = function () {
+        for (var i = 0; i < this.relAudios.length; i++) {
+            var element = this.relAudios[i];
+            element.iconplay = 'play';
+        }
+    };
+    MinhaListaAudioOntoartePage.prototype.unsubscribePlayer = function () {
+        this.subscription.unsubscribe();
+    };
+    MinhaListaAudioOntoartePage.prototype.startAudio = function (item, index) {
+        debugger;
+        //Verifica se o audio atual está executando a para a execução
+        if (this.audioService.isExecuting() && this.audioService.isExecutingIndex(index)) {
+            item.iconplay = 'play';
+            this.iconPlay = 'play';
+            this.unsubscribePlayer();
+            this.audioService.audioPlayer.nativeElement.pause();
+            this.audioService.totalMedia = 0;
+            return;
+        }
+        console.log('Musica Selecionada', item);
+        this.toogleIconPlayList();
+        this.audioService.indexAudio = index;
+        this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
+        this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
+        this.audioService.audioPlayer.nativeElement.load();
+        item.iconplay = 'pause';
+        this.iconPlay = 'pause';
+        this.audioPlay();
+    };
+    MinhaListaAudioOntoartePage.prototype.audioPlay = function () {
+        this.audioService.audioPlayer.nativeElement.play();
+        this.startCronometro();
+        this.audioService.IsExecuting = true;
+        //console.log('play');
+    };
+    MinhaListaAudioOntoartePage.prototype.startCronometro = function () {
+        var _this = this;
+        this.subscription = __WEBPACK_IMPORTED_MODULE_7_rxjs_Observable__["Observable"].interval(1000).subscribe(function (x) {
+            _this.oldPosition = _this.audioService.audioPlayer.nativeElement.currentTime;
+            _this.position = _this.audioService.audioPlayer.nativeElement.currentTime;
+            console.log(_this.position);
+            _this.audioService.emitPosition(_this.position);
+            if (_this.audioService.totalMedia > 0) {
+                if (_this.position >= _this.audioService.totalMedia) {
+                    debugger;
+                    console.log(_this.position + ' - ' + _this.audioService.totalMedia);
+                    _this.executeNextAudio();
+                }
+            }
+        });
+    };
+    MinhaListaAudioOntoartePage.prototype.executeNextAudio = function () {
+        var _this = this;
+        debugger;
+        this.unsubscribePlayer();
+        setTimeout(function () {
+            _this.relAudios[_this.audioService.indexAudio].iconplay = 'play';
+            _this.audioService.indexAudio++;
+            if (_this.audioService.indexAudio == (_this.relAudios.length - 1)) {
+                _this.audioService.indexAudio = 0;
+            }
+            _this.relAudios[_this.audioService.indexAudio].iconplay = 'pause';
+            _this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + _this.relAudios[_this.audioService.indexAudio].arquivo_audio;
+            _this.audioService.audioPlayer.nativeElement.src = _this.audioService.audio;
+            _this.audioPlay();
+        }, 200);
+    };
     MinhaListaAudioOntoartePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-minha-lista-audio-ontoarte',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\minha-lista-audio-ontoarte\minha-lista-audio-ontoarte.html"*/'<ion-header>\n\n    <ion-navbar>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <h2 class="meu-progeto-titulo">Minha Lista</h2>   \n\n      <div class="editar" (click)="AbrirEditarOntoarte()">\n\n        Editar\n\n      </div>\n\n      <div class="editar-img" (click)="AbrirEditarOntoarte()">\n\n        <img src="assets/imgs/ico-mais.png">\n\n      </div>    \n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n\n\n  <ion-card class="card-eventos">    \n\n      <p class="btn-novo" (click)="abrirMinhaListaAlbuns()">\n\n        Álbuns\n\n      </p>\n\n      <p class="btn-novo action_evento" (click)="abrirMinhaListaAlbuns()">\n\n        Áudios\n\n      </p>      \n\n    </ion-card>\n\n    <ion-card class="novidades-card">\n\n        <ion-row padding>\n\n          <ion-col col-12>\n\n            <div *ngFor= "let item of MinhaListaItens" (click)="abriMinhaLista(item)" style="max-width: 30%; margin-top: 20px; margin-right: 1%; margin-left: 1%; float:left;">\n\n              <ng-container *ngIf="item.idalbum != 0">\n\n                <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/{{ item.Pasta }}/{{ item.Img }}_400.jpg" >\n\n                <h2 class="titulo">{{ item.Titulo }}</h2>\n\n              </ng-container>\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\minha-lista-audio-ontoarte\minha-lista-audio-ontoarte.html"*/,
+            selector: 'page-minha-lista-audio-ontoarte',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\minha-lista-audio-ontoarte\minha-lista-audio-ontoarte.html"*/'<ion-header>\n\n    <ion-navbar>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <h2 class="meu-progeto-titulo">Minha Lista</h2>   \n\n      <div class="editar" (click)="AbrirEditarOntoarte()">\n\n        Editar\n\n      </div>\n\n      <div class="editar-img" (click)="AbrirEditarOntoarte()">\n\n        <img src="assets/imgs/ico-mais.png">\n\n      </div>    \n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n\n\n  <ion-card class="card-eventos">    \n\n      <p class="btn-novo" (click)="abrirMinhaListaAlbuns()">\n\n        Álbuns\n\n      </p>\n\n      <p class="btn-novo action_evento" (click)="abrirMinhaListaAlbuns()">\n\n        Áudios\n\n      </p>      \n\n    </ion-card>\n\n    <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">\n\n      <ion-row>\n\n        <ion-col col-2>\n\n          <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg"\n\n            width="100%">\n\n        </ion-col>\n\n        <ion-col col-10 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n          <ion-list class="listItem">\n\n            <ion-item class="listItem">\n\n              <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>\n\n              <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}\n\n                <Br>\n\n                <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>\n\n              </h2>\n\n            </ion-item>\n\n          </ion-list>\n\n        </ion-col>        \n\n      </ion-row>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\minha-lista-audio-ontoarte\minha-lista-audio-ontoarte.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
     ], MinhaListaAudioOntoartePage);
     return MinhaListaAudioOntoartePage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=minha-lista-audio-ontoarte.js.map
@@ -5709,7 +5770,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_pl_lista_pl_lista__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_ver_pl_ver_pl__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_eventos_eventos__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_loja_loja__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_loja_loja__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_loja_ver_loja_ver__ = __webpack_require__(390);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_minha_lista_minha_lista__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_cadastro_usuario_cadastro_usuario__ = __webpack_require__(184);
@@ -5723,7 +5784,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_dicionario_ver_dicionario_ver__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_dicionario_modal_dicionario_modal__ = __webpack_require__(290);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_eventos_antigos_eventos_antigos__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_audio_service_audio_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_audio_service_audio_service__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_minha_lista_ontoarte_minha_lista_ontoarte__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_minha_lista_aulas_minha_lista_aulas__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_minha_lista_pl_minha_lista_pl__ = __webpack_require__(186);
@@ -5731,8 +5792,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_minha_lista_ver_minha_lista_ver__ = __webpack_require__(746);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_loja_modal_loja_modal__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_loja_cds_loja_cds__ = __webpack_require__(747);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_loja_revista_loja_revista__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_loja_revista_loja_revista__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_loja_souvenirs_loja_souvenirs__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__angular_common_http__ = __webpack_require__(748);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_audios2_audios2__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_comentarios_comentarios__ = __webpack_require__(391);
@@ -7343,9 +7404,9 @@ var LivrosPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_loja__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_loja__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__ = __webpack_require__(69);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8077,7 +8138,7 @@ var PlListaPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Audios2Page; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(30);
@@ -8238,28 +8299,16 @@ var Audios2Page = /** @class */ (function () {
                 }
             });
         });
+        this.carregarListaCurtirFromStorage();
+    }
+    Audios2Page.prototype.carregarListaCurtirFromStorage = function () {
+        var _this = this;
         this.Storage.ready().then(function () {
             _this.Storage.get("ClassficarAudios").then(function (data) {
-                var nedo4 = 0;
-                _this.teste4 = data;
-                if (data == null || data.length == 0) {
-                    //this.showEmptCartMessage= true;   
-                }
-                else {
-                    _this.teste4.forEach(function (item, index) {
-                        if (_this.item['idaudio'] == item['idaudio']) {
-                            nedo4 = 1;
-                        }
-                    });
-                }
-                /*if(nedo4==1){
-                  this.icoCurtir = 'Curtiu';
-                }else{
-                  this.icoCurtir = 'Curtir';
-                }*/
+                _this.minhaListaCurtir = data;
             });
         });
-    }
+    };
     // --- COMPARTILHAR --- // 
     //compilemsg(index):string{
     //var msg = this.quotes[index].content + "-" + this.quotes[index].title ;
@@ -8630,6 +8679,15 @@ var Audios2Page = /** @class */ (function () {
             return 'ico-mais';
         }
     };
+    Audios2Page.prototype.getCurtirIcon = function (idAudio) {
+        var filteredAudio = this.minhaListaCurtir.filter(function (audio) { return audio.idaudio == idAudio; });
+        if (filteredAudio.length > 0) {
+            return 'ico-curtir';
+        }
+        else {
+            return 'ico-curtir-off';
+        }
+    };
     Audios2Page.prototype.ClassficarAudio = function (item) {
         var _this = this;
         var added = 0;
@@ -8702,6 +8760,7 @@ var Audios2Page = /** @class */ (function () {
                 });
                 //this.icoCurtir = 'Curtiu';  
             }
+            _this.minhaListaCurtir = data;
             _this.Storage.set("ClassficarAudios", data).then(function () { });
         });
     };
@@ -8737,19 +8796,12 @@ var Audios2Page = /** @class */ (function () {
     };
     Audios2Page = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-audios2',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-row>\n\n    <ion-col col-5>\n\n      <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg">\n\n    </ion-col>\n\n    <ion-col col-7>\n\n      <h2 class="albumTitulo">{{ itemAlbum.Titulo }}</h2>\n\n      <h6 class="albumSubtitulo">{{ itemAlbum.Subtitulo }}</h6>\n\n      <div class="albumDesc" [innerHTML]="itemAlbum.Descricao"></div>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row nomargin nopadding style="margin:0px; padding:0px;">\n\n    <ion-col col-12 text-center>\n\n      <ion-card-content nomargin nopadding style="margin:0px; padding:0px;">\n\n        <div class="icone-livros-down" (click)="AddMinhaLista(itemAlbum)">\n\n          <img src="assets/imgs/{{ icone }}.png">\n\n          <p>Minha Lista</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="ClassficarAlbum(itemAlbum)">\n\n          <img src="assets/imgs/ico-curtir.jpg">\n\n          <p>{{ icoCurtir }}</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="regularShare(itemAlbum.Titulo, \'PROGETTO APP\', \'http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg\', \'app://br.com.hjweb.appprogetto\')">\n\n          <img src="assets/imgs/ico-compartilhar.jpg">\n\n          <p>Compartilhar</p>\n\n        </div>\n\n        <div class="icone-livros-down">\n\n          <img src="assets/imgs/ico-baixar-off.jpg">\n\n          <p style="color:#e6e6e6">Off-line</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="abrirModalLoja(itemAlbum)">\n\n          <img src="assets/imgs/ico-carrinho.jpg">\n\n          <p>Comprar CD</p>\n\n        </div>\n\n      </ion-card-content>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row style="margin-top: -20px;">\n\n    <ion-col col-6 text-center>\n\n      <img src="assets/imgs/{{iconPlay}}-maior.jpg" (click)="tooglePlay()">\n\n    </ion-col>\n\n    <ion-col col-6>\n\n      <img src="assets/imgs/musica-aleatorio-maior.jpg" (click)="random()">\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">\n\n    <ion-row>\n\n      <ion-col col-2>\n\n        <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg"\n\n          width="100%">\n\n      </ion-col>\n\n      <ion-col col-8 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n        <ion-list class="listItem">\n\n          <ion-item class="listItem">\n\n            <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>\n\n            <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}\n\n              <Br>\n\n              <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>\n\n            </h2>\n\n          </ion-item>\n\n        </ion-list>\n\n      </ion-col>\n\n      <ion-col col-2 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n        <div style="max-width: 50%; float: left; padding: 5px;" (click)="AddMinhaListaAudio(item, item.idaudio)">\n\n          <img src="assets/imgs/{{ getIconFav(item.idaudio) }}.png">\n\n        </div>\n\n        <div style="max-width: 50%; float: left; padding: 5px;" (click)="ClassficarAudio(item)">\n\n          <img src="assets/imgs/ico-curtir.jpg">\n\n        </div>\n\n        <div style="width: 100%; float: left;">\n\n          <p (click)="startAudio(item, i)">{{item.Tempo}}</p>\n\n        </div>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-card>\n\n\n\n  <br>\n\n  <br>\n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n  <ion-grid class="div_player">\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <!-- <input type="range" min="0" max="{{totalMedia}}" [(ngModel)]="position" (change)="refreshPosition()">  -->\n\n        <ion-range class="randNedo" min="0" max="{{totalMedia}}" [(ngModel)]="position" (ionChange)="refreshPosition()">\n\n        </ion-range>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">\n\n      </ion-col>\n\n      <ion-col col-8 class="player_texto_musica">\n\n        {{audioInfo}}\n\n        <span class="span_texto">- {{artistaInfo}}</span>\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/back.jpg" class="imgControl" (click)="back()">\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/{{iconPlay}}.jpg" class="imgControl" (click)="tooglePlay()">\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/next.jpg" class="imgControl" (click)="next()">\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/,
+            selector: 'page-audios2',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n      <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n    </div>\n\n    <div class="header_users" (click)="abrirPaginaEventos()">\n\n      <img src="assets/imgs/ico-calendario-off.jpg">\n\n    </div>\n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">\n\n    </div>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <ion-row>\n\n    <ion-col col-5>\n\n      <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg">\n\n    </ion-col>\n\n    <ion-col col-7>\n\n      <h2 class="albumTitulo">{{ itemAlbum.Titulo }}</h2>\n\n      <h6 class="albumSubtitulo">{{ itemAlbum.Subtitulo }}</h6>\n\n      <div class="albumDesc" [innerHTML]="itemAlbum.Descricao"></div>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row nomargin nopadding style="margin:0px; padding:0px;">\n\n    <ion-col col-12 text-center>\n\n      <ion-card-content nomargin nopadding style="margin:0px; padding:0px;">\n\n        <div class="icone-livros-down" (click)="AddMinhaLista(itemAlbum)">\n\n          <img src="assets/imgs/{{ icone }}.png">\n\n          <p>Minha Lista</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="ClassficarAlbum(itemAlbum)">\n\n          <img src="assets/imgs/ico-curtir.jpg">\n\n          <p>{{ icoCurtir }}</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="regularShare(itemAlbum.Titulo, \'PROGETTO APP\', \'http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg\', \'app://br.com.hjweb.appprogetto\')">\n\n          <img src="assets/imgs/ico-compartilhar.jpg">\n\n          <p>Compartilhar</p>\n\n        </div>\n\n        <div class="icone-livros-down">\n\n          <img src="assets/imgs/ico-baixar-off.jpg">\n\n          <p style="color:#e6e6e6">Off-line</p>\n\n        </div>\n\n        <div class="icone-livros-down" (click)="abrirModalLoja(itemAlbum)">\n\n          <img src="assets/imgs/ico-carrinho.jpg">\n\n          <p>Comprar CD</p>\n\n        </div>\n\n      </ion-card-content>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row style="margin-top: -20px;">\n\n    <ion-col col-6 text-center>\n\n      <img src="assets/imgs/{{iconPlay}}-maior.jpg" (click)="tooglePlay()">\n\n    </ion-col>\n\n    <ion-col col-6>\n\n      <img src="assets/imgs/musica-aleatorio-maior.jpg" (click)="random()">\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">\n\n      <ng-container *ngIf="itemAlbum.idalbum == item.idalbum">\n\n    <ion-row>\n\n      <ion-col col-2>\n\n        <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg"\n\n          width="100%">\n\n      </ion-col>\n\n      <ion-col col-8 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n        <ion-list class="listItem">\n\n          <ion-item class="listItem">\n\n            <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>\n\n            <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}\n\n              <Br>\n\n              <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>\n\n            </h2>\n\n          </ion-item>\n\n        </ion-list>\n\n      </ion-col>\n\n      <ion-col col-2 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n        <div style="max-width: 50%; float: left; padding: 5px;" (click)="AddMinhaListaAudio(item, item.idaudio)">\n\n          <img src="assets/imgs/{{ getIconFav(item.idaudio) }}.png">\n\n        </div>\n\n        <div style="max-width: 50%; float: left; padding: 5px;" (click)="ClassficarAudio(item)">\n\n          <img src="assets/imgs/{{getCurtirIcon(item.idaudio)}}.jpg">\n\n        </div>\n\n        <div style="width: 100%; float: left;">\n\n          <p (click)="startAudio(item, i)">{{item.Tempo}}</p>\n\n        </div>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ng-container>\n\n  </ion-card>\n\n\n\n  <br>\n\n  <br>\n\n\n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n  <ion-grid class="div_player">\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <!-- <input type="range" min="0" max="{{totalMedia}}" [(ngModel)]="position" (change)="refreshPosition()">  -->\n\n        <ion-range class="randNedo" min="0" max="{{totalMedia}}" [(ngModel)]="position" (ionChange)="refreshPosition()">\n\n        </ion-range>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">\n\n      </ion-col>\n\n      <ion-col col-8 class="player_texto_musica">\n\n        {{audioInfo}}\n\n        <span class="span_texto">- {{artistaInfo}}</span>\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/back.jpg" class="imgControl" (click)="back()">\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/{{iconPlay}}.jpg" class="imgControl" (click)="tooglePlay()">\n\n      </ion-col>\n\n      <ion-col col-1>\n\n        <img src="assets/imgs/next.jpg" class="imgControl" (click)="next()">\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _j || Object])
     ], Audios2Page);
     return Audios2Page;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=audios2.js.map
@@ -8757,6 +8809,66 @@ var Audios2Page = /** @class */ (function () {
 /***/ }),
 
 /***/ 67:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AudioServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AudioServiceProvider = /** @class */ (function () {
+    function AudioServiceProvider() {
+        this.audio = null;
+        this.totalMedia = 0;
+        this.positionObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this.changePositionObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this.totalMediaObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this.playObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this.IsExecuting = false;
+        this.indexAudio = 0;
+        console.log('Hello AudioServiceProvider Provider');
+    }
+    AudioServiceProvider.prototype.emitPosition = function (val) {
+        this.positionObservable.next(val);
+    };
+    AudioServiceProvider.prototype.changePosition = function (val) {
+        this.changePositionObservable.next(val);
+    };
+    AudioServiceProvider.prototype.emitTotalMedia = function (val) {
+        this.totalMediaObservable.next(val);
+    };
+    AudioServiceProvider.prototype.emitPlay = function (val) {
+        this.playObservable.next(val);
+    };
+    AudioServiceProvider.prototype.isExecuting = function () {
+        return this.IsExecuting;
+    };
+    AudioServiceProvider.prototype.isExecutingIndex = function (index) {
+        return index == this.indexAudio;
+    };
+    AudioServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], AudioServiceProvider);
+    return AudioServiceProvider;
+}());
+
+//# sourceMappingURL=audio-service.js.map
+
+/***/ }),
+
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8769,8 +8881,8 @@ var Audios2Page = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_modal_loja_modal__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_revista_loja_revista__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_revista_loja_revista__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -8883,7 +8995,7 @@ var LojaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 68:
+/***/ 69:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8894,9 +9006,9 @@ var LojaPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8984,107 +9096,6 @@ var LojaSouvenirsPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=loja-souvenirs.js.map
-
-/***/ }),
-
-/***/ 69:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaRevistaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-var LojaRevistaPage = /** @class */ (function () {
-    function LojaRevistaPage(navCtrl, service, loadingCtrl, navParams, modalCtrl, Storage) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.service = service;
-        this.loadingCtrl = loadingCtrl;
-        this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
-        this.Storage = Storage;
-        this.data = {};
-        this.relBooks = '';
-        this.api = 'http://app.progettoapp.com.br/arquivos/r';
-        this.getDados1();
-        //qt carrinho
-        this.Storage.ready().then(function () {
-            _this.Storage.get("ComprasCarrinho").then(function (data) {
-                _this.qtCarrinho = data.length - 1;
-            });
-        });
-    }
-    LojaRevistaPage_1 = LojaRevistaPage;
-    LojaRevistaPage.prototype.getDados1 = function () {
-        var _this = this;
-        //retorno de Dados
-        this.service.getRevistaPl()
-            .subscribe(function (data) { return _this.relBooks = data.rows; }, function (err) { return console.log(err); });
-    };
-    LojaRevistaPage.prototype.abrirModalLoja = function (item) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__["a" /* LojaModalPage */], { item: item });
-    };
-    LojaRevistaPage.prototype.abrirPaginaHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
-    };
-    LojaRevistaPage.prototype.abrirPaginaBusca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__busca_busca__["a" /* BuscaPage */]);
-    };
-    LojaRevistaPage.prototype.abrirLojaLivro = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__loja_loja__["a" /* LojaPage */]);
-    };
-    LojaRevistaPage.prototype.abrirLojaRevista = function () {
-        this.navCtrl.setRoot(LojaRevistaPage_1);
-    };
-    LojaRevistaPage.prototype.abrirLojaSouvenirs = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */]);
-    };
-    LojaRevistaPage.prototype.abrirCarrinho = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__["a" /* CarrinhoPage */]);
-    };
-    LojaRevistaPage = LojaRevistaPage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-loja-revista',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\loja-revista\loja-revista.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_carrinho" (click)="abrirCarrinho()">\n\n      <ion-badge item-end color="danger" class="menu-loja-bola">{{qtCarrinho}}</ion-badge>\n\n      <ion-icon name="ios-cart-outline" class="header_carrinho2"></ion-icon> \n\n    </div>    \n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">     \n\n    </div>        \n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  \n\n    <ion-card class="card-back">\n\n      <img src="assets/imgs/background-header-livros.jpg" />  \n\n      <div class="titulo-card-back">Loja</div>\n\n    </ion-card>\n\n    \n\n    <ion-card class="slide-card">\n\n      <ion-row nomargin padding>\n\n        <ion-col col-12 class="slide-card-chamadas mb30">\n\n          <h2 class="slide-card-titulo-chamadas">\n\n            <strong>Entrevistas de Capa</strong> \n\n          </h2>\n\n        </ion-col>\n\n        <ion-col col-4 *ngFor= "let item of relBooks" (click)="abrirModalLoja(item)" class="caixa-itens">\n\n          <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg"/>\n\n          <h3 class="livro-h3">{{ item.Titulo }}</h3>\n\n          <div class="livro-p">{{ item.Valor }}</div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-card> \n\n  \n\n  \n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer" style="margin-left: 9%;">\n\n        <img src="assets/imgs/ico-loja-menu-inicio.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Início\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-livros.png" (click)="abrirLojaLivro()">   \n\n        <p class="menu_footer_texto" (click)="abrirLojaLivro()">\n\n          Físicos\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-revista-s.png" (click)="abrirLojaRevista()">     \n\n        <p class="menu_footer_texto texto_selecionado" (click)="abrirLojaRevista()">\n\n          Digitais\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-souvenirs.png" (click)="abrirLojaSouvenirs()">  \n\n        <p class="menu_footer_texto" (click)="abrirLojaSouvenirs()">\n\n          Souvenirs\n\n        </p>          \n\n    </div>      \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\loja-revista\loja-revista.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */]])
-    ], LojaRevistaPage);
-    return LojaRevistaPage;
-    var LojaRevistaPage_1;
-}());
-
-//# sourceMappingURL=loja-revista.js.map
 
 /***/ }),
 
@@ -9656,12 +9667,113 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 70:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LojaRevistaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+var LojaRevistaPage = /** @class */ (function () {
+    function LojaRevistaPage(navCtrl, service, loadingCtrl, navParams, modalCtrl, Storage) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.service = service;
+        this.loadingCtrl = loadingCtrl;
+        this.navParams = navParams;
+        this.modalCtrl = modalCtrl;
+        this.Storage = Storage;
+        this.data = {};
+        this.relBooks = '';
+        this.api = 'http://app.progettoapp.com.br/arquivos/r';
+        this.getDados1();
+        //qt carrinho
+        this.Storage.ready().then(function () {
+            _this.Storage.get("ComprasCarrinho").then(function (data) {
+                _this.qtCarrinho = data.length - 1;
+            });
+        });
+    }
+    LojaRevistaPage_1 = LojaRevistaPage;
+    LojaRevistaPage.prototype.getDados1 = function () {
+        var _this = this;
+        //retorno de Dados
+        this.service.getRevistaPl()
+            .subscribe(function (data) { return _this.relBooks = data.rows; }, function (err) { return console.log(err); });
+    };
+    LojaRevistaPage.prototype.abrirModalLoja = function (item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__loja_modal_loja_modal__["a" /* LojaModalPage */], { item: item });
+    };
+    LojaRevistaPage.prototype.abrirPaginaHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+    };
+    LojaRevistaPage.prototype.abrirPaginaBusca = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__busca_busca__["a" /* BuscaPage */]);
+    };
+    LojaRevistaPage.prototype.abrirLojaLivro = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__loja_loja__["a" /* LojaPage */]);
+    };
+    LojaRevistaPage.prototype.abrirLojaRevista = function () {
+        this.navCtrl.setRoot(LojaRevistaPage_1);
+    };
+    LojaRevistaPage.prototype.abrirLojaSouvenirs = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */]);
+    };
+    LojaRevistaPage.prototype.abrirCarrinho = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__["a" /* CarrinhoPage */]);
+    };
+    LojaRevistaPage = LojaRevistaPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-loja-revista',template:/*ion-inline-start:"C:\GitHub\appprogetto\src\pages\loja-revista\loja-revista.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <div class="header_logo" (click)="abrirPaginaHome()">\n\n      <img src="assets/imgs/logo-small-menu.png">\n\n    </div>\n\n    <div class="header_carrinho" (click)="abrirCarrinho()">\n\n      <ion-badge item-end color="danger" class="menu-loja-bola">{{qtCarrinho}}</ion-badge>\n\n      <ion-icon name="ios-cart-outline" class="header_carrinho2"></ion-icon> \n\n    </div>    \n\n    <div class="header_busca" (click)="abrirPaginaBusca()">\n\n      <img src="assets/imgs/ico-busca.png">     \n\n    </div>        \n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  \n\n    <ion-card class="card-back">\n\n      <img src="assets/imgs/background-header-livros.jpg" />  \n\n      <div class="titulo-card-back">Loja</div>\n\n    </ion-card>\n\n    \n\n    <ion-card class="slide-card">\n\n      <ion-row nomargin padding>\n\n        <ion-col col-12 class="slide-card-chamadas mb30">\n\n          <h2 class="slide-card-titulo-chamadas">\n\n            <strong>Entrevistas de Capa</strong> \n\n          </h2>\n\n        </ion-col>\n\n        <ion-col col-4 *ngFor= "let item of relBooks" (click)="abrirModalLoja(item)" class="caixa-itens">\n\n          <img src="{{ api }}/{{ item.Caminho }}/{{ item.Pasta }}/{{ item.Img }}_400.jpg"/>\n\n          <h3 class="livro-h3">{{ item.Titulo }}</h3>\n\n          <div class="livro-p">{{ item.Valor }}</div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-card> \n\n  \n\n  \n\n</ion-content>\n\n<ion-footer class="menu_footer">\n\n    <div class="ico-menu-footer" style="margin-left: 9%;">\n\n        <img src="assets/imgs/ico-loja-menu-inicio.png" (click)="abrirPaginaHome()">  \n\n        <p class="menu_footer_texto" (click)="abrirPaginaHome()">\n\n          Início\n\n        </p>\n\n    </div>\n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-livros.png" (click)="abrirLojaLivro()">   \n\n        <p class="menu_footer_texto" (click)="abrirLojaLivro()">\n\n          Físicos\n\n        </p>          \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-revista-s.png" (click)="abrirLojaRevista()">     \n\n        <p class="menu_footer_texto texto_selecionado" (click)="abrirLojaRevista()">\n\n          Digitais\n\n        </p>         \n\n    </div> \n\n    <div class="ico-menu-footer">\n\n        <img src="assets/imgs/ico-loja-menu-souvenirs.png" (click)="abrirLojaSouvenirs()">  \n\n        <p class="menu_footer_texto" (click)="abrirLojaSouvenirs()">\n\n          Souvenirs\n\n        </p>          \n\n    </div>      \n\n</ion-footer>'/*ion-inline-end:"C:\GitHub\appprogetto\src\pages\loja-revista\loja-revista.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */]])
+    ], LojaRevistaPage);
+    return LojaRevistaPage;
+    var LojaRevistaPage_1;
+}());
+
+//# sourceMappingURL=loja-revista.js.map
+
+/***/ }),
+
 /***/ 742:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AudiosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_audio_service_audio_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_audio_service_audio_service__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
@@ -10226,10 +10338,10 @@ var MinhaListaVerPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__loja_modal_loja_modal__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loja_souvenirs_loja_souvenirs__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10692,7 +10804,7 @@ var MinhasComprasPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_audio_service_audio_service__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10900,66 +11012,6 @@ var BuscaPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=busca.js.map
-
-/***/ }),
-
-/***/ 82:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AudioServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AudioServiceProvider = /** @class */ (function () {
-    function AudioServiceProvider() {
-        this.audio = null;
-        this.totalMedia = 0;
-        this.positionObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
-        this.changePositionObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
-        this.totalMediaObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
-        this.playObservable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
-        this.IsExecuting = false;
-        this.indexAudio = 0;
-        console.log('Hello AudioServiceProvider Provider');
-    }
-    AudioServiceProvider.prototype.emitPosition = function (val) {
-        this.positionObservable.next(val);
-    };
-    AudioServiceProvider.prototype.changePosition = function (val) {
-        this.changePositionObservable.next(val);
-    };
-    AudioServiceProvider.prototype.emitTotalMedia = function (val) {
-        this.totalMediaObservable.next(val);
-    };
-    AudioServiceProvider.prototype.emitPlay = function (val) {
-        this.playObservable.next(val);
-    };
-    AudioServiceProvider.prototype.isExecuting = function () {
-        return this.IsExecuting;
-    };
-    AudioServiceProvider.prototype.isExecutingIndex = function (index) {
-        return index == this.indexAudio;
-    };
-    AudioServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
-    ], AudioServiceProvider);
-    return AudioServiceProvider;
-}());
-
-//# sourceMappingURL=audio-service.js.map
 
 /***/ }),
 

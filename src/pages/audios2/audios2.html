@@ -67,6 +67,7 @@
   </ion-row>
 
   <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">
+      <ng-container *ngIf="itemAlbum.idalbum == item.idalbum">
     <ion-row>
       <ion-col col-2>
         <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg"
@@ -88,13 +89,14 @@
           <img src="assets/imgs/{{ getIconFav(item.idaudio) }}.png">
         </div>
         <div style="max-width: 50%; float: left; padding: 5px;" (click)="ClassficarAudio(item)">
-          <img src="assets/imgs/ico-curtir.jpg">
+          <img src="assets/imgs/{{getCurtirIcon(item.idaudio)}}.jpg">
         </div>
         <div style="width: 100%; float: left;">
           <p (click)="startAudio(item, i)">{{item.Tempo}}</p>
         </div>
       </ion-col>
     </ion-row>
+  </ng-container>
   </ion-card>
 
   <br>

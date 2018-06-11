@@ -22,16 +22,23 @@
         Áudios
       </p>      
     </ion-card>
-    <ion-card class="novidades-card">
-        <ion-row padding>
-          <ion-col col-12>
-            <div *ngFor= "let item of MinhaListaItens" (click)="abriMinhaLista(item)" style="max-width: 30%; margin-top: 20px; margin-right: 1%; margin-left: 1%; float:left;">
-              <ng-container *ngIf="item.idalbum != 0">
-                <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/{{ item.Pasta }}/{{ item.Img }}_400.jpg" >
-                <h2 class="titulo">{{ item.Titulo }}</h2>
-              </ng-container>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-card>
+    <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">
+      <ion-row>
+        <ion-col col-2>
+          <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg"
+            width="100%">
+        </ion-col>
+        <ion-col col-10 style="border: 0px; border-bottom: 1px solid #ebebeb;">
+          <ion-list class="listItem">
+            <ion-item class="listItem">
+              <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>
+              <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}
+                <Br>
+                <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>
+              </h2>
+            </ion-item>
+          </ion-list>
+        </ion-col>        
+      </ion-row>
+    </ion-card>
 </ion-content>

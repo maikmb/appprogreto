@@ -47,6 +47,7 @@ export class Audios2Page {
 
   indexAudioMinhaLista = 0;
   minhaListaAudio: any;
+  minhaListaCurtir: any;
 
   relAudios: any;
   position = 0;
@@ -169,37 +170,15 @@ export class Audios2Page {
       })
     })
 
+    this.carregarListaCurtirFromStorage();
+  }
+
+  carregarListaCurtirFromStorage() {
     this.Storage.ready().then(() => {
       this.Storage.get("ClassficarAudios").then((data) => {
-
-        let nedo4 = 0;
-
-        this.teste4 = data;
-
-        if (data == null || data.length == 0) {
-
-          //this.showEmptCartMessage= true;   
-
-        } else {
-
-          this.teste4.forEach((item, index) => {
-
-            if (this.item['idaudio'] == item['idaudio']) {
-              nedo4 = 1;
-            }
-
-          })
-
-        }
-
-        /*if(nedo4==1){
-          this.icoCurtir = 'Curtiu';
-        }else{
-          this.icoCurtir = 'Curtir';
-        }*/
-
+        this.minhaListaCurtir = data;
       })
-    })
+    });
   }
 
   // --- COMPARTILHAR --- // 
@@ -645,6 +624,15 @@ export class Audios2Page {
     }
   }
 
+  getCurtirIcon(idAudio) {
+    var filteredAudio = this.minhaListaCurtir.filter((audio) => audio.idaudio == idAudio)
+    if (filteredAudio.length > 0) {
+      return 'ico-curtir';
+    } else {
+      return 'ico-curtir-off';
+    }
+  }
+
   ClassficarAudio(item) {
 
     let added = 0;
@@ -733,6 +721,7 @@ export class Audios2Page {
 
       }
 
+      this.minhaListaCurtir = data;
       this.Storage.set("ClassficarAudios", data).then(() => { });
 
     });
