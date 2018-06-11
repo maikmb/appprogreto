@@ -27659,6 +27659,71 @@ page-editar-minha-albuns .btn-fechar-lista {
   font-weight: bold;
 }
 
+page-editar-minha-audio-ontoarte .novidades-card {
+  border: 0px;
+  width: 100%;
+  margin: 0px;
+  background: transparent;
+  -webkit-box-shadow: 0px 0px 0px 0px transparent;
+  box-shadow: 0px 0px 0px 0px transparent;
+}
+
+page-editar-minha-audio-ontoarte .titulo {
+  color: #1d96d9;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: 'Lato';
+  margin: 0px 0px 20px 0px;
+}
+
+page-editar-minha-audio-ontoarte .subtitulo {
+  color: #095ca0;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Lato';
+  border-bottom: 1px solid #dcdcdc;
+  padding: 0px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
+}
+
+page-editar-minha-audio-ontoarte .meu-progeto-titulo {
+  color: #aaa7a7;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Lato';
+  border: 0px;
+  width: 100%;
+  margin: 0px;
+}
+
+page-editar-minha-audio-ontoarte .conteudo {
+  color: #3a3939;
+  font-size: 15px;
+  font-family: 'Lato';
+  margin: 0px 0px 10px 0px;
+}
+
+page-editar-minha-audio-ontoarte .btn-fechar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: #000;
+  text-align: center;
+  font-size: 17px;
+  font-family: 'Lato';
+  font-weight: bold;
+}
+
+page-editar-minha-audio-ontoarte .btn-fechar-lista {
+  float: right;
+  color: red;
+  font-size: 15px;
+  font-family: 'Lato';
+  font-weight: bold;
+}
+
 page-editar-minha-aulas .novidades-card {
   border: 0px;
   width: 100%;
@@ -30327,6 +30392,18 @@ page-minha-lista-audio-ontoarte .card-eventos {
   background: transparent;
   -webkit-box-shadow: 0px 0px 0px 0px transparent;
   box-shadow: 0px 0px 0px 0px transparent;
+}
+
+page-minha-lista-audio-ontoarte .AudiosList {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  margin: 0px;
+  border-radius: 0px 0px 0px 10px;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border: 0;
+  text-align: center;
 }
 
 page-minha-lista-aulas .editar {

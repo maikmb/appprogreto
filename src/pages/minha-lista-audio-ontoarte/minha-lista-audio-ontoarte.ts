@@ -6,12 +6,14 @@ import { EditarMinhaOntoartePage } from '../editar-minha-ontoarte/editar-minha-o
 import { MinhaListaOntoartePage } from '../minha-lista-ontoarte/minha-lista-ontoarte';
 import { AudioServiceProvider } from '../../providers/audio-service/audio-service';
 import { Observable } from 'rxjs/Observable';
+import { EditarMinhaAudioOntoartePage } from '../editar-minha-audio-ontoarte/editar-minha-audio-ontoarte';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-minha-lista-audio-ontoarte',
   templateUrl: 'minha-lista-audio-ontoarte.html',
 })
-export class MinhaListaAudioOntoartePage {
+export class MinhaListaAudioOntoartePage { 
   relAudios = [];
   position = 0;
   oldPosition = 0;
@@ -38,6 +40,7 @@ export class MinhaListaAudioOntoartePage {
     this.Storage.ready().then(() => {
       this.Storage.get("MinhaListaAudios").then((data) => {
         this.relAudios = data;
+        console.log('Lista em Session Audios Root', data);
       })
     })
 
@@ -52,7 +55,7 @@ export class MinhaListaAudioOntoartePage {
   }
 
   AbrirEditarOntoarte() {
-    this.modalCtrl.create(EditarMinhaOntoartePage).present();
+    this.modalCtrl.create(EditarMinhaAudioOntoartePage).present();
   }
 
   toogleIconPlayList() {

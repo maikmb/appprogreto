@@ -59,7 +59,6 @@ export class EditarMinhaOntoartePage {
     confirm.present();
   }
   voltar(){
-    this.navCtrl.setRoot(MinhaListaPage);
     this.navCtrl.push(MinhaListaOntoartePage)
   }
 

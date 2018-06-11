@@ -100,6 +100,7 @@ import { MinhaContaEnderecoPage } from '../pages/minha-conta-endereco/minha-cont
 import { MinhaContaFotoPage } from '../pages/minha-conta-foto/minha-conta-foto';
 import { AudioPlayerPage } from '../pages/audio-player/audio-player';
 import { MinhaListaAudioOntoartePage } from '../pages/minha-lista-audio-ontoarte/minha-lista-audio-ontoarte';
+import { EditarMinhaAudioOntoartePage } from '../pages/editar-minha-audio-ontoarte/editar-minha-audio-ontoarte';
 
 @NgModule({
   declarations: [
@@ -132,7 +133,8 @@ import { MinhaListaAudioOntoartePage } from '../pages/minha-lista-audio-ontoarte
     EditarMinhaAlbunsPage, EditarMinhaOntoartePage, EditarMinhaAulasPage, EditarMinhaPlPage,
     CarrinhoPage, MinhasComprasPage, MeusPlanosPage,
     AudioPlayerPage,
-    MinhaListaAudioOntoartePage
+    MinhaListaAudioOntoartePage,
+    EditarMinhaAudioOntoartePage
     
    // PdfViewerComponent
   ],
@@ -181,7 +183,8 @@ import { MinhaListaAudioOntoartePage } from '../pages/minha-lista-audio-ontoarte
     EditarMinhaAlbunsPage, EditarMinhaOntoartePage, EditarMinhaAulasPage, EditarMinhaPlPage,
     CarrinhoPage, MinhasComprasPage, MeusPlanosPage,
     AudioPlayerPage,
-    MinhaListaAudioOntoartePage
+    MinhaListaAudioOntoartePage,
+    EditarMinhaAudioOntoartePage
     
   ],
   providers: [
