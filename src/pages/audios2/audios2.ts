@@ -207,8 +207,9 @@ export class Audios2Page {
     this.service.getAudios()
       .subscribe(
         data => {
-          this.relAudios = data.rows
 
+          debugger;
+          this.relAudios = data.rows;
           this.loadExecutingAudio();
           console.log(this.relAudios);
         },
@@ -380,9 +381,13 @@ export class Audios2Page {
   }
 
   loadExecutingAudio() {
+    debugger;
     if (this.audioService.isExecuting()) {
       this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
       this.iconPlay = "pause"
+
+      this.audioInfo = this.relAudios[this.audioService.indexAudio].audio;
+      this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista;
     }
   }
 
