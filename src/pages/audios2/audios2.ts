@@ -207,8 +207,6 @@ export class Audios2Page {
     this.service.getAudios()
       .subscribe(
         data => {
-
-          debugger;
           this.relAudios = data.rows;
           this.loadExecutingAudio();
           console.log(this.relAudios);
@@ -234,8 +232,6 @@ export class Audios2Page {
       this.audioService.emitPosition(this.position);
       if (this.audioService.totalMedia > 0) {
         if (this.position >= this.audioService.totalMedia) {
-
-          debugger;
           console.log(this.position + ' - ' + this.audioService.totalMedia);
           this.executeNextAudio();
 
@@ -249,7 +245,6 @@ export class Audios2Page {
   }
 
   executeNextAudio() {
-    debugger;
     this.unsubscribePlayer();
 
     setTimeout(() => {
@@ -381,7 +376,6 @@ export class Audios2Page {
   }
 
   loadExecutingAudio() {
-    debugger;
     if (this.audioService.isExecuting()) {
       this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
       this.iconPlay = "pause"
@@ -391,10 +385,11 @@ export class Audios2Page {
     }
   }
 
+  getTotalMediaPlayer(){
+    return this.audioService.totalMedia;
+  }
 
   startAudio(item, index) {
-
-    debugger;
     //Verifica se o audio atual está executando a para a execução
     if (this.audioService.isExecuting() && this.audioService.isExecutingIndex(index)) {
       item.iconplay = 'play';
@@ -530,35 +525,11 @@ export class Audios2Page {
 
       if (added == 1) {
         this.icoCurtir = 'Curtir';
-
-        //ENVIA O INSERT
-        let headerOptions: any = { 'Content-Type': 'application/json' };
-        let headers = new Headers(headerOptions);
-        var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-        this.http.post(link, JSON.stringify({
-          idqual: item.idalbum,
-          modulo: 'albuns',
-          acao: 'menos'
-        })).subscribe(data => {
-          //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
-        });
+        this.CurtirSenderRequest(item, 'menos');
 
       } else {
-
-        //ENVIA O INSERT
-        let headerOptions: any = { 'Content-Type': 'application/json' };
-        let headers = new Headers(headerOptions);
-        var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-        this.http.post(link, JSON.stringify({
-          idqual: item.idalbum,
-          modulo: 'albuns',
-          acao: 'mais'
-        })).subscribe(data => {
-          //this.submitDetalhePedido(this.numero_pedido, gUsuario.email);
-        });
-
+        this.CurtirSenderRequest(item, 'mais');
         this.icoCurtir = 'Curtiu';
-
       }
 
       this.Storage.set("ClassficarAlbum", data).then(() => { });
@@ -566,12 +537,22 @@ export class Audios2Page {
     });
   }
 
+  CurtirSenderRequest(item, type){
+    let headerOptions: any = { 'Content-Type': 'application/json' };
+    let headers = new Headers(headerOptions);
+    var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+    this.http.post(link, JSON.stringify({
+      idqual: item.idalbum,
+      modulo: 'albuns',
+      acao: type
+    })).subscribe();
+  }
+
   AddMinhaListaAudio(item, index) {
     let indexToRemove = 0;
     this.indexAudioMinhaLista = index;
     this.Storage.get("MinhaListaAudios").then((data) => {
-
-      debugger;
+ 
       if (data == null || data == undefined) {
         data = [];
       }

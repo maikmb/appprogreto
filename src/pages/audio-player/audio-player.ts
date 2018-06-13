@@ -23,10 +23,9 @@ export class AudioPlayerPage implements AfterViewInit  {
   }
 
   durationChangeEventHandler() { 
-    debugger;
     this.audioService.totalMedia = this.audioPlayer.nativeElement.duration;
     this.audioService.emitTotalMedia(Math.round(this.audioService.totalMedia));
-    console.log(this.audioService.totalMedia);
+    console.log('durationChangeEventHandler', this.audioService.totalMedia);
   }
 
   getAudio(){
