@@ -13,12 +13,14 @@ import { HomePage } from '../home/home';
   selector: 'page-minha-lista-audio-ontoarte',
   templateUrl: 'minha-lista-audio-ontoarte.html',
 })
-export class MinhaListaAudioOntoartePage { 
+export class MinhaListaAudioOntoartePage {
   relAudios = [];
   position = 0;
   oldPosition = 0;
   iconPlay = 'play';
   subscription;
+  audioInfo: string = "--";
+  artistaInfo: string = "--";
 
   constructor
     (
@@ -31,15 +33,63 @@ export class MinhaListaAudioOntoartePage {
     public audioService: AudioServiceProvider
     ) {
 
+    this.audioService.changePositionObservable
+      .subscribe(value => this.audioService.audioPlayer.nativeElement.currentTime = value);
+
     this.getDados();
+    
+
 
   }
 
-  getDados() {
+  getTotalMediaPlayer() {
+    return this.audioService.totalMedia;
+  }
 
+  refreshPosition() {
+    let delta = Math.abs(this.position - this.oldPosition);
+    if (delta > 3) {
+      this.audioService.changePosition(this.position);
+    }
+  }
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  getIsExecuting(): boolean {
+    return this.audioService.IsExecuting;
+  }
+
+  getFormatedCurrentDuration(): string {
+    return this.readableDuration(this.position);
+  }
+
+  readableDuration(seconds) {
+    let sec: any = Math.floor(seconds);
+    let min: any = Math.floor(sec / 60);
+    min = min >= 10 ? min : '0' + min;
+    sec = Math.floor(sec % 60);
+    sec = sec >= 10 ? sec : '0' + sec;
+    return min + ':' + sec;
+  }
+
+  random() {
+    this.audioService.indexMinhaListaAudio = this.getRandomInt(0, this.relAudios.length - 1);
+    this.toogleIconPlayList();
+
+    this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexMinhaListaAudio].arquivo_audio;
+    this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
+    
+    this.relAudios[this.audioService.indexMinhaListaAudio].iconplay = 'pause';
+    this.audioPlay();
+  }
+
+  getDados() {
     this.Storage.ready().then(() => {
       this.Storage.get("MinhaListaAudios").then((data) => {
         this.relAudios = data;
+        this.loadExecutingAudio();
         console.log('Lista em Session Audios Root', data);
       })
     })
@@ -65,32 +115,46 @@ export class MinhaListaAudioOntoartePage {
     }
   }
 
+  loadExecutingAudio() {
+    this.toogleIconPlayList();
+    if (this.audioService.isExecuting()) {      
+      
+      this.relAudios[this.audioService.indexMinhaListaAudio].iconplay = 'pause';
+      this.iconPlay = "pause";
+      this.audioInfo = this.relAudios[this.audioService.indexMinhaListaAudio].audio;
+      this.artistaInfo = this.relAudios[this.audioService.indexMinhaListaAudio].artista;
+    }
+  }
+
   unsubscribePlayer() {
     this.subscription.unsubscribe();
   }
 
 
   startAudio(item, index) {
-
-    debugger;
     //Verifica se o audio atual está executando a para a execução
-    if (this.audioService.isExecuting() && this.audioService.isExecutingIndex(index)) {
+    if (this.audioService.isExecuting() && this.audioService.isExecutingIndexMyList(index)) {
       item.iconplay = 'play';
       this.iconPlay = 'play'
       this.unsubscribePlayer();
       this.audioService.audioPlayer.nativeElement.pause();
       this.audioService.totalMedia = 0;
+      this.audioInfo = "--";
+      this.artistaInfo = "--";
+      this.audioService.IsExecuting = false;
       return;
     }
 
     console.log('Musica Selecionada', item);
     this.toogleIconPlayList();
-    this.audioService.indexAudio = index;
-
-    this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
+    this.audioService.indexMinhaListaAudio = index;
+    this.audioInfo = item.audio;
+    this.artistaInfo = item.artista;
+    this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexMinhaListaAudio].arquivo_audio;
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.audioService.audioPlayer.nativeElement.load();
 
+    
     item.iconplay = 'pause';
     this.iconPlay = 'pause';
     this.audioPlay();
@@ -115,33 +179,72 @@ export class MinhaListaAudioOntoartePage {
       this.audioService.emitPosition(this.position);
       if (this.audioService.totalMedia > 0) {
         if (this.position >= this.audioService.totalMedia) {
-
-          debugger;
-          console.log(this.position + ' - ' + this.audioService.totalMedia);
           this.executeNextAudio();
-
         }
       }
     });
   }
 
   executeNextAudio() {
-    debugger;
     this.unsubscribePlayer();
 
     setTimeout(() => {
-      this.relAudios[this.audioService.indexAudio].iconplay = 'play';
-      this.audioService.indexAudio++
 
-      if (this.audioService.indexAudio == (this.relAudios.length - 1)) {
-        this.audioService.indexAudio = 0;
+      
+      this.relAudios[this.audioService.indexMinhaListaAudio].iconplay = 'play';
+      this.audioService.indexMinhaListaAudio++
+
+      if (this.audioService.indexMinhaListaAudio > (this.relAudios.length - 1)) {
+        this.audioService.indexMinhaListaAudio = 0;
       }
 
-      this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
-      this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
+      
+      this.relAudios[this.audioService.indexMinhaListaAudio].iconplay = 'pause';
+      this.audioService.audioPlayer.nativeElement.pause();
+      this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexMinhaListaAudio].arquivo_audio;
       this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
+
       this.audioPlay();
     }, 200);
+  }
+
+  next() {
+    this.audioService.indexMinhaListaAudio++;
+
+    if (this.audioService.indexMinhaListaAudio > this.relAudios.length - 1) {
+      this.audioService.indexMinhaListaAudio = 0;
+    }
+
+    this.toogleIconPlayList();
+
+    
+    this.relAudios[this.audioService.indexMinhaListaAudio].iconplay = 'pause';
+    this.audioService.audioPlayer.nativeElement.pause();
+    this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexMinhaListaAudio].arquivo_audio;
+    this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;  
+    this.audioInfo = this.relAudios[this.audioService.indexMinhaListaAudio].audio;
+    this.artistaInfo = this.relAudios[this.audioService.indexMinhaListaAudio].artista; 
+    this.audioPlay();
+
+  }
+
+  back() {
+    this.audioService.indexMinhaListaAudio--;
+
+    if (this.audioService.indexMinhaListaAudio < 0) {
+      this.audioService.indexMinhaListaAudio = this.relAudios.length - 1;
+    }
+
+    this.toogleIconPlayList();
+
+    this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexMinhaListaAudio].arquivo_audio;
+    this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
+
+    
+    this.relAudios[this.audioService.indexMinhaListaAudio].iconplay = 'pause';
+    this.audioInfo = this.relAudios[this.audioService.indexMinhaListaAudio].audio;
+    this.artistaInfo = this.relAudios[this.audioService.indexMinhaListaAudio].artista; 
+    this.audioPlay();
   }
 
 }

@@ -2,17 +2,12 @@ import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { AudioServiceProvider } from './../../providers/audio-service/audio-service';
 import { Component, ViewChild } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
-
-import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-
 import { Storage } from '@ionic/storage';
 import { SocialSharing } from '@ionic-native/social-sharing';
-
 import { DadosUsuarioProvider } from '../../providers/dados-usuario/dados-usuario'
 import { Observable } from 'rxjs/Rx';
-
 import { HomePage } from '../home/home';
 import { TitulosPage } from '../titulos/titulos';
 import { TitulosLivrosPage } from '../titulos-livros/titulos-livros';
@@ -181,6 +176,19 @@ export class Audios2Page {
     });
   }
 
+  getFormatedCurrentDuration(): string {
+    return this.readableDuration(this.position);
+  }
+
+  readableDuration(seconds) {
+    let sec: any = Math.floor(seconds);
+    let min: any = Math.floor(sec / 60);
+    min = min >= 10 ? min : '0' + min;
+    sec = Math.floor(sec % 60);
+    sec = sec >= 10 ? sec : '0' + sec;
+    return min + ':' + sec;
+  }
+
   // --- COMPARTILHAR --- // 
   //compilemsg(index):string{
   //var msg = this.quotes[index].content + "-" + this.quotes[index].title ;
@@ -251,7 +259,7 @@ export class Audios2Page {
       this.relAudios[this.audioService.indexAudio].iconplay = 'play';
       this.audioService.indexAudio++
 
-      if (this.audioService.indexAudio == (this.relAudios.length - 1)) {
+      if (this.audioService.indexAudio > (this.relAudios.length - 1)) {
         this.audioService.indexAudio = 0;
       }
 
@@ -274,13 +282,14 @@ export class Audios2Page {
     this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
+    this.audioInfo = this.relAudios[this.audioService.indexAudio].audio;
+    this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista; 
     this.audioPlay();
 
   }
 
   back() {
     this.audioService.indexAudio--;
-
     if (this.audioService.indexAudio < 0) {
       this.audioService.indexAudio = this.relAudios.length - 1;
     }
@@ -290,6 +299,8 @@ export class Audios2Page {
     this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[this.audioService.indexAudio].arquivo_audio;
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
+    this.audioInfo = this.relAudios[this.audioService.indexAudio].audio;
+    this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista; 
     this.audioPlay();
   }
 
@@ -315,6 +326,10 @@ export class Audios2Page {
     this.startCronometro();
     this.audioService.IsExecuting = true;
     //console.log('play');
+  }
+
+  getIsExecuting(): boolean {
+    return this.audioService.IsExecuting;
   }
 
   audioPause() {
@@ -358,9 +373,7 @@ export class Audios2Page {
   }
 
   refreshPosition() {
-
     let delta = Math.abs(this.position - this.oldPosition);
-
     if (delta > 3) {
       console.log('mudou');
       this.audioService.changePosition(this.position);
@@ -377,15 +390,15 @@ export class Audios2Page {
 
   loadExecutingAudio() {
     if (this.audioService.isExecuting()) {
+      this.toogleIconPlayList();
       this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
-      this.iconPlay = "pause"
-
+      this.iconPlay = "pause";
       this.audioInfo = this.relAudios[this.audioService.indexAudio].audio;
       this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista;
     }
   }
 
-  getTotalMediaPlayer(){
+  getTotalMediaPlayer() {
     return this.audioService.totalMedia;
   }
 
@@ -399,6 +412,7 @@ export class Audios2Page {
       this.audioService.totalMedia = 0;
       this.audioInfo = "--";
       this.artistaInfo = "--";
+      this.audioService.IsExecuting = false;
       return;
     }
 
@@ -537,7 +551,7 @@ export class Audios2Page {
     });
   }
 
-  CurtirSenderRequest(item, type){
+  CurtirSenderRequest(item, type) {
     let headerOptions: any = { 'Content-Type': 'application/json' };
     let headers = new Headers(headerOptions);
     var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
@@ -552,7 +566,7 @@ export class Audios2Page {
     let indexToRemove = 0;
     this.indexAudioMinhaLista = index;
     this.Storage.get("MinhaListaAudios").then((data) => {
- 
+
       if (data == null || data == undefined) {
         data = [];
       }
@@ -583,7 +597,7 @@ export class Audios2Page {
           "idalbum": item.idalbum,
           "audio": item.audio,
           "artista": item.artista,
-          "iconplay": item.iconplay,
+          "iconplay": 'play',
           "color": item.color,
           "Tempo": item.tempo,
           "Ativo": item.Ativo

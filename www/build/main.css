@@ -25822,6 +25822,7 @@ ion-navbar.toolbar {
   padding: 10px 5px 0px 5px;
   -webkit-box-shadow: 0px -4px 10px -4px rgba(0, 0, 0, 0.19);
   box-shadow: 0px -4px 10px -4px rgba(0, 0, 0, 0.19);
+  background-color: white;
 }
 
 .menu_footer_texto {
@@ -26698,6 +26699,7 @@ page-audios .menu_footer {
   -webkit-box-shadow: 0px -4px 10px -4px rgba(0, 0, 0, 0.19);
   box-shadow: 0px -4px 10px -4px rgba(0, 0, 0, 0.19);
   z-index: 9999999999;
+  background-color: white;
 }
 
 page-audios .listItem {
@@ -26726,7 +26728,8 @@ page-audios audio.non-downloadable::-webkit-media-controls-panel {
   width: calc(100% + 32px);
 }
 
-page-audios .list-ios > .item-block:last-child, page-audios .list-ios > .item-wrapper:last-child .item-block {
+page-audios .list-ios > .item-block:last-child,
+page-audios .list-ios > .item-wrapper:last-child .item-block {
   border-bottom: 0;
 }
 
@@ -26836,6 +26839,7 @@ page-audios2 .menu_footer {
   -webkit-box-shadow: 0px -4px 10px -4px rgba(0, 0, 0, 0.19);
   box-shadow: 0px -4px 10px -4px rgba(0, 0, 0, 0.19);
   z-index: 9999999999;
+  background-color: white;
 }
 
 page-audios2 .listItem {
@@ -26863,7 +26867,8 @@ page-audios2 audio.non-downloadable::-webkit-media-controls-panel {
   width: calc(100% + 32px);
 }
 
-page-audios2 .list-ios > .item-block:last-child, page-audios2 .list-ios > .item-wrapper:last-child .item-block {
+page-audios2 .list-ios > .item-block:last-child,
+page-audios2 .list-ios > .item-wrapper:last-child .item-block {
   border-bottom: 0;
 }
 
@@ -30404,6 +30409,170 @@ page-minha-lista-audio-ontoarte .AudiosList {
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
   border: 0;
   text-align: center;
+}
+
+page-minha-lista-audio-ontoarte .imgControl {
+  width: 100%;
+}
+
+page-minha-lista-audio-ontoarte .div_player {
+  border-bottom: 0px solid #c1c1c1;
+}
+
+page-minha-lista-audio-ontoarte .player_texto_musica {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Lato';
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+page-minha-lista-audio-ontoarte .player_texto_musica .span_texto {
+  color: #949494;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Lato';
+}
+
+page-minha-lista-audio-ontoarte .player {
+  display: none;
+  width: 100%;
+  border: 0px;
+}
+
+page-minha-lista-audio-ontoarte .range-knob {
+  display: none;
+}
+
+page-minha-lista-audio-ontoarte .range-slider {
+  height: 3px;
+  width: 100%;
+}
+
+page-minha-lista-audio-ontoarte .range-bar {
+  top: -10px;
+  width: 100%;
+  height: 4px;
+}
+
+page-minha-lista-audio-ontoarte .range-ios .range-bar {
+  height: 4px;
+}
+
+page-minha-lista-audio-ontoarte .range {
+  top: -5px;
+  left: -4px;
+  width: 103%;
+  height: 4px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+}
+
+page-minha-lista-audio-ontoarte .AudiosList {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  margin: 0px;
+  border-radius: 0px 0px 0px 10px;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border: 0;
+  text-align: center;
+}
+
+page-minha-lista-audio-ontoarte .menu_footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  padding: 0px;
+  -webkit-box-shadow: 0px -4px 10px -4px rgba(0, 0, 0, 0.19);
+  box-shadow: 0px -4px 10px -4px rgba(0, 0, 0, 0.19);
+  z-index: 9999999999;
+  background-color: white;
+}
+
+page-minha-lista-audio-ontoarte .listItem {
+  background: transparent;
+  border: 0px;
+}
+
+page-minha-lista-audio-ontoarte .tituloFaixa {
+  font-size: 15px;
+  color: #565656;
+  font-family: 'Lato';
+  font-weight: bold;
+}
+
+page-minha-lista-audio-ontoarte .subtituloFaixa {
+  font-size: 12px;
+  color: #615f5f;
+}
+
+page-minha-lista-audio-ontoarte audio.non-downloadable::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+page-minha-lista-audio-ontoarte audio.non-downloadable::-webkit-media-controls-panel {
+  width: calc(100% + 32px);
+}
+
+page-minha-lista-audio-ontoarte .list-ios > .item-block:last-child,
+page-minha-lista-audio-ontoarte .list-ios > .item-wrapper:last-child .item-block {
+  border-bottom: 0;
+}
+
+page-minha-lista-audio-ontoarte .list-ios > .item-block:first-child {
+  border-top: 0;
+}
+
+page-minha-lista-audio-ontoarte .albumTitulo {
+  font-size: 20px;
+  color: #010000;
+  font-family: 'Lato';
+  font-weight: bold;
+  padding: 0px 15px 0px 0px;
+  margin: 15px 0px 3px 0px;
+}
+
+page-minha-lista-audio-ontoarte .albumSubtitulo {
+  font-size: 13px;
+  color: #010000;
+  font-family: 'Lato';
+  padding: 0px 15px 0px 0px;
+  margin: 5px 0px 8px 0px;
+}
+
+page-minha-lista-audio-ontoarte .albumDesc {
+  font-size: 11px;
+  color: #bcb9b9;
+  padding: 0px 15px 0px 0px;
+  margin: 0px 0px 15px 0px;
+}
+
+page-minha-lista-audio-ontoarte .icone-livros-down {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding-bottom: 25px;
+  margin: -10px 0;
+}
+
+page-minha-lista-audio-ontoarte .icone-livros-down p {
+  color: #095ca0;
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+page-minha-lista-audio-ontoarte .icone-livros-down img {
+  width: 40%;
+  margin: 0 auto;
+}
+
+page-minha-lista-audio-ontoarte .icone-livros-down .ion-icone-livros-down {
+  color: #1a68a8;
+  font-size: 30px;
+  padding-bottom: 1px;
 }
 
 page-minha-lista-aulas .editar {

@@ -13,6 +13,7 @@ export class AudioServiceProvider {
   public playObservable = new Subject<boolean>();
   public IsExecuting: boolean = false;
   public indexAudio = 0;
+  public indexMinhaListaAudio = 0;
 
   constructor() {
     console.log('Hello AudioServiceProvider Provider');
@@ -38,6 +39,10 @@ export class AudioServiceProvider {
 
   isExecutingIndex(index: number) : boolean {
     return index == this.indexAudio;
+  }
+
+  isExecutingIndexMyList(index: number) : boolean {
+    return index == this.indexMinhaListaAudio;
   }
 
 

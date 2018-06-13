@@ -102,7 +102,8 @@
     <br>
 
 </ion-content>
-<ion-footer class="menu_footer">
+
+<ion-footer class="menu_footer" *ngIf="getIsExecuting()">
     <ion-grid class="div_player">
         <ion-row>
             <ion-col col-12>
@@ -115,10 +116,10 @@
             <ion-col col-1>
                 <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">
             </ion-col>
-            <ion-col col-1>
-                <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">
+            <ion-col col-2 class="player_texto_musica">
+                {{getFormatedCurrentDuration()}}
             </ion-col>
-            <ion-col col-8 class="player_texto_musica">
+            <ion-col col-6 class="player_texto_musica">
                 <marquee direction="left" scrollamount="2">{{audioInfo}} <span class="span_texto">- {{artistaInfo}}</span></marquee>
             </ion-col>
             <ion-col col-1>

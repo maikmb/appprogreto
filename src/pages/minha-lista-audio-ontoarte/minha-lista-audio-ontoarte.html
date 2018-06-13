@@ -1,44 +1,74 @@
 <ion-header>
     <ion-navbar>
-      <button ion-button menuToggle>
+        <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <h2 class="meu-progeto-titulo">Minha Lista</h2>   
-      <div class="editar" (click)="AbrirEditarOntoarte()">
-        Editar
-      </div>
-      <div class="editar-img" (click)="AbrirEditarOntoarte()">
-        <img src="assets/imgs/ico-mais.png">    
-      </div>    
+        <h2 class="meu-progeto-titulo">Minha Lista</h2>
+        <div class="editar" (click)="AbrirEditarOntoarte()">
+            Editar
+        </div>
+        <div class="editar-img" (click)="AbrirEditarOntoarte()">
+            <img src="assets/imgs/ico-mais.png">
+        </div>
     </ion-navbar>
 </ion-header>
-<ion-content >
+<ion-content>
 
-  <ion-card class="card-eventos">    
-      <p class="btn-novo" (click)="abrirMinhaListaAlbuns()">
-        Álbuns
-      </p>
-      <p class="btn-novo action_evento" (click)="abrirMinhaListaAlbuns()">
-        Áudios
-      </p>      
+    <ion-card class="card-eventos">
+        <p class="btn-novo" (click)="abrirMinhaListaAlbuns()">
+            Álbuns
+        </p>
+        <p class="btn-novo action_evento" (click)="abrirMinhaListaAlbuns()">
+            Áudios
+        </p>
     </ion-card>
     <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">
-      <ion-row>
-        <ion-col col-2>
-          <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg"
-            width="100%">
-        </ion-col>
-        <ion-col col-10 style="border: 0px; border-bottom: 1px solid #ebebeb;">
-          <ion-list class="listItem">
-            <ion-item class="listItem">
-              <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>
-              <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}
-                <Br>
-                <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>
-              </h2>
-            </ion-item>
-          </ion-list>
-        </ion-col>        
-      </ion-row>
+        <ion-row>
+            <ion-col col-2>
+                <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg" width="100%">
+            </ion-col>
+            <ion-col col-10 style="border: 0px; border-bottom: 1px solid #ebebeb;">
+                <ion-list class="listItem">
+                    <ion-item class="listItem">
+                        <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>
+                        <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}
+                            <Br>
+                            <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>
+                        </h2>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
     </ion-card>
 </ion-content>
+<ion-footer class="menu_footer" *ngIf="getIsExecuting()">
+    <ion-grid class="div_player">
+        <ion-row>
+            <ion-col col-12>
+                <!-- <input type="range" min="0" max="{{totalMedia}}" [(ngModel)]="position" (change)="refreshPosition()">  -->
+                <ion-range class="randNedo" min="0" max="{{getTotalMediaPlayer()}}" [(ngModel)]="position" (ionChange)="refreshPosition()">
+                </ion-range>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-1>
+                <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">
+            </ion-col>
+            <ion-col col-2 class="player_texto_musica">
+                {{getFormatedCurrentDuration()}}
+            </ion-col>
+            <ion-col col-6 class="player_texto_musica">
+                <marquee direction="left" scrollamount="2">{{audioInfo}} <span class="span_texto">- {{artistaInfo}}</span></marquee>
+            </ion-col>
+            <ion-col col-1>
+                <img src="assets/imgs/back.jpg" class="imgControl" (click)="back()">
+            </ion-col>
+            <ion-col col-1>
+                <img src="assets/imgs/{{iconPlay}}.jpg" class="imgControl" (click)="tooglePlay()">
+            </ion-col>
+            <ion-col col-1>
+                <img src="assets/imgs/next.jpg" class="imgControl" (click)="next()">
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>
