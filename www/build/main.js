@@ -2615,10 +2615,15 @@ var MinhaListaAudioOntoartePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-minha-lista-audio-ontoarte',template:/*ion-inline-start:"D:\GitHub\appprogetto\src\pages\minha-lista-audio-ontoarte\minha-lista-audio-ontoarte.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n        <h2 class="meu-progeto-titulo">Minha Lista</h2>\n\n        <div class="editar" (click)="AbrirEditarOntoarte()">\n\n            Editar\n\n        </div>\n\n        <div class="editar-img" (click)="AbrirEditarOntoarte()">\n\n            <img src="assets/imgs/ico-mais.png">\n\n        </div>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n\n\n    <ion-card class="card-eventos">\n\n        <p class="btn-novo" (click)="abrirMinhaListaAlbuns()">\n\n            Álbuns\n\n        </p>\n\n        <p class="btn-novo action_evento" (click)="abrirMinhaListaAlbuns()">\n\n            Áudios\n\n        </p>\n\n    </ion-card>\n\n    <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">\n\n        <ion-row>\n\n            <ion-col col-2>\n\n                <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg" width="100%">\n\n            </ion-col>\n\n            <ion-col col-10 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n                <ion-list class="listItem">\n\n                    <ion-item class="listItem">\n\n                        <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>\n\n                        <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}\n\n                            <Br>\n\n                            <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>\n\n                        </h2>\n\n                    </ion-item>\n\n                </ion-list>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-card>\n\n</ion-content>\n\n<ion-footer class="menu_footer" *ngIf="getIsExecuting()">\n\n    <ion-grid class="div_player">\n\n        <ion-row>\n\n            <ion-col col-12>\n\n                <!-- <input type="range" min="0" max="{{totalMedia}}" [(ngModel)]="position" (change)="refreshPosition()">  -->\n\n                <ion-range class="randNedo" min="0" max="{{getTotalMediaPlayer()}}" [(ngModel)]="position" (ionChange)="refreshPosition()">\n\n                </ion-range>\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">\n\n            </ion-col>\n\n            <ion-col col-2 class="player_texto_musica">\n\n                {{getFormatedCurrentDuration()}}\n\n            </ion-col>\n\n            <ion-col col-6 class="player_texto_musica">\n\n                <marquee direction="left" scrollamount="2">{{audioInfo}} <span class="span_texto">- {{artistaInfo}}</span></marquee>\n\n            </ion-col>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/back.jpg" class="imgControl" (click)="back()">\n\n            </ion-col>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/{{iconPlay}}.jpg" class="imgControl" (click)="tooglePlay()">\n\n            </ion-col>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/next.jpg" class="imgControl" (click)="next()">\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"D:\GitHub\appprogetto\src\pages\minha-lista-audio-ontoarte\minha-lista-audio-ontoarte.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]])
     ], MinhaListaAudioOntoartePage);
     return MinhaListaAudioOntoartePage;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=minha-lista-audio-ontoarte.js.map
@@ -8343,9 +8348,11 @@ var Audios2Page = /** @class */ (function () {
         //retorno de Dados
         this.service.getAudios()
             .subscribe(function (data) {
-            _this.relAudios = data.rows;
+            //this.relAudios = data.rows;
+            _this.relAudios = data.rows.filter(function (audio) { return audio.idalbum == _this.itemAlbum.idalbum; });
             _this.loadExecutingAudio();
-            console.log(_this.relAudios);
+            // console.log('Current Audio List', data.rows);
+            // console.log("Current Album List", this.itemAlbum);
         }, function (err) { return console.log(err); });
     };
     // durationChangeEventHandler() { 
@@ -8627,8 +8634,6 @@ var Audios2Page = /** @class */ (function () {
         });
     };
     Audios2Page.prototype.CurtirSenderRequest = function (item, type) {
-        var headerOptions = { 'Content-Type': 'application/json' };
-        var headers = new Headers(headerOptions);
         var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
         this.http.post(link, JSON.stringify({
             idqual: item.idalbum,
@@ -8747,13 +8752,11 @@ var Audios2Page = /** @class */ (function () {
                     position: 'middle',
                 }).present();
             }
+            var urlCurtir = 'http://app.progettoapp.com.br/midias/curtir_update.php';
             if (added == 1) {
                 //this.icoCurtir = 'Curtir'; 
-                //ENVIA O INSERT
-                var headerOptions = { 'Content-Type': 'application/json' };
-                var headers = new Headers(headerOptions);
-                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-                _this.http.post(link, JSON.stringify({
+                //ENVIA O INSERT        
+                _this.http.post(urlCurtir, JSON.stringify({
                     idqual: item.idaudio,
                     modulo: 'audios',
                     acao: 'menos'
@@ -8763,10 +8766,7 @@ var Audios2Page = /** @class */ (function () {
             }
             else {
                 //ENVIA O INSERT
-                var headerOptions = { 'Content-Type': 'application/json' };
-                var headers = new Headers(headerOptions);
-                var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-                _this.http.post(link, JSON.stringify({
+                _this.http.post(urlCurtir, JSON.stringify({
                     idqual: item.idaudio,
                     modulo: 'audios',
                     acao: 'mais'

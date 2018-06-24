@@ -1,6 +1,6 @@
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { AudioServiceProvider } from './../../providers/audio-service/audio-service';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -29,7 +29,7 @@ export class Audios2Page {
   subscription;
 
   item = [];
-  itemAlbum = [];
+  itemAlbum: any = [];
 
   teste = [];
   teste2 = [];
@@ -215,9 +215,11 @@ export class Audios2Page {
     this.service.getAudios()
       .subscribe(
         data => {
-          this.relAudios = data.rows;
+          //this.relAudios = data.rows;
+          this.relAudios = data.rows.filter(audio => audio.idalbum == this.itemAlbum.idalbum);
           this.loadExecutingAudio();
-          console.log(this.relAudios);
+          // console.log('Current Audio List', data.rows);
+          // console.log("Current Album List", this.itemAlbum);
         },
         err => console.log(err)
       );
@@ -283,7 +285,7 @@ export class Audios2Page {
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
     this.audioInfo = this.relAudios[this.audioService.indexAudio].audio;
-    this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista; 
+    this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista;
     this.audioPlay();
 
   }
@@ -300,7 +302,7 @@ export class Audios2Page {
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
     this.audioInfo = this.relAudios[this.audioService.indexAudio].audio;
-    this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista; 
+    this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista;
     this.audioPlay();
   }
 
@@ -552,8 +554,6 @@ export class Audios2Page {
   }
 
   CurtirSenderRequest(item, type) {
-    let headerOptions: any = { 'Content-Type': 'application/json' };
-    let headers = new Headers(headerOptions);
     var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
     this.http.post(link, JSON.stringify({
       idqual: item.idalbum,
@@ -687,15 +687,14 @@ export class Audios2Page {
 
       }
 
+      var urlCurtir = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+
       if (added == 1) {
 
         //this.icoCurtir = 'Curtir'; 
 
-        //ENVIA O INSERT
-        let headerOptions: any = { 'Content-Type': 'application/json' };
-        let headers = new Headers(headerOptions);
-        var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-        this.http.post(link, JSON.stringify({
+        //ENVIA O INSERT        
+        this.http.post(urlCurtir, JSON.stringify({
           idqual: item.idaudio,
           modulo: 'audios',
           acao: 'menos'
@@ -706,10 +705,7 @@ export class Audios2Page {
       } else {
 
         //ENVIA O INSERT
-        let headerOptions: any = { 'Content-Type': 'application/json' };
-        let headers = new Headers(headerOptions);
-        var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-        this.http.post(link, JSON.stringify({
+        this.http.post(urlCurtir, JSON.stringify({
           idqual: item.idaudio,
           modulo: 'audios',
           acao: 'mais'
