@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		012A8E49026540BD9D05129F /* StreamingMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC04F46711641BA9FBC0A28 /* StreamingMedia.m */; };
 		01FCF1EBBA4045228DC5B240 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB58F9B34BD45C98C3E6F82 /* Accelerate.framework */; };
@@ -69,6 +68,9 @@
 		F298522AD4804474A9BA520C /* GCDWebServerMultiPartFormRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F097EFF91D0D40F4810DB403 /* GCDWebServerMultiPartFormRequest.m */; };
 		F2E4DED663A24C3B81BAAA66 /* GCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8B9872476F40B9B66D251B /* GCDWebServerErrorResponse.m */; };
 		F53409E2F26746ABA08A91F8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EDB64E29FB747AEAB9F4E9C /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		17993961D6354EA889248828 /* MainViewController+MusicControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF431EFAE074347975F7D59 /* MainViewController+MusicControls.m */; };
+		3A90645BF289490DA6ED1E8D /* MusicControls.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2E9C7B04ED410CAE4305F8 /* MusicControls.m */; };
+		F3A431A4C03645DEB24B435C /* MusicControlsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E7080E1A31D743B586D520F5 /* MusicControlsInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +239,12 @@
 		FD45B920DD774EC194242793 /* GCDWebServerDataResponse.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerDataResponse.m; path = "cordova-plugin-ionic-webview/GCDWebServerDataResponse.m"; sourceTree = "<group>"; };
 		FD8C7CDB44284A8CA1ECE4E0 /* GCDWebServerResponse.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = GCDWebServerResponse.h; path = "cordova-plugin-ionic-webview/GCDWebServerResponse.h"; sourceTree = "<group>"; };
 		FEFB093E9618479E83B949B5 /* GCDWebServerDataRequest.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerDataRequest.m; path = "cordova-plugin-ionic-webview/GCDWebServerDataRequest.m"; sourceTree = "<group>"; };
+		7FF431EFAE074347975F7D59 /* MainViewController+MusicControls.m */ = {isa = PBXFileReference; name = "MainViewController+MusicControls.m"; path = "cordova-plugin-music-controls/MainViewController+MusicControls.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		EE2E9C7B04ED410CAE4305F8 /* MusicControls.m */ = {isa = PBXFileReference; name = "MusicControls.m"; path = "cordova-plugin-music-controls/MusicControls.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		E7080E1A31D743B586D520F5 /* MusicControlsInfo.m */ = {isa = PBXFileReference; name = "MusicControlsInfo.m"; path = "cordova-plugin-music-controls/MusicControlsInfo.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		460CABD1486F43C1ABB3FBAE /* MainViewController+MusicControls.h */ = {isa = PBXFileReference; name = "MainViewController+MusicControls.h"; path = "cordova-plugin-music-controls/MainViewController+MusicControls.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		0A70C06B92E145A6A3E9F198 /* MusicControls.h */ = {isa = PBXFileReference; name = "MusicControls.h"; path = "cordova-plugin-music-controls/MusicControls.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		1BCFC39DC91D463088B56BFE /* MusicControlsInfo.h */ = {isa = PBXFileReference; name = "MusicControlsInfo.h"; path = "cordova-plugin-music-controls/MusicControlsInfo.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +479,12 @@
 				AA8F43E0389A4343B3443097 /* PayPalPayment.h */,
 				0EC5EECEB450494599F7AD6E /* PayPalPaymentViewController.h */,
 				AF54A92B125A4BD690BF55DE /* PayPalProfileSharingViewController.h */,
+				7FF431EFAE074347975F7D59 /* MainViewController+MusicControls.m */,
+				EE2E9C7B04ED410CAE4305F8 /* MusicControls.m */,
+				E7080E1A31D743B586D520F5 /* MusicControlsInfo.m */,
+				460CABD1486F43C1ABB3FBAE /* MainViewController+MusicControls.h */,
+				0A70C06B92E145A6A3E9F198 /* MusicControls.h */,
+				1BCFC39DC91D463088B56BFE /* MusicControlsInfo.h */,
 			);
 			name = Plugins;
 			path = Progetto/Plugins;
@@ -662,6 +676,9 @@
 				325574BE15394401815AEEEE /* IonicKeyboard.m in Sources */,
 				760F0B77C3D340A6A8F32E81 /* CardIOCordovaPlugin.m in Sources */,
 				9CEDA7F7CA454CFD8BFA428E /* PayPalMobileCordovaPlugin.m in Sources */,
+				17993961D6354EA889248828 /* MainViewController+MusicControls.m in Sources */,
+				3A90645BF289490DA6ED1E8D /* MusicControls.m in Sources */,
+				F3A431A4C03645DEB24B435C /* MusicControlsInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

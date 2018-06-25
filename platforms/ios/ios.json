@@ -59,6 +59,10 @@
             {
               "xml": "<feature name=\"PayPalMobile\"><param name=\"ios-package\" onload=\"true\" value=\"PayPalMobileCordovaPlugin\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"MusicControls\"><param name=\"ios-package\" value=\"MusicControls\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -113,6 +117,9 @@
       "PACKAGE_NAME": "br.com.hjweb.appprogetto"
     },
     "com.paypal.cordova.mobilesdk": {
+      "PACKAGE_NAME": "br.com.hjweb.appprogetto"
+    },
+    "cordova-plugin-music-controls": {
       "PACKAGE_NAME": "br.com.hjweb.appprogetto"
     }
   },
@@ -213,6 +220,14 @@
       "clobbers": [
         "PayPalMobile"
       ]
+    },
+    {
+      "id": "cordova-plugin-music-controls.MusicControls",
+      "file": "plugins/cordova-plugin-music-controls/www/MusicControls.js",
+      "pluginId": "cordova-plugin-music-controls",
+      "clobbers": [
+        "MusicControls"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -228,6 +243,7 @@
     "cordova-sqlite-storage": "2.3.0",
     "ionic-plugin-keyboard": "2.2.1",
     "card.io.cordova.mobilesdk": "2.1.0",
-    "com.paypal.cordova.mobilesdk": "3.5.0"
+    "com.paypal.cordova.mobilesdk": "3.5.0",
+    "cordova-plugin-music-controls": "2.1.4"
   }
 }

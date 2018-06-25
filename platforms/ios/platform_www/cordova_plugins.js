@@ -95,6 +95,14 @@ module.exports = [
     "clobbers": [
       "PayPalMobile"
     ]
+  },
+  {
+    "id": "cordova-plugin-music-controls.MusicControls",
+    "file": "plugins/cordova-plugin-music-controls/www/MusicControls.js",
+    "pluginId": "cordova-plugin-music-controls",
+    "clobbers": [
+      "MusicControls"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -112,7 +120,8 @@ module.exports.metadata =
   "cordova-sqlite-storage": "2.3.0",
   "ionic-plugin-keyboard": "2.2.1",
   "card.io.cordova.mobilesdk": "2.1.0",
-  "com.paypal.cordova.mobilesdk": "3.5.0"
+  "com.paypal.cordova.mobilesdk": "3.5.0",
+  "cordova-plugin-music-controls": "2.1.4"
 };
 // BOTTOM OF METADATA
 });
