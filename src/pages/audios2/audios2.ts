@@ -333,7 +333,7 @@ export class Audios2Page {
     this.musicControls.create({
       track: this.audioInfo,
       artist: this.artistaInfo,
-      cover: "",
+      cover: `http://app.progettoapp.com.br/arquivos/r/albuns/${this.itemAlbum.Pasta}/${this.itemAlbum.Img}_400.jpg`,
       isPlaying: true,
       dismissable: false,
       hasPrev: true,
