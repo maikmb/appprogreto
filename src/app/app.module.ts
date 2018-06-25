@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
-//import { NavController } from 'ionic-angular';
-
 import { VideosPage } from '../pages/videos/videos';
 import { LivrosPage } from '../pages/livros/livros';
 import { TitulosPage } from '../pages/titulos/titulos';
@@ -13,18 +11,12 @@ import { AudiosPage } from '../pages/audios/audios';
 import { PdfPage } from '../pages/pdf/pdf';
 import { LoginPage } from '../pages/login/login';
 import { SlidePage } from '../pages/slide/slide';
-
 import { SocialSharing } from '@ionic-native/social-sharing';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-//import { StreamingMedia } from '@ionic-native/streaming-media';
 import { DadosUsuarioProvider } from '../providers/dados-usuario/dados-usuario';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
-//import { PdfViewerComponent } from 'ng2-pdf-viewer';
-//import { FileOpener } from '@ionic-native/file-opener';
-
 import { AovivoVideosPage } from './../pages/aovivo-videos/aovivo-videos';
 import { AreaUsuarioRestritaPage } from '../pages/area-usuario-restrita/area-usuario-restrita';
 import { OntoartePage } from '../pages/ontoarte/ontoarte';
@@ -49,7 +41,6 @@ import { DicionarioVerPage } from '../pages/dicionario-ver/dicionario-ver';
 import { DicionarioModalPage } from '../pages/dicionario-modal/dicionario-modal';
 import { EventosAntigosPage } from '../pages/eventos-antigos/eventos-antigos';
 import { AudioServiceProvider } from '../providers/audio-service/audio-service';
-
 import { MinhaListaOntoartePage } from './../pages/minha-lista-ontoarte/minha-lista-ontoarte';
 import { MinhaListaAulasPage } from './../pages/minha-lista-aulas/minha-lista-aulas';
 import { MinhaListaPlPage } from './../pages/minha-lista-pl/minha-lista-pl';
@@ -61,7 +52,6 @@ import { LojaRevistaPage } from '../pages/loja-revista/loja-revista';
 import { LojaSouvenirsPage } from '../pages/loja-souvenirs/loja-souvenirs';
 import { HttpClientModule } from '@angular/common/http';
 import { Audios2Page } from '../pages/audios2/audios2';
-
 import { ComentariosPage } from '../pages/comentarios/comentarios';
 import { EsqueceuSenhaPage } from '../pages/esqueceu-senha/esqueceu-senha';
 import { OneSignal } from '@ionic-native/onesignal';
@@ -84,13 +74,11 @@ import { TermosPage } from '../pages/termos/termos';
 import { EventosFotoVerPage } from '../pages/eventos-foto-ver/eventos-foto-ver';
 import { EventoInfoVerPage } from '../pages/evento-info-ver/evento-info-ver';
 import { CarrinhoPage } from '../pages/carrinho/carrinho';
-
 import { EditarMinhaOntoartePage } from '../pages/editar-minha-ontoarte/editar-minha-ontoarte';
 import { EditarMinhaPlPage } from '../pages/editar-minha-pl/editar-minha-pl';
 import { EditarMinhaAulasPage } from './../pages/editar-minha-aulas/editar-minha-aulas';
 import { EditarMinhaAlbunsPage } from './../pages/editar-minha-albuns/editar-minha-albuns';
 import { PrivacidadeVerPage } from '../pages/privacidade-ver/privacidade-ver';
-
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
 import { MinhasComprasPage } from '../pages/minhas-compras/minhas-compras';
 import { MeusPlanosPage } from '../pages/meus-planos/meus-planos';
@@ -101,6 +89,7 @@ import { MinhaContaFotoPage } from '../pages/minha-conta-foto/minha-conta-foto';
 import { AudioPlayerPage } from '../pages/audio-player/audio-player';
 import { MinhaListaAudioOntoartePage } from '../pages/minha-lista-audio-ontoarte/minha-lista-audio-ontoarte';
 import { EditarMinhaAudioOntoartePage } from '../pages/editar-minha-audio-ontoarte/editar-minha-audio-ontoarte';
+import { MusicControls } from '@ionic-native/music-controls';
 
 @NgModule({
   declarations: [
@@ -114,36 +103,82 @@ import { EditarMinhaAudioOntoartePage } from '../pages/editar-minha-audio-ontoar
     SlidePage,
     TitulosLivrosPage,
     AreaUsuarioRestritaPage,
-    OntoartePage, AovivoVideosPage, Audios2Page, AudiosPage,
-    RevistaPlPage, VerlivroPage, PlListaPage, VerPlPage,
-    EventosPage, EventosVerPage, EventosAntigosVerPage, EventosFormPage, EventosFotoVerPage, EventoInfoVerPage,
-    BuscaPage, MinhaContaDadosPage, MinhaContaEnderecoPage, MinhaContaFotoPage,
-    MinhaContaPage, ConfiguracaoPage, TermosPage,
-    ComentariosPage, ModAulasPage,
-    LojaPage, LojaModalPage, LojaVerPage, MinhaListaPage, MinhaListaVerPage, LojaCdsPage, LojaRevistaPage, LojaSouvenirsPage,
+    OntoartePage, 
+    AovivoVideosPage, 
+    Audios2Page, 
+    AudiosPage,
+    RevistaPlPage, 
+    VerlivroPage, 
+    PlListaPage, 
+    VerPlPage,
+    EventosPage, 
+    EventosVerPage, 
+    EventosAntigosVerPage, 
+    EventosFormPage, 
+    EventosFotoVerPage, 
+    EventoInfoVerPage,
+    BuscaPage, 
+    MinhaContaDadosPage, 
+    MinhaContaEnderecoPage, 
+    MinhaContaFotoPage,
+    MinhaContaPage, 
+    ConfiguracaoPage, 
+    TermosPage,
+    ComentariosPage, 
+    ModAulasPage,
+    LojaPage, 
+    LojaModalPage, 
+    LojaVerPage, 
+    MinhaListaPage, 
+    MinhaListaVerPage, 
+    LojaCdsPage, 
+    LojaRevistaPage, 
+    LojaSouvenirsPage,
     LojaAvisoPage,
-    MinhaListaPublicacoesPage, MinhaListaPlPage, MinhaListaAulasPage, MinhaListaOntoartePage,
-    EditarMinhaListaPublicacoesPage, 
-    CadastroUsuarioPage, AtendimentoPage, ConfiguracoesPage, DicionarioPage, NotificacoesPage, OntoarteAlbumPage,
-    OntoarteVerPage, PrivacidadePage, PrivacidadeVerPage,
-    SairPage, DicionarioVerPage, DicionarioModalPage, SairPage, NotificacaoVerPage,
+    MinhaListaPublicacoesPage, 
+    MinhaListaPlPage, 
+    MinhaListaAulasPage, 
+    MinhaListaOntoartePage,
+    EditarMinhaListaPublicacoesPage,
+    CadastroUsuarioPage, 
+    AtendimentoPage, 
+    ConfiguracoesPage, 
+    DicionarioPage, 
+    NotificacoesPage, 
+    OntoarteAlbumPage,
+    OntoarteVerPage, 
+    PrivacidadePage, 
+    PrivacidadeVerPage,
+    SairPage, 
+    DicionarioVerPage, 
+    DicionarioModalPage, 
+    SairPage, 
+    NotificacaoVerPage,
     EventosAntigosPage,
-    AovivoArquivoPage, AovivoProximasPage, AovivoVerPage,
-    EsqueceuSenhaPage, PlanosPage, PagamentoEntregaPage,
-    EditarMinhaAlbunsPage, EditarMinhaOntoartePage, EditarMinhaAulasPage, EditarMinhaPlPage,
-    CarrinhoPage, MinhasComprasPage, MeusPlanosPage,
+    AovivoArquivoPage, 
+    AovivoProximasPage, 
+    AovivoVerPage,
+    EsqueceuSenhaPage, 
+    PlanosPage, 
+    PagamentoEntregaPage,
+    EditarMinhaAlbunsPage, 
+    EditarMinhaOntoartePage, 
+    EditarMinhaAulasPage, 
+    EditarMinhaPlPage,
+    CarrinhoPage, 
+    MinhasComprasPage, 
+    MeusPlanosPage,
     AudioPlayerPage,
     MinhaListaAudioOntoartePage,
     EditarMinhaAudioOntoartePage
-    
-   // PdfViewerComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule,        
+    HttpModule,
     HttpClientModule,
-    //IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot({driverOrder:['localstorage']}),
+    IonicStorageModule.forRoot({
+      driverOrder: ['localstorage']
+    }),
     IonicModule.forRoot(MyApp, {
       platforms: {
         ios: {
@@ -164,46 +199,93 @@ import { EditarMinhaAudioOntoartePage } from '../pages/editar-minha-audio-ontoar
     SlidePage,
     TitulosLivrosPage,
     AreaUsuarioRestritaPage,
-    OntoartePage, AovivoVideosPage, Audios2Page, AudiosPage,
-    RevistaPlPage, VerlivroPage, PlListaPage, VerPlPage,
-    EventosPage, EventosVerPage, EventosAntigosVerPage, EventosFormPage, EventosFotoVerPage, EventoInfoVerPage,
-    BuscaPage, MinhaContaDadosPage, MinhaContaEnderecoPage, MinhaContaFotoPage,
-    MinhaContaPage, ConfiguracaoPage, TermosPage,
-    ComentariosPage, ModAulasPage,
-    LojaPage, LojaModalPage, LojaVerPage, MinhaListaPage, MinhaListaVerPage, LojaCdsPage, LojaRevistaPage, LojaSouvenirsPage,
+    OntoartePage,
+    AovivoVideosPage,
+    Audios2Page,
+    AudiosPage,
+    RevistaPlPage,
+    VerlivroPage,
+    PlListaPage,
+    VerPlPage,
+    EventosPage,
+    EventosVerPage,
+    EventosAntigosVerPage,
+    EventosFormPage,
+    EventosFotoVerPage,
+    EventoInfoVerPage,
+    BuscaPage,
+    MinhaContaDadosPage,
+    MinhaContaEnderecoPage,
+    MinhaContaFotoPage,
+    MinhaContaPage,
+    ConfiguracaoPage,
+    TermosPage,
+    ComentariosPage,
+    ModAulasPage,
+    LojaPage,
+    LojaModalPage,
+    LojaVerPage,
+    MinhaListaPage,
+    MinhaListaVerPage,
+    LojaCdsPage,
+    LojaRevistaPage,
+    LojaSouvenirsPage,
     LojaAvisoPage,
-    MinhaListaPublicacoesPage, MinhaListaPlPage, MinhaListaAulasPage, MinhaListaOntoartePage,
-    EditarMinhaListaPublicacoesPage, 
-    CadastroUsuarioPage, AtendimentoPage, ConfiguracoesPage, DicionarioPage, NotificacoesPage, OntoarteAlbumPage,
-    OntoarteVerPage, PrivacidadePage, PrivacidadeVerPage,
-    SairPage, DicionarioVerPage, DicionarioModalPage, SairPage, NotificacaoVerPage,
+    MinhaListaPublicacoesPage,
+    MinhaListaPlPage,
+    MinhaListaAulasPage,
+    MinhaListaOntoartePage,
+    EditarMinhaListaPublicacoesPage,
+    CadastroUsuarioPage,
+    AtendimentoPage,
+    ConfiguracoesPage,
+    DicionarioPage,
+    NotificacoesPage,
+    OntoarteAlbumPage,
+    OntoarteVerPage,
+    PrivacidadePage,
+    PrivacidadeVerPage,
+    SairPage,
+    DicionarioVerPage,
+    DicionarioModalPage,
+    SairPage,
+    NotificacaoVerPage,
     EventosAntigosPage,
-    AovivoArquivoPage, AovivoProximasPage, AovivoVerPage,
-    EsqueceuSenhaPage, PlanosPage, PagamentoEntregaPage,
-    EditarMinhaAlbunsPage, EditarMinhaOntoartePage, EditarMinhaAulasPage, EditarMinhaPlPage,
-    CarrinhoPage, MinhasComprasPage, MeusPlanosPage,
+    AovivoArquivoPage,
+    AovivoProximasPage,
+    AovivoVerPage,
+    EsqueceuSenhaPage,
+    PlanosPage,
+    PagamentoEntregaPage,
+    EditarMinhaAlbunsPage,
+    EditarMinhaOntoartePage,
+    EditarMinhaAulasPage,
+    EditarMinhaPlPage,
+    CarrinhoPage,
+    MinhasComprasPage,
+    MeusPlanosPage,
     AudioPlayerPage,
     MinhaListaAudioOntoartePage,
     EditarMinhaAudioOntoartePage
-    
   ],
   providers: [
     PayPal,
     SocialSharing,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-   // StreamingMedia,
+    {
+      provide: ErrorHandler,
+      useClass: IonicErrorHandler
+    },
     InAppBrowser,
     DadosUsuarioProvider,
-    AudioServiceProvider, 
-    OneSignal   
-   // FileOpener,
-    
+    AudioServiceProvider,
+    OneSignal,
+    MusicControls
   ]
 })
 
 export class AppModule {
- 
+
 }
 

@@ -5995,6 +5995,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__ = __webpack_require__(758);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__pages_minha_lista_audio_ontoarte_minha_lista_audio_ontoarte__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_90__pages_editar_minha_audio_ontoarte_editar_minha_audio_ontoarte__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_91__ionic_native_music_controls__ = __webpack_require__(743);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6006,7 +6007,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-//import { NavController } from 'ionic-angular';
 
 
 
@@ -6018,12 +6018,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-//import { StreamingMedia } from '@ionic-native/streaming-media';
 
 
 
-//import { PdfViewerComponent } from 'ng2-pdf-viewer';
-//import { FileOpener } from '@ionic-native/file-opener';
+
 
 
 
@@ -6112,35 +6110,82 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_slide_slide__["a" /* SlidePage */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */],
                 __WEBPACK_IMPORTED_MODULE_20__pages_area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_ontoarte_ontoarte__["a" /* OntoartePage */], __WEBPACK_IMPORTED_MODULE_19__pages_aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */], __WEBPACK_IMPORTED_MODULE_53__pages_audios2_audios2__["a" /* Audios2Page */], __WEBPACK_IMPORTED_MODULE_9__pages_audios_audios__["a" /* AudiosPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_revista_pl_revista_pl__["a" /* RevistaPlPage */], __WEBPACK_IMPORTED_MODULE_24__pages_verlivro_verlivro__["a" /* VerlivroPage */], __WEBPACK_IMPORTED_MODULE_25__pages_pl_lista_pl_lista__["a" /* PlListaPage */], __WEBPACK_IMPORTED_MODULE_26__pages_ver_pl_ver_pl__["a" /* VerPlPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_eventos_eventos__["a" /* EventosPage */], __WEBPACK_IMPORTED_MODULE_64__pages_eventos_ver_eventos_ver__["a" /* EventosVerPage */], __WEBPACK_IMPORTED_MODULE_65__pages_eventos_antigos_ver_eventos_antigos_ver__["a" /* EventosAntigosVerPage */], __WEBPACK_IMPORTED_MODULE_68__pages_eventos_form_eventos_form__["a" /* EventosFormPage */], __WEBPACK_IMPORTED_MODULE_73__pages_eventos_foto_ver_eventos_foto_ver__["a" /* EventosFotoVerPage */], __WEBPACK_IMPORTED_MODULE_74__pages_evento_info_ver_evento_info_ver__["a" /* EventoInfoVerPage */],
-                __WEBPACK_IMPORTED_MODULE_63__pages_busca_busca__["a" /* BuscaPage */], __WEBPACK_IMPORTED_MODULE_85__pages_minha_conta_dados_minha_conta_dados__["a" /* MinhaContaDadosPage */], __WEBPACK_IMPORTED_MODULE_86__pages_minha_conta_endereco_minha_conta_endereco__["a" /* MinhaContaEnderecoPage */], __WEBPACK_IMPORTED_MODULE_87__pages_minha_conta_foto_minha_conta_foto__["a" /* MinhaContaFotoPage */],
-                __WEBPACK_IMPORTED_MODULE_69__pages_minha_conta_minha_conta__["a" /* MinhaContaPage */], __WEBPACK_IMPORTED_MODULE_71__pages_configuracao_configuracao__["a" /* ConfiguracaoPage */], __WEBPACK_IMPORTED_MODULE_72__pages_termos_termos__["a" /* TermosPage */],
-                __WEBPACK_IMPORTED_MODULE_54__pages_comentarios_comentarios__["a" /* ComentariosPage */], __WEBPACK_IMPORTED_MODULE_70__pages_mod_aulas_mod_aulas__["a" /* ModAulasPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_loja_loja__["a" /* LojaPage */], __WEBPACK_IMPORTED_MODULE_48__pages_loja_modal_loja_modal__["a" /* LojaModalPage */], __WEBPACK_IMPORTED_MODULE_29__pages_loja_ver_loja_ver__["a" /* LojaVerPage */], __WEBPACK_IMPORTED_MODULE_30__pages_minha_lista_minha_lista__["a" /* MinhaListaPage */], __WEBPACK_IMPORTED_MODULE_47__pages_minha_lista_ver_minha_lista_ver__["a" /* MinhaListaVerPage */], __WEBPACK_IMPORTED_MODULE_49__pages_loja_cds_loja_cds__["a" /* LojaCdsPage */], __WEBPACK_IMPORTED_MODULE_50__pages_loja_revista_loja_revista__["a" /* LojaRevistaPage */], __WEBPACK_IMPORTED_MODULE_51__pages_loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_ontoarte_ontoarte__["a" /* OntoartePage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */],
+                __WEBPACK_IMPORTED_MODULE_53__pages_audios2_audios2__["a" /* Audios2Page */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_audios_audios__["a" /* AudiosPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_revista_pl_revista_pl__["a" /* RevistaPlPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_verlivro_verlivro__["a" /* VerlivroPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_pl_lista_pl_lista__["a" /* PlListaPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_ver_pl_ver_pl__["a" /* VerPlPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_eventos_eventos__["a" /* EventosPage */],
+                __WEBPACK_IMPORTED_MODULE_64__pages_eventos_ver_eventos_ver__["a" /* EventosVerPage */],
+                __WEBPACK_IMPORTED_MODULE_65__pages_eventos_antigos_ver_eventos_antigos_ver__["a" /* EventosAntigosVerPage */],
+                __WEBPACK_IMPORTED_MODULE_68__pages_eventos_form_eventos_form__["a" /* EventosFormPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_eventos_foto_ver_eventos_foto_ver__["a" /* EventosFotoVerPage */],
+                __WEBPACK_IMPORTED_MODULE_74__pages_evento_info_ver_evento_info_ver__["a" /* EventoInfoVerPage */],
+                __WEBPACK_IMPORTED_MODULE_63__pages_busca_busca__["a" /* BuscaPage */],
+                __WEBPACK_IMPORTED_MODULE_85__pages_minha_conta_dados_minha_conta_dados__["a" /* MinhaContaDadosPage */],
+                __WEBPACK_IMPORTED_MODULE_86__pages_minha_conta_endereco_minha_conta_endereco__["a" /* MinhaContaEnderecoPage */],
+                __WEBPACK_IMPORTED_MODULE_87__pages_minha_conta_foto_minha_conta_foto__["a" /* MinhaContaFotoPage */],
+                __WEBPACK_IMPORTED_MODULE_69__pages_minha_conta_minha_conta__["a" /* MinhaContaPage */],
+                __WEBPACK_IMPORTED_MODULE_71__pages_configuracao_configuracao__["a" /* ConfiguracaoPage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_termos_termos__["a" /* TermosPage */],
+                __WEBPACK_IMPORTED_MODULE_54__pages_comentarios_comentarios__["a" /* ComentariosPage */],
+                __WEBPACK_IMPORTED_MODULE_70__pages_mod_aulas_mod_aulas__["a" /* ModAulasPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_loja_loja__["a" /* LojaPage */],
+                __WEBPACK_IMPORTED_MODULE_48__pages_loja_modal_loja_modal__["a" /* LojaModalPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_loja_ver_loja_ver__["a" /* LojaVerPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_minha_lista_minha_lista__["a" /* MinhaListaPage */],
+                __WEBPACK_IMPORTED_MODULE_47__pages_minha_lista_ver_minha_lista_ver__["a" /* MinhaListaVerPage */],
+                __WEBPACK_IMPORTED_MODULE_49__pages_loja_cds_loja_cds__["a" /* LojaCdsPage */],
+                __WEBPACK_IMPORTED_MODULE_50__pages_loja_revista_loja_revista__["a" /* LojaRevistaPage */],
+                __WEBPACK_IMPORTED_MODULE_51__pages_loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */],
                 __WEBPACK_IMPORTED_MODULE_84__pages_loja_aviso_loja_aviso__["a" /* LojaAvisoPage */],
-                __WEBPACK_IMPORTED_MODULE_46__pages_minha_lista_publicacoes_minha_lista_publicacoes__["a" /* MinhaListaPublicacoesPage */], __WEBPACK_IMPORTED_MODULE_45__pages_minha_lista_pl_minha_lista_pl__["a" /* MinhaListaPlPage */], __WEBPACK_IMPORTED_MODULE_44__pages_minha_lista_aulas_minha_lista_aulas__["a" /* MinhaListaAulasPage */], __WEBPACK_IMPORTED_MODULE_43__pages_minha_lista_ontoarte_minha_lista_ontoarte__["a" /* MinhaListaOntoartePage */],
+                __WEBPACK_IMPORTED_MODULE_46__pages_minha_lista_publicacoes_minha_lista_publicacoes__["a" /* MinhaListaPublicacoesPage */],
+                __WEBPACK_IMPORTED_MODULE_45__pages_minha_lista_pl_minha_lista_pl__["a" /* MinhaListaPlPage */],
+                __WEBPACK_IMPORTED_MODULE_44__pages_minha_lista_aulas_minha_lista_aulas__["a" /* MinhaListaAulasPage */],
+                __WEBPACK_IMPORTED_MODULE_43__pages_minha_lista_ontoarte_minha_lista_ontoarte__["a" /* MinhaListaOntoartePage */],
                 __WEBPACK_IMPORTED_MODULE_66__pages_editar_minha_lista_publicacoes_editar_minha_lista_publicacoes__["a" /* EditarMinhaListaPublicacoesPage */],
-                __WEBPACK_IMPORTED_MODULE_31__pages_cadastro_usuario_cadastro_usuario__["a" /* CadastroUsuarioPage */], __WEBPACK_IMPORTED_MODULE_32__pages_atendimento_atendimento__["a" /* AtendimentoPage */], __WEBPACK_IMPORTED_MODULE_62__pages_configuracoes_configuracoes__["a" /* ConfiguracoesPage */], __WEBPACK_IMPORTED_MODULE_33__pages_dicionario_dicionario__["a" /* DicionarioPage */], __WEBPACK_IMPORTED_MODULE_34__pages_notificacoes_notificacoes__["a" /* NotificacoesPage */], __WEBPACK_IMPORTED_MODULE_35__pages_ontoarte_album_ontoarte_album__["a" /* OntoarteAlbumPage */],
-                __WEBPACK_IMPORTED_MODULE_36__pages_ontoarte_ver_ontoarte_ver__["a" /* OntoarteVerPage */], __WEBPACK_IMPORTED_MODULE_37__pages_privacidade_privacidade__["a" /* PrivacidadePage */], __WEBPACK_IMPORTED_MODULE_80__pages_privacidade_ver_privacidade_ver__["a" /* PrivacidadeVerPage */],
-                __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__["a" /* SairPage */], __WEBPACK_IMPORTED_MODULE_39__pages_dicionario_ver_dicionario_ver__["a" /* DicionarioVerPage */], __WEBPACK_IMPORTED_MODULE_40__pages_dicionario_modal_dicionario_modal__["a" /* DicionarioModalPage */], __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__["a" /* SairPage */], __WEBPACK_IMPORTED_MODULE_61__pages_notificacao_ver_notificacao_ver__["a" /* NotificacaoVerPage */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_cadastro_usuario_cadastro_usuario__["a" /* CadastroUsuarioPage */],
+                __WEBPACK_IMPORTED_MODULE_32__pages_atendimento_atendimento__["a" /* AtendimentoPage */],
+                __WEBPACK_IMPORTED_MODULE_62__pages_configuracoes_configuracoes__["a" /* ConfiguracoesPage */],
+                __WEBPACK_IMPORTED_MODULE_33__pages_dicionario_dicionario__["a" /* DicionarioPage */],
+                __WEBPACK_IMPORTED_MODULE_34__pages_notificacoes_notificacoes__["a" /* NotificacoesPage */],
+                __WEBPACK_IMPORTED_MODULE_35__pages_ontoarte_album_ontoarte_album__["a" /* OntoarteAlbumPage */],
+                __WEBPACK_IMPORTED_MODULE_36__pages_ontoarte_ver_ontoarte_ver__["a" /* OntoarteVerPage */],
+                __WEBPACK_IMPORTED_MODULE_37__pages_privacidade_privacidade__["a" /* PrivacidadePage */],
+                __WEBPACK_IMPORTED_MODULE_80__pages_privacidade_ver_privacidade_ver__["a" /* PrivacidadeVerPage */],
+                __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__["a" /* SairPage */],
+                __WEBPACK_IMPORTED_MODULE_39__pages_dicionario_ver_dicionario_ver__["a" /* DicionarioVerPage */],
+                __WEBPACK_IMPORTED_MODULE_40__pages_dicionario_modal_dicionario_modal__["a" /* DicionarioModalPage */],
+                __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__["a" /* SairPage */],
+                __WEBPACK_IMPORTED_MODULE_61__pages_notificacao_ver_notificacao_ver__["a" /* NotificacaoVerPage */],
                 __WEBPACK_IMPORTED_MODULE_41__pages_eventos_antigos_eventos_antigos__["a" /* EventosAntigosPage */],
-                __WEBPACK_IMPORTED_MODULE_60__pages_aovivo_arquivo_aovivo_arquivo__["a" /* AovivoArquivoPage */], __WEBPACK_IMPORTED_MODULE_59__pages_aovivo_proximas_aovivo_proximas__["a" /* AovivoProximasPage */], __WEBPACK_IMPORTED_MODULE_67__pages_aovivo_ver_aovivo_ver__["a" /* AovivoVerPage */],
-                __WEBPACK_IMPORTED_MODULE_55__pages_esqueceu_senha_esqueceu_senha__["a" /* EsqueceuSenhaPage */], __WEBPACK_IMPORTED_MODULE_57__pages_planos_planos__["a" /* PlanosPage */], __WEBPACK_IMPORTED_MODULE_58__pages_pagamento_entrega_pagamento_entrega__["a" /* PagamentoEntregaPage */],
-                __WEBPACK_IMPORTED_MODULE_79__pages_editar_minha_albuns_editar_minha_albuns__["a" /* EditarMinhaAlbunsPage */], __WEBPACK_IMPORTED_MODULE_76__pages_editar_minha_ontoarte_editar_minha_ontoarte__["a" /* EditarMinhaOntoartePage */], __WEBPACK_IMPORTED_MODULE_78__pages_editar_minha_aulas_editar_minha_aulas__["a" /* EditarMinhaAulasPage */], __WEBPACK_IMPORTED_MODULE_77__pages_editar_minha_pl_editar_minha_pl__["a" /* EditarMinhaPlPage */],
-                __WEBPACK_IMPORTED_MODULE_75__pages_carrinho_carrinho__["a" /* CarrinhoPage */], __WEBPACK_IMPORTED_MODULE_82__pages_minhas_compras_minhas_compras__["a" /* MinhasComprasPage */], __WEBPACK_IMPORTED_MODULE_83__pages_meus_planos_meus_planos__["a" /* MeusPlanosPage */],
+                __WEBPACK_IMPORTED_MODULE_60__pages_aovivo_arquivo_aovivo_arquivo__["a" /* AovivoArquivoPage */],
+                __WEBPACK_IMPORTED_MODULE_59__pages_aovivo_proximas_aovivo_proximas__["a" /* AovivoProximasPage */],
+                __WEBPACK_IMPORTED_MODULE_67__pages_aovivo_ver_aovivo_ver__["a" /* AovivoVerPage */],
+                __WEBPACK_IMPORTED_MODULE_55__pages_esqueceu_senha_esqueceu_senha__["a" /* EsqueceuSenhaPage */],
+                __WEBPACK_IMPORTED_MODULE_57__pages_planos_planos__["a" /* PlanosPage */],
+                __WEBPACK_IMPORTED_MODULE_58__pages_pagamento_entrega_pagamento_entrega__["a" /* PagamentoEntregaPage */],
+                __WEBPACK_IMPORTED_MODULE_79__pages_editar_minha_albuns_editar_minha_albuns__["a" /* EditarMinhaAlbunsPage */],
+                __WEBPACK_IMPORTED_MODULE_76__pages_editar_minha_ontoarte_editar_minha_ontoarte__["a" /* EditarMinhaOntoartePage */],
+                __WEBPACK_IMPORTED_MODULE_78__pages_editar_minha_aulas_editar_minha_aulas__["a" /* EditarMinhaAulasPage */],
+                __WEBPACK_IMPORTED_MODULE_77__pages_editar_minha_pl_editar_minha_pl__["a" /* EditarMinhaPlPage */],
+                __WEBPACK_IMPORTED_MODULE_75__pages_carrinho_carrinho__["a" /* CarrinhoPage */],
+                __WEBPACK_IMPORTED_MODULE_82__pages_minhas_compras_minhas_compras__["a" /* MinhasComprasPage */],
+                __WEBPACK_IMPORTED_MODULE_83__pages_meus_planos_meus_planos__["a" /* MeusPlanosPage */],
                 __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__["a" /* AudioPlayerPage */],
                 __WEBPACK_IMPORTED_MODULE_89__pages_minha_lista_audio_ontoarte_minha_lista_audio_ontoarte__["a" /* MinhaListaAudioOntoartePage */],
                 __WEBPACK_IMPORTED_MODULE_90__pages_editar_minha_audio_ontoarte_editar_minha_audio_ontoarte__["a" /* EditarMinhaAudioOntoartePage */]
-                // PdfViewerComponent
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_52__angular_common_http__["a" /* HttpClientModule */],
-                //IonicModule.forRoot(MyApp),
-                __WEBPACK_IMPORTED_MODULE_18__ionic_storage__["a" /* IonicStorageModule */].forRoot({ driverOrder: ['localstorage'] }),
+                __WEBPACK_IMPORTED_MODULE_18__ionic_storage__["a" /* IonicStorageModule */].forRoot({
+                    driverOrder: ['localstorage']
+                }),
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {
                     platforms: {
                         ios: {
@@ -6165,24 +6210,71 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_slide_slide__["a" /* SlidePage */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_titulos_livros_titulos_livros__["a" /* TitulosLivrosPage */],
                 __WEBPACK_IMPORTED_MODULE_20__pages_area_usuario_restrita_area_usuario_restrita__["a" /* AreaUsuarioRestritaPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_ontoarte_ontoarte__["a" /* OntoartePage */], __WEBPACK_IMPORTED_MODULE_19__pages_aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */], __WEBPACK_IMPORTED_MODULE_53__pages_audios2_audios2__["a" /* Audios2Page */], __WEBPACK_IMPORTED_MODULE_9__pages_audios_audios__["a" /* AudiosPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_revista_pl_revista_pl__["a" /* RevistaPlPage */], __WEBPACK_IMPORTED_MODULE_24__pages_verlivro_verlivro__["a" /* VerlivroPage */], __WEBPACK_IMPORTED_MODULE_25__pages_pl_lista_pl_lista__["a" /* PlListaPage */], __WEBPACK_IMPORTED_MODULE_26__pages_ver_pl_ver_pl__["a" /* VerPlPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_eventos_eventos__["a" /* EventosPage */], __WEBPACK_IMPORTED_MODULE_64__pages_eventos_ver_eventos_ver__["a" /* EventosVerPage */], __WEBPACK_IMPORTED_MODULE_65__pages_eventos_antigos_ver_eventos_antigos_ver__["a" /* EventosAntigosVerPage */], __WEBPACK_IMPORTED_MODULE_68__pages_eventos_form_eventos_form__["a" /* EventosFormPage */], __WEBPACK_IMPORTED_MODULE_73__pages_eventos_foto_ver_eventos_foto_ver__["a" /* EventosFotoVerPage */], __WEBPACK_IMPORTED_MODULE_74__pages_evento_info_ver_evento_info_ver__["a" /* EventoInfoVerPage */],
-                __WEBPACK_IMPORTED_MODULE_63__pages_busca_busca__["a" /* BuscaPage */], __WEBPACK_IMPORTED_MODULE_85__pages_minha_conta_dados_minha_conta_dados__["a" /* MinhaContaDadosPage */], __WEBPACK_IMPORTED_MODULE_86__pages_minha_conta_endereco_minha_conta_endereco__["a" /* MinhaContaEnderecoPage */], __WEBPACK_IMPORTED_MODULE_87__pages_minha_conta_foto_minha_conta_foto__["a" /* MinhaContaFotoPage */],
-                __WEBPACK_IMPORTED_MODULE_69__pages_minha_conta_minha_conta__["a" /* MinhaContaPage */], __WEBPACK_IMPORTED_MODULE_71__pages_configuracao_configuracao__["a" /* ConfiguracaoPage */], __WEBPACK_IMPORTED_MODULE_72__pages_termos_termos__["a" /* TermosPage */],
-                __WEBPACK_IMPORTED_MODULE_54__pages_comentarios_comentarios__["a" /* ComentariosPage */], __WEBPACK_IMPORTED_MODULE_70__pages_mod_aulas_mod_aulas__["a" /* ModAulasPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_loja_loja__["a" /* LojaPage */], __WEBPACK_IMPORTED_MODULE_48__pages_loja_modal_loja_modal__["a" /* LojaModalPage */], __WEBPACK_IMPORTED_MODULE_29__pages_loja_ver_loja_ver__["a" /* LojaVerPage */], __WEBPACK_IMPORTED_MODULE_30__pages_minha_lista_minha_lista__["a" /* MinhaListaPage */], __WEBPACK_IMPORTED_MODULE_47__pages_minha_lista_ver_minha_lista_ver__["a" /* MinhaListaVerPage */], __WEBPACK_IMPORTED_MODULE_49__pages_loja_cds_loja_cds__["a" /* LojaCdsPage */], __WEBPACK_IMPORTED_MODULE_50__pages_loja_revista_loja_revista__["a" /* LojaRevistaPage */], __WEBPACK_IMPORTED_MODULE_51__pages_loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_ontoarte_ontoarte__["a" /* OntoartePage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_aovivo_videos_aovivo_videos__["a" /* AovivoVideosPage */],
+                __WEBPACK_IMPORTED_MODULE_53__pages_audios2_audios2__["a" /* Audios2Page */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_audios_audios__["a" /* AudiosPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_revista_pl_revista_pl__["a" /* RevistaPlPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_verlivro_verlivro__["a" /* VerlivroPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_pl_lista_pl_lista__["a" /* PlListaPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_ver_pl_ver_pl__["a" /* VerPlPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_eventos_eventos__["a" /* EventosPage */],
+                __WEBPACK_IMPORTED_MODULE_64__pages_eventos_ver_eventos_ver__["a" /* EventosVerPage */],
+                __WEBPACK_IMPORTED_MODULE_65__pages_eventos_antigos_ver_eventos_antigos_ver__["a" /* EventosAntigosVerPage */],
+                __WEBPACK_IMPORTED_MODULE_68__pages_eventos_form_eventos_form__["a" /* EventosFormPage */],
+                __WEBPACK_IMPORTED_MODULE_73__pages_eventos_foto_ver_eventos_foto_ver__["a" /* EventosFotoVerPage */],
+                __WEBPACK_IMPORTED_MODULE_74__pages_evento_info_ver_evento_info_ver__["a" /* EventoInfoVerPage */],
+                __WEBPACK_IMPORTED_MODULE_63__pages_busca_busca__["a" /* BuscaPage */],
+                __WEBPACK_IMPORTED_MODULE_85__pages_minha_conta_dados_minha_conta_dados__["a" /* MinhaContaDadosPage */],
+                __WEBPACK_IMPORTED_MODULE_86__pages_minha_conta_endereco_minha_conta_endereco__["a" /* MinhaContaEnderecoPage */],
+                __WEBPACK_IMPORTED_MODULE_87__pages_minha_conta_foto_minha_conta_foto__["a" /* MinhaContaFotoPage */],
+                __WEBPACK_IMPORTED_MODULE_69__pages_minha_conta_minha_conta__["a" /* MinhaContaPage */],
+                __WEBPACK_IMPORTED_MODULE_71__pages_configuracao_configuracao__["a" /* ConfiguracaoPage */],
+                __WEBPACK_IMPORTED_MODULE_72__pages_termos_termos__["a" /* TermosPage */],
+                __WEBPACK_IMPORTED_MODULE_54__pages_comentarios_comentarios__["a" /* ComentariosPage */],
+                __WEBPACK_IMPORTED_MODULE_70__pages_mod_aulas_mod_aulas__["a" /* ModAulasPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_loja_loja__["a" /* LojaPage */],
+                __WEBPACK_IMPORTED_MODULE_48__pages_loja_modal_loja_modal__["a" /* LojaModalPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_loja_ver_loja_ver__["a" /* LojaVerPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_minha_lista_minha_lista__["a" /* MinhaListaPage */],
+                __WEBPACK_IMPORTED_MODULE_47__pages_minha_lista_ver_minha_lista_ver__["a" /* MinhaListaVerPage */],
+                __WEBPACK_IMPORTED_MODULE_49__pages_loja_cds_loja_cds__["a" /* LojaCdsPage */],
+                __WEBPACK_IMPORTED_MODULE_50__pages_loja_revista_loja_revista__["a" /* LojaRevistaPage */],
+                __WEBPACK_IMPORTED_MODULE_51__pages_loja_souvenirs_loja_souvenirs__["a" /* LojaSouvenirsPage */],
                 __WEBPACK_IMPORTED_MODULE_84__pages_loja_aviso_loja_aviso__["a" /* LojaAvisoPage */],
-                __WEBPACK_IMPORTED_MODULE_46__pages_minha_lista_publicacoes_minha_lista_publicacoes__["a" /* MinhaListaPublicacoesPage */], __WEBPACK_IMPORTED_MODULE_45__pages_minha_lista_pl_minha_lista_pl__["a" /* MinhaListaPlPage */], __WEBPACK_IMPORTED_MODULE_44__pages_minha_lista_aulas_minha_lista_aulas__["a" /* MinhaListaAulasPage */], __WEBPACK_IMPORTED_MODULE_43__pages_minha_lista_ontoarte_minha_lista_ontoarte__["a" /* MinhaListaOntoartePage */],
+                __WEBPACK_IMPORTED_MODULE_46__pages_minha_lista_publicacoes_minha_lista_publicacoes__["a" /* MinhaListaPublicacoesPage */],
+                __WEBPACK_IMPORTED_MODULE_45__pages_minha_lista_pl_minha_lista_pl__["a" /* MinhaListaPlPage */],
+                __WEBPACK_IMPORTED_MODULE_44__pages_minha_lista_aulas_minha_lista_aulas__["a" /* MinhaListaAulasPage */],
+                __WEBPACK_IMPORTED_MODULE_43__pages_minha_lista_ontoarte_minha_lista_ontoarte__["a" /* MinhaListaOntoartePage */],
                 __WEBPACK_IMPORTED_MODULE_66__pages_editar_minha_lista_publicacoes_editar_minha_lista_publicacoes__["a" /* EditarMinhaListaPublicacoesPage */],
-                __WEBPACK_IMPORTED_MODULE_31__pages_cadastro_usuario_cadastro_usuario__["a" /* CadastroUsuarioPage */], __WEBPACK_IMPORTED_MODULE_32__pages_atendimento_atendimento__["a" /* AtendimentoPage */], __WEBPACK_IMPORTED_MODULE_62__pages_configuracoes_configuracoes__["a" /* ConfiguracoesPage */], __WEBPACK_IMPORTED_MODULE_33__pages_dicionario_dicionario__["a" /* DicionarioPage */], __WEBPACK_IMPORTED_MODULE_34__pages_notificacoes_notificacoes__["a" /* NotificacoesPage */], __WEBPACK_IMPORTED_MODULE_35__pages_ontoarte_album_ontoarte_album__["a" /* OntoarteAlbumPage */],
-                __WEBPACK_IMPORTED_MODULE_36__pages_ontoarte_ver_ontoarte_ver__["a" /* OntoarteVerPage */], __WEBPACK_IMPORTED_MODULE_37__pages_privacidade_privacidade__["a" /* PrivacidadePage */], __WEBPACK_IMPORTED_MODULE_80__pages_privacidade_ver_privacidade_ver__["a" /* PrivacidadeVerPage */],
-                __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__["a" /* SairPage */], __WEBPACK_IMPORTED_MODULE_39__pages_dicionario_ver_dicionario_ver__["a" /* DicionarioVerPage */], __WEBPACK_IMPORTED_MODULE_40__pages_dicionario_modal_dicionario_modal__["a" /* DicionarioModalPage */], __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__["a" /* SairPage */], __WEBPACK_IMPORTED_MODULE_61__pages_notificacao_ver_notificacao_ver__["a" /* NotificacaoVerPage */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_cadastro_usuario_cadastro_usuario__["a" /* CadastroUsuarioPage */],
+                __WEBPACK_IMPORTED_MODULE_32__pages_atendimento_atendimento__["a" /* AtendimentoPage */],
+                __WEBPACK_IMPORTED_MODULE_62__pages_configuracoes_configuracoes__["a" /* ConfiguracoesPage */],
+                __WEBPACK_IMPORTED_MODULE_33__pages_dicionario_dicionario__["a" /* DicionarioPage */],
+                __WEBPACK_IMPORTED_MODULE_34__pages_notificacoes_notificacoes__["a" /* NotificacoesPage */],
+                __WEBPACK_IMPORTED_MODULE_35__pages_ontoarte_album_ontoarte_album__["a" /* OntoarteAlbumPage */],
+                __WEBPACK_IMPORTED_MODULE_36__pages_ontoarte_ver_ontoarte_ver__["a" /* OntoarteVerPage */],
+                __WEBPACK_IMPORTED_MODULE_37__pages_privacidade_privacidade__["a" /* PrivacidadePage */],
+                __WEBPACK_IMPORTED_MODULE_80__pages_privacidade_ver_privacidade_ver__["a" /* PrivacidadeVerPage */],
+                __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__["a" /* SairPage */],
+                __WEBPACK_IMPORTED_MODULE_39__pages_dicionario_ver_dicionario_ver__["a" /* DicionarioVerPage */],
+                __WEBPACK_IMPORTED_MODULE_40__pages_dicionario_modal_dicionario_modal__["a" /* DicionarioModalPage */],
+                __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__["a" /* SairPage */],
+                __WEBPACK_IMPORTED_MODULE_61__pages_notificacao_ver_notificacao_ver__["a" /* NotificacaoVerPage */],
                 __WEBPACK_IMPORTED_MODULE_41__pages_eventos_antigos_eventos_antigos__["a" /* EventosAntigosPage */],
-                __WEBPACK_IMPORTED_MODULE_60__pages_aovivo_arquivo_aovivo_arquivo__["a" /* AovivoArquivoPage */], __WEBPACK_IMPORTED_MODULE_59__pages_aovivo_proximas_aovivo_proximas__["a" /* AovivoProximasPage */], __WEBPACK_IMPORTED_MODULE_67__pages_aovivo_ver_aovivo_ver__["a" /* AovivoVerPage */],
-                __WEBPACK_IMPORTED_MODULE_55__pages_esqueceu_senha_esqueceu_senha__["a" /* EsqueceuSenhaPage */], __WEBPACK_IMPORTED_MODULE_57__pages_planos_planos__["a" /* PlanosPage */], __WEBPACK_IMPORTED_MODULE_58__pages_pagamento_entrega_pagamento_entrega__["a" /* PagamentoEntregaPage */],
-                __WEBPACK_IMPORTED_MODULE_79__pages_editar_minha_albuns_editar_minha_albuns__["a" /* EditarMinhaAlbunsPage */], __WEBPACK_IMPORTED_MODULE_76__pages_editar_minha_ontoarte_editar_minha_ontoarte__["a" /* EditarMinhaOntoartePage */], __WEBPACK_IMPORTED_MODULE_78__pages_editar_minha_aulas_editar_minha_aulas__["a" /* EditarMinhaAulasPage */], __WEBPACK_IMPORTED_MODULE_77__pages_editar_minha_pl_editar_minha_pl__["a" /* EditarMinhaPlPage */],
-                __WEBPACK_IMPORTED_MODULE_75__pages_carrinho_carrinho__["a" /* CarrinhoPage */], __WEBPACK_IMPORTED_MODULE_82__pages_minhas_compras_minhas_compras__["a" /* MinhasComprasPage */], __WEBPACK_IMPORTED_MODULE_83__pages_meus_planos_meus_planos__["a" /* MeusPlanosPage */],
+                __WEBPACK_IMPORTED_MODULE_60__pages_aovivo_arquivo_aovivo_arquivo__["a" /* AovivoArquivoPage */],
+                __WEBPACK_IMPORTED_MODULE_59__pages_aovivo_proximas_aovivo_proximas__["a" /* AovivoProximasPage */],
+                __WEBPACK_IMPORTED_MODULE_67__pages_aovivo_ver_aovivo_ver__["a" /* AovivoVerPage */],
+                __WEBPACK_IMPORTED_MODULE_55__pages_esqueceu_senha_esqueceu_senha__["a" /* EsqueceuSenhaPage */],
+                __WEBPACK_IMPORTED_MODULE_57__pages_planos_planos__["a" /* PlanosPage */],
+                __WEBPACK_IMPORTED_MODULE_58__pages_pagamento_entrega_pagamento_entrega__["a" /* PagamentoEntregaPage */],
+                __WEBPACK_IMPORTED_MODULE_79__pages_editar_minha_albuns_editar_minha_albuns__["a" /* EditarMinhaAlbunsPage */],
+                __WEBPACK_IMPORTED_MODULE_76__pages_editar_minha_ontoarte_editar_minha_ontoarte__["a" /* EditarMinhaOntoartePage */],
+                __WEBPACK_IMPORTED_MODULE_78__pages_editar_minha_aulas_editar_minha_aulas__["a" /* EditarMinhaAulasPage */],
+                __WEBPACK_IMPORTED_MODULE_77__pages_editar_minha_pl_editar_minha_pl__["a" /* EditarMinhaPlPage */],
+                __WEBPACK_IMPORTED_MODULE_75__pages_carrinho_carrinho__["a" /* CarrinhoPage */],
+                __WEBPACK_IMPORTED_MODULE_82__pages_minhas_compras_minhas_compras__["a" /* MinhasComprasPage */],
+                __WEBPACK_IMPORTED_MODULE_83__pages_meus_planos_meus_planos__["a" /* MeusPlanosPage */],
                 __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__["a" /* AudioPlayerPage */],
                 __WEBPACK_IMPORTED_MODULE_89__pages_minha_lista_audio_ontoarte_minha_lista_audio_ontoarte__["a" /* MinhaListaAudioOntoartePage */],
                 __WEBPACK_IMPORTED_MODULE_90__pages_editar_minha_audio_ontoarte_editar_minha_audio_ontoarte__["a" /* EditarMinhaAudioOntoartePage */]
@@ -6192,13 +6284,15 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_13__ionic_native_social_sharing__["a" /* SocialSharing */],
                 __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-                // StreamingMedia,
+                {
+                    provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */],
+                    useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */]
+                },
                 __WEBPACK_IMPORTED_MODULE_17__ionic_native_in_app_browser__["a" /* InAppBrowser */],
                 __WEBPACK_IMPORTED_MODULE_16__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
                 __WEBPACK_IMPORTED_MODULE_42__providers_audio_service_audio_service__["a" /* AudioServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_56__ionic_native_onesignal__["a" /* OneSignal */]
-                // FileOpener,
+                __WEBPACK_IMPORTED_MODULE_56__ionic_native_onesignal__["a" /* OneSignal */],
+                __WEBPACK_IMPORTED_MODULE_91__ionic_native_music_controls__["a" /* MusicControls */]
             ]
         })
     ], AppModule);
@@ -8431,6 +8525,9 @@ var Audios2Page = /** @class */ (function () {
         this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
         this.audioPlay();
     };
+    Audios2Page.prototype.stopNativeMusicControl = function () {
+        this.musicControls.updateIsPlaying(false);
+    };
     Audios2Page.prototype.initNativeMusicControl = function () {
         var _this = this;
         this.musicControls.create({
@@ -8518,9 +8615,10 @@ var Audios2Page = /** @class */ (function () {
         }
     };
     Audios2Page.prototype.audioPlay = function () {
+        this.audioService.IsExecuting = true;
         this.audioService.audioPlayer.nativeElement.play();
         this.startCronometro();
-        this.audioService.IsExecuting = true;
+        this.initNativeMusicControl();
         //console.log('play');
     };
     Audios2Page.prototype.getIsExecuting = function () {
@@ -8529,6 +8627,7 @@ var Audios2Page = /** @class */ (function () {
     Audios2Page.prototype.audioPause = function () {
         //console.log('pause');    
         this.audioService.audioPlayer.nativeElement.pause();
+        this.stopNativeMusicControl();
     };
     Audios2Page.prototype.tooglePlay = function () {
         if (!this.audioService.audio) {
@@ -8590,7 +8689,7 @@ var Audios2Page = /** @class */ (function () {
             item.iconplay = 'play';
             this.iconPlay = 'play';
             this.unsubscribePlayer();
-            this.audioService.audioPlayer.nativeElement.pause();
+            this.audioPause();
             this.audioService.totalMedia = 0;
             this.audioInfo = "--";
             this.artistaInfo = "--";
@@ -8900,10 +8999,18 @@ var Audios2Page = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-audios2',template:/*ion-inline-start:"D:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n        <div class="header_logo" (click)="abrirPaginaHome()">\n\n            <img src="assets/imgs/logo-small-menu.png">\n\n        </div>\n\n        <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n            <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n        </div>\n\n        <div class="header_users" (click)="abrirPaginaEventos()">\n\n            <img src="assets/imgs/ico-calendario-off.jpg">\n\n        </div>\n\n        <div class="header_busca" (click)="abrirPaginaBusca()">\n\n            <img src="assets/imgs/ico-busca.png">\n\n        </div>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n    <ion-row>\n\n        <ion-col col-5>\n\n            <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg">\n\n        </ion-col>\n\n        <ion-col col-7>\n\n            <h2 class="albumTitulo">{{ itemAlbum.Titulo }}</h2>\n\n            <h6 class="albumSubtitulo">{{ itemAlbum.Subtitulo }}</h6>\n\n            <div class="albumDesc" [innerHTML]="itemAlbum.Descricao"></div>\n\n        </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row nomargin nopadding style="margin:0px; padding:0px;">\n\n        <ion-col col-12 text-center>\n\n            <ion-card-content nomargin nopadding style="margin:0px; padding:0px;">\n\n                <div class="icone-livros-down" (click)="AddMinhaLista(itemAlbum)">\n\n                    <img src="assets/imgs/{{ icone }}.png">\n\n                    <p>Minha Lista</p>\n\n                </div>\n\n                <div class="icone-livros-down" (click)="ClassficarAlbum(itemAlbum)">\n\n                    <img src="assets/imgs/ico-curtir.jpg">\n\n                    <p>{{ icoCurtir }}</p>\n\n                </div>\n\n                <div class="icone-livros-down" (click)="regularShare(itemAlbum.Titulo, \'PROGETTO APP\', \'http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg\', \'app://br.com.hjweb.appprogetto\')">\n\n                    <img src="assets/imgs/ico-compartilhar.jpg">\n\n                    <p>Compartilhar</p>\n\n                </div>\n\n                <div class="icone-livros-down">\n\n                    <img src="assets/imgs/ico-baixar-off.jpg">\n\n                    <p style="color:#e6e6e6">Off-line</p>\n\n                </div>\n\n                <div class="icone-livros-down" (click)="abrirModalLoja(itemAlbum)">\n\n                    <img src="assets/imgs/ico-carrinho.jpg">\n\n                    <p>Comprar CD</p>\n\n                </div>\n\n            </ion-card-content>\n\n        </ion-col>\n\n    </ion-row>\n\n    <ion-row style="margin-top: -20px;">\n\n        <ion-col col-6 text-center>\n\n            <img src="assets/imgs/{{iconPlay}}-maior.jpg" (click)="tooglePlay()">\n\n        </ion-col>\n\n        <ion-col col-6>\n\n            <img src="assets/imgs/musica-aleatorio-maior.jpg" (click)="random()">\n\n        </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">\n\n        <ng-container *ngIf="itemAlbum.idalbum == item.idalbum">\n\n            <ion-row>\n\n                <ion-col col-2>\n\n                    <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg" width="100%">\n\n                </ion-col>\n\n                <ion-col col-8 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n                    <ion-list class="listItem">\n\n                        <ion-item class="listItem">\n\n                            <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>\n\n                            <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}\n\n                                <Br>\n\n                                <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>\n\n                            </h2>\n\n                        </ion-item>\n\n                    </ion-list>\n\n                </ion-col>\n\n                <ion-col col-2 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n                    <div style="max-width: 50%; float: left; padding: 5px;" (click)="AddMinhaListaAudio(item, item.idaudio)">\n\n                        <img src="assets/imgs/{{ getIconFav(item.idaudio) }}.png">\n\n                    </div>\n\n                    <div style="max-width: 50%; float: left; padding: 5px;" (click)="ClassficarAudio(item)">\n\n                        <img src="assets/imgs/{{getCurtirIcon(item.idaudio)}}.jpg">\n\n                    </div>\n\n                    <div style="width: 100%; float: left;">\n\n                        <p (click)="startAudio(item, i)">{{item.Tempo}}</p>\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ng-container>\n\n    </ion-card>\n\n\n\n    <br>\n\n    <br>\n\n\n\n</ion-content>\n\n\n\n<ion-footer class="menu_footer" *ngIf="getIsExecuting()">\n\n    <ion-grid class="div_player">\n\n        <ion-row>\n\n            <ion-col col-12>\n\n                <!-- <input type="range" min="0" max="{{totalMedia}}" [(ngModel)]="position" (change)="refreshPosition()">  -->\n\n                <ion-range class="randNedo" min="0" max="{{getTotalMediaPlayer()}}" [(ngModel)]="position" (ionChange)="refreshPosition()">\n\n                </ion-range>\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">\n\n            </ion-col>\n\n            <ion-col col-2 class="player_texto_musica">\n\n                {{getFormatedCurrentDuration()}}\n\n            </ion-col>\n\n            <ion-col col-6 class="player_texto_musica">\n\n                <marquee direction="left" scrollamount="2">{{audioInfo}} <span class="span_texto">- {{artistaInfo}}</span></marquee>\n\n            </ion-col>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/back.jpg" class="imgControl" (click)="back()">\n\n            </ion-col>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/{{iconPlay}}.jpg" class="imgControl" (click)="tooglePlay()">\n\n            </ion-col>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/next.jpg" class="imgControl" (click)="next()">\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"D:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_20__ionic_native_music_controls__["a" /* MusicControls */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_20__ionic_native_music_controls__["a" /* MusicControls */]) === "function" && _k || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_20__ionic_native_music_controls__["a" /* MusicControls */]])
     ], Audios2Page);
     return Audios2Page;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }());
 
 //# sourceMappingURL=audios2.js.map

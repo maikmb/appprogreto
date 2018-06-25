@@ -325,6 +325,10 @@ export class Audios2Page {
     this.audioPlay();
   }
 
+  stopNativeMusicControl(){
+    this.musicControls.updateIsPlaying(false);    
+  }
+
   initNativeMusicControl() {
     this.musicControls.create({
       track: this.audioInfo,
@@ -421,9 +425,10 @@ export class Audios2Page {
 
   audioPlay() {
 
-    this.audioService.audioPlayer.nativeElement.play();
-    this.startCronometro();
     this.audioService.IsExecuting = true;
+    this.audioService.audioPlayer.nativeElement.play();
+    this.startCronometro();    
+    this.initNativeMusicControl();
     //console.log('play');
   }
 
@@ -434,6 +439,7 @@ export class Audios2Page {
   audioPause() {
     //console.log('pause');    
     this.audioService.audioPlayer.nativeElement.pause();
+    this.stopNativeMusicControl();
   }
 
 
@@ -507,7 +513,7 @@ export class Audios2Page {
       item.iconplay = 'play';
       this.iconPlay = 'play'
       this.unsubscribePlayer();
-      this.audioService.audioPlayer.nativeElement.pause();
+      this.audioPause();
       this.audioService.totalMedia = 0;
       this.audioInfo = "--";
       this.artistaInfo = "--";
