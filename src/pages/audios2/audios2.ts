@@ -19,6 +19,7 @@ import { BuscaPage } from '../busca/busca';
 import { OntoarteVerPage } from './../ontoarte-ver/ontoarte-ver';
 import { AovivoVideosPage } from '../aovivo-videos/aovivo-videos';
 import { LojaModalPage } from '../loja-modal/loja-modal';
+import { MusicControls } from '@ionic-native/music-controls';
 
 @Component({
   selector: 'page-audios2',
@@ -48,8 +49,10 @@ export class Audios2Page {
   position = 0;
   oldPosition = 0;
   iconPlay = 'play';
-  audioInfo: string = "--";
-  artistaInfo: string = "--";
+  audioInfo: string;
+  artistaInfo: string;
+  albumInfo: string;
+
 
 
   constructor(
@@ -61,7 +64,8 @@ export class Audios2Page {
     public service: DadosUsuarioProvider,
     public loadingCtrl: LoadingController,
     private Storage: Storage,
-    public audioService: AudioServiceProvider
+    public audioService: AudioServiceProvider,
+    private musicControls: MusicControls
   ) {
 
     this.Storage.get("MinhaListaAudios").then((data) => this.minhaListaAudio = data);
@@ -320,6 +324,99 @@ export class Audios2Page {
     this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
     this.audioPlay();
   }
+
+  initNativeMusicControl() {
+    this.musicControls.create({
+      track: this.audioInfo,
+      artist: this.artistaInfo,
+      cover: "",
+      isPlaying: true,
+      dismissable: false,
+      hasPrev: true,
+      hasNext: true,
+      hasClose: true,
+
+      // iOS only, optional
+      album: this.albumInfo,
+      duration: 0,
+      elapsed: 0,
+      hasSkipForward: false,
+      hasSkipBackward: false,
+      skipForwardInterval: 0,
+      skipBackwardInterval: 0,
+      hasScrubbing: false,
+
+      // Android only, optional      
+      ticker: `Agora você está escutando "${this.audioInfo}"`,
+      playIcon: 'media_play',
+      pauseIcon: 'media_pause',
+      prevIcon: 'media_prev',
+      nextIcon: 'media_next',
+      closeIcon: 'media_close',
+      notificationIcon: 'notification'
+    });
+
+    this.musicControls.subscribe().subscribe(action => {
+      this.ionicNativMusicEvents(action);
+    });
+
+    this.musicControls.listen();
+    this.musicControls.updateIsPlaying(true);
+  }
+
+ ionicNativMusicEvents(action) {
+    const message = JSON.parse(action).message;
+        switch(message) {
+            case 'music-controls-next':
+                // Do something
+                break;
+            case 'music-controls-previous':
+                // Do something
+                break;
+            case 'music-controls-pause':
+                // Do something
+                break;
+            case 'music-controls-play':
+                // Do something
+                break;
+            case 'music-controls-destroy':
+                // Do something
+                break;
+
+        // External controls (iOS only)
+        case 'music-controls-toggle-play-pause' :
+                // Do something
+                break;
+        case 'music-controls-seek-to':
+          const seekToInSeconds = JSON.parse(action).position;
+          this.musicControls.updateElapsed({
+            elapsed: seekToInSeconds,
+            isPlaying: true
+          });
+          // Do something
+          break;
+        case 'music-controls-skip-forward':
+          // Do something
+          break;
+        case 'music-controls-skip-backward':
+          // Do something
+          break;
+
+            // Headset events (Android only)
+            // All media button events are listed below
+            case 'music-controls-media-button' :
+                // Do something
+                break;
+            case 'music-controls-headset-unplugged':
+                // Do something
+                break;
+            case 'music-controls-headset-plugged':
+                // Do something
+                break;
+            default:
+                break;
+        }
+    }
 
 
   audioPlay() {

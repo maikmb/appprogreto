@@ -2737,7 +2737,7 @@ webpackEmptyAsyncContext.id = 199;
 
 var map = {
 	"../pages/minha-lista-audios/minha-lista-audios.module": [
-		758,
+		759,
 		0
 	]
 };
@@ -3769,7 +3769,7 @@ var EventoInfoVerPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__carrinho_carrinho__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__carrinho_carrinho__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_revista_loja_revista__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
@@ -5913,10 +5913,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_livros_livros__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_titulos_titulos__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_audios_audios__ = __webpack_require__(743);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_pdf_pdf__ = __webpack_require__(744);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_audios_audios__ = __webpack_require__(744);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_pdf_pdf__ = __webpack_require__(745);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_slide_slide__ = __webpack_require__(745);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_slide_slide__ = __webpack_require__(746);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_social_sharing__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(283);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(287);
@@ -5939,7 +5939,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_atendimento_atendimento__ = __webpack_require__(402);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_dicionario_dicionario__ = __webpack_require__(401);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_notificacoes_notificacoes__ = __webpack_require__(400);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_ontoarte_album_ontoarte_album__ = __webpack_require__(746);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_ontoarte_album_ontoarte_album__ = __webpack_require__(747);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_ontoarte_ver_ontoarte_ver__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_privacidade_privacidade__ = __webpack_require__(404);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_sair_sair__ = __webpack_require__(403);
@@ -5951,12 +5951,12 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_minha_lista_aulas_minha_lista_aulas__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_minha_lista_pl_minha_lista_pl__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_minha_lista_publicacoes_minha_lista_publicacoes__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_minha_lista_ver_minha_lista_ver__ = __webpack_require__(747);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_minha_lista_ver_minha_lista_ver__ = __webpack_require__(748);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_loja_modal_loja_modal__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_loja_cds_loja_cds__ = __webpack_require__(748);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_loja_cds_loja_cds__ = __webpack_require__(749);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_loja_revista_loja_revista__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__angular_common_http__ = __webpack_require__(749);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__angular_common_http__ = __webpack_require__(750);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_audios2_audios2__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_comentarios_comentarios__ = __webpack_require__(391);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_esqueceu_senha_esqueceu_senha__ = __webpack_require__(392);
@@ -5965,34 +5965,34 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_pagamento_entrega_pagamento_entrega__ = __webpack_require__(394);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_aovivo_proximas_aovivo_proximas__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_aovivo_arquivo_aovivo_arquivo__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_notificacao_ver_notificacao_ver__ = __webpack_require__(750);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_notificacao_ver_notificacao_ver__ = __webpack_require__(751);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__pages_configuracoes_configuracoes__ = __webpack_require__(410);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_busca_busca__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_eventos_ver_eventos_ver__ = __webpack_require__(388);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_eventos_antigos_ver_eventos_antigos_ver__ = __webpack_require__(386);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_editar_minha_lista_publicacoes_editar_minha_lista_publicacoes__ = __webpack_require__(395);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_aovivo_ver_aovivo_ver__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_aovivo_ver_aovivo_ver__ = __webpack_require__(752);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_eventos_form_eventos_form__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__pages_minha_conta_minha_conta__ = __webpack_require__(406);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__pages_mod_aulas_mod_aulas__ = __webpack_require__(752);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__pages_configuracao_configuracao__ = __webpack_require__(753);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__pages_termos_termos__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__pages_mod_aulas_mod_aulas__ = __webpack_require__(753);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__pages_configuracao_configuracao__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__pages_termos_termos__ = __webpack_require__(755);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__pages_eventos_foto_ver_eventos_foto_ver__ = __webpack_require__(387);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__pages_evento_info_ver_evento_info_ver__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__pages_carrinho_carrinho__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__pages_carrinho_carrinho__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__pages_editar_minha_ontoarte_editar_minha_ontoarte__ = __webpack_require__(397);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_editar_minha_pl_editar_minha_pl__ = __webpack_require__(396);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_editar_minha_aulas_editar_minha_aulas__ = __webpack_require__(399);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__pages_editar_minha_albuns_editar_minha_albuns__ = __webpack_require__(755);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__pages_editar_minha_albuns_editar_minha_albuns__ = __webpack_require__(756);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__pages_privacidade_ver_privacidade_ver__ = __webpack_require__(405);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__ionic_native_paypal__ = __webpack_require__(181);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__pages_minhas_compras_minhas_compras__ = __webpack_require__(756);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__pages_minhas_compras_minhas_compras__ = __webpack_require__(757);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__pages_meus_planos_meus_planos__ = __webpack_require__(411);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__pages_loja_aviso_loja_aviso__ = __webpack_require__(412);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__pages_minha_conta_dados_minha_conta_dados__ = __webpack_require__(408);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__pages_minha_conta_endereco_minha_conta_endereco__ = __webpack_require__(407);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__pages_minha_conta_foto_minha_conta_foto__ = __webpack_require__(409);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__ = __webpack_require__(757);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__pages_audio_player_audio_player__ = __webpack_require__(758);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__pages_minha_lista_audio_ontoarte_minha_lista_audio_ontoarte__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_90__pages_editar_minha_audio_ontoarte_editar_minha_audio_ontoarte__ = __webpack_require__(398);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -6219,7 +6219,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__busca_busca__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__carrinho_carrinho__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__carrinho_carrinho__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6542,7 +6542,7 @@ var LojaModalPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_dicionario_dicionario__ = __webpack_require__(401);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_atendimento_atendimento__ = __webpack_require__(402);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_sair_sair__ = __webpack_require__(403);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_carrinho_carrinho__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_carrinho_carrinho__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_privacidade_privacidade__ = __webpack_require__(404);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_minha_conta_minha_conta__ = __webpack_require__(406);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_configuracoes_configuracoes__ = __webpack_require__(410);
@@ -7560,7 +7560,7 @@ var LivrosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 61:
+/***/ 62:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8168,6 +8168,7 @@ var PlListaPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ontoarte_ver_ontoarte_ver__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__aovivo_videos_aovivo_videos__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__loja_modal_loja_modal__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_music_controls__ = __webpack_require__(743);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8198,8 +8199,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var Audios2Page = /** @class */ (function () {
-    function Audios2Page(socialSharing, http, toastCtrl, navCtrl, navParams, service, loadingCtrl, Storage, audioService) {
+    function Audios2Page(socialSharing, http, toastCtrl, navCtrl, navParams, service, loadingCtrl, Storage, audioService, musicControls) {
         var _this = this;
         this.socialSharing = socialSharing;
         this.http = http;
@@ -8210,6 +8212,7 @@ var Audios2Page = /** @class */ (function () {
         this.loadingCtrl = loadingCtrl;
         this.Storage = Storage;
         this.audioService = audioService;
+        this.musicControls = musicControls;
         this.item = [];
         this.itemAlbum = [];
         this.teste = [];
@@ -8223,8 +8226,6 @@ var Audios2Page = /** @class */ (function () {
         this.position = 0;
         this.oldPosition = 0;
         this.iconPlay = 'play';
-        this.audioInfo = "--";
-        this.artistaInfo = "--";
         this.api = 'http://app.progettoapp.com.br/arquivos/r';
         this.Storage.get("MinhaListaAudios").then(function (data) { return _this.minhaListaAudio = data; });
         this.audioService.changePositionObservable
@@ -8429,6 +8430,92 @@ var Audios2Page = /** @class */ (function () {
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
         this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
         this.audioPlay();
+    };
+    Audios2Page.prototype.initNativeMusicControl = function () {
+        var _this = this;
+        this.musicControls.create({
+            track: this.audioInfo,
+            artist: this.artistaInfo,
+            cover: "",
+            isPlaying: true,
+            dismissable: false,
+            hasPrev: true,
+            hasNext: true,
+            hasClose: true,
+            // iOS only, optional
+            album: this.albumInfo,
+            duration: 0,
+            elapsed: 0,
+            hasSkipForward: false,
+            hasSkipBackward: false,
+            skipForwardInterval: 0,
+            skipBackwardInterval: 0,
+            hasScrubbing: false,
+            // Android only, optional      
+            ticker: "Agora voc\u00EA est\u00E1 escutando \"" + this.audioInfo + "\"",
+            playIcon: 'media_play',
+            pauseIcon: 'media_pause',
+            prevIcon: 'media_prev',
+            nextIcon: 'media_next',
+            closeIcon: 'media_close',
+            notificationIcon: 'notification'
+        });
+        this.musicControls.subscribe().subscribe(function (action) {
+            _this.ionicNativMusicEvents(action);
+        });
+        this.musicControls.listen();
+        this.musicControls.updateIsPlaying(true);
+    };
+    Audios2Page.prototype.ionicNativMusicEvents = function (action) {
+        var message = JSON.parse(action).message;
+        switch (message) {
+            case 'music-controls-next':
+                // Do something
+                break;
+            case 'music-controls-previous':
+                // Do something
+                break;
+            case 'music-controls-pause':
+                // Do something
+                break;
+            case 'music-controls-play':
+                // Do something
+                break;
+            case 'music-controls-destroy':
+                // Do something
+                break;
+            // External controls (iOS only)
+            case 'music-controls-toggle-play-pause':
+                // Do something
+                break;
+            case 'music-controls-seek-to':
+                var seekToInSeconds = JSON.parse(action).position;
+                this.musicControls.updateElapsed({
+                    elapsed: seekToInSeconds,
+                    isPlaying: true
+                });
+                // Do something
+                break;
+            case 'music-controls-skip-forward':
+                // Do something
+                break;
+            case 'music-controls-skip-backward':
+                // Do something
+                break;
+            // Headset events (Android only)
+            // All media button events are listed below
+            case 'music-controls-media-button':
+                // Do something
+                break;
+            case 'music-controls-headset-unplugged':
+                // Do something
+                break;
+            case 'music-controls-headset-plugged':
+                // Do something
+                break;
+            default:
+                break;
+        }
     };
     Audios2Page.prototype.audioPlay = function () {
         this.audioService.audioPlayer.nativeElement.play();
@@ -8813,10 +8900,10 @@ var Audios2Page = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-audios2',template:/*ion-inline-start:"D:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle start (click)="menu()">\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n        <div class="header_logo" (click)="abrirPaginaHome()">\n\n            <img src="assets/imgs/logo-small-menu.png">\n\n        </div>\n\n        <div class="header_aovivo" (click)="abrirPaginaAovivo()">\n\n            <img src="assets/imgs/ico-ao-vivo-off.jpg">\n\n        </div>\n\n        <div class="header_users" (click)="abrirPaginaEventos()">\n\n            <img src="assets/imgs/ico-calendario-off.jpg">\n\n        </div>\n\n        <div class="header_busca" (click)="abrirPaginaBusca()">\n\n            <img src="assets/imgs/ico-busca.png">\n\n        </div>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n    <ion-row>\n\n        <ion-col col-5>\n\n            <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg">\n\n        </ion-col>\n\n        <ion-col col-7>\n\n            <h2 class="albumTitulo">{{ itemAlbum.Titulo }}</h2>\n\n            <h6 class="albumSubtitulo">{{ itemAlbum.Subtitulo }}</h6>\n\n            <div class="albumDesc" [innerHTML]="itemAlbum.Descricao"></div>\n\n        </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row nomargin nopadding style="margin:0px; padding:0px;">\n\n        <ion-col col-12 text-center>\n\n            <ion-card-content nomargin nopadding style="margin:0px; padding:0px;">\n\n                <div class="icone-livros-down" (click)="AddMinhaLista(itemAlbum)">\n\n                    <img src="assets/imgs/{{ icone }}.png">\n\n                    <p>Minha Lista</p>\n\n                </div>\n\n                <div class="icone-livros-down" (click)="ClassficarAlbum(itemAlbum)">\n\n                    <img src="assets/imgs/ico-curtir.jpg">\n\n                    <p>{{ icoCurtir }}</p>\n\n                </div>\n\n                <div class="icone-livros-down" (click)="regularShare(itemAlbum.Titulo, \'PROGETTO APP\', \'http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg\', \'app://br.com.hjweb.appprogetto\')">\n\n                    <img src="assets/imgs/ico-compartilhar.jpg">\n\n                    <p>Compartilhar</p>\n\n                </div>\n\n                <div class="icone-livros-down">\n\n                    <img src="assets/imgs/ico-baixar-off.jpg">\n\n                    <p style="color:#e6e6e6">Off-line</p>\n\n                </div>\n\n                <div class="icone-livros-down" (click)="abrirModalLoja(itemAlbum)">\n\n                    <img src="assets/imgs/ico-carrinho.jpg">\n\n                    <p>Comprar CD</p>\n\n                </div>\n\n            </ion-card-content>\n\n        </ion-col>\n\n    </ion-row>\n\n    <ion-row style="margin-top: -20px;">\n\n        <ion-col col-6 text-center>\n\n            <img src="assets/imgs/{{iconPlay}}-maior.jpg" (click)="tooglePlay()">\n\n        </ion-col>\n\n        <ion-col col-6>\n\n            <img src="assets/imgs/musica-aleatorio-maior.jpg" (click)="random()">\n\n        </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">\n\n        <ng-container *ngIf="itemAlbum.idalbum == item.idalbum">\n\n            <ion-row>\n\n                <ion-col col-2>\n\n                    <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/3eb2bc172952e01948012cbf3df66ed5/capa_29_04_18___03_49_07_400.jpg" width="100%">\n\n                </ion-col>\n\n                <ion-col col-8 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n                    <ion-list class="listItem">\n\n                        <ion-item class="listItem">\n\n                            <ion-icon (click)="startAudio(item, i)" name="{{item.iconplay}}" item-start></ion-icon>\n\n                            <h2 class="tituloFaixa" (click)="startAudio(item, i)">{{item.audio}}\n\n                                <Br>\n\n                                <span class="subtituloFaixa" (click)="startAudio(item, i)">{{item.artista}}</span>\n\n                            </h2>\n\n                        </ion-item>\n\n                    </ion-list>\n\n                </ion-col>\n\n                <ion-col col-2 style="border: 0px; border-bottom: 1px solid #ebebeb;">\n\n                    <div style="max-width: 50%; float: left; padding: 5px;" (click)="AddMinhaListaAudio(item, item.idaudio)">\n\n                        <img src="assets/imgs/{{ getIconFav(item.idaudio) }}.png">\n\n                    </div>\n\n                    <div style="max-width: 50%; float: left; padding: 5px;" (click)="ClassficarAudio(item)">\n\n                        <img src="assets/imgs/{{getCurtirIcon(item.idaudio)}}.jpg">\n\n                    </div>\n\n                    <div style="width: 100%; float: left;">\n\n                        <p (click)="startAudio(item, i)">{{item.Tempo}}</p>\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ng-container>\n\n    </ion-card>\n\n\n\n    <br>\n\n    <br>\n\n\n\n</ion-content>\n\n\n\n<ion-footer class="menu_footer" *ngIf="getIsExecuting()">\n\n    <ion-grid class="div_player">\n\n        <ion-row>\n\n            <ion-col col-12>\n\n                <!-- <input type="range" min="0" max="{{totalMedia}}" [(ngModel)]="position" (change)="refreshPosition()">  -->\n\n                <ion-range class="randNedo" min="0" max="{{getTotalMediaPlayer()}}" [(ngModel)]="position" (ionChange)="refreshPosition()">\n\n                </ion-range>\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/random.jpg" class="imgControl" (click)="random()">\n\n            </ion-col>\n\n            <ion-col col-2 class="player_texto_musica">\n\n                {{getFormatedCurrentDuration()}}\n\n            </ion-col>\n\n            <ion-col col-6 class="player_texto_musica">\n\n                <marquee direction="left" scrollamount="2">{{audioInfo}} <span class="span_texto">- {{artistaInfo}}</span></marquee>\n\n            </ion-col>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/back.jpg" class="imgControl" (click)="back()">\n\n            </ion-col>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/{{iconPlay}}.jpg" class="imgControl" (click)="tooglePlay()">\n\n            </ion-col>\n\n            <ion-col col-1>\n\n                <img src="assets/imgs/next.jpg" class="imgControl" (click)="next()">\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-footer>'/*ion-inline-end:"D:\GitHub\appprogetto\src\pages\audios2\audios2.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _j || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_social_sharing__["a" /* SocialSharing */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["m" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["i" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__["a" /* DadosUsuarioProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["f" /* LoadingController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_audio_service_audio_service__["a" /* AudioServiceProvider */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_20__ionic_native_music_controls__["a" /* MusicControls */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_20__ionic_native_music_controls__["a" /* MusicControls */]) === "function" && _k || Object])
     ], Audios2Page);
     return Audios2Page;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }());
 
 //# sourceMappingURL=audios2.js.map
@@ -8902,7 +8989,7 @@ var AudioServiceProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_modal_loja_modal__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_revista_loja_revista__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9028,7 +9115,7 @@ var LojaPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_revista_loja_revista__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9132,7 +9219,7 @@ var LojaSouvenirsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loja_souvenirs_loja_souvenirs__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_dados_usuario_dados_usuario__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loja_loja__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__carrinho_carrinho__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9944,7 +10031,7 @@ var MinhaListaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 743:
+/***/ 744:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10081,7 +10168,7 @@ var AudiosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 744:
+/***/ 745:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10119,7 +10206,7 @@ var PdfPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 745:
+/***/ 746:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10182,7 +10269,7 @@ var SlidePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 746:
+/***/ 747:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10263,7 +10350,7 @@ var OntoarteAlbumPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 747:
+/***/ 748:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10504,7 +10591,7 @@ var MinhaListaVerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 748:
+/***/ 749:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10604,7 +10691,7 @@ var LojaCdsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 750:
+/***/ 751:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10648,7 +10735,7 @@ var NotificacaoVerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 751:
+/***/ 752:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10732,7 +10819,7 @@ var AovivoVerPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 752:
+/***/ 753:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10771,7 +10858,7 @@ var ModAulasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 753:
+/***/ 754:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10810,7 +10897,7 @@ var ConfiguracaoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 754:
+/***/ 755:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10849,7 +10936,7 @@ var TermosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 755:
+/***/ 756:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10933,7 +11020,7 @@ var EditarMinhaAlbunsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 756:
+/***/ 757:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10972,7 +11059,7 @@ var MinhasComprasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 757:
+/***/ 758:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
