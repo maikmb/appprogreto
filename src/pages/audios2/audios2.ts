@@ -1,4 +1,4 @@
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController , Platform} from 'ionic-angular';
 import { AudioServiceProvider } from './../../providers/audio-service/audio-service';
 import { Component } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
@@ -53,7 +53,8 @@ export class Audios2Page {
   artistaInfo: string;
   albumInfo: string;
 
-
+  // Platform Controller Native Plugins
+  isApp: boolean = false;
 
   constructor(
     private socialSharing: SocialSharing,
@@ -65,7 +66,8 @@ export class Audios2Page {
     public loadingCtrl: LoadingController,
     private Storage: Storage,
     public audioService: AudioServiceProvider,
-    private musicControls: MusicControls
+    private musicControls: MusicControls,
+    public platform: Platform
   ) {
 
     this.Storage.get("MinhaListaAudios").then((data) => this.minhaListaAudio = data);
@@ -75,6 +77,12 @@ export class Audios2Page {
     this.getAlbum();
     this.getAudios();
     this.getDados();
+
+    if(this.platform.is('core') || this.platform.is('mobileweb')) {
+      this.isApp = false;
+    } else {
+      this.isApp = true;
+    }
 
     // ADD MINHA LISTA
     this.Storage.ready().then(() => {
@@ -428,7 +436,11 @@ export class Audios2Page {
     this.audioService.IsExecuting = true;
     this.audioService.audioPlayer.nativeElement.play();
     this.startCronometro();    
-    this.initNativeMusicControl();
+
+    if(this.isApp){
+      this.initNativeMusicControl();
+    }
+    
     //console.log('play');
   }
 

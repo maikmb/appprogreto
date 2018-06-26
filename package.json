@@ -80,8 +80,6 @@
       "com.paypal.cordova.mobilesdk": {},
       "cordova-plugin-music-controls": {}
     },
-    "platforms": [
-      "ios"
-    ]
+    "platforms": []
   }
 }

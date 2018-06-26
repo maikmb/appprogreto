@@ -88,6 +88,5 @@
     <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
     <plugin name="com.paypal.cordova.mobilesdk" spec="^3.5.0" />
-    <engine name="ios" spec="4.5.4" />
     <plugin name="cordova-plugin-music-controls" spec="^2.1.4" />
 </widget>
