@@ -1,4 +1,4 @@
-import { NavController, NavParams, ToastController , Platform} from 'ionic-angular';
+import { NavController, NavParams, ToastController, Platform } from 'ionic-angular';
 import { AudioServiceProvider } from './../../providers/audio-service/audio-service';
 import { Component } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
@@ -78,7 +78,7 @@ export class Audios2Page {
     this.getAudios();
     this.getDados();
 
-    if(this.platform.is('core') || this.platform.is('mobileweb')) {
+    if (this.platform.is('core') || this.platform.is('mobileweb')) {
       this.isApp = false;
     } else {
       this.isApp = true;
@@ -218,7 +218,7 @@ export class Audios2Page {
     this.service.getAlbuns();
     this.itemAlbum = this.navParams.get('item');
 
-    console.log(this.itemAlbum);
+    console.log('Informações do Album selecionado', this.itemAlbum);
 
   }
 
@@ -333,8 +333,8 @@ export class Audios2Page {
     this.audioPlay();
   }
 
-  stopNativeMusicControl(){
-    this.musicControls.updateIsPlaying(false);    
+  stopNativeMusicControl() {
+    this.musicControls.updateIsPlaying(false);
   }
 
   initNativeMusicControl() {
@@ -352,8 +352,8 @@ export class Audios2Page {
       album: this.albumInfo,
       duration: 0,
       elapsed: 0,
-      hasSkipForward: false,
-      hasSkipBackward: false,
+      hasSkipForward: true,
+      hasSkipBackward: true,
       skipForwardInterval: 0,
       skipBackwardInterval: 0,
       hasScrubbing: false,
@@ -376,71 +376,71 @@ export class Audios2Page {
     this.musicControls.updateIsPlaying(true);
   }
 
- ionicNativMusicEvents(action) {
+  ionicNativMusicEvents(action) {
     const message = JSON.parse(action).message;
-        switch(message) {
-            case 'music-controls-next':
-                // Do something
-                break;
-            case 'music-controls-previous':
-                // Do something
-                break;
-            case 'music-controls-pause':
-                // Do something
-                break;
-            case 'music-controls-play':
-                // Do something
-                break;
-            case 'music-controls-destroy':
-                // Do something
-                break;
+    switch (message) {
+      case 'music-controls-next':
+        this.next();
+        break;
+      case 'music-controls-previous':
+        this.back();
+        break;
+      case 'music-controls-pause':
+        this.tooglePlay();
+        break;
+      case 'music-controls-play':
+        this.tooglePlay();
+        break;
+      case 'music-controls-destroy':
+        this.audioPause();
+        break;
 
-        // External controls (iOS only)
-        case 'music-controls-toggle-play-pause' :
-                // Do something
-                break;
-        case 'music-controls-seek-to':
-          const seekToInSeconds = JSON.parse(action).position;
-          this.musicControls.updateElapsed({
-            elapsed: seekToInSeconds,
-            isPlaying: true
-          });
-          // Do something
-          break;
-        case 'music-controls-skip-forward':
-          // Do something
-          break;
-        case 'music-controls-skip-backward':
-          // Do something
-          break;
+      // External controls (iOS only)
+      case 'music-controls-toggle-play-pause':
+        this.tooglePlay();
+        break;
+      case 'music-controls-seek-to':
+        const seekToInSeconds = JSON.parse(action).position;
+        this.musicControls.updateElapsed({
+          elapsed: seekToInSeconds,
+          isPlaying: true
+        });
+        // Do something
+        break;
+      case 'music-controls-skip-forward':
+        this.next();
+        break;
+      case 'music-controls-skip-backward':
+        this.back();
+        break;
 
-            // Headset events (Android only)
-            // All media button events are listed below
-            case 'music-controls-media-button' :
-                // Do something
-                break;
-            case 'music-controls-headset-unplugged':
-                // Do something
-                break;
-            case 'music-controls-headset-plugged':
-                // Do something
-                break;
-            default:
-                break;
-        }
+      // Headset events (Android only)
+      // All media button events are listed below
+      case 'music-controls-media-button':
+        // Do something
+        break;
+      case 'music-controls-headset-unplugged':
+        this.audioPause();
+        break;
+      case 'music-controls-headset-plugged':
+        this.audioPause();
+        break;
+      default:
+        break;
     }
+  }
 
 
   audioPlay() {
 
     this.audioService.IsExecuting = true;
     this.audioService.audioPlayer.nativeElement.play();
-    this.startCronometro();    
+    this.startCronometro();
 
-    if(this.isApp){
+    if (this.isApp) {
       this.initNativeMusicControl();
     }
-    
+
     //console.log('play');
   }
 
