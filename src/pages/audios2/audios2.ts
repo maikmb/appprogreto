@@ -1,6 +1,6 @@
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, Platform } from 'ionic-angular';
 import { AudioServiceProvider } from './../../providers/audio-service/audio-service';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -19,6 +19,7 @@ import { BuscaPage } from '../busca/busca';
 import { OntoarteVerPage } from './../ontoarte-ver/ontoarte-ver';
 import { AovivoVideosPage } from '../aovivo-videos/aovivo-videos';
 import { LojaModalPage } from '../loja-modal/loja-modal';
+import { MusicControls } from '@ionic-native/music-controls';
 
 @Component({
   selector: 'page-audios2',
@@ -29,7 +30,7 @@ export class Audios2Page {
   subscription;
 
   item = [];
-  itemAlbum = [];
+  itemAlbum: any = [];
 
   teste = [];
   teste2 = [];
@@ -48,9 +49,12 @@ export class Audios2Page {
   position = 0;
   oldPosition = 0;
   iconPlay = 'play';
-  audioInfo: string = "--";
-  artistaInfo: string = "--";
+  audioInfo: string;
+  artistaInfo: string;
+  albumInfo: string;
 
+  // Platform Controller Native Plugins
+  isApp: boolean = false;
 
   constructor(
     private socialSharing: SocialSharing,
@@ -61,7 +65,9 @@ export class Audios2Page {
     public service: DadosUsuarioProvider,
     public loadingCtrl: LoadingController,
     private Storage: Storage,
-    public audioService: AudioServiceProvider
+    public audioService: AudioServiceProvider,
+    private musicControls: MusicControls,
+    public platform: Platform
   ) {
 
     this.Storage.get("MinhaListaAudios").then((data) => this.minhaListaAudio = data);
@@ -71,6 +77,12 @@ export class Audios2Page {
     this.getAlbum();
     this.getAudios();
     this.getDados();
+
+    if (this.platform.is('core') || this.platform.is('mobileweb')) {
+      this.isApp = false;
+    } else {
+      this.isApp = true;
+    }
 
     // ADD MINHA LISTA
     this.Storage.ready().then(() => {
@@ -206,7 +218,7 @@ export class Audios2Page {
     this.service.getAlbuns();
     this.itemAlbum = this.navParams.get('item');
 
-    console.log(this.itemAlbum);
+    console.log('Informações do Album selecionado', this.itemAlbum);
 
   }
 
@@ -215,9 +227,11 @@ export class Audios2Page {
     this.service.getAudios()
       .subscribe(
         data => {
-          this.relAudios = data.rows;
+          //this.relAudios = data.rows;
+          this.relAudios = data.rows.filter(audio => audio.idalbum == this.itemAlbum.idalbum);
           this.loadExecutingAudio();
-          console.log(this.relAudios);
+          // console.log('Current Audio List', data.rows);
+          // console.log("Current Album List", this.itemAlbum);
         },
         err => console.log(err)
       );
@@ -283,7 +297,7 @@ export class Audios2Page {
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
     this.audioInfo = this.relAudios[this.audioService.indexAudio].audio;
-    this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista; 
+    this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista;
     this.audioPlay();
 
   }
@@ -300,7 +314,7 @@ export class Audios2Page {
     this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
     this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
     this.audioInfo = this.relAudios[this.audioService.indexAudio].audio;
-    this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista; 
+    this.artistaInfo = this.relAudios[this.audioService.indexAudio].artista;
     this.audioPlay();
   }
 
@@ -319,12 +333,116 @@ export class Audios2Page {
     this.audioPlay();
   }
 
+  stopNativeMusicControl() {
+    this.musicControls.updateIsPlaying(false);
+    this.musicControls.destroy();
+  }
+
+  initNativeMusicControl() {
+    this.musicControls.create({
+      track: this.audioInfo,
+      artist: this.artistaInfo,
+      cover: `http://app.progettoapp.com.br/arquivos/r/albuns/${this.itemAlbum.Pasta}/${this.itemAlbum.Img}_400.jpg`,
+      isPlaying: true,
+      dismissable: false,
+      hasPrev: true,
+      hasNext: true,
+      hasClose: true,
+
+      // iOS only, optional
+      album: this.albumInfo,
+      duration: 0,
+      elapsed: 0,
+      hasSkipForward: true,
+      hasSkipBackward: true,
+      skipForwardInterval: 0,
+      skipBackwardInterval: 0,
+      hasScrubbing: false,
+
+      // Android only, optional      
+      ticker: `Agora você está escutando "${this.audioInfo}"`,
+      playIcon: 'media_play',
+      pauseIcon: 'media_pause',
+      prevIcon: 'media_prev',
+      nextIcon: 'media_next',
+      closeIcon: 'media_close',
+      notificationIcon: 'notification'
+    });
+
+    this.musicControls.subscribe().subscribe(action => {
+      this.ionicNativMusicEvents(action);
+    });
+
+    this.musicControls.listen();
+    //this.musicControls.updateIsPlaying(true);
+  }
+
+  ionicNativMusicEvents(action) {
+    const message = JSON.parse(action).message;
+    switch (message) {
+      case 'music-controls-next':
+        this.next();
+        break;
+      case 'music-controls-previous':
+        this.back();
+        break;
+      case 'music-controls-pause':
+        this.tooglePlay();
+        break;
+      case 'music-controls-play':
+        this.tooglePlay();
+        break;
+      case 'music-controls-destroy':
+        this.audioPause();
+        break;
+
+      // External controls (iOS only)
+      case 'music-controls-toggle-play-pause':
+        this.tooglePlay();
+        break;
+      case 'music-controls-seek-to':
+        const seekToInSeconds = JSON.parse(action).position;
+        this.musicControls.updateElapsed({
+          elapsed: seekToInSeconds,
+          isPlaying: true
+        });
+        // Do something
+        break;
+      case 'music-controls-skip-forward':
+        this.next();
+        break;
+      case 'music-controls-skip-backward':
+        this.back();
+        break;
+
+      // Headset events (Android only)
+      // All media button events are listed below
+      case 'music-controls-media-button':
+        // Do something
+        break;
+      case 'music-controls-headset-unplugged':
+        this.audioPause();
+        this.stopNativeMusicControl();
+        break;
+      case 'music-controls-headset-plugged':
+        this.audioPause();
+        break;
+      default:
+        break;
+    }
+  }
+
 
   audioPlay() {
 
+    this.audioService.IsExecuting = true;
     this.audioService.audioPlayer.nativeElement.play();
     this.startCronometro();
-    this.audioService.IsExecuting = true;
+
+    if (this.isApp) {
+      this.initNativeMusicControl();
+    }
+
     //console.log('play');
   }
 
@@ -335,6 +453,7 @@ export class Audios2Page {
   audioPause() {
     //console.log('pause');    
     this.audioService.audioPlayer.nativeElement.pause();
+    this.stopNativeMusicControl();
   }
 
 
@@ -364,6 +483,7 @@ export class Audios2Page {
       this.audioPlay();
     } else {
       this.audioPause();
+      this.stopNativeMusicControl();
     }
   }
 
@@ -408,7 +528,7 @@ export class Audios2Page {
       item.iconplay = 'play';
       this.iconPlay = 'play'
       this.unsubscribePlayer();
-      this.audioService.audioPlayer.nativeElement.pause();
+      this.audioPause();
       this.audioService.totalMedia = 0;
       this.audioInfo = "--";
       this.artistaInfo = "--";
@@ -552,8 +672,6 @@ export class Audios2Page {
   }
 
   CurtirSenderRequest(item, type) {
-    let headerOptions: any = { 'Content-Type': 'application/json' };
-    let headers = new Headers(headerOptions);
     var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
     this.http.post(link, JSON.stringify({
       idqual: item.idalbum,
@@ -688,15 +806,14 @@ export class Audios2Page {
 
       }
 
+      var urlCurtir = 'http://app.progettoapp.com.br/midias/curtir_update.php';
+
       if (added == 1) {
 
         //this.icoCurtir = 'Curtir'; 
 
-        //ENVIA O INSERT
-        let headerOptions: any = { 'Content-Type': 'application/json' };
-        let headers = new Headers(headerOptions);
-        var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-        this.http.post(link, JSON.stringify({
+        //ENVIA O INSERT        
+        this.http.post(urlCurtir, JSON.stringify({
           idqual: item.idaudio,
           modulo: 'audios',
           acao: 'menos'
@@ -707,10 +824,7 @@ export class Audios2Page {
       } else {
 
         //ENVIA O INSERT
-        let headerOptions: any = { 'Content-Type': 'application/json' };
-        let headers = new Headers(headerOptions);
-        var link = 'http://app.progettoapp.com.br/midias/curtir_update.php';
-        this.http.post(link, JSON.stringify({
+        this.http.post(urlCurtir, JSON.stringify({
           idqual: item.idaudio,
           modulo: 'audios',
           acao: 'mais'

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, ModalController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ModalController, AlertController, Platform } from 'ionic-angular';
 import { Audios2Page } from '../audios2/audios2';
 import { Storage } from '@ionic/storage';
 import { EditarMinhaOntoartePage } from '../editar-minha-ontoarte/editar-minha-ontoarte';
@@ -8,6 +8,7 @@ import { AudioServiceProvider } from '../../providers/audio-service/audio-servic
 import { Observable } from 'rxjs/Observable';
 import { EditarMinhaAudioOntoartePage } from '../editar-minha-audio-ontoarte/editar-minha-audio-ontoarte';
 import { HomePage } from '../home/home';
+import { MusicControls } from '@ionic-native/music-controls';
 
 @Component({
   selector: 'page-minha-lista-audio-ontoarte',
@@ -24,6 +25,7 @@ export class MinhaListaAudioOntoartePage {
 
   constructor
     (
+<<<<<<< HEAD
       public loadingCtrl: LoadingController,
       public modalCtrl: ModalController,
       private Storage: Storage,
@@ -31,6 +33,17 @@ export class MinhaListaAudioOntoartePage {
       public navParams: NavParams,
       public alertCtrl: AlertController,
       public audioService: AudioServiceProvider
+=======
+    public loadingCtrl: LoadingController,
+    public modalCtrl: ModalController,
+    private Storage: Storage,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public audioService: AudioServiceProvider,
+    private musicControls: MusicControls,
+    public platform: Platform
+>>>>>>> feature/player-on-status-bar
     ) {
 
     this.audioService.changePositionObservable
@@ -86,7 +99,12 @@ export class MinhaListaAudioOntoartePage {
     this.Storage.ready().then(() => {
       this.Storage.get("MinhaListaAudios").then((data) => {
         debugger;
+<<<<<<< HEAD
         this.relAudios = data || new Array<any>();        
+=======
+        console.log("Lista de Audios Retornada", data);
+        this.relAudios = data;
+>>>>>>> feature/player-on-status-bar
         this.loadExecutingAudio();
         console.log('Lista em Session Audios Root', data);
       })
@@ -249,5 +267,139 @@ export class MinhaListaAudioOntoartePage {
     this.artistaInfo = this.relAudios[this.audioService.indexMinhaListaAudio].artista; 
     this.audioPlay();
   }
+
+  initNativeMusicControl() {
+    this.musicControls.create({
+      track: this.audioInfo,
+      artist: this.artistaInfo,      
+      isPlaying: true,
+      dismissable: false,
+      hasPrev: true,
+      hasNext: true,
+      hasClose: true,
+
+      // iOS only, optional
+      album: '',
+      duration: 0,
+      elapsed: 0,
+      hasSkipForward: true,
+      hasSkipBackward: true,
+      skipForwardInterval: 0,
+      skipBackwardInterval: 0,
+      hasScrubbing: false,
+
+      // Android only, optional      
+      ticker: `Agora você está escutando "${this.audioInfo}"`,
+      playIcon: 'media_play',
+      pauseIcon: 'media_pause',
+      prevIcon: 'media_prev',
+      nextIcon: 'media_next',
+      closeIcon: 'media_close',
+      notificationIcon: 'notification'
+    });
+
+    this.musicControls.subscribe().subscribe(action => {
+      this.ionicNativMusicEvents(action);
+    });
+
+    this.musicControls.listen();
+    this.musicControls.updateIsPlaying(true);
+  }
+
+  ionicNativMusicEvents(action) {
+    const message = JSON.parse(action).message;
+        switch(message) {
+            case 'music-controls-next':
+                this.next();
+                break;
+            case 'music-controls-previous':
+                this.back();
+                break;
+            case 'music-controls-pause':
+            this.tooglePlay();
+                break;
+            case 'music-controls-play':
+                this.tooglePlay();
+                break;
+            case 'music-controls-destroy':
+                this.audioPause();
+                break;
+
+        // External controls (iOS only)
+        case 'music-controls-toggle-play-pause' :
+                this.tooglePlay();
+                break;
+        case 'music-controls-seek-to':
+          const seekToInSeconds = JSON.parse(action).position;
+          this.musicControls.updateElapsed({
+            elapsed: seekToInSeconds,
+            isPlaying: true
+          });
+          // Do something
+          break;
+        case 'music-controls-skip-forward':
+          this.next();
+          break;
+        case 'music-controls-skip-backward':
+          this.back();
+          break;
+
+            // Headset events (Android only)
+            // All media button events are listed below
+            case 'music-controls-media-button' :
+                // Do something
+                break;
+            case 'music-controls-headset-unplugged':
+                this.audioPause();
+                this.stopNativeMusicControl();
+                break;
+            case 'music-controls-headset-plugged':
+                this.audioPause();                
+                break;
+            default:
+                break;
+        }
+    }
+
+    tooglePlay() {
+
+      if (!this.audioService.audio) {
+        if (this.relAudios.length > 0) {
+          this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[0].arquivo_audio;
+          this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
+          //this.audioService.audioPlayer.nativeElement.load();
+        }
+      }
+      //console.log(this.audio);
+  
+      this.audioService.IsExecuting = !this.audioService.IsExecuting;
+      this.audioService.emitPlay(this.audioService.IsExecuting);
+  
+      if (this.audioService.IsExecuting) {
+        this.iconPlay = 'pause';
+        this.relAudios[this.audioService.indexAudio].iconplay = 'pause';
+      } else {
+        this.iconPlay = 'play';
+        this.relAudios[this.audioService.indexAudio].iconplay = 'play';
+      }
+  
+      if (this.audioService.audioPlayer.nativeElement.paused) {
+        this.audioPlay();
+      } else {
+        this.audioPause();
+        this.stopNativeMusicControl();
+      }
+    }
+
+    audioPause() {
+      //console.log('pause');    
+      this.audioService.audioPlayer.nativeElement.pause();
+      this.stopNativeMusicControl();
+    }
+
+    stopNativeMusicControl() {
+      this.musicControls.updateIsPlaying(false);
+      this.musicControls.destroy();
+    }
 
 }
