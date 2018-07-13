@@ -91,16 +91,22 @@ export class LoginPage {
     // this.showLoading()
     var link = 'http://app.progettoapp.com.br/midias/login_apps.php';
     var myData = JSON.stringify({
-      foto: this.data.foto, nome: this.data.nome, sobrenome: this.data.sobrenome, senha: this.data.senha, email: this.data.email, 
-      plano: this.data.plano, nivel: this.data.nivel
+      foto: this.data.foto, 
+      nome: this.data.nome, 
+      sobrenome: this.data.sobrenome, 
+      senha: this.data.senha, 
+      email: this.data.email, 
+      plano: this.data.plano, 
+      nivel: this.data.nivel
     });
     this.http.post(link, myData)
         .subscribe(data => {
 
+          debugger;
            var dadosLogin =  JSON.parse(data["_body"]); 
            console.log(dadosLogin)  
                                     
-               if(dadosLogin.rows[0].Logado ==='1'){
+               if(dadosLogin.rows[0].Logado === 1){
 
                 this.storage.set('Status', 'Logado');
                 this.storage.set('SlideOlhou', 'Sim');
@@ -129,7 +135,7 @@ export class LoginPage {
 
                     }, 100);
                 
-              }else if(dadosLogin.rows[0].Logado == '4'){
+              }else if(dadosLogin.rows[0].Logado === 4){
 
                 let alert = this.alertCtrl.create({
                   title: 'Erro!',

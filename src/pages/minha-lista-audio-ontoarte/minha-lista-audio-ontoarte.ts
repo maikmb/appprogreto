@@ -91,6 +91,8 @@ export class MinhaListaAudioOntoartePage {
   getDados() {
     this.Storage.ready().then(() => {
       this.Storage.get("MinhaListaAudios").then((data) => {
+        debugger;
+        console.log("Lista de Audios Retornada", data);
         this.relAudios = data;
         this.loadExecutingAudio();
         console.log('Lista em Session Audios Root', data);
@@ -368,6 +370,7 @@ export class MinhaListaAudioOntoartePage {
         this.audioPlay();
       } else {
         this.audioPause();
+        this.stopNativeMusicControl();
       }
     }
 
@@ -379,6 +382,7 @@ export class MinhaListaAudioOntoartePage {
 
     stopNativeMusicControl() {
       this.musicControls.updateIsPlaying(false);
+      this.musicControls.destroy();
     }
 
 }

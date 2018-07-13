@@ -335,6 +335,7 @@ export class Audios2Page {
 
   stopNativeMusicControl() {
     this.musicControls.updateIsPlaying(false);
+    this.musicControls.destroy();
   }
 
   initNativeMusicControl() {
@@ -373,7 +374,7 @@ export class Audios2Page {
     });
 
     this.musicControls.listen();
-    this.musicControls.updateIsPlaying(true);
+    //this.musicControls.updateIsPlaying(true);
   }
 
   ionicNativMusicEvents(action) {
@@ -481,6 +482,7 @@ export class Audios2Page {
       this.audioPlay();
     } else {
       this.audioPause();
+      this.stopNativeMusicControl();
     }
   }
 
