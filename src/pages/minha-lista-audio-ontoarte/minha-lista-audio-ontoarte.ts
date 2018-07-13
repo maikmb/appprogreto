@@ -335,9 +335,10 @@ export class MinhaListaAudioOntoartePage {
                 break;
             case 'music-controls-headset-unplugged':
                 this.audioPause();
+                this.stopNativeMusicControl();
                 break;
             case 'music-controls-headset-plugged':
-                this.audioPause();
+                this.audioPause();                
                 break;
             default:
                 break;

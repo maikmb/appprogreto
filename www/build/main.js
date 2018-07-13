@@ -2500,6 +2500,7 @@ var MinhaListaAudioOntoartePage = /** @class */ (function () {
         var _this = this;
         this.Storage.ready().then(function () {
             _this.Storage.get("MinhaListaAudios").then(function (data) {
+                debugger;
                 console.log("Lista de Audios Retornada", data);
                 _this.relAudios = data;
                 _this.loadExecutingAudio();
@@ -2699,6 +2700,7 @@ var MinhaListaAudioOntoartePage = /** @class */ (function () {
                 break;
             case 'music-controls-headset-unplugged':
                 this.audioPause();
+                this.stopNativeMusicControl();
                 break;
             case 'music-controls-headset-plugged':
                 this.audioPause();
@@ -8750,6 +8752,7 @@ var Audios2Page = /** @class */ (function () {
                 break;
             case 'music-controls-headset-unplugged':
                 this.audioPause();
+                this.stopNativeMusicControl();
                 break;
             case 'music-controls-headset-plugged':
                 this.audioPause();
