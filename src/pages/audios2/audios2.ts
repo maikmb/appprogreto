@@ -567,6 +567,7 @@ export class Audios2Page {
     this.indexAudioMinhaLista = index;
     this.Storage.get("MinhaListaAudios").then((data) => {
 
+      debugger;
       if (data == null || data == undefined) {
         data = [];
       }

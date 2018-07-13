@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -30178,6 +30179,21 @@ page-minha-lista .video-play-card-views {
   font-family: 'Lato';
 }
 
+page-minha-lista-audio-ontoarte .empty-data img {
+  width: 81%;
+  padding-left: 15%;
+  padding-top: 15%;
+}
+
+page-minha-lista-audio-ontoarte .empty-data p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: center;
+  padding-top: 5%;
+}
+
 page-minha-lista-audio-ontoarte .editar {
   position: absolute;
   max-width: 60px;
@@ -30673,6 +30689,21 @@ page-minha-lista-aulas .video-play-card-views {
   color: #fff;
   font-size: 13px;
   font-family: 'Lato';
+}
+
+page-minha-lista-ontoarte .empty-data img {
+  width: 81%;
+  padding-left: 15%;
+  padding-top: 15%;
+}
+
+page-minha-lista-ontoarte .empty-data p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: center;
+  padding-top: 5%;
 }
 
 page-minha-lista-ontoarte .editar {

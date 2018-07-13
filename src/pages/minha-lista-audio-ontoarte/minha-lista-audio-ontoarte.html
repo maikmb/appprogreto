@@ -13,7 +13,6 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-
     <ion-card class="card-eventos">
         <p class="btn-novo" (click)="abrirMinhaListaAlbuns()">
             Álbuns
@@ -22,6 +21,10 @@
             Áudios
         </p>
     </ion-card>
+    <div *ngIf="!isEmptyData()" class="empty-data">
+        <img src="assets/imgs/rest.png" />
+        <p>Não existe músicas em suas lista</p>
+    </div>
     <ion-card *ngFor="let item of relAudios; let i = index" class="AudiosList">
         <ion-row>
             <ion-col col-2>

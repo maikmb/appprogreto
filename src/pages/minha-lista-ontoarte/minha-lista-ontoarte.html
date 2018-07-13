@@ -1,37 +1,44 @@
 <ion-header>
     <ion-navbar>
-      <button ion-button menuToggle>
+        <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <h2 class="meu-progeto-titulo">Minha Lista</h2>   
-      <div class="editar" (click)="AbrirEditarOntoarte()">
-        Editar
-      </div>
-      <div class="editar-img" (click)="AbrirEditarOntoarte()">
-        <img src="assets/imgs/ico-mais.png">
-      </div>    
+        <h2 class="meu-progeto-titulo">Minha Lista</h2>
+        <div class="editar" (click)="AbrirEditarOntoarte()">
+            Editar
+        </div>
+        <div class="editar-img" (click)="AbrirEditarOntoarte()">
+            <img src="assets/imgs/ico-mais.png">
+        </div>
     </ion-navbar>
 </ion-header>
-<ion-content >
+<ion-content>
 
-  <ion-card class="card-eventos">    
-      <p class="btn-novo action_evento">
-        Álbuns
-      </p>
-      <p class="btn-novo" (click)="abrirMinhaListaAudio()">
-        Áudios
-      </p>      
+    <ion-card class="card-eventos">
+        <p class="btn-novo action_evento">
+            Álbuns
+        </p>
+        <p class="btn-novo" (click)="abrirMinhaListaAudio()">
+            Áudios
+        </p>
     </ion-card>
+
+
+    <div *ngIf="!isEmptyData()" class="empty-data">
+        <img src="assets/imgs/rest.png" />
+        <p>Não existe álbuns em suas lista</p>
+    </div>
+
     <ion-card class="novidades-card">
         <ion-row padding>
-          <ion-col col-12>
-            <div *ngFor= "let item of MinhaListaItens" (click)="abriMinhaLista(item)" style="max-width: 30%; margin-top: 20px; margin-right: 1%; margin-left: 1%; float:left;">
-              <ng-container *ngIf="item.idalbum != 0">
-                <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/{{ item.Pasta }}/{{ item.Img }}_400.jpg" >
-                <h2 class="titulo">{{ item.Titulo }}</h2>
-              </ng-container>
-            </div>
-          </ion-col>
+            <ion-col col-12>
+                <div *ngFor="let item of MinhaListaItens" (click)="abriMinhaLista(item)" style="max-width: 30%; margin-top: 20px; margin-right: 1%; margin-left: 1%; float:left;">
+                    <ng-container *ngIf="item.idalbum != 0">
+                        <img src="http://www.redeplaneje.com.br/app/arquivos/r/albuns/{{ item.Pasta }}/{{ item.Img }}_400.jpg">
+                        <h2 class="titulo">{{ item.Titulo }}</h2>
+                    </ng-container>
+                </div>
+            </ion-col>
         </ion-row>
-      </ion-card>
+    </ion-card>
 </ion-content>

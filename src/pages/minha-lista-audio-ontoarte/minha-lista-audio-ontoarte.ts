@@ -14,7 +14,7 @@ import { HomePage } from '../home/home';
   templateUrl: 'minha-lista-audio-ontoarte.html',
 })
 export class MinhaListaAudioOntoartePage {
-  relAudios = [];
+  relAudios = new Array<any>();
   position = 0;
   oldPosition = 0;
   iconPlay = 'play';
@@ -24,22 +24,19 @@ export class MinhaListaAudioOntoartePage {
 
   constructor
     (
-    public loadingCtrl: LoadingController,
-    public modalCtrl: ModalController,
-    private Storage: Storage,
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public alertCtrl: AlertController,
-    public audioService: AudioServiceProvider
+      public loadingCtrl: LoadingController,
+      public modalCtrl: ModalController,
+      private Storage: Storage,
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public alertCtrl: AlertController,
+      public audioService: AudioServiceProvider
     ) {
 
     this.audioService.changePositionObservable
       .subscribe(value => this.audioService.audioPlayer.nativeElement.currentTime = value);
 
     this.getDados();
-    
-
-
   }
 
   getTotalMediaPlayer() {
@@ -88,12 +85,18 @@ export class MinhaListaAudioOntoartePage {
   getDados() {
     this.Storage.ready().then(() => {
       this.Storage.get("MinhaListaAudios").then((data) => {
-        this.relAudios = data;
+        debugger;
+        this.relAudios = data || new Array<any>();        
         this.loadExecutingAudio();
         console.log('Lista em Session Audios Root', data);
       })
     })
 
+  }
+
+  isEmptyData(){
+    let isEmpty = this.relAudios.length > 0;
+    return isEmpty;
   }
 
   abriMinhaLista(item: string) {

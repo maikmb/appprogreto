@@ -13,7 +13,7 @@ export class MinhaListaOntoartePage {
   data:any ={};
   item = []; 
 
-  MinhaListaItens = []; 
+  MinhaListaItens = new Array<any>(); 
   ListaItens = [];
 
   constructor
@@ -32,7 +32,7 @@ export class MinhaListaOntoartePage {
     this.Storage.ready().then(()=>{
       this.Storage.get("MinhaListaAlbum").then( (data)=>{
 
-        this.MinhaListaItens = data;
+        this.MinhaListaItens = data || new Array<any>();
         console.log(this.MinhaListaItens);
 
         if(data==null || data.length==0){
@@ -72,5 +72,11 @@ export class MinhaListaOntoartePage {
   AbrirEditarOntoarte(){
     this.modalCtrl.create(EditarMinhaOntoartePage).present();
   }
+
+  isEmptyData(){
+    let isEmpty = this.MinhaListaItens.length > 0;
+    return isEmpty;
+  }
+
 
 }
