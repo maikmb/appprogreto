@@ -42,7 +42,7 @@ export class Audios2Page {
   iconeAudio: string = 'ico-mais';
 
   indexAudioMinhaLista = 0;
-  minhaListaAudio: any;
+  minhaListaAudio = new Array<any>();
   minhaListaCurtir: any;
 
   relAudios: any;
@@ -70,7 +70,7 @@ export class Audios2Page {
     public platform: Platform
   ) {
 
-    this.Storage.get("MinhaListaAudios").then((data) => this.minhaListaAudio = data);
+    this.Storage.get("MinhaListaAudios").then((data) => this.minhaListaAudio = data || new Array<any>());
     this.audioService.changePositionObservable
       .subscribe(value => this.audioService.audioPlayer.nativeElement.currentTime = value);
 
@@ -227,11 +227,8 @@ export class Audios2Page {
     this.service.getAudios()
       .subscribe(
         data => {
-          //this.relAudios = data.rows;
           this.relAudios = data.rows.filter(audio => audio.idalbum == this.itemAlbum.idalbum);
           this.loadExecutingAudio();
-          // console.log('Current Audio List', data.rows);
-          // console.log("Current Album List", this.itemAlbum);
         },
         err => console.log(err)
       );
@@ -684,12 +681,9 @@ export class Audios2Page {
     let indexToRemove = 0;
     this.indexAudioMinhaLista = index;
     this.Storage.get("MinhaListaAudios").then((data) => {
-
-      debugger;
       if (data == null || data == undefined) {
         data = [];
       }
-
       var filteredAudio = data.filter((audio, idx) => {
         if (audio.idaudio == item.idaudio) {
           indexToRemove = idx;

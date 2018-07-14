@@ -91,7 +91,6 @@ export class LoginPage {
     // this.showLoading()
     var link = 'http://app.progettoapp.com.br/midias/login_apps.php';
     var myData = JSON.stringify({
-<<<<<<< HEAD
       foto: this.data.foto, nome: this.data.nome, sobrenome: this.data.sobrenome, senha: this.data.senha, email: this.data.email,
       plano: this.data.plano, nivel: this.data.nivel
     });
@@ -150,70 +149,6 @@ export class LoginPage {
           alert.present();
         }
       },
-=======
-      foto: this.data.foto, 
-      nome: this.data.nome, 
-      sobrenome: this.data.sobrenome, 
-      senha: this.data.senha, 
-      email: this.data.email, 
-      plano: this.data.plano, 
-      nivel: this.data.nivel
-    });
-    this.http.post(link, myData)
-        .subscribe(data => {
-
-          debugger;
-           var dadosLogin =  JSON.parse(data["_body"]); 
-           console.log(dadosLogin)  
-                                    
-               if(dadosLogin.rows[0].Logado === 1){
-
-                this.storage.set('Status', 'Logado');
-                this.storage.set('SlideOlhou', 'Sim');
-
-                this.storage.set('QualUser', dadosLogin.rows[0].iduser);
-                this.storage.set('QualEmail', this.data.email);
-
-                this.storage.set('QualNome', dadosLogin.rows[0].nome);
-                this.storage.set('QualSobrenome', dadosLogin.rows[0].sobrenome);
-                this.storage.set('QualNivel', dadosLogin.rows[0].nivel);
-                this.storage.set('QualPlano', dadosLogin.rows[0].plano);
-                this.storage.set('QualFoto', dadosLogin.rows[0].foto);
-
-                this.storage.set('EnderecoUserFinal', dadosLogin.rows[0].endereco);
-                this.storage.set('NumeroUserFinal', dadosLogin.rows[0].numero);
-                this.storage.set('BairroUserFinal', dadosLogin.rows[0].bairro);
-                this.storage.set('ComplementoUserFinal', dadosLogin.rows[0].complemento);
-                this.storage.set('CidadeUserFinal', dadosLogin.rows[0].cidade);
-                this.storage.set('EstadoUserFinal', dadosLogin.rows[0].estado);
-                this.storage.set('PaisUserFinal', dadosLogin.rows[0].pais);
-                this.storage.set('CepUserFinal', dadosLogin.rows[0].cep);
-
-                window.location.reload();
-                    setTimeout(() => {
-                      this.navCtrl.setRoot(HomePage)
-
-                    }, 100);
-                
-              }else if(dadosLogin.rows[0].Logado === 4){
-
-                let alert = this.alertCtrl.create({
-                  title: 'Erro!',
-                  subTitle: "E-mail digitado é inválido!",
-                  buttons: ['OK']
-                });
-                alert.present();       
-
-              }else{
-                let alert = this.alertCtrl.create({
-                  title: 'Acesso Negado',
-                  subTitle: "E-mail ou Senha incorretos.",
-                  buttons: ['OK']
-              });
-              alert.present();
-              }
-        },
->>>>>>> feature/player-on-status-bar
         error => {
           this.showError(error);
         });

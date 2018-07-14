@@ -25,25 +25,14 @@ export class MinhaListaAudioOntoartePage {
 
   constructor
     (
-<<<<<<< HEAD
       public loadingCtrl: LoadingController,
       public modalCtrl: ModalController,
       private Storage: Storage,
       public navCtrl: NavController,
       public navParams: NavParams,
       public alertCtrl: AlertController,
-      public audioService: AudioServiceProvider
-=======
-    public loadingCtrl: LoadingController,
-    public modalCtrl: ModalController,
-    private Storage: Storage,
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public alertCtrl: AlertController,
-    public audioService: AudioServiceProvider,
-    private musicControls: MusicControls,
-    public platform: Platform
->>>>>>> feature/player-on-status-bar
+      public audioService: AudioServiceProvider,
+      public musicControls: MusicControls
     ) {
 
     this.audioService.changePositionObservable
@@ -99,12 +88,7 @@ export class MinhaListaAudioOntoartePage {
     this.Storage.ready().then(() => {
       this.Storage.get("MinhaListaAudios").then((data) => {
         debugger;
-<<<<<<< HEAD
         this.relAudios = data || new Array<any>();        
-=======
-        console.log("Lista de Audios Retornada", data);
-        this.relAudios = data;
->>>>>>> feature/player-on-status-bar
         this.loadExecutingAudio();
         console.log('Lista em Session Audios Root', data);
       })
