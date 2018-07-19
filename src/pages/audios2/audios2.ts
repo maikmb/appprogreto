@@ -347,13 +347,13 @@ export class Audios2Page {
       hasClose: true,
 
       // iOS only, optional
-      album: this.albumInfo,
+      album: this.audioInfo + " " + this.artistaInfo,
       duration: 0,
       elapsed: 0,
       hasSkipForward: true,
       hasSkipBackward: true,
-      skipForwardInterval: 0,
-      skipBackwardInterval: 0,
+      skipForwardInterval: 15,
+      skipBackwardInterval: 15,
       hasScrubbing: false,
 
       // Android only, optional      
@@ -439,8 +439,6 @@ export class Audios2Page {
     if (this.isApp) {
       this.initNativeMusicControl();
     }
-
-    //console.log('play');
   }
 
   getIsExecuting(): boolean {
@@ -460,11 +458,9 @@ export class Audios2Page {
       if (this.relAudios.length > 0) {
         this.audioService.audio = 'http://app.progettoapp.com.br/arquivos/r/audios/' + this.relAudios[0].arquivo_audio;
         this.audioService.audioPlayer.nativeElement.src = this.audioService.audio;
-        //this.audioService.audioPlayer.nativeElement.load();
       }
     }
-    //console.log(this.audio);
-
+    
     this.audioService.IsExecuting = !this.audioService.IsExecuting;
     this.audioService.emitPlay(this.audioService.IsExecuting);
 
